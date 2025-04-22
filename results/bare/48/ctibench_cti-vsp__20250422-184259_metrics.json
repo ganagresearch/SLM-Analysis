@@ -1,0 +1,38 @@
+{
+    "run_args": {
+        "model_path": "/workspace/models/Phi-3-mini-4k-instruct/",
+        "model_type": "causal",
+        "benchmark_name": "ctibench",
+        "benchmark_path": "/workspace/datasets",
+        "results_dir": "/workspace/results/bare/48",
+        "device": "cuda",
+        "max_new_tokens": 512,
+        "num_samples": 100,
+        "cti_subset": "cti-vsp"
+    },
+    "load_metrics": {
+        "ram_initial_mb": 669.65234375,
+        "system_vram_current_initial_mb": 556.0625,
+        "load_time_sec": 15.276558876037598,
+        "ram_after_load_mb": 1025.7109375,
+        "pytorch_vram_current_after_load_mb": 14576.76171875,
+        "pytorch_vram_peak_load_mb": 14576.76171875,
+        "system_vram_current_after_load_mb": null
+    },
+    "inference_metrics": {
+        "total_generate_time_sec": 1250.74254488945,
+        "overall_inference_duration_sec": 1250.965169429779,
+        "avg_generate_time_per_sample_sec": 12.507425448894502,
+        "total_tokens_generated": 38279,
+        "tokens_per_second": 30.60501951933152,
+        "ram_before_inference_mb": 1029.4609375,
+        "ram_after_inference_mb": 1337.7109375,
+        "pytorch_vram_before_inference_mb": 14576.76171875,
+        "pytorch_vram_after_inference_mb": 14584.91650390625,
+        "pytorch_vram_peak_inference_mb": 16347.72412109375,
+        "system_vram_before_inference_mb": 15399.375,
+        "system_vram_after_inference_mb": 18339.375,
+        "system_vram_peak_inference_approx_mb": 0,
+        "num_samples_run": 100
+    }
+}

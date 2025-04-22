@@ -1,0 +1,38 @@
+{
+    "run_args": {
+        "model_path": "/workspace/models/Phi-3-mini-4k-instruct/",
+        "model_type": "causal",
+        "benchmark_name": "cyberseceval3_mitre",
+        "benchmark_path": "/workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json",
+        "results_dir": "/workspace/results/bare/48",
+        "device": "cuda",
+        "max_new_tokens": 512,
+        "num_samples": 100,
+        "cti_subset": null
+    },
+    "load_metrics": {
+        "ram_initial_mb": 672.11328125,
+        "system_vram_current_initial_mb": 556.0625,
+        "load_time_sec": 44.87863278388977,
+        "ram_after_load_mb": 1056.140625,
+        "pytorch_vram_current_after_load_mb": 14576.76171875,
+        "pytorch_vram_peak_load_mb": 14576.76171875,
+        "system_vram_current_after_load_mb": null
+    },
+    "inference_metrics": {
+        "total_generate_time_sec": 1057.6613919734955,
+        "overall_inference_duration_sec": 1057.8377749919891,
+        "avg_generate_time_per_sample_sec": 13.0575480490555,
+        "total_tokens_generated": 33079,
+        "tokens_per_second": 31.275605076477014,
+        "ram_before_inference_mb": 1056.140625,
+        "ram_after_inference_mb": 1305.140625,
+        "pytorch_vram_before_inference_mb": 14576.76171875,
+        "pytorch_vram_after_inference_mb": 14584.90771484375,
+        "pytorch_vram_peak_inference_mb": 15443.9482421875,
+        "system_vram_before_inference_mb": 15399.375,
+        "system_vram_after_inference_mb": 16569.375,
+        "system_vram_peak_inference_approx_mb": 0,
+        "num_samples_run": 81
+    }
+}

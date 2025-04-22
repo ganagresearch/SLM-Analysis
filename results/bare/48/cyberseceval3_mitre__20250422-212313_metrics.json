@@ -1,0 +1,23 @@
+{
+    "run_args": {
+        "model_path": "/workspace/models/electra-small-discriminator/",
+        "model_type": "encoder",
+        "benchmark_name": "cyberseceval3_mitre",
+        "benchmark_path": "/workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json",
+        "results_dir": "/workspace/results/bare/48",
+        "device": "cuda",
+        "max_new_tokens": 256,
+        "num_samples": 100,
+        "cti_subset": null
+    },
+    "load_metrics": {
+        "ram_initial_mb": 662.63671875,
+        "system_vram_current_initial_mb": 556.0625,
+        "load_time_sec": 5.257962942123413,
+        "ram_after_load_mb": 866.8671875,
+        "pytorch_vram_current_after_load_mb": 51.44140625,
+        "pytorch_vram_peak_load_mb": 51.44140625,
+        "system_vram_current_after_load_mb": null
+    },
+    "inference_metrics": {}
+}

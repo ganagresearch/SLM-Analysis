@@ -1,0 +1,18 @@
+# Virtual environment
+/testbedvenv/
+
+# --- Hugging Face / Datasets ---
+# Model files (very large)
+/models/
+# Raw datasets (often large and downloadable)
+/datasets/SEVENLLM_raw/
+# Processed datasets (generated artifacts)
+/calibration_data/
+# Hugging Face cache directory (automatically generated)
+/datasets/.hf_cache/
+*.hf_cache/ # General pattern for any HF cache
+
+# --- External Tools / Submodules (Optional) ---
+# If these are managed separately or very large, ignore them
+/lm-evaluation-harness/
+/PurpleLlama/
