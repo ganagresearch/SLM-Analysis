@@ -1,6 +1,12 @@
 # Virtual environment
 /testbedvenv/
 
+<<<<<<< HEAD
+=======
+# Python cache files
+code/model_evaluator/__pycache__/
+
+>>>>>>> 29f8998 (Initial commit)
 # --- Hugging Face / Datasets ---
 # Model files (very large)
 /models/
@@ -14,5 +20,10 @@
 
 # --- External Tools / Submodules (Optional) ---
 # If these are managed separately or very large, ignore them
+<<<<<<< HEAD
 /lm-evaluation-harness/
 /PurpleLlama/
+=======
+code/lm-evaluation-harness/
+code/PurpleLlama/
+>>>>>>> 29f8998 (Initial commit)

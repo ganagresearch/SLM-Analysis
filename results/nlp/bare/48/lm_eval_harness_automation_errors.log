@@ -1,0 +1,973 @@
+2025-04-22 23:02:24,688 - INFO - --- Starting LM Evaluation Harness Automation ---
+2025-04-22 23:02:24,689 - INFO - Using command: lm_eval
+2025-04-22 23:02:24,689 - INFO - Harness Directory (for cwd): /workspace/code/lm-evaluation-harness
+2025-04-22 23:02:24,689 - INFO - Results Base Directory: /workspace/results/nlp/bare/48
+2025-04-22 23:02:24,689 - INFO - Error Log File: /workspace/results/nlp/bare/48/lm_eval_harness_automation_errors.log
+2025-04-22 23:02:24,689 - INFO - Models to run: ['TinyLlama-1.1B-Chat-v1.0', 'Phi-3-mini-4k-instruct', 'Mistral-7B-Instruct-v0.3']
+2025-04-22 23:02:24,689 - INFO - Tasks to run: ['arc_challenge', 'hellaswag', 'winogrande', 'mmlu', 'truthfulqa_mc', 'gsm8k']
+2025-04-22 23:02:24,689 - INFO - Num Fewshot: 0
+2025-04-22 23:02:24,689 - INFO - Batch Size: auto
+2025-04-22 23:02:24,689 - INFO - Total runs planned: 18
+2025-04-22 23:02:24,690 - INFO - Verifying lm-evaluation-harness installation...
+2025-04-22 23:03:06,578 - INFO - lm_eval command found and appears runnable.
+2025-04-22 23:03:06,579 - INFO - 
+Run 1/18: Model='TinyLlama-1.1B-Chat-v1.0', Task='arc_challenge'
+2025-04-22 23:03:06,582 - INFO - Executing command: lm_eval --model hf --model_args pretrained=/workspace/models/TinyLlama-1.1B-Chat-v1.0/ --tasks arc_challenge --num_fewshot 0 --batch_size auto --device cuda:0 --output_path /workspace/results/nlp/bare/48/TinyLlama-1.1B-Chat-v1.0/arc_challenge/results.json
+2025-04-22 23:04:55,041 - INFO - SUCCESS: Run 1/18: Model='TinyLlama-1.1B-Chat-v1.0', Task='arc_challenge'. Results saved in /workspace/results/nlp/bare/48/TinyLlama-1.1B-Chat-v1.0/arc_challenge/results.json
+2025-04-22 23:04:55,042 - INFO - 
+Run 2/18: Model='TinyLlama-1.1B-Chat-v1.0', Task='hellaswag'
+2025-04-22 23:04:55,045 - INFO - Executing command: lm_eval --model hf --model_args pretrained=/workspace/models/TinyLlama-1.1B-Chat-v1.0/ --tasks hellaswag --num_fewshot 0 --batch_size auto --device cuda:0 --output_path /workspace/results/nlp/bare/48/TinyLlama-1.1B-Chat-v1.0/hellaswag/results.json
+2025-04-22 23:08:34,150 - INFO - SUCCESS: Run 2/18: Model='TinyLlama-1.1B-Chat-v1.0', Task='hellaswag'. Results saved in /workspace/results/nlp/bare/48/TinyLlama-1.1B-Chat-v1.0/hellaswag/results.json
+2025-04-22 23:08:34,151 - INFO - 
+Run 3/18: Model='TinyLlama-1.1B-Chat-v1.0', Task='winogrande'
+2025-04-22 23:08:34,153 - INFO - Executing command: lm_eval --model hf --model_args pretrained=/workspace/models/TinyLlama-1.1B-Chat-v1.0/ --tasks winogrande --num_fewshot 0 --batch_size auto --device cuda:0 --output_path /workspace/results/nlp/bare/48/TinyLlama-1.1B-Chat-v1.0/winogrande/results.json
+2025-04-22 23:09:50,516 - INFO - SUCCESS: Run 3/18: Model='TinyLlama-1.1B-Chat-v1.0', Task='winogrande'. Results saved in /workspace/results/nlp/bare/48/TinyLlama-1.1B-Chat-v1.0/winogrande/results.json
+2025-04-22 23:09:50,517 - INFO - 
+Run 4/18: Model='TinyLlama-1.1B-Chat-v1.0', Task='mmlu'
+2025-04-22 23:09:50,519 - INFO - Executing command: lm_eval --model hf --model_args pretrained=/workspace/models/TinyLlama-1.1B-Chat-v1.0/ --tasks mmlu --num_fewshot 0 --batch_size auto --device cuda:0 --output_path /workspace/results/nlp/bare/48/TinyLlama-1.1B-Chat-v1.0/mmlu/results.json
+[2025-04-22 23:11:42.256718] ERROR during: Run 4/18: Model='TinyLlama-1.1B-Chat-v1.0', Task='mmlu'
+  Command: lm_eval --model hf --model_args pretrained=/workspace/models/TinyLlama-1.1B-Chat-v1.0/ --tasks mmlu --num_fewshot 0 --batch_size auto --device cuda:0 --output_path /workspace/results/nlp/bare/48/TinyLlama-1.1B-Chat-v1.0/mmlu/results.json
+  Return Code: 1
+  Output File Target: /workspace/results/nlp/bare/48/TinyLlama-1.1B-Chat-v1.0/mmlu/results.json
+  Stderr:
+2025-04-22:23:10:52 INFO     [__main__:440] Selected Tasks: ['mmlu']
+2025-04-22:23:10:52 INFO     [evaluator:185] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234 | Setting fewshot manual seed to 1234
+2025-04-22:23:10:52 INFO     [evaluator:223] Initializing hf model, with arguments: {'pretrained': '/workspace/models/TinyLlama-1.1B-Chat-v1.0/'}
+2025-04-22:23:10:52 INFO     [models.huggingface:137] Using device 'cuda:0'
+2025-04-22:23:10:53 INFO     [models.huggingface:382] Model parallel was set to False, max memory was not set, and device map was set to {'': 'cuda:0'}
+
+Generating test split:   0%|          | 0/126 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 126/126 [00:00<00:00, 14410.27 examples/s]
+
+Generating validation split:   0%|          | 0/14 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 14/14 [00:00<00:00, 2916.04 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1167.42 examples/s]
+
+Generating test split:   0%|          | 0/165 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 165/165 [00:00<00:00, 25847.25 examples/s]
+
+Generating validation split:   0%|          | 0/18 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 18/18 [00:00<00:00, 3708.67 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1113.20 examples/s]
+
+Generating test split:   0%|          | 0/204 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 204/204 [00:00<00:00, 23392.79 examples/s]
+
+Generating validation split:   0%|          | 0/22 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 22/22 [00:00<00:00, 4433.94 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1119.50 examples/s]
+
+Generating test split:   0%|          | 0/237 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 237/237 [00:00<00:00, 27491.84 examples/s]
+
+Generating validation split:   0%|          | 0/26 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 26/26 [00:00<00:00, 5107.82 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1137.90 examples/s]
+
+Generating test split:   0%|          | 0/121 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 121/121 [00:00<00:00, 20922.24 examples/s]
+
+Generating validation split:   0%|          | 0/13 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 13/13 [00:00<00:00, 2786.63 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1144.48 examples/s]
+
+Generating test split:   0%|          | 0/108 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 108/108 [00:00<00:00, 19040.18 examples/s]
+
+Generating validation split:   0%|          | 0/11 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 11/11 [00:00<00:00, 2370.64 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1033.49 examples/s]
+
+Generating test split:   0%|          | 0/163 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 163/163 [00:00<00:00, 29047.91 examples/s]
+
+Generating validation split:   0%|          | 0/18 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 18/18 [00:00<00:00, 3983.62 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1143.11 examples/s]
+
+Generating test split:   0%|          | 0/346 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 346/346 [00:00<00:00, 54194.83 examples/s]
+
+Generating validation split:   0%|          | 0/38 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 38/38 [00:00<00:00, 8096.70 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1189.33 examples/s]
+
+Generating test split:   0%|          | 0/895 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 895/895 [00:00<00:00, 103066.88 examples/s]
+
+Generating validation split:   0%|          | 0/100 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 100/100 [00:00<00:00, 20784.46 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1160.25 examples/s]
+
+Generating test split:   0%|          | 0/311 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 311/311 [00:00<00:00, 53153.03 examples/s]
+
+Generating validation split:   0%|          | 0/34 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 34/34 [00:00<00:00, 7411.20 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1140.62 examples/s]
+
+Generating test split:   0%|          | 0/324 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 324/324 [00:00<00:00, 52789.28 examples/s]
+
+Generating validation split:   0%|          | 0/35 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 35/35 [00:00<00:00, 7542.16 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1181.69 examples/s]
+
+Generating test split:   0%|          | 0/1534 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 1534/1534 [00:00<00:00, 65955.88 examples/s]
+
+Generating validation split:   0%|          | 0/170 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 170/170 [00:00<00:00, 26618.57 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1102.37 examples/s]
+
+Generating test split:   0%|          | 0/171 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 171/171 [00:00<00:00, 31991.88 examples/s]
+
+Generating validation split:   0%|          | 0/19 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 19/19 [00:00<00:00, 4045.68 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1151.90 examples/s]
+
+Generating test split:   0%|          | 0/114 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 114/114 [00:00<00:00, 20332.13 examples/s]
+
+Generating validation split:   0%|          | 0/12 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 12/12 [00:00<00:00, 2582.70 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1129.51 examples/s]
+
+Generating test split:   0%|          | 0/198 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 198/198 [00:00<00:00, 35702.34 examples/s]
+
+Generating validation split:   0%|          | 0/22 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 22/22 [00:00<00:00, 4465.48 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1175.14 examples/s]
+
+Generating test split:   0%|          | 0/193 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 193/193 [00:00<00:00, 33523.86 examples/s]
+
+Generating validation split:   0%|          | 0/21 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 21/21 [00:00<00:00, 4577.03 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1163.66 examples/s]
+
+Generating test split:   0%|          | 0/390 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 390/390 [00:00<00:00, 63343.35 examples/s]
+
+Generating validation split:   0%|          | 0/43 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 43/43 [00:00<00:00, 9149.04 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1155.26 examples/s]
+
+Generating test split:   0%|          | 0/238 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 238/238 [00:00<00:00, 41424.37 examples/s]
+
+Generating validation split:   0%|          | 0/26 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 26/26 [00:00<00:00, 5704.15 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1165.54 examples/s]
+
+Generating test split:   0%|          | 0/545 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 545/545 [00:00<00:00, 88703.75 examples/s]
+
+Generating validation split:   0%|          | 0/60 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 60/60 [00:00<00:00, 12746.71 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1146.61 examples/s]
+
+Generating test split:   0%|          | 0/131 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 131/131 [00:00<00:00, 22852.96 examples/s]
+
+Generating validation split:   0%|          | 0/12 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 12/12 [00:00<00:00, 2725.05 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1186.24 examples/s]
+
+Generating test split:   0%|          | 0/612 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 612/612 [00:00<00:00, 88216.17 examples/s]
+
+Generating validation split:   0%|          | 0/69 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 69/69 [00:00<00:00, 14592.19 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1157.50 examples/s]
+
+Generating test split:   0%|          | 0/110 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 110/110 [00:00<00:00, 20106.05 examples/s]
+
+Generating validation split:   0%|          | 0/12 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 12/12 [00:00<00:00, 2665.59 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1141.49 examples/s]
+
+Generating test split:   0%|          | 0/245 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 245/245 [00:00<00:00, 30951.94 examples/s]
+
+Generating validation split:   0%|          | 0/27 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 27/27 [00:00<00:00, 5558.37 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1022.35 examples/s]
+
+Generating test split:   0%|          | 0/201 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 201/201 [00:00<00:00, 35079.06 examples/s]
+
+Generating validation split:   0%|          | 0/22 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 22/22 [00:00<00:00, 4755.20 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1154.44 examples/s]
+
+Generating test split:   0%|          | 0/100 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 100/100 [00:00<00:00, 18800.95 examples/s]
+
+Generating validation split:   0%|          | 0/11 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 11/11 [00:00<00:00, 2462.76 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1148.56 examples/s]
+
+Generating test split:   0%|          | 0/100 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 100/100 [00:00<00:00, 17313.23 examples/s]
+
+Generating validation split:   0%|          | 0/11 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 11/11 [00:00<00:00, 2375.28 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1159.48 examples/s]
+
+Generating test split:   0%|          | 0/265 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 265/265 [00:00<00:00, 44017.68 examples/s]
+
+Generating validation split:   0%|          | 0/29 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 29/29 [00:00<00:00, 6393.08 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1145.92 examples/s]
+
+Generating test split:   0%|          | 0/173 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 173/173 [00:00<00:00, 28807.95 examples/s]
+
+Generating validation split:   0%|          | 0/22 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 22/22 [00:00<00:00, 4847.89 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1150.57 examples/s]
+
+Generating test split:   0%|          | 0/100 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 100/100 [00:00<00:00, 18308.54 examples/s]
+
+Generating validation split:   0%|          | 0/10 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 10/10 [00:00<00:00, 2262.79 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1161.66 examples/s]
+
+Generating test split:   0%|          | 0/223 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 223/223 [00:00<00:00, 39662.87 examples/s]
+
+Generating validation split:   0%|          | 0/23 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 23/23 [00:00<00:00, 5045.71 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1147.18 examples/s]
+Traceback (most recent call last):
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 409, in hf_raise_for_status
+    response.raise_for_status()
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error: Too Many Requests for url: https://huggingface.co/api/datasets/cais/mmlu/paths-info/c30699e8356da336a370243923dbaf21066bb9fe
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/testbedvenv/bin/lm_eval", line 10, in <module>
+    sys.exit(cli_evaluate())
+             ^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/__main__.py", line 449, in cli_evaluate
+    results = evaluator.simple_evaluate(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/utils.py", line 439, in _wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/evaluator.py", line 264, in simple_evaluate
+    task_dict = get_task_dict(
+                ^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 635, in get_task_dict
+    task_name_from_string_dict = task_manager.load_task_or_group(
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 426, in load_task_or_group
+    collections.ChainMap(
+  File "/workspace/code/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 428, in <lambda>
+    lambda task: self._load_individual_task_or_group(task),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 410, in _load_individual_task_or_group
+    group_name: dict(collections.ChainMap(*map(fn, reversed(subtask_list))))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 410, in _load_individual_task_or_group
+    group_name: dict(collections.ChainMap(*map(fn, reversed(subtask_list))))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 326, in _load_individual_task_or_group
+    return _load_task(task_config, task=name_or_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 286, in _load_task
+    task_object = ConfigurableTask(config=config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/api/task.py", line 863, in __init__
+    self.download(self.config.dataset_kwargs)
+  File "/workspace/code/lm-evaluation-harness/lm_eval/api/task.py", line 991, in download
+    self.dataset = datasets.load_dataset(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/datasets/load.py", line 2062, in load_dataset
+    builder_instance = load_dataset_builder(
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/datasets/load.py", line 1819, in load_dataset_builder
+    builder_instance: DatasetBuilder = builder_cls(
+                                       ^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/datasets/builder.py", line 343, in __init__
+    self.config, self.config_id = self._create_builder_config(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/datasets/builder.py", line 598, in _create_builder_config
+    builder_config._resolve_data_files(
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/datasets/builder.py", line 207, in _resolve_data_files
+    self.data_files = self.data_files.resolve(base_path, download_config)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/datasets/data_files.py", line 789, in resolve
+    out[key] = data_files_patterns_list.resolve(base_path, download_config)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/datasets/data_files.py", line 742, in resolve
+    resolve_pattern(
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/datasets/data_files.py", line 361, in resolve_pattern
+    for filepath, info in fs.glob(pattern, detail=True, **glob_kwargs).items()
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/huggingface_hub/hf_file_system.py", line 521, in glob
+    return super().glob(path, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/fsspec/spec.py", line 609, in glob
+    allpaths = self.find(root, maxdepth=depth, withdirs=True, detail=True, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/huggingface_hub/hf_file_system.py", line 556, in find
+    return super().find(
+           ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/fsspec/spec.py", line 500, in find
+    out[path] = self.info(path)
+                ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/huggingface_hub/hf_file_system.py", line 719, in info
+    paths_info = self._api.get_paths_info(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/huggingface_hub/hf_api.py", line 3362, in get_paths_info
+    hf_raise_for_status(response)
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 482, in hf_raise_for_status
+    raise _format(HfHubHTTPError, str(e), response) from e
+huggingface_hub.errors.HfHubHTTPError: 429 Client Error: Too Many Requests for url: https://huggingface.co/api/datasets/cais/mmlu/paths-info/c30699e8356da336a370243923dbaf21066bb9fe
+
+  Stdout:
+
+----------------------------------------
+----
+
+2025-04-22 23:11:42,258 - INFO - 
+Run 5/18: Model='TinyLlama-1.1B-Chat-v1.0', Task='truthfulqa_mc'
+2025-04-22 23:11:42,258 - INFO - Executing command: lm_eval --model hf --model_args pretrained=/workspace/models/TinyLlama-1.1B-Chat-v1.0/ --tasks truthfulqa_mc --num_fewshot 0 --batch_size auto --device cuda:0 --output_path /workspace/results/nlp/bare/48/TinyLlama-1.1B-Chat-v1.0/truthfulqa_mc/results.json
+[2025-04-22 23:12:48.665301] ERROR during: Run 5/18: Model='TinyLlama-1.1B-Chat-v1.0', Task='truthfulqa_mc'
+  Command: lm_eval --model hf --model_args pretrained=/workspace/models/TinyLlama-1.1B-Chat-v1.0/ --tasks truthfulqa_mc --num_fewshot 0 --batch_size auto --device cuda:0 --output_path /workspace/results/nlp/bare/48/TinyLlama-1.1B-Chat-v1.0/truthfulqa_mc/results.json
+  Return Code: 1
+  Output File Target: /workspace/results/nlp/bare/48/TinyLlama-1.1B-Chat-v1.0/truthfulqa_mc/results.json
+  Stderr:
+2025-04-22:23:12:47 ERROR    [__main__:418] Tasks were not found: truthfulqa_mc
+                                               Try `lm-eval --tasks list` for list of available tasks
+Traceback (most recent call last):
+  File "/workspace/testbedvenv/bin/lm_eval", line 10, in <module>
+    sys.exit(cli_evaluate())
+             ^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/__main__.py", line 422, in cli_evaluate
+    raise ValueError(
+ValueError: Tasks not found: truthfulqa_mc. Try `lm-eval --tasks {list_groups,list_subtasks,list_tags,list}` to list out all available names for task groupings; only (sub)tasks; tags; or all of the above, or pass '--verbosity DEBUG' to troubleshoot task registration issues.
+
+  Stdout:
+
+----------------------------------------
+----
+
+2025-04-22 23:12:48,666 - INFO - 
+Run 6/18: Model='TinyLlama-1.1B-Chat-v1.0', Task='gsm8k'
+2025-04-22 23:12:48,666 - INFO - Executing command: lm_eval --model hf --model_args pretrained=/workspace/models/TinyLlama-1.1B-Chat-v1.0/ --tasks gsm8k --num_fewshot 0 --batch_size auto --device cuda:0 --output_path /workspace/results/nlp/bare/48/TinyLlama-1.1B-Chat-v1.0/gsm8k/results.json
+2025-04-22 23:16:23,485 - INFO - SUCCESS: Run 6/18: Model='TinyLlama-1.1B-Chat-v1.0', Task='gsm8k'. Results saved in /workspace/results/nlp/bare/48/TinyLlama-1.1B-Chat-v1.0/gsm8k/results.json
+2025-04-22 23:16:23,486 - INFO - 
+Run 7/18: Model='Phi-3-mini-4k-instruct', Task='arc_challenge'
+2025-04-22 23:16:23,488 - INFO - Executing command: lm_eval --model hf --model_args pretrained=/workspace/models/Phi-3-mini-4k-instruct/,trust_remote_code=True --tasks arc_challenge --num_fewshot 0 --batch_size auto --device cuda:0 --output_path /workspace/results/nlp/bare/48/Phi-3-mini-4k-instruct/arc_challenge/results.json
+2025-04-22 23:18:20,837 - INFO - SUCCESS: Run 7/18: Model='Phi-3-mini-4k-instruct', Task='arc_challenge'. Results saved in /workspace/results/nlp/bare/48/Phi-3-mini-4k-instruct/arc_challenge/results.json
+2025-04-22 23:18:20,838 - INFO - 
+Run 8/18: Model='Phi-3-mini-4k-instruct', Task='hellaswag'
+2025-04-22 23:18:20,841 - INFO - Executing command: lm_eval --model hf --model_args pretrained=/workspace/models/Phi-3-mini-4k-instruct/,trust_remote_code=True --tasks hellaswag --num_fewshot 0 --batch_size auto --device cuda:0 --output_path /workspace/results/nlp/bare/48/Phi-3-mini-4k-instruct/hellaswag/results.json
+2025-04-22 23:26:10,462 - INFO - SUCCESS: Run 8/18: Model='Phi-3-mini-4k-instruct', Task='hellaswag'. Results saved in /workspace/results/nlp/bare/48/Phi-3-mini-4k-instruct/hellaswag/results.json
+2025-04-22 23:26:10,462 - INFO - 
+Run 9/18: Model='Phi-3-mini-4k-instruct', Task='winogrande'
+2025-04-22 23:26:10,465 - INFO - Executing command: lm_eval --model hf --model_args pretrained=/workspace/models/Phi-3-mini-4k-instruct/,trust_remote_code=True --tasks winogrande --num_fewshot 0 --batch_size auto --device cuda:0 --output_path /workspace/results/nlp/bare/48/Phi-3-mini-4k-instruct/winogrande/results.json
+2025-04-22 23:27:28,226 - INFO - SUCCESS: Run 9/18: Model='Phi-3-mini-4k-instruct', Task='winogrande'. Results saved in /workspace/results/nlp/bare/48/Phi-3-mini-4k-instruct/winogrande/results.json
+2025-04-22 23:27:28,227 - INFO - 
+Run 10/18: Model='Phi-3-mini-4k-instruct', Task='mmlu'
+2025-04-22 23:27:28,230 - INFO - Executing command: lm_eval --model hf --model_args pretrained=/workspace/models/Phi-3-mini-4k-instruct/,trust_remote_code=True --tasks mmlu --num_fewshot 0 --batch_size auto --device cuda:0 --output_path /workspace/results/nlp/bare/48/Phi-3-mini-4k-instruct/mmlu/results.json
+[2025-04-22 23:29:12.576662] ERROR during: Run 10/18: Model='Phi-3-mini-4k-instruct', Task='mmlu'
+  Command: lm_eval --model hf --model_args pretrained=/workspace/models/Phi-3-mini-4k-instruct/,trust_remote_code=True --tasks mmlu --num_fewshot 0 --batch_size auto --device cuda:0 --output_path /workspace/results/nlp/bare/48/Phi-3-mini-4k-instruct/mmlu/results.json
+  Return Code: 1
+  Output File Target: /workspace/results/nlp/bare/48/Phi-3-mini-4k-instruct/mmlu/results.json
+  Stderr:
+2025-04-22:23:28:28 INFO     [__main__:440] Selected Tasks: ['mmlu']
+2025-04-22:23:28:28 WARNING  [evaluator:159] Instruct model detected, but chat template not applied. Recommend setting `apply_chat_template` (optionally `fewshot_as_multiturn`).
+2025-04-22:23:28:28 INFO     [evaluator:185] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234 | Setting fewshot manual seed to 1234
+2025-04-22:23:28:28 INFO     [evaluator:223] Initializing hf model, with arguments: {'pretrained': '/workspace/models/Phi-3-mini-4k-instruct/', 'trust_remote_code': True}
+2025-04-22:23:28:28 INFO     [models.huggingface:137] Using device 'cuda:0'
+2025-04-22:23:28:28 INFO     [models.huggingface:382] Model parallel was set to False, max memory was not set, and device map was set to {'': 'cuda:0'}
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.10s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.20it/s]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.14it/s]
+
+Generating test split:   0%|          | 0/103 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 103/103 [00:00<00:00, 11024.12 examples/s]
+
+Generating validation split:   0%|          | 0/11 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 11/11 [00:00<00:00, 2387.81 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1142.74 examples/s]
+Traceback (most recent call last):
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/urllib3/connectionpool.py", line 468, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/urllib3/connectionpool.py", line 463, in _make_request
+    httplib_response = conn.getresponse()
+                       ^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/http/client.py", line 1395, in getresponse
+    response.begin()
+  File "/usr/lib/python3.11/http/client.py", line 325, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/http/client.py", line 286, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/socket.py", line 718, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/ssl.py", line 1314, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/ssl.py", line 1166, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/urllib3/connectionpool.py", line 802, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/urllib3/util/retry.py", line 552, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/urllib3/packages/six.py", line 770, in reraise
+    raise value
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/urllib3/connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/urllib3/connectionpool.py", line 470, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/urllib3/connectionpool.py", line 358, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1484, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1401, in get_hf_file_metadata
+    r = _request_wrapper(
+        ^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 285, in _request_wrapper
+    response = _request_wrapper(
+               ^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 308, in _request_wrapper
+    response = get_session().request(method=method, url=url, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 96, in send
+    return super().send(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/requests/adapters.py", line 713, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: cb65ab36-cd30-4039-869f-56ff10cef3ce)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/datasets/utils/file_utils.py", line 189, in cached_path
+    ).hf_hub_download(
+      ^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/huggingface_hub/hf_api.py", line 5475, in hf_hub_download
+    return hf_hub_download(
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 961, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1068, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1599, in _raise_on_head_call_error
+    raise LocalEntryNotFoundError(
+huggingface_hub.errors.LocalEntryNotFoundError: An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/testbedvenv/bin/lm_eval", line 10, in <module>
+    sys.exit(cli_evaluate())
+             ^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/__main__.py", line 449, in cli_evaluate
+    results = evaluator.simple_evaluate(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/utils.py", line 439, in _wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/evaluator.py", line 264, in simple_evaluate
+    task_dict = get_task_dict(
+                ^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 635, in get_task_dict
+    task_name_from_string_dict = task_manager.load_task_or_group(
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 426, in load_task_or_group
+    collections.ChainMap(
+  File "/workspace/code/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 428, in <lambda>
+    lambda task: self._load_individual_task_or_group(task),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 410, in _load_individual_task_or_group
+    group_name: dict(collections.ChainMap(*map(fn, reversed(subtask_list))))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 410, in _load_individual_task_or_group
+    group_name: dict(collections.ChainMap(*map(fn, reversed(subtask_list))))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 326, in _load_individual_task_or_group
+    return _load_task(task_config, task=name_or_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 286, in _load_task
+    task_object = ConfigurableTask(config=config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/api/task.py", line 863, in __init__
+    self.download(self.config.dataset_kwargs)
+  File "/workspace/code/lm-evaluation-harness/lm_eval/api/task.py", line 991, in download
+    self.dataset = datasets.load_dataset(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/datasets/load.py", line 2084, in load_dataset
+    builder_instance.download_and_prepare(
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/datasets/builder.py", line 925, in download_and_prepare
+    self._download_and_prepare(
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/datasets/builder.py", line 979, in _download_and_prepare
+    split_generators = self._split_generators(dl_manager, **split_generators_kwargs)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/datasets/packaged_modules/parquet/parquet.py", line 49, in _split_generators
+    data_files = dl_manager.download_and_extract(self.config.data_files)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/datasets/download/download_manager.py", line 326, in download_and_extract
+    return self.extract(self.download(url_or_urls))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/datasets/download/download_manager.py", line 159, in download
+    downloaded_path_or_paths = map_nested(
+                               ^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/datasets/utils/py_utils.py", line 513, in map_nested
+    mapped = [
+             ^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/datasets/utils/py_utils.py", line 514, in <listcomp>
+    _single_map_nested((function, obj, batched, batch_size, types, None, True, None))
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/datasets/utils/py_utils.py", line 401, in _single_map_nested
+    mapped = [_single_map_nested((function, v, batched, batch_size, types, None, True, None)) for v in pbar]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/datasets/utils/py_utils.py", line 401, in <listcomp>
+    mapped = [_single_map_nested((function, v, batched, batch_size, types, None, True, None)) for v in pbar]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/datasets/utils/py_utils.py", line 382, in _single_map_nested
+    return [mapped_item for batch in iter_batched(data_struct, batch_size) for mapped_item in function(batch)]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/datasets/utils/py_utils.py", line 382, in <listcomp>
+    return [mapped_item for batch in iter_batched(data_struct, batch_size) for mapped_item in function(batch)]
+                                                                                              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/datasets/download/download_manager.py", line 219, in _download_batched
+    return [
+           ^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/datasets/download/download_manager.py", line 220, in <listcomp>
+    self._download_single(url_or_filename, download_config=download_config)
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/datasets/download/download_manager.py", line 229, in _download_single
+    out = cached_path(url_or_filename, download_config=download_config)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/datasets/utils/file_utils.py", line 203, in cached_path
+    raise FileNotFoundError(str(e)) from e
+FileNotFoundError: An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.
+
+  Stdout:
+
+----------------------------------------
+----
+
+2025-04-22 23:29:12,577 - INFO - 
+Run 11/18: Model='Phi-3-mini-4k-instruct', Task='truthfulqa_mc'
+2025-04-22 23:29:12,578 - INFO - Executing command: lm_eval --model hf --model_args pretrained=/workspace/models/Phi-3-mini-4k-instruct/,trust_remote_code=True --tasks truthfulqa_mc --num_fewshot 0 --batch_size auto --device cuda:0 --output_path /workspace/results/nlp/bare/48/Phi-3-mini-4k-instruct/truthfulqa_mc/results.json
+[2025-04-22 23:30:13.320612] ERROR during: Run 11/18: Model='Phi-3-mini-4k-instruct', Task='truthfulqa_mc'
+  Command: lm_eval --model hf --model_args pretrained=/workspace/models/Phi-3-mini-4k-instruct/,trust_remote_code=True --tasks truthfulqa_mc --num_fewshot 0 --batch_size auto --device cuda:0 --output_path /workspace/results/nlp/bare/48/Phi-3-mini-4k-instruct/truthfulqa_mc/results.json
+  Return Code: 1
+  Output File Target: /workspace/results/nlp/bare/48/Phi-3-mini-4k-instruct/truthfulqa_mc/results.json
+  Stderr:
+2025-04-22:23:30:12 ERROR    [__main__:418] Tasks were not found: truthfulqa_mc
+                                               Try `lm-eval --tasks list` for list of available tasks
+Traceback (most recent call last):
+  File "/workspace/testbedvenv/bin/lm_eval", line 10, in <module>
+    sys.exit(cli_evaluate())
+             ^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/__main__.py", line 422, in cli_evaluate
+    raise ValueError(
+ValueError: Tasks not found: truthfulqa_mc. Try `lm-eval --tasks {list_groups,list_subtasks,list_tags,list}` to list out all available names for task groupings; only (sub)tasks; tags; or all of the above, or pass '--verbosity DEBUG' to troubleshoot task registration issues.
+
+  Stdout:
+
+----------------------------------------
+----
+
+2025-04-22 23:30:13,323 - INFO - 
+Run 12/18: Model='Phi-3-mini-4k-instruct', Task='gsm8k'
+2025-04-22 23:30:13,324 - INFO - Executing command: lm_eval --model hf --model_args pretrained=/workspace/models/Phi-3-mini-4k-instruct/,trust_remote_code=True --tasks gsm8k --num_fewshot 0 --batch_size auto --device cuda:0 --output_path /workspace/results/nlp/bare/48/Phi-3-mini-4k-instruct/gsm8k/results.json
+2025-04-23 00:13:59,820 - INFO - SUCCESS: Run 12/18: Model='Phi-3-mini-4k-instruct', Task='gsm8k'. Results saved in /workspace/results/nlp/bare/48/Phi-3-mini-4k-instruct/gsm8k/results.json
+2025-04-23 00:13:59,821 - INFO - 
+Run 13/18: Model='Mistral-7B-Instruct-v0.3', Task='arc_challenge'
+2025-04-23 00:13:59,824 - INFO - Executing command: lm_eval --model hf --model_args pretrained=/workspace/models/Mistral-7B-Instruct-v0.3/,trust_remote_code=True --tasks arc_challenge --num_fewshot 0 --batch_size auto --device cuda:0 --output_path /workspace/results/nlp/bare/48/Mistral-7B-Instruct-v0.3/arc_challenge/results.json
+2025-04-23 00:17:04,778 - INFO - SUCCESS: Run 13/18: Model='Mistral-7B-Instruct-v0.3', Task='arc_challenge'. Results saved in /workspace/results/nlp/bare/48/Mistral-7B-Instruct-v0.3/arc_challenge/results.json
+2025-04-23 00:17:04,779 - INFO - 
+Run 14/18: Model='Mistral-7B-Instruct-v0.3', Task='hellaswag'
+2025-04-23 00:17:04,783 - INFO - Executing command: lm_eval --model hf --model_args pretrained=/workspace/models/Mistral-7B-Instruct-v0.3/,trust_remote_code=True --tasks hellaswag --num_fewshot 0 --batch_size auto --device cuda:0 --output_path /workspace/results/nlp/bare/48/Mistral-7B-Instruct-v0.3/hellaswag/results.json
+2025-04-23 00:27:54,161 - INFO - SUCCESS: Run 14/18: Model='Mistral-7B-Instruct-v0.3', Task='hellaswag'. Results saved in /workspace/results/nlp/bare/48/Mistral-7B-Instruct-v0.3/hellaswag/results.json
+2025-04-23 00:27:54,161 - INFO - 
+Run 15/18: Model='Mistral-7B-Instruct-v0.3', Task='winogrande'
+2025-04-23 00:27:54,164 - INFO - Executing command: lm_eval --model hf --model_args pretrained=/workspace/models/Mistral-7B-Instruct-v0.3/,trust_remote_code=True --tasks winogrande --num_fewshot 0 --batch_size auto --device cuda:0 --output_path /workspace/results/nlp/bare/48/Mistral-7B-Instruct-v0.3/winogrande/results.json
+2025-04-23 00:29:22,831 - INFO - SUCCESS: Run 15/18: Model='Mistral-7B-Instruct-v0.3', Task='winogrande'. Results saved in /workspace/results/nlp/bare/48/Mistral-7B-Instruct-v0.3/winogrande/results.json
+2025-04-23 00:29:22,832 - INFO - 
+Run 16/18: Model='Mistral-7B-Instruct-v0.3', Task='mmlu'
+2025-04-23 00:29:22,835 - INFO - Executing command: lm_eval --model hf --model_args pretrained=/workspace/models/Mistral-7B-Instruct-v0.3/,trust_remote_code=True --tasks mmlu --num_fewshot 0 --batch_size auto --device cuda:0 --output_path /workspace/results/nlp/bare/48/Mistral-7B-Instruct-v0.3/mmlu/results.json
+[2025-04-23 00:31:36.050958] ERROR during: Run 16/18: Model='Mistral-7B-Instruct-v0.3', Task='mmlu'
+  Command: lm_eval --model hf --model_args pretrained=/workspace/models/Mistral-7B-Instruct-v0.3/,trust_remote_code=True --tasks mmlu --num_fewshot 0 --batch_size auto --device cuda:0 --output_path /workspace/results/nlp/bare/48/Mistral-7B-Instruct-v0.3/mmlu/results.json
+  Return Code: 1
+  Output File Target: /workspace/results/nlp/bare/48/Mistral-7B-Instruct-v0.3/mmlu/results.json
+  Stderr:
+2025-04-23:00:30:29 INFO     [__main__:440] Selected Tasks: ['mmlu']
+2025-04-23:00:30:29 INFO     [evaluator:185] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234 | Setting fewshot manual seed to 1234
+2025-04-23:00:30:29 INFO     [evaluator:223] Initializing hf model, with arguments: {'pretrained': '/workspace/models/Mistral-7B-Instruct-v0.3/', 'trust_remote_code': True}
+2025-04-23:00:30:30 INFO     [models.huggingface:137] Using device 'cuda:0'
+2025-04-23:00:30:30 INFO     [models.huggingface:382] Model parallel was set to False, max memory was not set, and device map was set to {'': 'cuda:0'}
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:02,  1.34s/it]
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:02<00:01,  1.34s/it]
+Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.27s/it]
+Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.29s/it]
+
+Generating test split:   0%|          | 0/234 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 234/234 [00:00<00:00, 2618.29 examples/s]
+
+Generating validation split:   0%|          | 0/25 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 25/25 [00:00<00:00, 5593.60 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1142.68 examples/s]
+
+Generating test split:   0%|          | 0/100 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 100/100 [00:00<00:00, 16580.90 examples/s]
+
+Generating validation split:   0%|          | 0/11 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 11/11 [00:00<00:00, 2510.33 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1129.57 examples/s]
+
+Generating test split:   0%|          | 0/783 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 783/783 [00:00<00:00, 107275.76 examples/s]
+
+Generating validation split:   0%|          | 0/86 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 86/86 [00:00<00:00, 17801.42 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1134.21 examples/s]
+
+Generating test split:   0%|          | 0/306 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 306/306 [00:00<00:00, 46937.43 examples/s]
+
+Generating validation split:   0%|          | 0/33 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 33/33 [00:00<00:00, 7162.33 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1141.25 examples/s]
+
+Generating test split:   0%|          | 0/282 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 282/282 [00:00<00:00, 43499.46 examples/s]
+
+Generating validation split:   0%|          | 0/31 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 31/31 [00:00<00:00, 6501.50 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1094.95 examples/s]
+
+Generating test split:   0%|          | 0/272 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 272/272 [00:00<00:00, 32357.22 examples/s]
+
+Generating validation split:   0%|          | 0/31 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 31/31 [00:00<00:00, 6509.31 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1095.18 examples/s]
+
+Generating test split:   0%|          | 0/166 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 166/166 [00:00<00:00, 26205.52 examples/s]
+
+Generating validation split:   0%|          | 0/18 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 18/18 [00:00<00:00, 3698.14 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1127.32 examples/s]
+
+Generating test split:   0%|          | 0/100 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 100/100 [00:00<00:00, 16699.73 examples/s]
+
+Generating validation split:   0%|          | 0/11 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 11/11 [00:00<00:00, 2285.61 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1144.86 examples/s]
+
+Generating test split:   0%|          | 0/135 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 135/135 [00:00<00:00, 21266.89 examples/s]
+
+Generating validation split:   0%|          | 0/14 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 14/14 [00:00<00:00, 3060.10 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1157.56 examples/s]
+
+Generating test split:   0%|          | 0/152 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 152/152 [00:00<00:00, 42946.06 examples/s]
+
+Generating validation split:   0%|          | 0/16 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 16/16 [00:00<00:00, 3728.06 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 2000.91 examples/s]
+
+Generating test split:   0%|          | 0/144 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 144/144 [00:00<00:00, 23576.38 examples/s]
+
+Generating validation split:   0%|          | 0/16 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 16/16 [00:00<00:00, 3385.92 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1122.43 examples/s]
+
+Generating test split:   0%|          | 0/100 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 100/100 [00:00<00:00, 17213.76 examples/s]
+
+Generating validation split:   0%|          | 0/8 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 8/8 [00:00<00:00, 1760.00 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1150.64 examples/s]
+
+Generating test split:   0%|          | 0/100 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 100/100 [00:00<00:00, 17153.92 examples/s]
+
+Generating validation split:   0%|          | 0/11 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 11/11 [00:00<00:00, 2369.78 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1117.35 examples/s]
+
+Generating test split:   0%|          | 0/100 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 100/100 [00:00<00:00, 17422.55 examples/s]
+
+Generating validation split:   0%|          | 0/11 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 11/11 [00:00<00:00, 2376.01 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1062.98 examples/s]
+
+Generating test split:   0%|          | 0/102 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 102/102 [00:00<00:00, 17026.27 examples/s]
+
+Generating validation split:   0%|          | 0/11 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 11/11 [00:00<00:00, 2386.95 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1129.69 examples/s]
+
+Generating test split:   0%|          | 0/100 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 100/100 [00:00<00:00, 18151.66 examples/s]
+
+Generating validation split:   0%|          | 0/11 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 11/11 [00:00<00:00, 2447.73 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1157.62 examples/s]
+
+Generating test split:   0%|          | 0/235 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 235/235 [00:00<00:00, 38069.66 examples/s]
+
+Generating validation split:   0%|          | 0/26 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 26/26 [00:00<00:00, 5534.79 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1082.90 examples/s]
+
+Generating test split:   0%|          | 0/145 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 145/145 [00:00<00:00, 23195.05 examples/s]
+
+Generating validation split:   0%|          | 0/16 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 16/16 [00:00<00:00, 3580.48 examples/s]
+
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1147.24 examples/s]
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub
+2025-04-23:00:31:35 WARNING  [datasets.load:1377] Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub
+Traceback (most recent call last):
+  File "/workspace/testbedvenv/bin/lm_eval", line 10, in <module>
+    sys.exit(cli_evaluate())
+             ^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/__main__.py", line 449, in cli_evaluate
+    results = evaluator.simple_evaluate(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/utils.py", line 439, in _wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/evaluator.py", line 264, in simple_evaluate
+    task_dict = get_task_dict(
+                ^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 635, in get_task_dict
+    task_name_from_string_dict = task_manager.load_task_or_group(
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 426, in load_task_or_group
+    collections.ChainMap(
+  File "/workspace/code/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 428, in <lambda>
+    lambda task: self._load_individual_task_or_group(task),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 410, in _load_individual_task_or_group
+    group_name: dict(collections.ChainMap(*map(fn, reversed(subtask_list))))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 410, in _load_individual_task_or_group
+    group_name: dict(collections.ChainMap(*map(fn, reversed(subtask_list))))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 326, in _load_individual_task_or_group
+    return _load_task(task_config, task=name_or_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 286, in _load_task
+    task_object = ConfigurableTask(config=config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/api/task.py", line 863, in __init__
+    self.download(self.config.dataset_kwargs)
+  File "/workspace/code/lm-evaluation-harness/lm_eval/api/task.py", line 991, in download
+    self.dataset = datasets.load_dataset(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/datasets/load.py", line 2062, in load_dataset
+    builder_instance = load_dataset_builder(
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/datasets/load.py", line 1819, in load_dataset_builder
+    builder_instance: DatasetBuilder = builder_cls(
+                                       ^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/datasets/packaged_modules/cache/cache.py", line 124, in __init__
+    config_name, version, hash = _find_hash_in_cache(
+                                 ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/datasets/packaged_modules/cache/cache.py", line 64, in _find_hash_in_cache
+    raise ValueError(
+ValueError: Couldn't find cache for cais/mmlu for config 'elementary_mathematics'
+Available configs in the cache: ['abstract_algebra', 'anatomy', 'astronomy', 'business_ethics', 'clinical_knowledge', 'college_biology', 'college_chemistry', 'college_computer_science', 'college_mathematics', 'college_medicine', 'college_physics', 'computer_security', 'conceptual_physics', 'econometrics', 'electrical_engineering', 'formal_logic', 'global_facts', 'high_school_european_history', 'high_school_geography', 'high_school_government_and_politics', 'high_school_macroeconomics', 'high_school_microeconomics', 'high_school_psychology', 'high_school_us_history', 'high_school_world_history', 'human_aging', 'human_sexuality', 'international_law', 'jurisprudence', 'logical_fallacies', 'management', 'marketing', 'medical_genetics', 'miscellaneous', 'moral_disputes', 'moral_scenarios', 'nutrition', 'philosophy', 'prehistory', 'professional_accounting', 'professional_law', 'professional_medicine', 'professional_psychology', 'public_relations', 'security_studies', 'sociology', 'us_foreign_policy', 'virology', 'world_religions']
+
+  Stdout:
+
+----------------------------------------
+----
+
+2025-04-23 00:31:36,052 - INFO - 
+Run 17/18: Model='Mistral-7B-Instruct-v0.3', Task='truthfulqa_mc'
+2025-04-23 00:31:36,053 - INFO - Executing command: lm_eval --model hf --model_args pretrained=/workspace/models/Mistral-7B-Instruct-v0.3/,trust_remote_code=True --tasks truthfulqa_mc --num_fewshot 0 --batch_size auto --device cuda:0 --output_path /workspace/results/nlp/bare/48/Mistral-7B-Instruct-v0.3/truthfulqa_mc/results.json
+[2025-04-23 00:32:39.334925] ERROR during: Run 17/18: Model='Mistral-7B-Instruct-v0.3', Task='truthfulqa_mc'
+  Command: lm_eval --model hf --model_args pretrained=/workspace/models/Mistral-7B-Instruct-v0.3/,trust_remote_code=True --tasks truthfulqa_mc --num_fewshot 0 --batch_size auto --device cuda:0 --output_path /workspace/results/nlp/bare/48/Mistral-7B-Instruct-v0.3/truthfulqa_mc/results.json
+  Return Code: 1
+  Output File Target: /workspace/results/nlp/bare/48/Mistral-7B-Instruct-v0.3/truthfulqa_mc/results.json
+  Stderr:
+2025-04-23:00:32:38 ERROR    [__main__:418] Tasks were not found: truthfulqa_mc
+                                               Try `lm-eval --tasks list` for list of available tasks
+Traceback (most recent call last):
+  File "/workspace/testbedvenv/bin/lm_eval", line 10, in <module>
+    sys.exit(cli_evaluate())
+             ^^^^^^^^^^^^^^
+  File "/workspace/code/lm-evaluation-harness/lm_eval/__main__.py", line 422, in cli_evaluate
+    raise ValueError(
+ValueError: Tasks not found: truthfulqa_mc. Try `lm-eval --tasks {list_groups,list_subtasks,list_tags,list}` to list out all available names for task groupings; only (sub)tasks; tags; or all of the above, or pass '--verbosity DEBUG' to troubleshoot task registration issues.
+
+  Stdout:
+
+----------------------------------------
+----
+
+2025-04-23 00:32:39,335 - INFO - 
+Run 18/18: Model='Mistral-7B-Instruct-v0.3', Task='gsm8k'
+2025-04-23 00:32:39,336 - INFO - Executing command: lm_eval --model hf --model_args pretrained=/workspace/models/Mistral-7B-Instruct-v0.3/,trust_remote_code=True --tasks gsm8k --num_fewshot 0 --batch_size auto --device cuda:0 --output_path /workspace/results/nlp/bare/48/Mistral-7B-Instruct-v0.3/gsm8k/results.json
+2025-04-23 02:02:05,977 - INFO - SUCCESS: Run 18/18: Model='Mistral-7B-Instruct-v0.3', Task='gsm8k'. Results saved in /workspace/results/nlp/bare/48/Mistral-7B-Instruct-v0.3/gsm8k/results.json
+2025-04-23 02:02:05,978 - INFO - --- LM Evaluation Harness Automation Finished ---

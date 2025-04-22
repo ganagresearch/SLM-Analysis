@@ -1,0 +1,118 @@
+{
+  "results": {
+    "winogrande": {
+      "alias": "winogrande",
+      "acc,none": 0.7419100236779794,
+      "acc_stderr,none": 0.01229827883397239
+    }
+  },
+  "group_subtasks": {
+    "winogrande": []
+  },
+  "configs": {
+    "winogrande": {
+      "task": "winogrande",
+      "dataset_path": "winogrande",
+      "dataset_name": "winogrande_xl",
+      "dataset_kwargs": {
+        "trust_remote_code": true
+      },
+      "training_split": "train",
+      "validation_split": "validation",
+      "doc_to_text": "def doc_to_text(doc):\n    answer_to_num = {\"1\": 0, \"2\": 1}\n    return answer_to_num[doc[\"answer\"]]\n",
+      "doc_to_target": "def doc_to_target(doc):\n    idx = doc[\"sentence\"].index(\"_\") + 1\n    return doc[\"sentence\"][idx:].strip()\n",
+      "unsafe_code": false,
+      "doc_to_choice": "def doc_to_choice(doc):\n    idx = doc[\"sentence\"].index(\"_\")\n    options = [doc[\"option1\"], doc[\"option2\"]]\n    return [doc[\"sentence\"][:idx] + opt for opt in options]\n",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": true,
+      "doc_to_decontamination_query": "sentence",
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "/workspace/models/Mistral-7B-Instruct-v0.3/",
+        "trust_remote_code": true
+      }
+    }
+  },
+  "versions": {
+    "winogrande": 1.0
+  },
+  "n-shot": {
+    "winogrande": 0
+  },
+  "higher_is_better": {
+    "winogrande": {
+      "acc": true
+    }
+  },
+  "n-samples": {
+    "winogrande": {
+      "original": 1267,
+      "effective": 1267
+    }
+  },
+  "config": {
+    "model": "hf",
+    "model_args": "pretrained=/workspace/models/Mistral-7B-Instruct-v0.3/,trust_remote_code=True",
+    "model_num_parameters": 7248023552,
+    "model_dtype": "torch.bfloat16",
+    "model_revision": "main",
+    "model_sha": "",
+    "batch_size": "auto",
+    "batch_sizes": [
+      64
+    ],
+    "device": "cuda:0",
+    "use_cache": null,
+    "limit": null,
+    "bootstrap_iters": 100000,
+    "gen_kwargs": null,
+    "random_seed": 0,
+    "numpy_seed": 1234,
+    "torch_seed": 1234,
+    "fewshot_seed": 1234
+  },
+  "git_hash": "e4a7b69",
+  "date": 1745368140.1149437,
+  "pretty_env_info": "'NoneType' object has no attribute 'splitlines'",
+  "transformers_version": "4.48.3",
+  "lm_eval_version": "0.4.8",
+  "upper_git_hash": null,
+  "tokenizer_pad_token": [
+    "<unk>",
+    "0"
+  ],
+  "tokenizer_eos_token": [
+    "</s>",
+    "2"
+  ],
+  "tokenizer_bos_token": [
+    "<s>",
+    "1"
+  ],
+  "eot_token_id": 2,
+  "max_length": 32768,
+  "task_hashes": {},
+  "model_source": "hf",
+  "model_name": "/workspace/models/Mistral-7B-Instruct-v0.3/",
+  "model_name_sanitized": "__workspace__models__Mistral-7B-Instruct-v0.3__",
+  "system_instruction": null,
+  "system_instruction_sha": null,
+  "fewshot_as_multiturn": false,
+  "chat_template": null,
+  "chat_template_sha": null,
+  "start_time": 3498122.675134818,
+  "end_time": 3498178.157939266,
+  "total_evaluation_time_seconds": "55.48280444787815"
+}

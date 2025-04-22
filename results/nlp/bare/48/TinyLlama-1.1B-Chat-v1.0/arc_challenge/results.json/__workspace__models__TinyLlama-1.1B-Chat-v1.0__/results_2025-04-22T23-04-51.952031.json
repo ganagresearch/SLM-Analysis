@@ -1,0 +1,126 @@
+{
+  "results": {
+    "arc_challenge": {
+      "alias": "arc_challenge",
+      "acc,none": 0.2986348122866894,
+      "acc_stderr,none": 0.013374078615068742,
+      "acc_norm,none": 0.32764505119453924,
+      "acc_norm_stderr,none": 0.013715847940719337
+    }
+  },
+  "group_subtasks": {
+    "arc_challenge": []
+  },
+  "configs": {
+    "arc_challenge": {
+      "task": "arc_challenge",
+      "tag": [
+        "ai2_arc"
+      ],
+      "dataset_path": "allenai/ai2_arc",
+      "dataset_name": "ARC-Challenge",
+      "training_split": "train",
+      "validation_split": "validation",
+      "test_split": "test",
+      "doc_to_text": "Question: {{question}}\nAnswer:",
+      "doc_to_target": "{{choices.label.index(answerKey)}}",
+      "unsafe_code": false,
+      "doc_to_choice": "{{choices.text}}",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": true,
+      "doc_to_decontamination_query": "Question: {{question}}\nAnswer:",
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "/workspace/models/TinyLlama-1.1B-Chat-v1.0/"
+      }
+    }
+  },
+  "versions": {
+    "arc_challenge": 1.0
+  },
+  "n-shot": {
+    "arc_challenge": 0
+  },
+  "higher_is_better": {
+    "arc_challenge": {
+      "acc": true,
+      "acc_norm": true
+    }
+  },
+  "n-samples": {
+    "arc_challenge": {
+      "original": 1172,
+      "effective": 1172
+    }
+  },
+  "config": {
+    "model": "hf",
+    "model_args": "pretrained=/workspace/models/TinyLlama-1.1B-Chat-v1.0/",
+    "model_num_parameters": 1100048384,
+    "model_dtype": "torch.bfloat16",
+    "model_revision": "main",
+    "model_sha": "",
+    "batch_size": "auto",
+    "batch_sizes": [
+      64
+    ],
+    "device": "cuda:0",
+    "use_cache": null,
+    "limit": null,
+    "bootstrap_iters": 100000,
+    "gen_kwargs": null,
+    "random_seed": 0,
+    "numpy_seed": 1234,
+    "torch_seed": 1234,
+    "fewshot_seed": 1234
+  },
+  "git_hash": "e4a7b69",
+  "date": 1745363066.6156845,
+  "pretty_env_info": "'NoneType' object has no attribute 'splitlines'",
+  "transformers_version": "4.48.3",
+  "lm_eval_version": "0.4.8",
+  "upper_git_hash": null,
+  "tokenizer_pad_token": [
+    "</s>",
+    "2"
+  ],
+  "tokenizer_eos_token": [
+    "</s>",
+    "2"
+  ],
+  "tokenizer_bos_token": [
+    "<s>",
+    "1"
+  ],
+  "eot_token_id": 2,
+  "max_length": 2048,
+  "task_hashes": {},
+  "model_source": "hf",
+  "model_name": "/workspace/models/TinyLlama-1.1B-Chat-v1.0/",
+  "model_name_sanitized": "__workspace__models__TinyLlama-1.1B-Chat-v1.0__",
+  "system_instruction": null,
+  "system_instruction_sha": null,
+  "fewshot_as_multiturn": false,
+  "chat_template": null,
+  "chat_template_sha": null,
+  "start_time": 3493036.943040258,
+  "end_time": 3493108.845029088,
+  "total_evaluation_time_seconds": "71.9019888304174"
+}
