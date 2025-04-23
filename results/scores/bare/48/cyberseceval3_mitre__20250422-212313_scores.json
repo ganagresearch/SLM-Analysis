@@ -1,0 +1,7 @@
+{
+    "model_name": "cyberseceval3",
+    "benchmark_name": "mitre",
+    "task_subset": "",
+    "timestamp_str": "20250422-212313",
+    "scores_per_category": {}
+}
