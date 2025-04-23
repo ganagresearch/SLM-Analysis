@@ -1,0 +1,55 @@
+2025-04-23 15:26:55,449 - INFO - --- System Information ---
+2025-04-23 15:26:55,450 - INFO - Python Version: 3.11.11 (main, Dec  4 2024, 08:55:07) [GCC 11.4.0]
+2025-04-23 15:26:55,450 - INFO - Torch Version: 2.6.0+cu124
+2025-04-23 15:26:55,450 - INFO - Datasets Version: 3.5.0
+2025-04-23 15:26:55,451 - INFO - CPU Count: 96
+2025-04-23 15:26:55,451 - INFO - Total RAM: 503.51 GB
+2025-04-23 15:26:55,492 - INFO - GPU: NVIDIA A40
+2025-04-23 15:26:55,493 - INFO - Total VRAM: 44.45 GB
+2025-04-23 15:26:55,493 - INFO - CUDA Version: 12.4
+2025-04-23 15:26:55,493 - INFO - Using Device: cuda:0
+2025-04-23 15:26:55,493 - INFO - --------------------------
+2025-04-23 15:26:55,494 - INFO - Loading calibration dataset from: /workspace/calibration_data/sevenllm_instruct_subset_manual/
+2025-04-23 15:26:55,533 - INFO - Loaded and selected 200 calibration samples.
+2025-04-23 15:26:55,533 - INFO - Using column 'instruction' for calibration text.
+2025-04-23 15:26:55,534 - INFO - --- Starting Model Quantization ---
+2025-04-23 15:26:55,534 - INFO - 
+Processing model: Mistral-7B-Instruct-v0.3
+2025-04-23 15:26:55,534 - INFO - Input path: /workspace/models/Mistral-7B-Instruct-v0.3/
+2025-04-23 15:26:55,535 - INFO - Output path: workspace/models/Mistral-7B-Instruct-v0.3-int8-ptq-onnx/
+2025-04-23 15:26:55,537 - INFO - Loading quantizer and tokenizer...
+2025-04-23 15:26:55,538 - ERROR - Error during quantization for Mistral-7B-Instruct-v0.3: Could not find any ONNX model file in /workspace/models/Mistral-7B-Instruct-v0.3
+Traceback (most recent call last):
+  File "//workspace/code/quantize_models.py", line 115, in <module>
+    quantizer = ORTQuantizer.from_pretrained(input_path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/optimum/onnxruntime/quantization.py", line 144, in from_pretrained
+    raise FileNotFoundError(f"Could not find any ONNX model file in {model_or_path}")
+FileNotFoundError: Could not find any ONNX model file in /workspace/models/Mistral-7B-Instruct-v0.3
+2025-04-23 15:26:55,543 - INFO - 
+Processing model: TinyLlama-1.1B-Chat-v1.0
+2025-04-23 15:26:55,544 - INFO - Input path: /workspace/models/TinyLlama-1.1B-Chat-v1.0/
+2025-04-23 15:26:55,544 - INFO - Output path: workspace/models/TinyLlama-1.1B-Chat-v1.0-int8-ptq-onnx/
+2025-04-23 15:26:55,546 - INFO - Loading quantizer and tokenizer...
+2025-04-23 15:26:55,548 - ERROR - Error during quantization for TinyLlama-1.1B-Chat-v1.0: Could not find any ONNX model file in /workspace/models/TinyLlama-1.1B-Chat-v1.0
+Traceback (most recent call last):
+  File "//workspace/code/quantize_models.py", line 115, in <module>
+    quantizer = ORTQuantizer.from_pretrained(input_path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/optimum/onnxruntime/quantization.py", line 144, in from_pretrained
+    raise FileNotFoundError(f"Could not find any ONNX model file in {model_or_path}")
+FileNotFoundError: Could not find any ONNX model file in /workspace/models/TinyLlama-1.1B-Chat-v1.0
+2025-04-23 15:26:55,550 - INFO - 
+Processing model: Phi-3-mini-4k-instruct
+2025-04-23 15:26:55,550 - INFO - Input path: /workspace/models/Phi-3-mini-4k-instruct/
+2025-04-23 15:26:55,550 - INFO - Output path: workspace/models/Phi-3-mini-4k-instruct-int8-ptq-onnx/
+2025-04-23 15:26:55,551 - INFO - Loading quantizer and tokenizer...
+2025-04-23 15:26:55,553 - ERROR - Error during quantization for Phi-3-mini-4k-instruct: Could not find any ONNX model file in /workspace/models/Phi-3-mini-4k-instruct
+Traceback (most recent call last):
+  File "//workspace/code/quantize_models.py", line 115, in <module>
+    quantizer = ORTQuantizer.from_pretrained(input_path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/optimum/onnxruntime/quantization.py", line 144, in from_pretrained
+    raise FileNotFoundError(f"Could not find any ONNX model file in {model_or_path}")
+FileNotFoundError: Could not find any ONNX model file in /workspace/models/Phi-3-mini-4k-instruct
+2025-04-23 15:26:55,554 - INFO - --- Model Quantization Finished ---

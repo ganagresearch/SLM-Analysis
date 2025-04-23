@@ -1,0 +1,54 @@
+2025-04-23 19:39:44,052 - INFO - --- System Information ---
+2025-04-23 19:39:44,052 - INFO - Python Version: 3.11.11 (main, Dec  4 2024, 08:55:07) [GCC 11.4.0]
+2025-04-23 19:39:44,053 - INFO - Torch Version: 2.6.0+cu124
+2025-04-23 19:39:44,053 - INFO - Datasets Version: 3.5.0
+2025-04-23 19:39:44,053 - INFO - CPU Count: 96
+2025-04-23 19:39:44,054 - INFO - Total RAM: 503.51 GB
+2025-04-23 19:39:44,096 - INFO - GPU: NVIDIA A40
+2025-04-23 19:39:44,096 - INFO - Total VRAM: 44.45 GB
+2025-04-23 19:39:44,097 - INFO - CUDA Version: 12.4
+2025-04-23 19:39:44,097 - INFO - Using Device: cuda:0
+2025-04-23 19:39:44,097 - INFO - --------------------------
+2025-04-23 19:39:44,097 - INFO - Loading calibration dataset from: /workspace/calibration_data/sevenllm_instruct_subset_manual/
+2025-04-23 19:39:44,168 - INFO - Loaded and selected 200 calibration samples.
+2025-04-23 19:39:44,169 - INFO - Using column 'instruction' for calibration text.
+2025-04-23 19:39:44,169 - INFO - --- Starting Model Quantization ---
+2025-04-23 19:39:44,169 - INFO - 
+Processing model: Phi-3-mini-4k-instruct
+2025-04-23 19:39:44,169 - INFO - Input path (HF): /workspace/models/Phi-3-mini-4k-instruct/
+2025-04-23 19:39:44,170 - INFO - ONNX Export Path (Intermediate): /workspace/models/Phi-3-mini-4k-instruct/temp-fp32-onnx-export
+2025-04-23 19:39:44,170 - INFO - Output path (Quantized ONNX files): /workspace/models/Phi-3-mini-4k-instruct/
+2025-04-23 19:39:44,170 - INFO - Trust remote code: True
+2025-04-23 19:39:44,170 - INFO - Model Task: text-generation
+2025-04-23 19:39:44,172 - WARNING - Found existing intermediate FP32 ONNX model at /workspace/models/Phi-3-mini-4k-instruct/temp-fp32-onnx-export/model.onnx. Skipping export.
+2025-04-23 19:39:44,173 - INFO - Using FP32 ONNX model: /workspace/models/Phi-3-mini-4k-instruct/temp-fp32-onnx-export/model.onnx
+2025-04-23 19:39:44,173 - INFO - Loading quantizer for the exported ONNX model...
+2025-04-23 19:39:44,184 - INFO - Loading tokenizer from original HF path...
+2025-04-23 19:39:44,427 - INFO - Quantizer and tokenizer loaded.
+2025-04-23 19:39:44,427 - INFO - Preprocessing (tokenizing) the calibration dataset...
+2025-04-23 19:39:44,459 - INFO - Preprocessing complete. New columns: ['input_ids', 'attention_mask', 'position_ids']
+2025-04-23 19:39:44,459 - INFO - Defining quantization and calibration configurations...
+2025-04-23 19:39:44,459 - INFO - Quantization Config: QDQ (mode: QLinearOps, schema: u8/s8, channel-wise: False)
+2025-04-23 19:39:44,459 - INFO - Creating Calibration Config using preprocessed dataset.
+2025-04-23 19:39:44,459 - INFO - Calibration Method: CalibrationMethod.MinMax
+2025-04-23 19:39:44,460 - INFO - Operators to quantize: ['MatMul', 'Add']
+2025-04-23 19:39:44,460 - INFO - Starting calibration step (quantizer.fit)...
+2025-04-23 19:44:28,488 - ERROR - Error during processing for Phi-3-mini-4k-instruct: [ONNXRuntimeError] : 6 : RUNTIME_EXCEPTION : Non-zero status code returned while running Div node. Name:'/model/layers.23/self_attn/Div_2' Status Message: /onnxruntime_src/onnxruntime/core/framework/bfc_arena.cc:376 void* onnxruntime::BFCArena::AllocateRawInternal(size_t, bool, onnxruntime::Stream*, bool, onnxruntime::WaitNotificationFn) Failed to allocate memory for requested buffer of size 134217728
+Traceback (most recent call last):
+  File "//workspace/code/quantize_models.py", line 254, in <module>
+    calibration_tensors_range = quantizer.fit(
+                                ^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/optimum/onnxruntime/quantization.py", line 202, in fit
+    self.partial_fit(
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/optimum/onnxruntime/quantization.py", line 262, in partial_fit
+    self._calibrator.collect_data(reader)
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/onnxruntime/quantization/calibrate.py", line 420, in collect_data
+    self.intermediate_outputs.append(self.infer_session.run(None, inputs))
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/onnxruntime/capi/onnxruntime_inference_collection.py", line 270, in run
+    return self._sess.run(output_names, input_feed, run_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+onnxruntime.capi.onnxruntime_pybind11_state.RuntimeException: [ONNXRuntimeError] : 6 : RUNTIME_EXCEPTION : Non-zero status code returned while running Div node. Name:'/model/layers.23/self_attn/Div_2' Status Message: /onnxruntime_src/onnxruntime/core/framework/bfc_arena.cc:376 void* onnxruntime::BFCArena::AllocateRawInternal(size_t, bool, onnxruntime::Stream*, bool, onnxruntime::WaitNotificationFn) Failed to allocate memory for requested buffer of size 134217728
+
+2025-04-23 19:44:28,512 - WARNING - Quantization failed for Phi-3-mini-4k-instruct. Keeping intermediate FP32 ONNX export at: /workspace/models/Phi-3-mini-4k-instruct/temp-fp32-onnx-export
+2025-04-23 19:44:28,512 - INFO - --- Model Quantization Finished ---

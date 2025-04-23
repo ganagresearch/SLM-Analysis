@@ -1,0 +1,60 @@
+2025-04-23 17:49:26,623 - INFO - --- System Information ---
+2025-04-23 17:49:26,623 - INFO - Python Version: 3.11.11 (main, Dec  4 2024, 08:55:07) [GCC 11.4.0]
+2025-04-23 17:49:26,623 - INFO - Torch Version: 2.6.0+cu124
+2025-04-23 17:49:26,624 - INFO - Datasets Version: 3.5.0
+2025-04-23 17:49:26,624 - INFO - CPU Count: 96
+2025-04-23 17:49:26,624 - INFO - Total RAM: 503.51 GB
+2025-04-23 17:49:26,668 - INFO - GPU: NVIDIA A40
+2025-04-23 17:49:26,669 - INFO - Total VRAM: 44.45 GB
+2025-04-23 17:49:26,669 - INFO - CUDA Version: 12.4
+2025-04-23 17:49:26,669 - INFO - Using Device: cuda:0
+2025-04-23 17:49:26,670 - INFO - --------------------------
+2025-04-23 17:49:26,670 - INFO - Loading calibration dataset from: /workspace/calibration_data/sevenllm_instruct_subset_manual/
+2025-04-23 17:49:26,752 - INFO - Loaded and selected 200 calibration samples.
+2025-04-23 17:49:26,753 - INFO - Using column 'instruction' for calibration text.
+2025-04-23 17:49:26,753 - INFO - --- Starting Model Quantization ---
+2025-04-23 17:49:26,753 - INFO - 
+Processing model: TinyLlama-1.1B-Chat-v1.0
+2025-04-23 17:49:26,754 - INFO - Input path (HF): /workspace/models/TinyLlama-1.1B-Chat-v1.0/
+2025-04-23 17:49:26,754 - INFO - ONNX Export Path (Intermediate): /workspace/models/TinyLlama-1.1B-Chat-v1.0/temp-fp32-onnx-export
+2025-04-23 17:49:26,754 - INFO - Output path (Quantized ONNX files): /workspace/models/TinyLlama-1.1B-Chat-v1.0/
+2025-04-23 17:49:26,754 - INFO - Trust remote code: False
+2025-04-23 17:49:26,754 - INFO - Model Task: text-generation
+2025-04-23 17:49:26,758 - INFO - Exporting TinyLlama-1.1B-Chat-v1.0 from Hugging Face format to ONNX...
+2025-04-23 17:51:42,172 - INFO - Identified exported ONNX model file: model.onnx
+2025-04-23 17:51:42,172 - INFO - ONNX export successful. Duration: 0:02:15.414361
+2025-04-23 17:51:42,173 - INFO - Using FP32 ONNX model: /workspace/models/TinyLlama-1.1B-Chat-v1.0/temp-fp32-onnx-export/model.onnx
+2025-04-23 17:51:42,173 - INFO - Loading quantizer for the exported ONNX model...
+2025-04-23 17:51:42,177 - INFO - Loading tokenizer from original HF path...
+2025-04-23 17:51:42,325 - INFO - Quantizer and tokenizer loaded.
+2025-04-23 17:51:42,326 - INFO - Defining quantization and calibration configurations...
+2025-04-23 17:51:42,326 - INFO - Quantization Config: QDQ (mode: QLinearOps, schema: u8/s8, channel-wise: False)
+2025-04-23 17:51:42,327 - INFO - Calibration Method: CalibrationMethod.MinMax
+2025-04-23 17:51:42,327 - INFO - Operators to quantize: ['MatMul', 'Add']
+2025-04-23 17:51:42,327 - INFO - Starting calibration step (quantizer.fit)...
+2025-04-23 17:52:11,811 - ERROR - Error during processing for TinyLlama-1.1B-Chat-v1.0: [ONNXRuntimeError] : 7 : INVALID_PROTOBUF : Load model from /workspace/models/TinyLlama-1.1B-Chat-v1.0/temp-fp32-onnx-export/augmented_model.onnx failed:Protobuf parsing failed.
+Traceback (most recent call last):
+  File "//workspace/code/quantize_models.py", line 215, in <module>
+    calibration_tensors_range = quantizer.fit(
+                                ^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/optimum/onnxruntime/quantization.py", line 202, in fit
+    self.partial_fit(
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/optimum/onnxruntime/quantization.py", line 249, in partial_fit
+    self._calibrator = calibration_config.create_calibrator(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/optimum/onnxruntime/configuration.py", line 118, in create_calibrator
+    return create_calibrator(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/onnxruntime/quantization/calibrate.py", line 1249, in create_calibrator
+    calibrator.create_inference_session()
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/onnxruntime/quantization/calibrate.py", line 235, in create_inference_session
+    self.infer_session = onnxruntime.InferenceSession(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/onnxruntime/capi/onnxruntime_inference_collection.py", line 469, in __init__
+    self._create_inference_session(providers, provider_options, disabled_optimizers)
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/onnxruntime/capi/onnxruntime_inference_collection.py", line 530, in _create_inference_session
+    sess = C.InferenceSession(session_options, self._model_path, True, self._read_config_from_model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+onnxruntime.capi.onnxruntime_pybind11_state.InvalidProtobuf: [ONNXRuntimeError] : 7 : INVALID_PROTOBUF : Load model from /workspace/models/TinyLlama-1.1B-Chat-v1.0/temp-fp32-onnx-export/augmented_model.onnx failed:Protobuf parsing failed.
+2025-04-23 17:52:12,007 - WARNING - Quantization failed for TinyLlama-1.1B-Chat-v1.0. Keeping intermediate FP32 ONNX export at: /workspace/models/TinyLlama-1.1B-Chat-v1.0/temp-fp32-onnx-export
+2025-04-23 17:52:12,007 - INFO - --- Model Quantization Finished ---

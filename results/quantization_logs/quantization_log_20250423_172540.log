@@ -1,0 +1,38 @@
+2025-04-23 17:25:40,754 - INFO - --- System Information ---
+2025-04-23 17:25:40,754 - INFO - Python Version: 3.11.11 (main, Dec  4 2024, 08:55:07) [GCC 11.4.0]
+2025-04-23 17:25:40,755 - INFO - Torch Version: 2.6.0+cu124
+2025-04-23 17:25:40,755 - INFO - Datasets Version: 3.5.0
+2025-04-23 17:25:40,755 - INFO - CPU Count: 96
+2025-04-23 17:25:40,756 - INFO - Total RAM: 503.51 GB
+2025-04-23 17:25:40,795 - INFO - GPU: NVIDIA A40
+2025-04-23 17:25:40,795 - INFO - Total VRAM: 44.45 GB
+2025-04-23 17:25:40,796 - INFO - CUDA Version: 12.4
+2025-04-23 17:25:40,796 - INFO - Using Device: cuda:0
+2025-04-23 17:25:40,796 - INFO - --------------------------
+2025-04-23 17:25:40,796 - INFO - Loading calibration dataset from: /workspace/calibration_data/sevenllm_instruct_subset_manual/
+2025-04-23 17:25:40,840 - INFO - Loaded and selected 200 calibration samples.
+2025-04-23 17:25:40,841 - INFO - Using column 'instruction' for calibration text.
+2025-04-23 17:25:40,841 - INFO - --- Starting Model Quantization ---
+2025-04-23 17:25:40,841 - INFO - Processing model: TinyLlama-1.1B-Chat-v1.0
+2025-04-23 17:25:40,841 - INFO - Input path (HF): /workspace/models/TinyLlama-1.1B-Chat-v1.0/
+2025-04-23 17:25:40,842 - INFO - ONNX Export Path (Temp): workspace/models/TinyLlama-1.1B-Chat-v1.0-int8-ptq-onnx/fp32-onnx-export
+2025-04-23 17:25:40,842 - INFO - Output path (Quantized): workspace/models/TinyLlama-1.1B-Chat-v1.0-int8-ptq-onnx/
+2025-04-23 17:25:40,842 - INFO - Trust remote code: False
+2025-04-23 17:25:40,842 - INFO - Model Task: text-generation
+2025-04-23 17:25:40,844 - INFO - Exporting TinyLlama-1.1B-Chat-v1.0 from Hugging Face format to ONNX...
+2025-04-23 17:27:18,076 - INFO - Identified ONNX model file: model.onnx
+2025-04-23 17:27:18,079 - INFO - ONNX export successful for TinyLlama-1.1B-Chat-v1.0. Duration: 0:01:37.235036
+2025-04-23 17:27:18,079 - INFO - ONNX model saved to: workspace/models/TinyLlama-1.1B-Chat-v1.0-int8-ptq-onnx/fp32-onnx-export
+2025-04-23 17:27:18,079 - INFO - Loading quantizer for the exported ONNX model and tokenizer...
+2025-04-23 17:27:18,229 - INFO - Quantizer and tokenizer loaded.
+2025-04-23 17:27:18,229 - INFO - Quantization Config: QDQ (mode: QLinearOps, schema: u8/s8, channel-wise: False)
+2025-04-23 17:27:18,230 - INFO - Calibration Method inferred from static config + dataset
+2025-04-23 17:27:18,230 - INFO - Starting quantization process (Calibration + Quantized ONNX Export)...
+2025-04-23 17:27:18,230 - ERROR - Error during processing for TinyLlama-1.1B-Chat-v1.0: ORTQuantizer.quantize() got an unexpected keyword argument 'dataset'
+Traceback (most recent call last):
+  File "//workspace/code/quantize_models.py", line 208, in <module>
+    quantizer.quantize(
+TypeError: ORTQuantizer.quantize() got an unexpected keyword argument 'dataset'
+2025-04-23 17:27:18,232 - INFO - Attempting to clean up failed directory: workspace/models/TinyLlama-1.1B-Chat-v1.0-int8-ptq-onnx/
+2025-04-23 17:27:18,236 - INFO - Successfully removed failed directory: workspace/models/TinyLlama-1.1B-Chat-v1.0-int8-ptq-onnx/
+2025-04-23 17:27:18,236 - INFO - --- Model Quantization Finished ---

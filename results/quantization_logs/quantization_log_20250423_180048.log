@@ -1,0 +1,53 @@
+2025-04-23 18:00:48,048 - INFO - --- System Information ---
+2025-04-23 18:00:48,049 - INFO - Python Version: 3.11.11 (main, Dec  4 2024, 08:55:07) [GCC 11.4.0]
+2025-04-23 18:00:48,049 - INFO - Torch Version: 2.6.0+cu124
+2025-04-23 18:00:48,049 - INFO - Datasets Version: 3.5.0
+2025-04-23 18:00:48,049 - INFO - CPU Count: 96
+2025-04-23 18:00:48,050 - INFO - Total RAM: 503.51 GB
+2025-04-23 18:00:48,091 - INFO - GPU: NVIDIA A40
+2025-04-23 18:00:48,091 - INFO - Total VRAM: 44.45 GB
+2025-04-23 18:00:48,091 - INFO - CUDA Version: 12.4
+2025-04-23 18:00:48,092 - INFO - Using Device: cuda:0
+2025-04-23 18:00:48,092 - INFO - --------------------------
+2025-04-23 18:00:48,092 - INFO - Loading calibration dataset from: /workspace/calibration_data/sevenllm_instruct_subset_manual/
+2025-04-23 18:00:48,146 - INFO - Loaded and selected 200 calibration samples.
+2025-04-23 18:00:48,147 - INFO - Using column 'instruction' for calibration text.
+2025-04-23 18:00:48,147 - INFO - --- Starting Model Quantization ---
+2025-04-23 18:00:48,147 - INFO - 
+Processing model: TinyLlama-1.1B-Chat-v1.0
+2025-04-23 18:00:48,147 - INFO - Input path (HF): /workspace/models/TinyLlama-1.1B-Chat-v1.0/
+2025-04-23 18:00:48,148 - INFO - ONNX Export Path (Intermediate): /workspace/models/TinyLlama-1.1B-Chat-v1.0/temp-fp32-onnx-export
+2025-04-23 18:00:48,148 - INFO - Output path (Quantized ONNX files): /workspace/models/TinyLlama-1.1B-Chat-v1.0/
+2025-04-23 18:00:48,148 - INFO - Trust remote code: False
+2025-04-23 18:00:48,148 - INFO - Model Task: text-generation
+2025-04-23 18:00:48,151 - INFO - Exporting TinyLlama-1.1B-Chat-v1.0 from Hugging Face format to ONNX...
+2025-04-23 18:02:47,862 - INFO - Identified exported ONNX model file: model.onnx
+2025-04-23 18:02:47,862 - INFO - ONNX export successful. Duration: 0:01:59.711047
+2025-04-23 18:02:47,862 - INFO - Using FP32 ONNX model: /workspace/models/TinyLlama-1.1B-Chat-v1.0/temp-fp32-onnx-export/model.onnx
+2025-04-23 18:02:47,863 - INFO - Loading quantizer for the exported ONNX model...
+2025-04-23 18:02:47,866 - INFO - Loading tokenizer from original HF path...
+2025-04-23 18:02:48,023 - INFO - Quantizer and tokenizer loaded.
+2025-04-23 18:02:48,023 - INFO - Defining quantization and calibration configurations...
+2025-04-23 18:02:48,024 - INFO - Quantization Config: QDQ (mode: QLinearOps, schema: u8/s8, channel-wise: False)
+2025-04-23 18:02:48,024 - INFO - Calibration Method: CalibrationMethod.MinMax
+2025-04-23 18:02:48,024 - INFO - Operators to quantize: ['MatMul', 'Add']
+2025-04-23 18:02:48,024 - INFO - Starting calibration step (quantizer.fit)...
+2025-04-23 18:03:18,739 - ERROR - Error during processing for TinyLlama-1.1B-Chat-v1.0: Required inputs (['input_ids', 'attention_mask', 'position_ids']) are missing from input feed (['output', 'category', 'thought', 'input', 'id', 'instruction']).
+Traceback (most recent call last):
+  File "//workspace/code/quantize_models.py", line 216, in <module>
+    calibration_tensors_range = quantizer.fit(
+                                ^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/optimum/onnxruntime/quantization.py", line 202, in fit
+    self.partial_fit(
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/optimum/onnxruntime/quantization.py", line 262, in partial_fit
+    self._calibrator.collect_data(reader)
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/onnxruntime/quantization/calibrate.py", line 420, in collect_data
+    self.intermediate_outputs.append(self.infer_session.run(None, inputs))
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/onnxruntime/capi/onnxruntime_inference_collection.py", line 266, in run
+    self._validate_input(list(input_feed.keys()))
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/onnxruntime/capi/onnxruntime_inference_collection.py", line 248, in _validate_input
+    raise ValueError(
+ValueError: Required inputs (['input_ids', 'attention_mask', 'position_ids']) are missing from input feed (['output', 'category', 'thought', 'input', 'id', 'instruction']).
+2025-04-23 18:03:18,750 - WARNING - Quantization failed for TinyLlama-1.1B-Chat-v1.0. Keeping intermediate FP32 ONNX export at: /workspace/models/TinyLlama-1.1B-Chat-v1.0/temp-fp32-onnx-export
+2025-04-23 18:03:18,750 - INFO - --- Model Quantization Finished ---

@@ -1,0 +1,52 @@
+2025-04-23 15:23:52,497 - INFO - --- System Information ---
+2025-04-23 15:23:52,498 - INFO - Python Version: 3.11.11 (main, Dec  4 2024, 08:55:07) [GCC 11.4.0]
+2025-04-23 15:23:52,498 - INFO - Torch Version: 2.6.0+cu124
+2025-04-23 15:23:52,499 - INFO - Datasets Version: 3.5.0
+2025-04-23 15:23:52,500 - INFO - CPU Count: 96
+2025-04-23 15:23:52,501 - INFO - Total RAM: 503.51 GB
+2025-04-23 15:23:52,555 - INFO - GPU: NVIDIA A40
+2025-04-23 15:23:52,555 - INFO - Total VRAM: 44.45 GB
+2025-04-23 15:23:52,556 - INFO - CUDA Version: 12.4
+2025-04-23 15:23:52,556 - INFO - Using Device: cuda:0
+2025-04-23 15:23:52,557 - INFO - --------------------------
+2025-04-23 15:23:52,557 - INFO - Loading calibration dataset from: /workspace/calibration_data/sevenllm_instruct_subset_manual/
+2025-04-23 15:23:52,689 - INFO - Loaded and selected 200 calibration samples.
+2025-04-23 15:23:52,690 - INFO - Using column 'instruction' for calibration text.
+2025-04-23 15:23:52,691 - INFO - --- Starting Model Quantization ---
+2025-04-23 15:23:52,692 - INFO - 
+Processing model: Mistral-7B-Instruct-v0.3
+2025-04-23 15:23:52,692 - INFO - Input path: /workspace/models/Mistral-7B-Instruct-v0.3/
+2025-04-23 15:23:52,693 - INFO - Output path: workspace/models/Mistral-7B-Instruct-v0.3-int8-ptq-onnx/
+2025-04-23 15:23:52,693 - INFO - Trust remote code: True
+2025-04-23 15:23:52,697 - INFO - Loading quantizer and tokenizer...
+2025-04-23 15:23:52,697 - ERROR - Error during quantization for Mistral-7B-Instruct-v0.3: ORTQuantizer.from_pretrained() got an unexpected keyword argument 'trust_remote_code'
+Traceback (most recent call last):
+  File "//workspace/code/quantize_models.py", line 120, in <module>
+    quantizer = ORTQuantizer.from_pretrained(input_path, trust_remote_code=trust_remote_code)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: ORTQuantizer.from_pretrained() got an unexpected keyword argument 'trust_remote_code'
+2025-04-23 15:23:52,700 - INFO - 
+Processing model: TinyLlama-1.1B-Chat-v1.0
+2025-04-23 15:23:52,700 - INFO - Input path: /workspace/models/TinyLlama-1.1B-Chat-v1.0/
+2025-04-23 15:23:52,700 - INFO - Output path: workspace/models/TinyLlama-1.1B-Chat-v1.0-int8-ptq-onnx/
+2025-04-23 15:23:52,701 - INFO - Trust remote code: False
+2025-04-23 15:23:52,714 - INFO - Loading quantizer and tokenizer...
+2025-04-23 15:23:52,714 - ERROR - Error during quantization for TinyLlama-1.1B-Chat-v1.0: ORTQuantizer.from_pretrained() got an unexpected keyword argument 'trust_remote_code'
+Traceback (most recent call last):
+  File "//workspace/code/quantize_models.py", line 120, in <module>
+    quantizer = ORTQuantizer.from_pretrained(input_path, trust_remote_code=trust_remote_code)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: ORTQuantizer.from_pretrained() got an unexpected keyword argument 'trust_remote_code'
+2025-04-23 15:23:52,716 - INFO - 
+Processing model: Phi-3-mini-4k-instruct
+2025-04-23 15:23:52,716 - INFO - Input path: /workspace/models/Phi-3-mini-4k-instruct/
+2025-04-23 15:23:52,716 - INFO - Output path: workspace/models/Phi-3-mini-4k-instruct-int8-ptq-onnx/
+2025-04-23 15:23:52,717 - INFO - Trust remote code: True
+2025-04-23 15:23:52,719 - INFO - Loading quantizer and tokenizer...
+2025-04-23 15:23:52,719 - ERROR - Error during quantization for Phi-3-mini-4k-instruct: ORTQuantizer.from_pretrained() got an unexpected keyword argument 'trust_remote_code'
+Traceback (most recent call last):
+  File "//workspace/code/quantize_models.py", line 120, in <module>
+    quantizer = ORTQuantizer.from_pretrained(input_path, trust_remote_code=trust_remote_code)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: ORTQuantizer.from_pretrained() got an unexpected keyword argument 'trust_remote_code'
+2025-04-23 15:23:52,721 - INFO - --- Model Quantization Finished ---

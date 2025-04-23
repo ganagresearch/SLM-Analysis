@@ -1,0 +1,41 @@
+2025-04-23 14:53:35,288 - INFO - Loading calibration dataset from: /workspace/calibration_data/sevenllm_instruct_subset_manual/
+2025-04-23 14:53:35,480 - INFO - Loaded and selected 200 calibration samples.
+2025-04-23 14:53:35,481 - INFO - Using column 'instruction' for calibration text.
+2025-04-23 14:53:35,482 - INFO - --- Starting Model Quantization ---
+2025-04-23 14:53:35,483 - INFO - 
+Processing model: Mistral-7B-Instruct-v0.3
+2025-04-23 14:53:35,484 - INFO - Input path: /workspace/models/Mistral-7B-Instruct-v0.3/
+2025-04-23 14:53:35,484 - INFO - Output path: workspace/models/Mistral-7B-Instruct-v0.3-int8-ptq-onnx/
+2025-04-23 14:53:35,484 - INFO - Trust remote code: True
+2025-04-23 14:53:35,497 - INFO - Loading quantizer and tokenizer...
+2025-04-23 14:53:35,497 - ERROR - Error during quantization for Mistral-7B-Instruct-v0.3: ORTQuantizer.from_pretrained() got an unexpected keyword argument 'feature'
+Traceback (most recent call last):
+  File "/workspace/code/quantize_models.py", line 103, in <module>
+    quantizer = ORTQuantizer.from_pretrained(input_path, feature='text-generation', trust_remote_code=trust_remote_code)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: ORTQuantizer.from_pretrained() got an unexpected keyword argument 'feature'
+2025-04-23 14:53:35,500 - INFO - 
+Processing model: TinyLlama-1.1B-Chat-v1.0
+2025-04-23 14:53:35,500 - INFO - Input path: /workspace/models/TinyLlama-1.1B-Chat-v1.0/
+2025-04-23 14:53:35,501 - INFO - Output path: workspace/models/TinyLlama-1.1B-Chat-v1.0-int8-ptq-onnx/
+2025-04-23 14:53:35,501 - INFO - Trust remote code: False
+2025-04-23 14:53:35,515 - INFO - Loading quantizer and tokenizer...
+2025-04-23 14:53:35,516 - ERROR - Error during quantization for TinyLlama-1.1B-Chat-v1.0: ORTQuantizer.from_pretrained() got an unexpected keyword argument 'feature'
+Traceback (most recent call last):
+  File "/workspace/code/quantize_models.py", line 103, in <module>
+    quantizer = ORTQuantizer.from_pretrained(input_path, feature='text-generation', trust_remote_code=trust_remote_code)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: ORTQuantizer.from_pretrained() got an unexpected keyword argument 'feature'
+2025-04-23 14:53:35,518 - INFO - 
+Processing model: Phi-3-mini-4k-instruct
+2025-04-23 14:53:35,518 - INFO - Input path: /workspace/models/Phi-3-mini-4k-instruct/
+2025-04-23 14:53:35,519 - INFO - Output path: workspace/models/Phi-3-mini-4k-instruct-int8-ptq-onnx/
+2025-04-23 14:53:35,519 - INFO - Trust remote code: True
+2025-04-23 14:53:35,523 - INFO - Loading quantizer and tokenizer...
+2025-04-23 14:53:35,523 - ERROR - Error during quantization for Phi-3-mini-4k-instruct: ORTQuantizer.from_pretrained() got an unexpected keyword argument 'feature'
+Traceback (most recent call last):
+  File "/workspace/code/quantize_models.py", line 103, in <module>
+    quantizer = ORTQuantizer.from_pretrained(input_path, feature='text-generation', trust_remote_code=trust_remote_code)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: ORTQuantizer.from_pretrained() got an unexpected keyword argument 'feature'
+2025-04-23 14:53:35,526 - INFO - --- Model Quantization Finished ---

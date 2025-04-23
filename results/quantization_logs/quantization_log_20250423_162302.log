@@ -1,0 +1,22 @@
+2025-04-23 16:23:02,569 - INFO - --- System Information ---
+2025-04-23 16:23:02,570 - INFO - Python Version: 3.11.11 (main, Dec  4 2024, 08:55:07) [GCC 11.4.0]
+2025-04-23 16:23:02,570 - INFO - Torch Version: 2.6.0+cu124
+2025-04-23 16:23:02,570 - INFO - Datasets Version: 3.5.0
+2025-04-23 16:23:02,570 - INFO - CPU Count: 96
+2025-04-23 16:23:02,571 - INFO - Total RAM: 503.51 GB
+2025-04-23 16:23:02,611 - INFO - GPU: NVIDIA A40
+2025-04-23 16:23:02,611 - INFO - Total VRAM: 44.45 GB
+2025-04-23 16:23:02,611 - INFO - CUDA Version: 12.4
+2025-04-23 16:23:02,612 - INFO - Using Device: cuda:0
+2025-04-23 16:23:02,612 - INFO - --------------------------
+2025-04-23 16:23:02,612 - INFO - Loading calibration dataset from: /workspace/calibration_data/sevenllm_instruct_subset_manual/
+2025-04-23 16:23:02,643 - INFO - Loaded and selected 200 calibration samples.
+2025-04-23 16:23:02,643 - INFO - Using column 'instruction' for calibration text.
+2025-04-23 16:23:02,643 - INFO - --- Starting Model Quantization ---
+2025-04-23 16:23:02,643 - INFO - Processing model: Mistral-7B-Instruct-v0.3
+2025-04-23 16:23:02,644 - INFO - Input path (HF): /workspace/models/Mistral-7B-Instruct-v0.3/
+2025-04-23 16:23:02,644 - INFO - ONNX Export Path (Temp): workspace/models/Mistral-7B-Instruct-v0.3-int8-ptq-onnx/fp32-onnx-export
+2025-04-23 16:23:02,644 - INFO - Output path (Quantized): workspace/models/Mistral-7B-Instruct-v0.3-int8-ptq-onnx/
+2025-04-23 16:23:02,644 - INFO - Trust remote code: True
+2025-04-23 16:23:02,644 - INFO - Model Task: text-generation
+2025-04-23 16:23:02,646 - INFO - Exporting Mistral-7B-Instruct-v0.3 from Hugging Face format to ONNX...

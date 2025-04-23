@@ -1,0 +1,23 @@
+2025-04-23 16:21:23,655 - INFO - --- System Information ---
+2025-04-23 16:21:23,656 - INFO - Python Version: 3.11.11 (main, Dec  4 2024, 08:55:07) [GCC 11.4.0]
+2025-04-23 16:21:23,656 - INFO - Torch Version: 2.6.0+cu124
+2025-04-23 16:21:23,657 - INFO - Datasets Version: 3.5.0
+2025-04-23 16:21:23,657 - INFO - CPU Count: 96
+2025-04-23 16:21:23,658 - INFO - Total RAM: 503.51 GB
+2025-04-23 16:21:23,705 - INFO - GPU: NVIDIA A40
+2025-04-23 16:21:23,706 - INFO - Total VRAM: 44.45 GB
+2025-04-23 16:21:23,706 - INFO - CUDA Version: 12.4
+2025-04-23 16:21:23,707 - INFO - Using Device: cuda:0
+2025-04-23 16:21:23,707 - INFO - --------------------------
+2025-04-23 16:21:23,707 - INFO - Loading calibration dataset from: /workspace/calibration_data/sevenllm_instruct_subset_manual/
+2025-04-23 16:21:23,966 - INFO - Loaded and selected 200 calibration samples.
+2025-04-23 16:21:23,967 - INFO - Using column 'instruction' for calibration text.
+2025-04-23 16:21:23,967 - INFO - --- Starting Model Quantization ---
+2025-04-23 16:21:23,968 - INFO - Processing model: Mistral-7B-Instruct-v0.3
+2025-04-23 16:21:23,969 - INFO - Input path (HF): /workspace/models/Mistral-7B-Instruct-v0.3/
+2025-04-23 16:21:23,970 - INFO - ONNX Export Path (Temp): workspace/models/Mistral-7B-Instruct-v0.3-int8-ptq-onnx/fp32-onnx-export
+2025-04-23 16:21:23,970 - INFO - Output path (Quantized): workspace/models/Mistral-7B-Instruct-v0.3-int8-ptq-onnx/
+2025-04-23 16:21:23,971 - INFO - Trust remote code: True
+2025-04-23 16:21:23,972 - INFO - Model Task: text-generation
+2025-04-23 16:21:23,975 - WARNING - Skipping Mistral-7B-Instruct-v0.3: Final quantized output directory already exists at workspace/models/Mistral-7B-Instruct-v0.3-int8-ptq-onnx/
+2025-04-23 16:21:23,976 - INFO - --- Model Quantization Finished ---

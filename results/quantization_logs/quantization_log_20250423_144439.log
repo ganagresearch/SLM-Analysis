@@ -1,0 +1,7 @@
+2025-04-23 14:44:39,256 - INFO - Loading calibration dataset from: /workspace/calibration_data/sevenllm_instruct_subset_manual/
+2025-04-23 14:44:39,350 - INFO - Loaded and selected 200 calibration samples.
+2025-04-23 14:44:39,351 - ERROR - FATAL: Error loading calibration dataset from /workspace/calibration_data/sevenllm_instruct_subset_manual/: Calibration column 'prompt' not found in dataset columns: ['output', 'category', 'thought', 'input', 'id', 'instruction']
+Traceback (most recent call last):
+  File "/workspace/code/quantize_models.py", line 62, in <module>
+    raise ValueError(f"Calibration column '{CALIBRATION_COLUMN}' not found in dataset columns: {calibration_dataset.column_names}")
+ValueError: Calibration column 'prompt' not found in dataset columns: ['output', 'category', 'thought', 'input', 'id', 'instruction']

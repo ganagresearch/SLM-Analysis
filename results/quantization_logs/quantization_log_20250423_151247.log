@@ -1,0 +1,34 @@
+2025-04-23 15:12:47,338 - INFO - --- System Information ---
+2025-04-23 15:12:47,338 - INFO - Python Version: 3.11.11 (main, Dec  4 2024, 08:55:07) [GCC 11.4.0]
+2025-04-23 15:12:47,339 - INFO - Torch Version: 2.6.0+cu124
+2025-04-23 15:12:47,339 - INFO - Datasets Version: 3.5.0
+2025-04-23 15:12:47,339 - INFO - CPU Count: 96
+2025-04-23 15:12:47,340 - INFO - Total RAM: 503.51 GB
+2025-04-23 15:12:47,386 - INFO - GPU: NVIDIA A40
+2025-04-23 15:12:47,387 - INFO - Total VRAM: 44.45 GB
+2025-04-23 15:12:47,387 - INFO - CUDA Version: 12.4
+2025-04-23 15:12:47,387 - INFO - Using Device: cuda:0
+2025-04-23 15:12:47,387 - INFO - --------------------------
+2025-04-23 15:12:47,388 - INFO - Loading calibration dataset from: /workspace/calibration_data/sevenllm_instruct_subset_manual/
+2025-04-23 15:12:47,453 - INFO - Loaded and selected 200 calibration samples.
+2025-04-23 15:12:47,454 - INFO - Using column 'instruction' for calibration text.
+2025-04-23 15:12:47,454 - INFO - --- Starting Model Quantization ---
+2025-04-23 15:12:47,454 - INFO - 
+Processing model: Mistral-7B-Instruct-v0.3
+2025-04-23 15:12:47,454 - INFO - Input path: /workspace/models/Mistral-7B-Instruct-v0.3/
+2025-04-23 15:12:47,454 - INFO - Output path: workspace/models/Mistral-7B-Instruct-v0.3-int8-ptq-onnx/
+2025-04-23 15:12:47,455 - INFO - Trust remote code: True
+2025-04-23 15:12:47,457 - WARNING - Skipping Mistral-7B-Instruct-v0.3: Output directory already exists at workspace/models/Mistral-7B-Instruct-v0.3-int8-ptq-onnx/
+2025-04-23 15:12:47,457 - INFO - 
+Processing model: TinyLlama-1.1B-Chat-v1.0
+2025-04-23 15:12:47,457 - INFO - Input path: /workspace/models/TinyLlama-1.1B-Chat-v1.0/
+2025-04-23 15:12:47,457 - INFO - Output path: workspace/models/TinyLlama-1.1B-Chat-v1.0-int8-ptq-onnx/
+2025-04-23 15:12:47,458 - INFO - Trust remote code: False
+2025-04-23 15:12:47,458 - WARNING - Skipping TinyLlama-1.1B-Chat-v1.0: Output directory already exists at workspace/models/TinyLlama-1.1B-Chat-v1.0-int8-ptq-onnx/
+2025-04-23 15:12:47,459 - INFO - 
+Processing model: Phi-3-mini-4k-instruct
+2025-04-23 15:12:47,459 - INFO - Input path: /workspace/models/Phi-3-mini-4k-instruct/
+2025-04-23 15:12:47,459 - INFO - Output path: workspace/models/Phi-3-mini-4k-instruct-int8-ptq-onnx/
+2025-04-23 15:12:47,459 - INFO - Trust remote code: True
+2025-04-23 15:12:47,460 - WARNING - Skipping Phi-3-mini-4k-instruct: Output directory already exists at workspace/models/Phi-3-mini-4k-instruct-int8-ptq-onnx/
+2025-04-23 15:12:47,460 - INFO - --- Model Quantization Finished ---

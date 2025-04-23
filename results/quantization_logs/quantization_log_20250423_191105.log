@@ -1,0 +1,36 @@
+2025-04-23 19:11:05,928 - INFO - --- System Information ---
+2025-04-23 19:11:05,928 - INFO - Python Version: 3.11.11 (main, Dec  4 2024, 08:55:07) [GCC 11.4.0]
+2025-04-23 19:11:05,929 - INFO - Torch Version: 2.6.0+cu124
+2025-04-23 19:11:05,929 - INFO - Datasets Version: 3.5.0
+2025-04-23 19:11:05,929 - INFO - CPU Count: 96
+2025-04-23 19:11:05,930 - INFO - Total RAM: 503.51 GB
+2025-04-23 19:11:05,977 - INFO - GPU: NVIDIA A40
+2025-04-23 19:11:05,978 - INFO - Total VRAM: 44.45 GB
+2025-04-23 19:11:05,978 - INFO - CUDA Version: 12.4
+2025-04-23 19:11:05,978 - INFO - Using Device: cuda:0
+2025-04-23 19:11:05,979 - INFO - --------------------------
+2025-04-23 19:11:05,979 - INFO - Loading calibration dataset from: /workspace/calibration_data/sevenllm_instruct_subset_manual/
+2025-04-23 19:11:06,054 - INFO - Loaded and selected 200 calibration samples.
+2025-04-23 19:11:06,054 - INFO - Using column 'instruction' for calibration text.
+2025-04-23 19:11:06,054 - INFO - --- Starting Model Quantization ---
+2025-04-23 19:11:06,055 - INFO - 
+Processing model: TinyLlama-1.1B-Chat-v1.0
+2025-04-23 19:11:06,055 - INFO - Input path (HF): /workspace/models/TinyLlama-1.1B-Chat-v1.0/
+2025-04-23 19:11:06,055 - INFO - ONNX Export Path (Intermediate): /workspace/models/TinyLlama-1.1B-Chat-v1.0/temp-fp32-onnx-export
+2025-04-23 19:11:06,055 - INFO - Output path (Quantized ONNX files): /workspace/models/TinyLlama-1.1B-Chat-v1.0/
+2025-04-23 19:11:06,056 - INFO - Trust remote code: False
+2025-04-23 19:11:06,056 - INFO - Model Task: text-generation
+2025-04-23 19:11:06,058 - WARNING - Found existing intermediate FP32 ONNX model at /workspace/models/TinyLlama-1.1B-Chat-v1.0/temp-fp32-onnx-export/model.onnx. Skipping export.
+2025-04-23 19:11:06,058 - INFO - Using FP32 ONNX model: /workspace/models/TinyLlama-1.1B-Chat-v1.0/temp-fp32-onnx-export/model.onnx
+2025-04-23 19:11:06,058 - INFO - Loading quantizer for the exported ONNX model...
+2025-04-23 19:11:06,074 - INFO - Loading tokenizer from original HF path...
+2025-04-23 19:11:06,267 - INFO - Quantizer and tokenizer loaded.
+2025-04-23 19:11:06,267 - INFO - Preprocessing (tokenizing) the calibration dataset...
+2025-04-23 19:11:06,300 - INFO - Preprocessing complete. New columns: ['input_ids', 'attention_mask', 'position_ids']
+2025-04-23 19:11:06,300 - INFO - Defining quantization and calibration configurations...
+2025-04-23 19:11:06,300 - INFO - Quantization Config: QDQ (mode: QLinearOps, schema: u8/s8, channel-wise: False)
+2025-04-23 19:11:06,300 - INFO - Creating Calibration Config using preprocessed dataset.
+2025-04-23 19:11:06,301 - INFO - Calibration Method: CalibrationMethod.MinMax
+2025-04-23 19:11:06,301 - INFO - Operators to quantize: ['MatMul', 'Add']
+2025-04-23 19:11:06,301 - INFO - Starting calibration step (quantizer.fit)...
+2025-04-23 19:14:50,053 - WARNING - Quantization failed for TinyLlama-1.1B-Chat-v1.0. Keeping intermediate FP32 ONNX export at: /workspace/models/TinyLlama-1.1B-Chat-v1.0/temp-fp32-onnx-export
