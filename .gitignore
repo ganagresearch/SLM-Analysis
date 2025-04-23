@@ -17,6 +17,7 @@ code/model_evaluator/__pycache__/
 # Hugging Face cache directory (automatically generated)
 /datasets/.hf_cache/
 *.hf_cache/ # General pattern for any HF cache
+.hf_cache/
 
 # --- External Tools / Submodules (Optional) ---
 # If these are managed separately or very large, ignore them
