@@ -1,0 +1,37 @@
+2025-04-23 07:25:59,741 - INFO - --- Starting LM Evaluation Harness RERUN (Failed Tasks) ---
+2025-04-23 07:25:59,742 - INFO - Using command: lm_eval
+2025-04-23 07:25:59,742 - INFO - Harness Directory (for cwd): /workspace/code/lm-evaluation-harness
+2025-04-23 07:25:59,742 - INFO - Results Base Directory: /workspace/results/nlp/bare/48
+2025-04-23 07:25:59,742 - INFO - Error Log File: /workspace/results/nlp/bare/48/lm_eval_harness_rerun_errors.log
+2025-04-23 07:25:59,742 - INFO - Models to run: ['TinyLlama-1.1B-Chat-v1.0', 'Phi-3-mini-4k-instruct', 'Mistral-7B-Instruct-v0.3']
+2025-04-23 07:25:59,743 - INFO - Tasks to run: ['mmlu_elementary_mathematics', 'truthfulqa_mc2']
+2025-04-23 07:25:59,743 - INFO - Num Fewshot: 0
+2025-04-23 07:25:59,743 - INFO - Batch Size: auto
+2025-04-23 07:25:59,743 - INFO - Total runs planned: 6
+2025-04-23 07:25:59,744 - INFO - Verifying lm-evaluation-harness installation...
+2025-04-23 07:26:31,547 - INFO - lm_eval command found and appears runnable.
+2025-04-23 07:26:31,549 - INFO - 
+Run 1/6: Model='TinyLlama-1.1B-Chat-v1.0', Task='mmlu_elementary_mathematics'
+2025-04-23 07:26:31,551 - INFO - Executing command: lm_eval --model hf --model_args pretrained=/workspace/models/TinyLlama-1.1B-Chat-v1.0/ --tasks mmlu_elementary_mathematics --num_fewshot 0 --batch_size auto --device cuda:0 --output_path /workspace/results/nlp/bare/48/TinyLlama-1.1B-Chat-v1.0/mmlu_elementary_mathematics/results.json
+2025-04-23 07:27:51,687 - INFO - SUCCESS: Run 1/6: Model='TinyLlama-1.1B-Chat-v1.0', Task='mmlu_elementary_mathematics'. Results saved in /workspace/results/nlp/bare/48/TinyLlama-1.1B-Chat-v1.0/mmlu_elementary_mathematics/results.json
+2025-04-23 07:27:51,688 - INFO - 
+Run 2/6: Model='TinyLlama-1.1B-Chat-v1.0', Task='truthfulqa_mc2'
+2025-04-23 07:27:51,691 - INFO - Executing command: lm_eval --model hf --model_args pretrained=/workspace/models/TinyLlama-1.1B-Chat-v1.0/ --tasks truthfulqa_mc2 --num_fewshot 0 --batch_size auto --device cuda:0 --output_path /workspace/results/nlp/bare/48/TinyLlama-1.1B-Chat-v1.0/truthfulqa_mc2/results.json
+2025-04-23 07:29:52,179 - INFO - SUCCESS: Run 2/6: Model='TinyLlama-1.1B-Chat-v1.0', Task='truthfulqa_mc2'. Results saved in /workspace/results/nlp/bare/48/TinyLlama-1.1B-Chat-v1.0/truthfulqa_mc2/results.json
+2025-04-23 07:29:52,180 - INFO - 
+Run 3/6: Model='Phi-3-mini-4k-instruct', Task='mmlu_elementary_mathematics'
+2025-04-23 07:29:52,183 - INFO - Executing command: lm_eval --model hf --model_args pretrained=/workspace/models/Phi-3-mini-4k-instruct/,trust_remote_code=True --tasks mmlu_elementary_mathematics --num_fewshot 0 --batch_size auto --device cuda:0 --output_path /workspace/results/nlp/bare/48/Phi-3-mini-4k-instruct/mmlu_elementary_mathematics/results.json
+2025-04-23 07:31:33,205 - INFO - SUCCESS: Run 3/6: Model='Phi-3-mini-4k-instruct', Task='mmlu_elementary_mathematics'. Results saved in /workspace/results/nlp/bare/48/Phi-3-mini-4k-instruct/mmlu_elementary_mathematics/results.json
+2025-04-23 07:31:33,209 - INFO - 
+Run 4/6: Model='Phi-3-mini-4k-instruct', Task='truthfulqa_mc2'
+2025-04-23 07:31:33,212 - INFO - Executing command: lm_eval --model hf --model_args pretrained=/workspace/models/Phi-3-mini-4k-instruct/,trust_remote_code=True --tasks truthfulqa_mc2 --num_fewshot 0 --batch_size auto --device cuda:0 --output_path /workspace/results/nlp/bare/48/Phi-3-mini-4k-instruct/truthfulqa_mc2/results.json
+2025-04-23 07:35:19,329 - INFO - SUCCESS: Run 4/6: Model='Phi-3-mini-4k-instruct', Task='truthfulqa_mc2'. Results saved in /workspace/results/nlp/bare/48/Phi-3-mini-4k-instruct/truthfulqa_mc2/results.json
+2025-04-23 07:35:19,330 - INFO - 
+Run 5/6: Model='Mistral-7B-Instruct-v0.3', Task='mmlu_elementary_mathematics'
+2025-04-23 07:35:19,333 - INFO - Executing command: lm_eval --model hf --model_args pretrained=/workspace/models/Mistral-7B-Instruct-v0.3/,trust_remote_code=True --tasks mmlu_elementary_mathematics --num_fewshot 0 --batch_size auto --device cuda:0 --output_path /workspace/results/nlp/bare/48/Mistral-7B-Instruct-v0.3/mmlu_elementary_mathematics/results.json
+2025-04-23 07:37:18,162 - INFO - SUCCESS: Run 5/6: Model='Mistral-7B-Instruct-v0.3', Task='mmlu_elementary_mathematics'. Results saved in /workspace/results/nlp/bare/48/Mistral-7B-Instruct-v0.3/mmlu_elementary_mathematics/results.json
+2025-04-23 07:37:18,163 - INFO - 
+Run 6/6: Model='Mistral-7B-Instruct-v0.3', Task='truthfulqa_mc2'
+2025-04-23 07:37:18,165 - INFO - Executing command: lm_eval --model hf --model_args pretrained=/workspace/models/Mistral-7B-Instruct-v0.3/,trust_remote_code=True --tasks truthfulqa_mc2 --num_fewshot 0 --batch_size auto --device cuda:0 --output_path /workspace/results/nlp/bare/48/Mistral-7B-Instruct-v0.3/truthfulqa_mc2/results.json
+2025-04-23 07:42:06,983 - INFO - SUCCESS: Run 6/6: Model='Mistral-7B-Instruct-v0.3', Task='truthfulqa_mc2'. Results saved in /workspace/results/nlp/bare/48/Mistral-7B-Instruct-v0.3/truthfulqa_mc2/results.json
+2025-04-23 07:42:06,984 - INFO - --- LM Evaluation Harness RERUN Finished ---
