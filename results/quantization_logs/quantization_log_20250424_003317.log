@@ -1,0 +1,4 @@
+2025-04-24 00:33:17,160 - INFO - [<module>] - --- System Information ---
+2025-04-24 00:33:17,160 - INFO - [<module>] - Python Version: 3.11.11 (main, Dec  4 2024, 08:55:07) [GCC 11.4.0]
+2025-04-24 00:33:17,160 - INFO - [<module>] - Torch Version: 2.7.0+cu126
+2025-04-24 00:33:17,160 - INFO - [<module>] - Transformers Version: 4.51.3

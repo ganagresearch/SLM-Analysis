@@ -1,0 +1,63 @@
+2025-04-23 22:57:26,807 - INFO - --- System Information ---
+2025-04-23 22:57:26,807 - INFO - Python Version: 3.11.11 (main, Dec  4 2024, 08:55:07) [GCC 11.4.0]
+2025-04-23 22:57:26,807 - INFO - Torch Version: 2.7.0+cu126
+2025-04-23 22:57:26,807 - INFO - Datasets Version: 3.5.0
+2025-04-23 22:57:26,807 - INFO - CPU Count: 192
+2025-04-23 22:57:26,807 - INFO - Total RAM: 2015.55 GB
+2025-04-23 22:57:26,825 - INFO - GPU: NVIDIA H200
+2025-04-23 22:57:26,826 - INFO - Total VRAM: 139.72 GB
+2025-04-23 22:57:26,826 - INFO - CUDA Version: 12.6
+2025-04-23 22:57:26,826 - INFO - Using Device: cuda:0
+2025-04-23 22:57:26,826 - INFO - --------------------------
+2025-04-23 22:57:26,826 - INFO - Loading calibration dataset from: /workspace/calibration_data/sevenllm_instruct_subset_manual/
+2025-04-23 22:57:26,830 - INFO - Loaded and selected 200 calibration samples.
+2025-04-23 22:57:26,830 - INFO - Using column 'instruction' for calibration text.
+2025-04-23 22:57:26,830 - INFO - --- Starting Model Quantization ---
+2025-04-23 22:57:26,830 - INFO - 
+Processing model: Phi-3-mini-4k-instruct
+2025-04-23 22:57:26,830 - INFO - Input path (HF): /workspace/models/Phi-3-mini-4k-instruct/
+2025-04-23 22:57:26,830 - INFO - ONNX Export Path (Intermediate): /workspace/models/Phi-3-mini-4k-instruct/temp-fp32-onnx-export
+2025-04-23 22:57:26,830 - INFO - Output path (Quantized ONNX files): /workspace/models/Phi-3-mini-4k-instruct/
+2025-04-23 22:57:26,831 - INFO - Trust remote code: True
+2025-04-23 22:57:26,831 - INFO - Model Task: text-generation
+2025-04-23 22:57:26,831 - INFO - Exporting Phi-3-mini-4k-instruct from Hugging Face format to ONNX...
+2025-04-23 22:57:26,880 - WARNING - `flash-attention` package not found, consider installing for better performance: No module named 'flash_attn'.
+2025-04-23 22:57:26,880 - WARNING - Current `flash-attention` does not support `window_size`. Either upgrade or use `attn_implementation='eager'`.
+2025-04-23 22:57:30,290 - WARNING - You are not running the flash-attention implementation, expect numerical differences.
+2025-04-23 23:01:09,187 - INFO - Identified exported ONNX model file: model.onnx
+2025-04-23 23:01:09,187 - INFO - ONNX export successful. Duration: 0:03:42.356091
+2025-04-23 23:01:09,187 - INFO - Using FP32 ONNX model: /workspace/models/Phi-3-mini-4k-instruct/temp-fp32-onnx-export/model.onnx
+2025-04-23 23:01:09,187 - INFO - Loading quantizer for the exported ONNX model...
+2025-04-23 23:01:09,189 - INFO - Loading tokenizer from original HF path...
+2025-04-23 23:01:09,252 - INFO - Quantizer and tokenizer loaded.
+2025-04-23 23:01:09,252 - INFO - Preprocessing (tokenizing) the calibration dataset...
+2025-04-23 23:01:10,125 - INFO - Preprocessing complete. New columns: ['input_ids', 'attention_mask', 'position_ids']
+2025-04-23 23:01:10,125 - INFO - Defining quantization and calibration configurations...
+2025-04-23 23:01:10,125 - INFO - Quantization Config: QDQ (mode: QLinearOps, schema: u8/s8, channel-wise: False)
+2025-04-23 23:01:10,125 - INFO - Creating Calibration Config using preprocessed dataset.
+2025-04-23 23:01:10,126 - INFO - Calibration Method: CalibrationMethod.MinMax
+2025-04-23 23:01:10,126 - INFO - Operators to quantize: ['MatMul', 'Add']
+2025-04-23 23:01:10,126 - INFO - Starting calibration step (quantizer.fit)...
+2025-04-23 23:02:52,483 - INFO - Calibration step (fit) successful. Duration: 0:01:42.357258
+2025-04-23 23:02:52,483 - INFO - Computed calibration ranges (TensorsData object returned).
+2025-04-23 23:02:52,483 - INFO - Applying quantization and exporting INT8 model (quantizer.quantize)...
+2025-04-23 23:03:41,966 - ERROR - Error during processing for Phi-3-mini-4k-instruct: Only an existing tensor can be modified, '/model/layers.0/self_attn/Softmax_output_0' is not.
+Traceback (most recent call last):
+  File "/workspace/code/quantize_models.py", line 282, in <module>
+    quantizer.quantize(
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/optimum/onnxruntime/quantization.py", line 400, in quantize
+    quantizer = quantizer_factory(**quantizer_kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/onnxruntime/quantization/qdq_quantizer.py", line 215, in __init__
+    self.quantization_params = self.calc_graph_quant_params()
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/onnxruntime/quantization/qdq_quantizer.py", line 1169, in calc_graph_quant_params
+    self.adjust_tensor_ranges()
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/onnxruntime/quantization/base_quantizer.py", line 536, in adjust_tensor_ranges
+    self.tensors_range[node.output[0]] = TensorData(lowest=np.float32(0.0), highest=np.float32(1.0))
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/onnxruntime/quantization/calibrate.py", line 125, in __setitem__
+    raise RuntimeError(f"Only an existing tensor can be modified, {key!r} is not.")
+RuntimeError: Only an existing tensor can be modified, '/model/layers.0/self_attn/Softmax_output_0' is not.
+2025-04-23 23:03:43,338 - WARNING - Quantization failed for Phi-3-mini-4k-instruct. Keeping intermediate FP32 ONNX export at: /workspace/models/Phi-3-mini-4k-instruct/temp-fp32-onnx-export
+2025-04-23 23:03:43,338 - INFO - --- Model Quantization Finished ---

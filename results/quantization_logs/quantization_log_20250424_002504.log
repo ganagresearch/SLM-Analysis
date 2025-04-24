@@ -1,0 +1,70 @@
+2025-04-24 00:25:04,875 - INFO - --- System Information ---
+2025-04-24 00:25:04,876 - INFO - Python Version: 3.11.11 (main, Dec  4 2024, 08:55:07) [GCC 11.4.0]
+2025-04-24 00:25:04,876 - INFO - Torch Version: 2.7.0+cu126
+2025-04-24 00:25:04,876 - INFO - Datasets Version: 3.5.0
+2025-04-24 00:25:04,876 - INFO - CPU Count: 192
+2025-04-24 00:25:04,876 - INFO - Total RAM: 2015.55 GB
+2025-04-24 00:25:04,895 - INFO - GPU: NVIDIA H200
+2025-04-24 00:25:04,895 - INFO - Total VRAM: 139.72 GB
+2025-04-24 00:25:04,895 - INFO - CUDA Version: 12.6
+2025-04-24 00:25:04,895 - INFO - Using Device: cuda:0
+2025-04-24 00:25:04,895 - INFO - --------------------------
+2025-04-24 00:25:04,895 - INFO - Loading calibration dataset from: /workspace/calibration_data/sevenllm_instruct_subset_manual/
+2025-04-24 00:25:04,900 - INFO - Loaded and selected 200 calibration samples.
+2025-04-24 00:25:04,901 - INFO - Using column 'instruction' for calibration text.
+2025-04-24 00:25:04,901 - INFO - --- Starting Model Quantization ---
+2025-04-24 00:25:04,901 - INFO - 
+Processing model: Mistral-7B-Instruct-v0.3
+2025-04-24 00:25:04,901 - INFO - Input path (HF): /workspace/models/Mistral-7B-Instruct-v0.3/
+2025-04-24 00:25:04,901 - INFO - ONNX Export Path (Intermediate): /workspace/models/Mistral-7B-Instruct-v0.3/temp-fp32-onnx-export
+2025-04-24 00:25:04,901 - INFO - Output path (Quantized ONNX files): /workspace/models/Mistral-7B-Instruct-v0.3/
+2025-04-24 00:25:04,901 - INFO - Trust remote code: True
+2025-04-24 00:25:04,901 - INFO - Model Task: text-generation
+2025-04-24 00:25:04,901 - INFO - Loading tokenizer from original HF path...
+2025-04-24 00:25:05,140 - INFO - Tokenizer loaded.
+2025-04-24 00:25:05,141 - INFO - Exporting Mistral-7B-Instruct-v0.3 from Hugging Face format to ONNX using torch.onnx.export...
+2025-04-24 00:25:05,141 - INFO - Loading model for ONNX export...
+2025-04-24 00:25:15,808 - INFO - Moved model to cuda:0 for export.
+2025-04-24 00:25:15,808 - INFO - Model loaded. Preparing dummy input for ONNX tracing...
+2025-04-24 00:25:15,809 - INFO - Dummy input created with keys: ['input_ids', 'attention_mask', 'position_ids']
+2025-04-24 00:25:15,809 - INFO - Exporting to /workspace/models/Mistral-7B-Instruct-v0.3/temp-fp32-onnx-export/model.onnx...
+2025-04-24 00:25:16,548 - ERROR - Error during processing for Mistral-7B-Instruct-v0.3: Only tuples, lists and Variables are supported as JIT inputs/outputs. Dictionaries and strings are also accepted, but their usage is not recommended. Here, received an input of unsupported type: DynamicCache
+Traceback (most recent call last):
+  File "/workspace/code/quantize_models.py", line 186, in <module>
+    torch.onnx.export(
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/onnx/__init__.py", line 396, in export
+    export(
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/onnx/utils.py", line 529, in export
+    _export(
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/onnx/utils.py", line 1467, in _export
+    graph, params_dict, torch_out = _model_to_graph(
+                                    ^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/onnx/utils.py", line 1087, in _model_to_graph
+    graph, params, torch_out, module = _create_jit_graph(model, args)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/onnx/utils.py", line 971, in _create_jit_graph
+    graph, torch_out = _trace_and_get_graph_from_model(model, args)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/onnx/utils.py", line 878, in _trace_and_get_graph_from_model
+    trace_graph, torch_out, inputs_states = torch.jit._get_trace_graph(
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/jit/_trace.py", line 1501, in _get_trace_graph
+    outs = ONNXTracedModule(
+           ^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/jit/_trace.py", line 138, in forward
+    graph, _out = torch._C._create_graph_by_tracing(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/jit/_trace.py", line 132, in wrapper
+    out_vars, _ = _flatten(outs)
+                  ^^^^^^^^^^^^^^
+RuntimeError: Only tuples, lists and Variables are supported as JIT inputs/outputs. Dictionaries and strings are also accepted, but their usage is not recommended. Here, received an input of unsupported type: DynamicCache
+2025-04-24 00:25:16,551 - INFO - Model unloaded due to error.
+2025-04-24 00:25:16,551 - INFO - Attempting to clean up failed export directory: /workspace/models/Mistral-7B-Instruct-v0.3/temp-fp32-onnx-export
+2025-04-24 00:25:16,551 - INFO - Cleaned up failed export directory: /workspace/models/Mistral-7B-Instruct-v0.3/temp-fp32-onnx-export
+2025-04-24 00:25:16,551 - INFO - --- Model Quantization Finished ---

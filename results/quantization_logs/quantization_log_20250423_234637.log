@@ -1,0 +1,42 @@
+2025-04-23 23:46:37,850 - INFO - --- System Information ---
+2025-04-23 23:46:37,850 - INFO - Python Version: 3.11.11 (main, Dec  4 2024, 08:55:07) [GCC 11.4.0]
+2025-04-23 23:46:37,850 - INFO - Torch Version: 2.7.0+cu126
+2025-04-23 23:46:37,850 - INFO - Datasets Version: 3.5.0
+2025-04-23 23:46:37,850 - INFO - CPU Count: 192
+2025-04-23 23:46:37,850 - INFO - Total RAM: 2015.55 GB
+2025-04-23 23:46:37,869 - INFO - GPU: NVIDIA H200
+2025-04-23 23:46:37,869 - INFO - Total VRAM: 139.72 GB
+2025-04-23 23:46:37,869 - INFO - CUDA Version: 12.6
+2025-04-23 23:46:37,869 - INFO - Using Device: cuda:0
+2025-04-23 23:46:37,869 - INFO - --------------------------
+2025-04-23 23:46:37,869 - INFO - Loading calibration dataset from: /workspace/calibration_data/sevenllm_instruct_subset_manual/
+2025-04-23 23:46:37,874 - INFO - Loaded and selected 200 calibration samples.
+2025-04-23 23:46:37,874 - INFO - Using column 'instruction' for calibration text.
+2025-04-23 23:46:37,875 - INFO - --- Starting Model Quantization ---
+2025-04-23 23:46:37,875 - INFO - 
+Processing model: Phi-3-mini-4k-instruct
+2025-04-23 23:46:37,875 - INFO - Input path (HF): /workspace/models/Phi-3-mini-4k-instruct/
+2025-04-23 23:46:37,875 - INFO - ONNX Export Path (Intermediate): /workspace/models/Phi-3-mini-4k-instruct/temp-fp32-onnx-export
+2025-04-23 23:46:37,875 - INFO - Output path (Quantized ONNX files): /workspace/models/Phi-3-mini-4k-instruct/
+2025-04-23 23:46:37,875 - INFO - Trust remote code: True
+2025-04-23 23:46:37,875 - INFO - Model Task: text-generation
+2025-04-23 23:46:37,875 - WARNING - Found existing intermediate FP32 ONNX model at /workspace/models/Phi-3-mini-4k-instruct/temp-fp32-onnx-export/model.onnx. Skipping export.
+2025-04-23 23:46:37,875 - INFO - Using FP32 ONNX model: /workspace/models/Phi-3-mini-4k-instruct/temp-fp32-onnx-export/model.onnx
+2025-04-23 23:46:37,875 - INFO - Loading quantizer for the exported ONNX model...
+2025-04-23 23:46:37,876 - INFO - Loading tokenizer from original HF path...
+2025-04-23 23:46:37,939 - INFO - Quantizer and tokenizer loaded.
+2025-04-23 23:46:37,939 - INFO - Preprocessing (tokenizing) the calibration dataset...
+2025-04-23 23:46:37,959 - INFO - Preprocessing complete. New columns: ['input_ids', 'attention_mask', 'position_ids']
+2025-04-23 23:46:37,959 - INFO - Defining quantization and calibration configurations...
+2025-04-23 23:46:37,959 - INFO - Quantization Config: Type=QuantizationConfig, Format=QDQ, PerChannel=False
+2025-04-23 23:46:37,959 - INFO - Operators to quantize: ['MatMul', 'Add']
+2025-04-23 23:46:37,959 - INFO - Operators excluded from quantization: ['Softmax', 'Cast']
+2025-04-23 23:46:37,959 - INFO - Creating Calibration Config using preprocessed dataset.
+2025-04-23 23:46:37,959 - ERROR - Error during processing for Phi-3-mini-4k-instruct: AutoCalibrationConfig.minmax() got an unexpected keyword argument 'method'
+Traceback (most recent call last):
+  File "/workspace/code/quantize_models.py", line 255, in <module>
+    calibration_config = AutoCalibrationConfig.minmax(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: AutoCalibrationConfig.minmax() got an unexpected keyword argument 'method'
+2025-04-23 23:46:37,959 - WARNING - Quantization failed for Phi-3-mini-4k-instruct. Keeping intermediate FP32 ONNX export at: /workspace/models/Phi-3-mini-4k-instruct/temp-fp32-onnx-export
+2025-04-23 23:46:37,959 - INFO - --- Model Quantization Finished ---

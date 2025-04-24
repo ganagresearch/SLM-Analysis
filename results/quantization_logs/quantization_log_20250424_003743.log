@@ -1,0 +1,50 @@
+2025-04-24 00:37:43,449 - INFO - [<module>] - --- System Information ---
+2025-04-24 00:37:43,449 - INFO - [<module>] - Python Version: 3.11.11 (main, Dec  4 2024, 08:55:07) [GCC 11.4.0]
+2025-04-24 00:37:43,449 - INFO - [<module>] - Torch Version: 2.7.0+cu126
+2025-04-24 00:37:43,451 - INFO - [<module>] - Transformers Version: 4.51.3
+2025-04-24 00:37:43,451 - INFO - [<module>] - Optimum Version: 1.24.0
+2025-04-24 00:37:43,451 - INFO - [<module>] - ONNX Runtime Version (GPU): 1.19.2
+2025-04-24 00:37:43,452 - INFO - [<module>] - Datasets Version: 3.5.0
+2025-04-24 00:37:43,452 - INFO - [<module>] - CPU Count: 192
+2025-04-24 00:37:43,452 - INFO - [<module>] - Total RAM: 2015.55 GB
+2025-04-24 00:37:43,471 - INFO - [<module>] - GPU: NVIDIA H200
+2025-04-24 00:37:43,471 - INFO - [<module>] - Total VRAM: 139.72 GB
+2025-04-24 00:37:43,471 - INFO - [<module>] - CUDA Version: 12.6
+2025-04-24 00:37:43,471 - INFO - [<module>] - Using Device: cuda:0
+2025-04-24 00:37:43,471 - INFO - [<module>] - Quantization Batch Size: 4
+2025-04-24 00:37:43,471 - INFO - [<module>] - FP32 Export Opset: 16
+2025-04-24 00:37:43,471 - INFO - [<module>] - --------------------------
+2025-04-24 00:37:43,471 - INFO - [<module>] - Loading calibration dataset from: /workspace/calibration_data/sevenllm_instruct_subset_manual/
+2025-04-24 00:37:43,485 - INFO - [<module>] - Loaded and selected 200 calibration samples.
+2025-04-24 00:37:43,485 - INFO - [<module>] - Using column 'instruction' for calibration text.
+2025-04-24 00:37:43,485 - INFO - [<module>] - --- Starting Model Quantization ---
+2025-04-24 00:37:43,485 - INFO - [<module>] - 
+===== Processing model: Mistral-7B-Instruct-v0.3 =====
+2025-04-24 00:37:43,485 - INFO - [<module>] - Input path (HF): /workspace/models/Mistral-7B-Instruct-v0.3/
+2025-04-24 00:37:43,485 - INFO - [<module>] - Intermediate ONNX Export Path: /workspace/models/Mistral-7B-Instruct-v0.3/temp-fp32-onnx-export
+2025-04-24 00:37:43,485 - INFO - [<module>] - Final Quantized Output Path: /workspace/models/Mistral-7B-Instruct-v0.3/
+2025-04-24 00:37:43,486 - INFO - [<module>] - Trust remote code: True
+2025-04-24 00:37:43,486 - INFO - [<module>] - Loading tokenizer...
+2025-04-24 00:37:43,825 - WARNING - [<module>] - Tokenizer padding side is 'left'. Setting to 'right' for consistent preprocessing.
+2025-04-24 00:37:43,826 - WARNING - [<module>] - Tokenizer does not have a pad token. Setting to eos_token.
+2025-04-24 00:37:43,826 - INFO - [<module>] - Tokenizer loaded.
+2025-04-24 00:37:43,826 - INFO - [<module>] - Starting FP32 ONNX export using torch.onnx.export (Opset: 16)...
+2025-04-24 00:37:43,826 - INFO - [<module>] - Loading model for ONNX export (FP32)...
+2025-04-24 00:37:54,703 - INFO - [<module>] - Moved model to cuda:0 for export.
+2025-04-24 00:37:54,704 - INFO - [<module>] - Preparing dummy inputs for ONNX tracing...
+2025-04-24 00:37:54,704 - INFO - [<module>] - Dummy input keys: ['input_ids', 'attention_mask', 'position_ids']
+2025-04-24 00:37:54,704 - INFO - [<module>] - Expected output name: logits
+2025-04-24 00:37:54,704 - INFO - [<module>] - Defined dynamic axes for inputs and output.
+2025-04-24 00:37:54,704 - INFO - [<module>] - Starting torch.onnx.export to model.onnx...
+2025-04-24 00:37:54,704 - ERROR - [<module>] - ERROR during processing for Mistral-7B-Instruct-v0.3: export() got an unexpected keyword argument 'use_external_data_format'
+Traceback (most recent call last):
+  File "/workspace/code/quantize_models.py", line 225, in <module>
+    torch.onnx.export(
+TypeError: export() got an unexpected keyword argument 'use_external_data_format'
+2025-04-24 00:37:54,705 - WARNING - [<module>] - Attempting to unload model due to error...
+2025-04-24 00:37:54,736 - INFO - [<module>] - Model unloaded after error.
+2025-04-24 00:37:54,736 - WARNING - [<module>] - FP32 export failed. Attempting to clean up possibly incomplete export directory: /workspace/models/Mistral-7B-Instruct-v0.3/temp-fp32-onnx-export
+2025-04-24 00:37:54,749 - INFO - [<module>] - Cleaned up failed export directory: /workspace/models/Mistral-7B-Instruct-v0.3/temp-fp32-onnx-export
+2025-04-24 00:37:54,749 - INFO - [<module>] - ===== Finished processing model: Mistral-7B-Instruct-v0.3 =====
+2025-04-24 00:37:54,749 - INFO - [<module>] - 
+--- Model Quantization Script Finished ---

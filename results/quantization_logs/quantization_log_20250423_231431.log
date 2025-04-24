@@ -1,0 +1,58 @@
+2025-04-23 23:14:31,031 - INFO - --- System Information ---
+2025-04-23 23:14:31,031 - INFO - Python Version: 3.11.11 (main, Dec  4 2024, 08:55:07) [GCC 11.4.0]
+2025-04-23 23:14:31,031 - INFO - Torch Version: 2.7.0+cu126
+2025-04-23 23:14:31,031 - INFO - Datasets Version: 3.5.0
+2025-04-23 23:14:31,031 - INFO - CPU Count: 192
+2025-04-23 23:14:31,031 - INFO - Total RAM: 2015.55 GB
+2025-04-23 23:14:31,050 - INFO - GPU: NVIDIA H200
+2025-04-23 23:14:31,050 - INFO - Total VRAM: 139.72 GB
+2025-04-23 23:14:31,050 - INFO - CUDA Version: 12.6
+2025-04-23 23:14:31,050 - INFO - Using Device: cuda:0
+2025-04-23 23:14:31,050 - INFO - --------------------------
+2025-04-23 23:14:31,050 - INFO - Loading calibration dataset from: /workspace/calibration_data/sevenllm_instruct_subset_manual/
+2025-04-23 23:14:31,055 - INFO - Loaded and selected 200 calibration samples.
+2025-04-23 23:14:31,055 - INFO - Using column 'instruction' for calibration text.
+2025-04-23 23:14:31,055 - INFO - --- Starting Model Quantization ---
+2025-04-23 23:14:31,055 - INFO - 
+Processing model: TinyLlama-1.1B-Chat-v1.0
+2025-04-23 23:14:31,055 - INFO - Input path (HF): /workspace/models/TinyLlama-1.1B-Chat-v1.0/
+2025-04-23 23:14:31,055 - INFO - ONNX Export Path (Intermediate): /workspace/models/TinyLlama-1.1B-Chat-v1.0/temp-fp32-onnx-export
+2025-04-23 23:14:31,055 - INFO - Output path (Quantized ONNX files): /workspace/models/TinyLlama-1.1B-Chat-v1.0/
+2025-04-23 23:14:31,055 - INFO - Trust remote code: False
+2025-04-23 23:14:31,055 - INFO - Model Task: text-generation
+2025-04-23 23:14:31,055 - INFO - Exporting TinyLlama-1.1B-Chat-v1.0 from Hugging Face format to ONNX...
+2025-04-23 23:15:29,489 - ERROR - Error during processing for TinyLlama-1.1B-Chat-v1.0: An error occured during validation, but the model was saved nonetheless at /workspace/models/TinyLlama-1.1B-Chat-v1.0/temp-fp32-onnx-export. Detailed error: Required inputs (['onnx::Gather_3']) are missing from input feed (['input_ids', 'attention_mask', 'position_ids'])..
+Traceback (most recent call last):
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/optimum/exporters/onnx/convert.py", line 1225, in onnx_export_from_model
+    validate_models_outputs(
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/optimum/exporters/onnx/convert.py", line 163, in validate_models_outputs
+    raise exceptions[-1][1]
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/optimum/exporters/onnx/convert.py", line 146, in validate_models_outputs
+    validate_model_outputs(
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/optimum/exporters/onnx/convert.py", line 216, in validate_model_outputs
+    _run_validation(
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/optimum/exporters/onnx/convert.py", line 352, in _run_validation
+    onnx_outputs = session.run(onnx_named_outputs, onnx_inputs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/optimum/exporters/onnx/utils.py", line 172, in run
+    return self.sess.run(*args)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/onnxruntime/capi/onnxruntime_inference_collection.py", line 216, in run
+    self._validate_input(list(input_feed.keys()))
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/onnxruntime/capi/onnxruntime_inference_collection.py", line 198, in _validate_input
+    raise ValueError(
+ValueError: Required inputs (['onnx::Gather_3']) are missing from input feed (['input_ids', 'attention_mask', 'position_ids']).
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/code/quantize_models.py", line 159, in <module>
+    main_export(
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/optimum/exporters/onnx/__main__.py", line 375, in main_export
+    onnx_export_from_model(
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/optimum/exporters/onnx/convert.py", line 1248, in onnx_export_from_model
+    raise Exception(
+Exception: An error occured during validation, but the model was saved nonetheless at /workspace/models/TinyLlama-1.1B-Chat-v1.0/temp-fp32-onnx-export. Detailed error: Required inputs (['onnx::Gather_3']) are missing from input feed (['input_ids', 'attention_mask', 'position_ids'])..
+2025-04-23 23:15:29,491 - INFO - Attempting to clean up failed export directory: /workspace/models/TinyLlama-1.1B-Chat-v1.0/temp-fp32-onnx-export
+2025-04-23 23:15:29,492 - INFO - Cleaned up failed export directory: /workspace/models/TinyLlama-1.1B-Chat-v1.0/temp-fp32-onnx-export
+2025-04-23 23:15:29,492 - INFO - --- Model Quantization Finished ---

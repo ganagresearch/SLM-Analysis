@@ -1,0 +1,1001 @@
+2025-04-24 00:48:26,160 - INFO - [<module>] - --- System Information ---
+2025-04-24 00:48:26,161 - INFO - [<module>] - Script: AutoGPTQ Quantization
+2025-04-24 00:48:26,161 - INFO - [<module>] - Python Version: 3.11.11 (main, Dec  4 2024, 08:55:07) [GCC 11.4.0]
+2025-04-24 00:48:26,161 - INFO - [<module>] - Torch Version: 2.7.0+cu126
+2025-04-24 00:48:26,162 - INFO - [<module>] - Transformers Version: 4.52.0.dev0
+2025-04-24 00:48:26,163 - INFO - [<module>] - Optimum Version: 1.24.0
+2025-04-24 00:48:26,163 - INFO - [<module>] - Accelerate Version: 1.6.0
+2025-04-24 00:48:26,163 - INFO - [<module>] - Bitsandbytes Version: 0.45.5
+2025-04-24 00:48:26,163 - INFO - [<module>] - Datasets Version: 3.5.0
+2025-04-24 00:48:26,163 - INFO - [<module>] - CPU Count: 192
+2025-04-24 00:48:26,164 - INFO - [<module>] - Total RAM: 2015.55 GB
+2025-04-24 00:48:26,183 - INFO - [<module>] - GPU: NVIDIA H200
+2025-04-24 00:48:26,183 - INFO - [<module>] - Total VRAM: 139.72 GB
+2025-04-24 00:48:26,183 - INFO - [<module>] - CUDA Version: 12.6
+2025-04-24 00:48:26,183 - INFO - [<module>] - Using Device: cuda:0
+2025-04-24 00:48:26,183 - INFO - [<module>] - --------------------------
+2025-04-24 00:48:26,183 - INFO - [run_quantization] - Starting AutoGPTQ quantization for model: mistralai/Mistral-7B-Instruct-v0.3
+2025-04-24 00:48:26,183 - INFO - [run_quantization] - Quantizing to 4-bit precision.
+2025-04-24 00:48:26,183 - INFO - [run_quantization] - Output directory: /workspace/models/Mistral-7B-Instruct-v0.3/quantized-gptq-4bit
+2025-04-24 00:48:26,183 - INFO - [run_quantization] - Loading tokenizer for mistralai/Mistral-7B-Instruct-v0.3...
+2025-04-24 00:48:27,463 - INFO - [run_quantization] - Set tokenizer pad_token to eos_token.
+2025-04-24 00:48:27,463 - INFO - [run_quantization] - Tokenizer loaded.
+2025-04-24 00:48:27,463 - INFO - [run_quantization] - Loading calibration dataset from: /workspace/calibration_data/sevenllm_instruct_subset_manual/
+2025-04-24 00:48:27,475 - INFO - [run_quantization] - Loaded and selected 128 calibration samples.
+2025-04-24 00:48:27,475 - INFO - [run_quantization] - Prepared calibration data as a list of 128 strings from column 'instruction'.
+2025-04-24 00:48:27,475 - INFO - [run_quantization] - Defining GPTQ configuration...
+2025-04-24 00:48:27,475 - INFO - [run_quantization] - GPTQ Config: bits=4, group_size=128, damp_percent=0.01, desc_act=False
+2025-04-24 00:48:27,475 - INFO - [run_quantization] - Loading model mistralai/Mistral-7B-Instruct-v0.3 and starting quantization (this may take a while)...
+2025-04-24 00:48:29,060 - WARNING - [<module>] - CUDA extension not installed.
+2025-04-24 00:48:29,063 - WARNING - [<module>] - CUDA extension not installed.
+2025-04-24 00:48:49,408 - INFO - [get_balanced_memory] - We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+2025-04-24 00:48:52,607 - INFO - [quantize_model] - Start quantizing block model.layers 1/32
+2025-04-24 00:48:52,607 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:48:52,971 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 1/32...
+2025-04-24 00:48:53,915 - INFO - [fasterquant] - duration: 0.943950891494751
+2025-04-24 00:48:53,923 - INFO - [fasterquant] - avg loss: 0.016444208100438118
+2025-04-24 00:48:53,995 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 1/32...
+2025-04-24 00:48:54,832 - INFO - [fasterquant] - duration: 0.8363609313964844
+2025-04-24 00:48:54,832 - INFO - [fasterquant] - avg loss: 0.006823080591857433
+2025-04-24 00:48:54,905 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 1/32...
+2025-04-24 00:48:55,719 - INFO - [fasterquant] - duration: 0.8135082721710205
+2025-04-24 00:48:55,719 - INFO - [fasterquant] - avg loss: 0.0002744063385762274
+2025-04-24 00:48:55,790 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 1/32...
+2025-04-24 00:48:56,599 - INFO - [fasterquant] - duration: 0.808190107345581
+2025-04-24 00:48:56,599 - INFO - [fasterquant] - avg loss: 7.603771337016951e-07
+2025-04-24 00:48:56,672 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 1/32...
+2025-04-24 00:48:57,493 - INFO - [fasterquant] - duration: 0.8203012943267822
+2025-04-24 00:48:57,493 - INFO - [fasterquant] - avg loss: 0.0035979244858026505
+2025-04-24 00:48:57,567 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 1/32...
+2025-04-24 00:48:58,384 - INFO - [fasterquant] - duration: 0.8170585632324219
+2025-04-24 00:48:58,385 - INFO - [fasterquant] - avg loss: 0.0031071114353835583
+2025-04-24 00:48:58,583 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 1/32...
+2025-04-24 00:49:01,669 - INFO - [fasterquant] - duration: 3.085249423980713
+2025-04-24 00:49:01,669 - INFO - [fasterquant] - avg loss: 1.3442340787150897e-05
+2025-04-24 00:49:01,738 - INFO - [quantize_model] - Start quantizing block model.layers 2/32
+2025-04-24 00:49:01,738 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:49:01,809 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 2/32...
+2025-04-24 00:49:02,624 - INFO - [fasterquant] - duration: 0.8144450187683105
+2025-04-24 00:49:02,624 - INFO - [fasterquant] - avg loss: 0.029611069709062576
+2025-04-24 00:49:02,696 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 2/32...
+2025-04-24 00:49:03,514 - INFO - [fasterquant] - duration: 0.818101167678833
+2025-04-24 00:49:03,514 - INFO - [fasterquant] - avg loss: 0.01514369249343872
+2025-04-24 00:49:03,586 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 2/32...
+2025-04-24 00:49:04,400 - INFO - [fasterquant] - duration: 0.8136067390441895
+2025-04-24 00:49:04,400 - INFO - [fasterquant] - avg loss: 0.001885749283246696
+2025-04-24 00:49:04,471 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 2/32...
+2025-04-24 00:49:05,283 - INFO - [fasterquant] - duration: 0.8117306232452393
+2025-04-24 00:49:05,283 - INFO - [fasterquant] - avg loss: 1.6145336303452495e-06
+2025-04-24 00:49:05,355 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 2/32...
+2025-04-24 00:49:06,177 - INFO - [fasterquant] - duration: 0.8222103118896484
+2025-04-24 00:49:06,178 - INFO - [fasterquant] - avg loss: 0.011751296930015087
+2025-04-24 00:49:06,250 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 2/32...
+2025-04-24 00:49:07,069 - INFO - [fasterquant] - duration: 0.8179566860198975
+2025-04-24 00:49:07,069 - INFO - [fasterquant] - avg loss: 0.010309010744094849
+2025-04-24 00:49:07,266 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 2/32...
+2025-04-24 00:49:10,337 - INFO - [fasterquant] - duration: 3.0703508853912354
+2025-04-24 00:49:10,337 - INFO - [fasterquant] - avg loss: 0.024393636733293533
+2025-04-24 00:49:10,403 - INFO - [quantize_model] - Start quantizing block model.layers 3/32
+2025-04-24 00:49:10,403 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:49:10,474 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 3/32...
+2025-04-24 00:49:11,286 - INFO - [fasterquant] - duration: 0.8115451335906982
+2025-04-24 00:49:11,286 - INFO - [fasterquant] - avg loss: 0.12382888793945312
+2025-04-24 00:49:11,358 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 3/32...
+2025-04-24 00:49:12,171 - INFO - [fasterquant] - duration: 0.8124876022338867
+2025-04-24 00:49:12,171 - INFO - [fasterquant] - avg loss: 0.0591854564845562
+2025-04-24 00:49:12,243 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 3/32...
+2025-04-24 00:49:13,058 - INFO - [fasterquant] - duration: 0.814720869064331
+2025-04-24 00:49:13,058 - INFO - [fasterquant] - avg loss: 0.0077815125696361065
+2025-04-24 00:49:13,130 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 3/32...
+2025-04-24 00:49:13,943 - INFO - [fasterquant] - duration: 0.8124449253082275
+2025-04-24 00:49:13,943 - INFO - [fasterquant] - avg loss: 1.8774766203932813e-06
+2025-04-24 00:49:14,015 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 3/32...
+2025-04-24 00:49:14,832 - INFO - [fasterquant] - duration: 0.8168482780456543
+2025-04-24 00:49:14,832 - INFO - [fasterquant] - avg loss: 0.020055893808603287
+2025-04-24 00:49:14,904 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 3/32...
+2025-04-24 00:49:15,723 - INFO - [fasterquant] - duration: 0.8184506893157959
+2025-04-24 00:49:15,723 - INFO - [fasterquant] - avg loss: 0.017568618059158325
+2025-04-24 00:49:15,920 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 3/32...
+2025-04-24 00:49:18,993 - INFO - [fasterquant] - duration: 3.072929859161377
+2025-04-24 00:49:18,993 - INFO - [fasterquant] - avg loss: 5.217689704295481e-06
+2025-04-24 00:49:19,060 - INFO - [quantize_model] - Start quantizing block model.layers 4/32
+2025-04-24 00:49:19,060 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:49:19,132 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 4/32...
+2025-04-24 00:49:19,943 - INFO - [fasterquant] - duration: 0.8109636306762695
+2025-04-24 00:49:19,944 - INFO - [fasterquant] - avg loss: 0.06108223274350166
+2025-04-24 00:49:20,017 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 4/32...
+2025-04-24 00:49:20,831 - INFO - [fasterquant] - duration: 0.8140952587127686
+2025-04-24 00:49:20,831 - INFO - [fasterquant] - avg loss: 0.02961510419845581
+2025-04-24 00:49:20,903 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 4/32...
+2025-04-24 00:49:21,715 - INFO - [fasterquant] - duration: 0.8120400905609131
+2025-04-24 00:49:21,716 - INFO - [fasterquant] - avg loss: 0.0047855135053396225
+2025-04-24 00:49:21,788 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 4/32...
+2025-04-24 00:49:22,604 - INFO - [fasterquant] - duration: 0.8160624504089355
+2025-04-24 00:49:22,605 - INFO - [fasterquant] - avg loss: 4.567924406728707e-06
+2025-04-24 00:49:22,681 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 4/32...
+2025-04-24 00:49:23,559 - INFO - [fasterquant] - duration: 0.8777823448181152
+2025-04-24 00:49:23,559 - INFO - [fasterquant] - avg loss: 0.03282761573791504
+2025-04-24 00:49:23,636 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 4/32...
+2025-04-24 00:49:24,474 - INFO - [fasterquant] - duration: 0.8384780883789062
+2025-04-24 00:49:24,475 - INFO - [fasterquant] - avg loss: 0.028337759897112846
+2025-04-24 00:49:24,672 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 4/32...
+2025-04-24 00:49:27,793 - INFO - [fasterquant] - duration: 3.1212821006774902
+2025-04-24 00:49:27,794 - INFO - [fasterquant] - avg loss: 1.0496531103854068e-05
+2025-04-24 00:49:27,859 - INFO - [quantize_model] - Start quantizing block model.layers 5/32
+2025-04-24 00:49:27,859 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:49:27,931 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 5/32...
+2025-04-24 00:49:28,742 - INFO - [fasterquant] - duration: 0.8108546733856201
+2025-04-24 00:49:28,742 - INFO - [fasterquant] - avg loss: 0.08568917214870453
+2025-04-24 00:49:28,815 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 5/32...
+2025-04-24 00:49:29,628 - INFO - [fasterquant] - duration: 0.8132872581481934
+2025-04-24 00:49:29,628 - INFO - [fasterquant] - avg loss: 0.03753376379609108
+2025-04-24 00:49:29,700 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 5/32...
+2025-04-24 00:49:30,515 - INFO - [fasterquant] - duration: 0.8139688968658447
+2025-04-24 00:49:30,515 - INFO - [fasterquant] - avg loss: 0.007270763628184795
+2025-04-24 00:49:30,587 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 5/32...
+2025-04-24 00:49:31,401 - INFO - [fasterquant] - duration: 0.8134369850158691
+2025-04-24 00:49:31,401 - INFO - [fasterquant] - avg loss: 4.630168405128643e-06
+2025-04-24 00:49:31,473 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 5/32...
+2025-04-24 00:49:32,291 - INFO - [fasterquant] - duration: 0.8173115253448486
+2025-04-24 00:49:32,291 - INFO - [fasterquant] - avg loss: 0.04707137495279312
+2025-04-24 00:49:32,366 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 5/32...
+2025-04-24 00:49:33,185 - INFO - [fasterquant] - duration: 0.8189010620117188
+2025-04-24 00:49:33,185 - INFO - [fasterquant] - avg loss: 0.038235656917095184
+2025-04-24 00:49:33,382 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 5/32...
+2025-04-24 00:49:36,454 - INFO - [fasterquant] - duration: 3.0713584423065186
+2025-04-24 00:49:36,454 - INFO - [fasterquant] - avg loss: 1.6123231034725904e-05
+2025-04-24 00:49:36,519 - INFO - [quantize_model] - Start quantizing block model.layers 6/32
+2025-04-24 00:49:36,519 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:49:36,591 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 6/32...
+2025-04-24 00:49:37,403 - INFO - [fasterquant] - duration: 0.812504768371582
+2025-04-24 00:49:37,404 - INFO - [fasterquant] - avg loss: 0.0960499718785286
+2025-04-24 00:49:37,476 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 6/32...
+2025-04-24 00:49:38,292 - INFO - [fasterquant] - duration: 0.8153226375579834
+2025-04-24 00:49:38,292 - INFO - [fasterquant] - avg loss: 0.04237010329961777
+2025-04-24 00:49:38,365 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 6/32...
+2025-04-24 00:49:39,177 - INFO - [fasterquant] - duration: 0.8122174739837646
+2025-04-24 00:49:39,177 - INFO - [fasterquant] - avg loss: 0.007001410238444805
+2025-04-24 00:49:39,250 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 6/32...
+2025-04-24 00:49:40,061 - INFO - [fasterquant] - duration: 0.8113653659820557
+2025-04-24 00:49:40,062 - INFO - [fasterquant] - avg loss: 1.0969304639729671e-05
+2025-04-24 00:49:40,134 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 6/32...
+2025-04-24 00:49:40,952 - INFO - [fasterquant] - duration: 0.8179428577423096
+2025-04-24 00:49:40,953 - INFO - [fasterquant] - avg loss: 0.06651116162538528
+2025-04-24 00:49:41,025 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 6/32...
+2025-04-24 00:49:41,845 - INFO - [fasterquant] - duration: 0.8198778629302979
+2025-04-24 00:49:41,846 - INFO - [fasterquant] - avg loss: 0.05061464011669159
+2025-04-24 00:49:42,043 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 6/32...
+2025-04-24 00:49:45,132 - INFO - [fasterquant] - duration: 3.0891177654266357
+2025-04-24 00:49:45,132 - INFO - [fasterquant] - avg loss: 2.6988640456693247e-05
+2025-04-24 00:49:45,219 - INFO - [quantize_model] - Start quantizing block model.layers 7/32
+2025-04-24 00:49:45,219 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:49:45,291 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 7/32...
+2025-04-24 00:49:46,105 - INFO - [fasterquant] - duration: 0.8139894008636475
+2025-04-24 00:49:46,106 - INFO - [fasterquant] - avg loss: 0.09357799589633942
+2025-04-24 00:49:46,177 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 7/32...
+2025-04-24 00:49:46,990 - INFO - [fasterquant] - duration: 0.8129496574401855
+2025-04-24 00:49:46,991 - INFO - [fasterquant] - avg loss: 0.043876174837350845
+2025-04-24 00:49:47,063 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 7/32...
+2025-04-24 00:49:47,881 - INFO - [fasterquant] - duration: 0.8183169364929199
+2025-04-24 00:49:47,882 - INFO - [fasterquant] - avg loss: 0.007447943091392517
+2025-04-24 00:49:47,954 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 7/32...
+2025-04-24 00:49:48,764 - INFO - [fasterquant] - duration: 0.81050705909729
+2025-04-24 00:49:48,765 - INFO - [fasterquant] - avg loss: 2.1614774595946074e-05
+2025-04-24 00:49:48,837 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 7/32...
+2025-04-24 00:49:49,660 - INFO - [fasterquant] - duration: 0.8228554725646973
+2025-04-24 00:49:49,660 - INFO - [fasterquant] - avg loss: 0.0790039598941803
+2025-04-24 00:49:49,732 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 7/32...
+2025-04-24 00:49:50,554 - INFO - [fasterquant] - duration: 0.8215150833129883
+2025-04-24 00:49:50,555 - INFO - [fasterquant] - avg loss: 0.061490319669246674
+2025-04-24 00:49:50,751 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 7/32...
+2025-04-24 00:49:53,829 - INFO - [fasterquant] - duration: 3.077502965927124
+2025-04-24 00:49:53,829 - INFO - [fasterquant] - avg loss: 4.102477032574825e-05
+2025-04-24 00:49:53,894 - INFO - [quantize_model] - Start quantizing block model.layers 8/32
+2025-04-24 00:49:53,895 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:49:53,967 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 8/32...
+2025-04-24 00:49:54,784 - INFO - [fasterquant] - duration: 0.8173034191131592
+2025-04-24 00:49:54,784 - INFO - [fasterquant] - avg loss: 0.11455607414245605
+2025-04-24 00:49:54,856 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 8/32...
+2025-04-24 00:49:55,676 - INFO - [fasterquant] - duration: 0.8195838928222656
+2025-04-24 00:49:55,677 - INFO - [fasterquant] - avg loss: 0.05593343451619148
+2025-04-24 00:49:55,748 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 8/32...
+2025-04-24 00:49:56,565 - INFO - [fasterquant] - duration: 0.8163721561431885
+2025-04-24 00:49:56,565 - INFO - [fasterquant] - avg loss: 0.009812603704631329
+2025-04-24 00:49:56,638 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 8/32...
+2025-04-24 00:49:57,450 - INFO - [fasterquant] - duration: 0.8123748302459717
+2025-04-24 00:49:57,451 - INFO - [fasterquant] - avg loss: 2.4311641027452424e-05
+2025-04-24 00:49:57,523 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 8/32...
+2025-04-24 00:49:58,360 - INFO - [fasterquant] - duration: 0.8373689651489258
+2025-04-24 00:49:58,361 - INFO - [fasterquant] - avg loss: 0.09594139456748962
+2025-04-24 00:49:58,434 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 8/32...
+2025-04-24 00:49:59,263 - INFO - [fasterquant] - duration: 0.8280189037322998
+2025-04-24 00:49:59,263 - INFO - [fasterquant] - avg loss: 0.07287948578596115
+2025-04-24 00:49:59,460 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 8/32...
+2025-04-24 00:50:02,602 - INFO - [fasterquant] - duration: 3.142382860183716
+2025-04-24 00:50:02,603 - INFO - [fasterquant] - avg loss: 5.1148068450856954e-05
+2025-04-24 00:50:02,669 - INFO - [quantize_model] - Start quantizing block model.layers 9/32
+2025-04-24 00:50:02,670 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:50:02,741 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 9/32...
+2025-04-24 00:50:03,558 - INFO - [fasterquant] - duration: 0.8163950443267822
+2025-04-24 00:50:03,558 - INFO - [fasterquant] - avg loss: 0.09110482037067413
+2025-04-24 00:50:03,631 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 9/32...
+2025-04-24 00:50:04,448 - INFO - [fasterquant] - duration: 0.817155122756958
+2025-04-24 00:50:04,448 - INFO - [fasterquant] - avg loss: 0.04195432364940643
+2025-04-24 00:50:04,520 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 9/32...
+2025-04-24 00:50:05,339 - INFO - [fasterquant] - duration: 0.8189001083374023
+2025-04-24 00:50:05,340 - INFO - [fasterquant] - avg loss: 0.008830208331346512
+2025-04-24 00:50:05,412 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 9/32...
+2025-04-24 00:50:06,230 - INFO - [fasterquant] - duration: 0.8174858093261719
+2025-04-24 00:50:06,230 - INFO - [fasterquant] - avg loss: 3.94034905184526e-05
+2025-04-24 00:50:06,302 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 9/32...
+2025-04-24 00:50:07,126 - INFO - [fasterquant] - duration: 0.8238723278045654
+2025-04-24 00:50:07,127 - INFO - [fasterquant] - avg loss: 0.10337647795677185
+2025-04-24 00:50:07,199 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 9/32...
+2025-04-24 00:50:08,022 - INFO - [fasterquant] - duration: 0.8227052688598633
+2025-04-24 00:50:08,022 - INFO - [fasterquant] - avg loss: 0.08007258176803589
+2025-04-24 00:50:08,219 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 9/32...
+2025-04-24 00:50:11,305 - INFO - [fasterquant] - duration: 3.085953712463379
+2025-04-24 00:50:11,305 - INFO - [fasterquant] - avg loss: 6.938219303265214e-05
+2025-04-24 00:50:11,371 - INFO - [quantize_model] - Start quantizing block model.layers 10/32
+2025-04-24 00:50:11,372 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:50:11,443 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 10/32...
+2025-04-24 00:50:12,261 - INFO - [fasterquant] - duration: 0.8177003860473633
+2025-04-24 00:50:12,262 - INFO - [fasterquant] - avg loss: 0.11785729229450226
+2025-04-24 00:50:12,334 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 10/32...
+2025-04-24 00:50:13,153 - INFO - [fasterquant] - duration: 0.8184988498687744
+2025-04-24 00:50:13,153 - INFO - [fasterquant] - avg loss: 0.055954016745090485
+2025-04-24 00:50:13,224 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 10/32...
+2025-04-24 00:50:14,042 - INFO - [fasterquant] - duration: 0.8170411586761475
+2025-04-24 00:50:14,042 - INFO - [fasterquant] - avg loss: 0.009911014698445797
+2025-04-24 00:50:14,114 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 10/32...
+2025-04-24 00:50:14,930 - INFO - [fasterquant] - duration: 0.8157532215118408
+2025-04-24 00:50:14,930 - INFO - [fasterquant] - avg loss: 3.864169411826879e-05
+2025-04-24 00:50:15,002 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 10/32...
+2025-04-24 00:50:15,826 - INFO - [fasterquant] - duration: 0.8239033222198486
+2025-04-24 00:50:15,827 - INFO - [fasterquant] - avg loss: 0.10682281851768494
+2025-04-24 00:50:15,900 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 10/32...
+2025-04-24 00:50:16,721 - INFO - [fasterquant] - duration: 0.8214585781097412
+2025-04-24 00:50:16,722 - INFO - [fasterquant] - avg loss: 0.08544240891933441
+2025-04-24 00:50:16,919 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 10/32...
+2025-04-24 00:50:20,005 - INFO - [fasterquant] - duration: 3.0864028930664062
+2025-04-24 00:50:20,005 - INFO - [fasterquant] - avg loss: 7.653015927644446e-05
+2025-04-24 00:50:20,071 - INFO - [quantize_model] - Start quantizing block model.layers 11/32
+2025-04-24 00:50:20,071 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:50:20,143 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 11/32...
+2025-04-24 00:50:20,958 - INFO - [fasterquant] - duration: 0.8149943351745605
+2025-04-24 00:50:20,959 - INFO - [fasterquant] - avg loss: 0.10805574059486389
+2025-04-24 00:50:21,031 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 11/32...
+2025-04-24 00:50:21,849 - INFO - [fasterquant] - duration: 0.8184828758239746
+2025-04-24 00:50:21,850 - INFO - [fasterquant] - avg loss: 0.05193088576197624
+2025-04-24 00:50:21,922 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 11/32...
+2025-04-24 00:50:22,738 - INFO - [fasterquant] - duration: 0.8155727386474609
+2025-04-24 00:50:22,738 - INFO - [fasterquant] - avg loss: 0.008966075256466866
+2025-04-24 00:50:22,810 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 11/32...
+2025-04-24 00:50:23,625 - INFO - [fasterquant] - duration: 0.8152754306793213
+2025-04-24 00:50:23,626 - INFO - [fasterquant] - avg loss: 6.339180254144594e-05
+2025-04-24 00:50:23,698 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 11/32...
+2025-04-24 00:50:24,523 - INFO - [fasterquant] - duration: 0.8247199058532715
+2025-04-24 00:50:24,523 - INFO - [fasterquant] - avg loss: 0.11490878462791443
+2025-04-24 00:50:24,595 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 11/32...
+2025-04-24 00:50:25,420 - INFO - [fasterquant] - duration: 0.8243026733398438
+2025-04-24 00:50:25,420 - INFO - [fasterquant] - avg loss: 0.09442739188671112
+2025-04-24 00:50:25,617 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 11/32...
+2025-04-24 00:50:28,700 - INFO - [fasterquant] - duration: 3.0830793380737305
+2025-04-24 00:50:28,701 - INFO - [fasterquant] - avg loss: 8.895478094927967e-05
+2025-04-24 00:50:28,766 - INFO - [quantize_model] - Start quantizing block model.layers 12/32
+2025-04-24 00:50:28,766 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:50:28,838 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 12/32...
+2025-04-24 00:50:29,654 - INFO - [fasterquant] - duration: 0.8156874179840088
+2025-04-24 00:50:29,655 - INFO - [fasterquant] - avg loss: 0.1256960928440094
+2025-04-24 00:50:29,727 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 12/32...
+2025-04-24 00:50:30,540 - INFO - [fasterquant] - duration: 0.8127298355102539
+2025-04-24 00:50:30,541 - INFO - [fasterquant] - avg loss: 0.058591436594724655
+2025-04-24 00:50:30,612 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 12/32...
+2025-04-24 00:50:31,430 - INFO - [fasterquant] - duration: 0.8172731399536133
+2025-04-24 00:50:31,430 - INFO - [fasterquant] - avg loss: 0.012902363203465939
+2025-04-24 00:50:31,503 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 12/32...
+2025-04-24 00:50:32,315 - INFO - [fasterquant] - duration: 0.8118336200714111
+2025-04-24 00:50:32,315 - INFO - [fasterquant] - avg loss: 9.310964378528297e-05
+2025-04-24 00:50:32,388 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 12/32...
+2025-04-24 00:50:33,210 - INFO - [fasterquant] - duration: 0.8222000598907471
+2025-04-24 00:50:33,211 - INFO - [fasterquant] - avg loss: 0.12557023763656616
+2025-04-24 00:50:33,283 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 12/32...
+2025-04-24 00:50:34,103 - INFO - [fasterquant] - duration: 0.8203718662261963
+2025-04-24 00:50:34,104 - INFO - [fasterquant] - avg loss: 0.1044103130698204
+2025-04-24 00:50:34,301 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 12/32...
+2025-04-24 00:50:37,431 - INFO - [fasterquant] - duration: 3.129704236984253
+2025-04-24 00:50:37,431 - INFO - [fasterquant] - avg loss: 9.957248403225094e-05
+2025-04-24 00:50:37,499 - INFO - [quantize_model] - Start quantizing block model.layers 13/32
+2025-04-24 00:50:37,499 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:50:37,571 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 13/32...
+2025-04-24 00:50:38,388 - INFO - [fasterquant] - duration: 0.8168175220489502
+2025-04-24 00:50:38,388 - INFO - [fasterquant] - avg loss: 0.1719183623790741
+2025-04-24 00:50:38,461 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 13/32...
+2025-04-24 00:50:39,273 - INFO - [fasterquant] - duration: 0.8114893436431885
+2025-04-24 00:50:39,273 - INFO - [fasterquant] - avg loss: 0.07757456600666046
+2025-04-24 00:50:39,345 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 13/32...
+2025-04-24 00:50:40,159 - INFO - [fasterquant] - duration: 0.813316822052002
+2025-04-24 00:50:40,159 - INFO - [fasterquant] - avg loss: 0.014765556901693344
+2025-04-24 00:50:40,231 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 13/32...
+2025-04-24 00:50:41,047 - INFO - [fasterquant] - duration: 0.8158485889434814
+2025-04-24 00:50:41,047 - INFO - [fasterquant] - avg loss: 8.603176684118807e-05
+2025-04-24 00:50:41,119 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 13/32...
+2025-04-24 00:50:41,939 - INFO - [fasterquant] - duration: 0.8196737766265869
+2025-04-24 00:50:41,940 - INFO - [fasterquant] - avg loss: 0.13630300760269165
+2025-04-24 00:50:42,012 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 13/32...
+2025-04-24 00:50:42,832 - INFO - [fasterquant] - duration: 0.8198463916778564
+2025-04-24 00:50:42,832 - INFO - [fasterquant] - avg loss: 0.11620800197124481
+2025-04-24 00:50:43,029 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 13/32...
+2025-04-24 00:50:46,115 - INFO - [fasterquant] - duration: 3.085890531539917
+2025-04-24 00:50:46,115 - INFO - [fasterquant] - avg loss: 0.00011519859981490299
+2025-04-24 00:50:46,181 - INFO - [quantize_model] - Start quantizing block model.layers 14/32
+2025-04-24 00:50:46,181 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:50:46,253 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 14/32...
+2025-04-24 00:50:47,065 - INFO - [fasterquant] - duration: 0.8123724460601807
+2025-04-24 00:50:47,066 - INFO - [fasterquant] - avg loss: 0.12703338265419006
+2025-04-24 00:50:47,138 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 14/32...
+2025-04-24 00:50:47,952 - INFO - [fasterquant] - duration: 0.813385009765625
+2025-04-24 00:50:47,952 - INFO - [fasterquant] - avg loss: 0.06262190639972687
+2025-04-24 00:50:48,024 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 14/32...
+2025-04-24 00:50:48,837 - INFO - [fasterquant] - duration: 0.8124916553497314
+2025-04-24 00:50:48,837 - INFO - [fasterquant] - avg loss: 0.013361288234591484
+2025-04-24 00:50:48,909 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 14/32...
+2025-04-24 00:50:49,724 - INFO - [fasterquant] - duration: 0.8148016929626465
+2025-04-24 00:50:49,725 - INFO - [fasterquant] - avg loss: 0.00011670155072351918
+2025-04-24 00:50:49,796 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 14/32...
+2025-04-24 00:50:50,619 - INFO - [fasterquant] - duration: 0.8229696750640869
+2025-04-24 00:50:50,620 - INFO - [fasterquant] - avg loss: 0.15147241950035095
+2025-04-24 00:50:50,692 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 14/32...
+2025-04-24 00:50:51,514 - INFO - [fasterquant] - duration: 0.8218610286712646
+2025-04-24 00:50:51,515 - INFO - [fasterquant] - avg loss: 0.13237318396568298
+2025-04-24 00:50:51,712 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 14/32...
+2025-04-24 00:50:54,791 - INFO - [fasterquant] - duration: 3.07975435256958
+2025-04-24 00:50:54,792 - INFO - [fasterquant] - avg loss: 0.0001418532629031688
+2025-04-24 00:50:54,858 - INFO - [quantize_model] - Start quantizing block model.layers 15/32
+2025-04-24 00:50:54,858 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:50:54,930 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 15/32...
+2025-04-24 00:50:55,742 - INFO - [fasterquant] - duration: 0.8126876354217529
+2025-04-24 00:50:55,743 - INFO - [fasterquant] - avg loss: 0.14281803369522095
+2025-04-24 00:50:55,815 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 15/32...
+2025-04-24 00:50:56,629 - INFO - [fasterquant] - duration: 0.8137681484222412
+2025-04-24 00:50:56,629 - INFO - [fasterquant] - avg loss: 0.06277543306350708
+2025-04-24 00:50:56,701 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 15/32...
+2025-04-24 00:50:57,516 - INFO - [fasterquant] - duration: 0.814284086227417
+2025-04-24 00:50:57,516 - INFO - [fasterquant] - avg loss: 0.021311555057764053
+2025-04-24 00:50:57,588 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 15/32...
+2025-04-24 00:50:58,405 - INFO - [fasterquant] - duration: 0.8165042400360107
+2025-04-24 00:50:58,405 - INFO - [fasterquant] - avg loss: 0.00010692779324017465
+2025-04-24 00:50:58,477 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 15/32...
+2025-04-24 00:50:59,301 - INFO - [fasterquant] - duration: 0.8230433464050293
+2025-04-24 00:50:59,301 - INFO - [fasterquant] - avg loss: 0.17133420705795288
+2025-04-24 00:50:59,373 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 15/32...
+2025-04-24 00:51:00,196 - INFO - [fasterquant] - duration: 0.8220951557159424
+2025-04-24 00:51:00,196 - INFO - [fasterquant] - avg loss: 0.1484970599412918
+2025-04-24 00:51:00,393 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 15/32...
+2025-04-24 00:51:03,487 - INFO - [fasterquant] - duration: 3.093963384628296
+2025-04-24 00:51:03,487 - INFO - [fasterquant] - avg loss: 0.0001927115226862952
+2025-04-24 00:51:03,581 - INFO - [quantize_model] - Start quantizing block model.layers 16/32
+2025-04-24 00:51:03,581 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:51:03,652 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 16/32...
+2025-04-24 00:51:04,466 - INFO - [fasterquant] - duration: 0.8138265609741211
+2025-04-24 00:51:04,467 - INFO - [fasterquant] - avg loss: 0.17458707094192505
+2025-04-24 00:51:04,538 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 16/32...
+2025-04-24 00:51:05,351 - INFO - [fasterquant] - duration: 0.8128292560577393
+2025-04-24 00:51:05,352 - INFO - [fasterquant] - avg loss: 0.0792563408613205
+2025-04-24 00:51:05,423 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 16/32...
+2025-04-24 00:51:06,236 - INFO - [fasterquant] - duration: 0.8129737377166748
+2025-04-24 00:51:06,237 - INFO - [fasterquant] - avg loss: 0.023384641855955124
+2025-04-24 00:51:06,308 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 16/32...
+2025-04-24 00:51:07,122 - INFO - [fasterquant] - duration: 0.813173770904541
+2025-04-24 00:51:07,122 - INFO - [fasterquant] - avg loss: 0.00013542891247197986
+2025-04-24 00:51:07,194 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 16/32...
+2025-04-24 00:51:08,015 - INFO - [fasterquant] - duration: 0.8207898139953613
+2025-04-24 00:51:08,016 - INFO - [fasterquant] - avg loss: 0.19301487505435944
+2025-04-24 00:51:08,088 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 16/32...
+2025-04-24 00:51:08,909 - INFO - [fasterquant] - duration: 0.8207943439483643
+2025-04-24 00:51:08,909 - INFO - [fasterquant] - avg loss: 0.16158565878868103
+2025-04-24 00:51:09,106 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 16/32...
+2025-04-24 00:51:12,234 - INFO - [fasterquant] - duration: 3.127483367919922
+2025-04-24 00:51:12,234 - INFO - [fasterquant] - avg loss: 0.00023846091062296182
+2025-04-24 00:51:12,302 - INFO - [quantize_model] - Start quantizing block model.layers 17/32
+2025-04-24 00:51:12,302 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:51:12,374 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 17/32...
+2025-04-24 00:51:13,190 - INFO - [fasterquant] - duration: 0.815859317779541
+2025-04-24 00:51:13,191 - INFO - [fasterquant] - avg loss: 0.1526256948709488
+2025-04-24 00:51:13,263 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 17/32...
+2025-04-24 00:51:14,074 - INFO - [fasterquant] - duration: 0.8109524250030518
+2025-04-24 00:51:14,074 - INFO - [fasterquant] - avg loss: 0.07199029624462128
+2025-04-24 00:51:14,146 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 17/32...
+2025-04-24 00:51:14,961 - INFO - [fasterquant] - duration: 0.8142595291137695
+2025-04-24 00:51:14,961 - INFO - [fasterquant] - avg loss: 0.02191470004618168
+2025-04-24 00:51:15,033 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 17/32...
+2025-04-24 00:51:15,846 - INFO - [fasterquant] - duration: 0.812795877456665
+2025-04-24 00:51:15,847 - INFO - [fasterquant] - avg loss: 0.0001490356371505186
+2025-04-24 00:51:15,919 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 17/32...
+2025-04-24 00:51:16,740 - INFO - [fasterquant] - duration: 0.8210413455963135
+2025-04-24 00:51:16,741 - INFO - [fasterquant] - avg loss: 0.24663330614566803
+2025-04-24 00:51:16,813 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 17/32...
+2025-04-24 00:51:17,635 - INFO - [fasterquant] - duration: 0.8212325572967529
+2025-04-24 00:51:17,635 - INFO - [fasterquant] - avg loss: 0.19446486234664917
+2025-04-24 00:51:17,832 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 17/32...
+2025-04-24 00:51:20,921 - INFO - [fasterquant] - duration: 3.088721513748169
+2025-04-24 00:51:20,922 - INFO - [fasterquant] - avg loss: 0.0003714623744599521
+2025-04-24 00:51:20,987 - INFO - [quantize_model] - Start quantizing block model.layers 18/32
+2025-04-24 00:51:20,987 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:51:21,059 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 18/32...
+2025-04-24 00:51:21,872 - INFO - [fasterquant] - duration: 0.8131146430969238
+2025-04-24 00:51:21,873 - INFO - [fasterquant] - avg loss: 0.1538228988647461
+2025-04-24 00:51:21,946 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 18/32...
+2025-04-24 00:51:22,757 - INFO - [fasterquant] - duration: 0.8116919994354248
+2025-04-24 00:51:22,758 - INFO - [fasterquant] - avg loss: 0.06511540710926056
+2025-04-24 00:51:22,830 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 18/32...
+2025-04-24 00:51:23,643 - INFO - [fasterquant] - duration: 0.8130209445953369
+2025-04-24 00:51:23,644 - INFO - [fasterquant] - avg loss: 0.02317310869693756
+2025-04-24 00:51:23,716 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 18/32...
+2025-04-24 00:51:24,528 - INFO - [fasterquant] - duration: 0.8119816780090332
+2025-04-24 00:51:24,529 - INFO - [fasterquant] - avg loss: 0.00018833947251550853
+2025-04-24 00:51:24,601 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 18/32...
+2025-04-24 00:51:25,421 - INFO - [fasterquant] - duration: 0.8192594051361084
+2025-04-24 00:51:25,421 - INFO - [fasterquant] - avg loss: 0.28834855556488037
+2025-04-24 00:51:25,494 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 18/32...
+2025-04-24 00:51:26,314 - INFO - [fasterquant] - duration: 0.819329023361206
+2025-04-24 00:51:26,314 - INFO - [fasterquant] - avg loss: 0.2279045581817627
+2025-04-24 00:51:26,512 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 18/32...
+2025-04-24 00:51:29,588 - INFO - [fasterquant] - duration: 3.0759129524230957
+2025-04-24 00:51:29,588 - INFO - [fasterquant] - avg loss: 0.0004783573094755411
+2025-04-24 00:51:29,653 - INFO - [quantize_model] - Start quantizing block model.layers 19/32
+2025-04-24 00:51:29,654 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:51:29,725 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 19/32...
+2025-04-24 00:51:30,537 - INFO - [fasterquant] - duration: 0.8112895488739014
+2025-04-24 00:51:30,537 - INFO - [fasterquant] - avg loss: 0.1855526864528656
+2025-04-24 00:51:30,610 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 19/32...
+2025-04-24 00:51:31,420 - INFO - [fasterquant] - duration: 0.8103506565093994
+2025-04-24 00:51:31,421 - INFO - [fasterquant] - avg loss: 0.07382290065288544
+2025-04-24 00:51:31,493 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 19/32...
+2025-04-24 00:51:32,304 - INFO - [fasterquant] - duration: 0.8107039928436279
+2025-04-24 00:51:32,304 - INFO - [fasterquant] - avg loss: 0.02675982005894184
+2025-04-24 00:51:32,377 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 19/32...
+2025-04-24 00:51:33,193 - INFO - [fasterquant] - duration: 0.8163816928863525
+2025-04-24 00:51:33,194 - INFO - [fasterquant] - avg loss: 0.00020086807489860803
+2025-04-24 00:51:33,277 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 19/32...
+2025-04-24 00:51:34,152 - INFO - [fasterquant] - duration: 0.8746824264526367
+2025-04-24 00:51:34,153 - INFO - [fasterquant] - avg loss: 0.3307194113731384
+2025-04-24 00:51:34,227 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 19/32...
+2025-04-24 00:51:35,071 - INFO - [fasterquant] - duration: 0.8435792922973633
+2025-04-24 00:51:35,072 - INFO - [fasterquant] - avg loss: 0.26328834891319275
+2025-04-24 00:51:35,269 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 19/32...
+2025-04-24 00:51:38,361 - INFO - [fasterquant] - duration: 3.0922598838806152
+2025-04-24 00:51:38,362 - INFO - [fasterquant] - avg loss: 0.0007490526186302304
+2025-04-24 00:51:38,431 - INFO - [quantize_model] - Start quantizing block model.layers 20/32
+2025-04-24 00:51:38,431 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:51:38,504 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 20/32...
+2025-04-24 00:51:39,335 - INFO - [fasterquant] - duration: 0.8313872814178467
+2025-04-24 00:51:39,336 - INFO - [fasterquant] - avg loss: 0.16770850121974945
+2025-04-24 00:51:39,410 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 20/32...
+2025-04-24 00:51:40,247 - INFO - [fasterquant] - duration: 0.8370883464813232
+2025-04-24 00:51:40,247 - INFO - [fasterquant] - avg loss: 0.07326426357030869
+2025-04-24 00:51:40,323 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 20/32...
+2025-04-24 00:51:41,170 - INFO - [fasterquant] - duration: 0.8466699123382568
+2025-04-24 00:51:41,171 - INFO - [fasterquant] - avg loss: 0.03120845928788185
+2025-04-24 00:51:41,251 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 20/32...
+2025-04-24 00:51:42,086 - INFO - [fasterquant] - duration: 0.8349518775939941
+2025-04-24 00:51:42,087 - INFO - [fasterquant] - avg loss: 0.00020157647668384016
+2025-04-24 00:51:42,183 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 20/32...
+2025-04-24 00:51:43,102 - INFO - [fasterquant] - duration: 0.9194216728210449
+2025-04-24 00:51:43,104 - INFO - [fasterquant] - avg loss: 0.3733746409416199
+2025-04-24 00:51:43,186 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 20/32...
+2025-04-24 00:51:44,089 - INFO - [fasterquant] - duration: 0.9029743671417236
+2025-04-24 00:51:44,091 - INFO - [fasterquant] - avg loss: 0.2913668155670166
+2025-04-24 00:51:44,289 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 20/32...
+2025-04-24 00:51:47,420 - INFO - [fasterquant] - duration: 3.1313748359680176
+2025-04-24 00:51:47,421 - INFO - [fasterquant] - avg loss: 0.001034020446240902
+2025-04-24 00:51:47,492 - INFO - [quantize_model] - Start quantizing block model.layers 21/32
+2025-04-24 00:51:47,492 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:51:47,569 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 21/32...
+2025-04-24 00:51:48,397 - INFO - [fasterquant] - duration: 0.8276016712188721
+2025-04-24 00:51:48,398 - INFO - [fasterquant] - avg loss: 0.17712683975696564
+2025-04-24 00:51:48,472 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 21/32...
+2025-04-24 00:51:49,301 - INFO - [fasterquant] - duration: 0.8288311958312988
+2025-04-24 00:51:49,302 - INFO - [fasterquant] - avg loss: 0.0736590176820755
+2025-04-24 00:51:49,376 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 21/32...
+2025-04-24 00:51:50,213 - INFO - [fasterquant] - duration: 0.8369109630584717
+2025-04-24 00:51:50,214 - INFO - [fasterquant] - avg loss: 0.03301237151026726
+2025-04-24 00:51:50,287 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 21/32...
+2025-04-24 00:51:51,147 - INFO - [fasterquant] - duration: 0.8597371578216553
+2025-04-24 00:51:51,148 - INFO - [fasterquant] - avg loss: 0.0002571555960457772
+2025-04-24 00:51:51,221 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 21/32...
+2025-04-24 00:51:52,062 - INFO - [fasterquant] - duration: 0.8410601615905762
+2025-04-24 00:51:52,063 - INFO - [fasterquant] - avg loss: 0.4003344476222992
+2025-04-24 00:51:52,137 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 21/32...
+2025-04-24 00:51:52,961 - INFO - [fasterquant] - duration: 0.8244364261627197
+2025-04-24 00:51:52,962 - INFO - [fasterquant] - avg loss: 0.3045596480369568
+2025-04-24 00:51:53,159 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 21/32...
+2025-04-24 00:51:56,307 - INFO - [fasterquant] - duration: 3.1478161811828613
+2025-04-24 00:51:56,307 - INFO - [fasterquant] - avg loss: 0.0009548061643727124
+2025-04-24 00:51:56,374 - INFO - [quantize_model] - Start quantizing block model.layers 22/32
+2025-04-24 00:51:56,375 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:51:56,447 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 22/32...
+2025-04-24 00:51:57,281 - INFO - [fasterquant] - duration: 0.8336961269378662
+2025-04-24 00:51:57,281 - INFO - [fasterquant] - avg loss: 0.16915129125118256
+2025-04-24 00:51:57,355 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 22/32...
+2025-04-24 00:51:58,169 - INFO - [fasterquant] - duration: 0.8140561580657959
+2025-04-24 00:51:58,169 - INFO - [fasterquant] - avg loss: 0.06914353370666504
+2025-04-24 00:51:58,241 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 22/32...
+2025-04-24 00:51:59,061 - INFO - [fasterquant] - duration: 0.8199474811553955
+2025-04-24 00:51:59,062 - INFO - [fasterquant] - avg loss: 0.03411690518260002
+2025-04-24 00:51:59,134 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 22/32...
+2025-04-24 00:51:59,964 - INFO - [fasterquant] - duration: 0.8296661376953125
+2025-04-24 00:51:59,965 - INFO - [fasterquant] - avg loss: 0.00020208746718708426
+2025-04-24 00:52:00,036 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 22/32...
+2025-04-24 00:52:00,869 - INFO - [fasterquant] - duration: 0.8329379558563232
+2025-04-24 00:52:00,870 - INFO - [fasterquant] - avg loss: 0.45680293440818787
+2025-04-24 00:52:00,945 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 22/32...
+2025-04-24 00:52:01,785 - INFO - [fasterquant] - duration: 0.8394477367401123
+2025-04-24 00:52:01,785 - INFO - [fasterquant] - avg loss: 0.32470154762268066
+2025-04-24 00:52:01,983 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 22/32...
+2025-04-24 00:52:05,094 - INFO - [fasterquant] - duration: 3.11129093170166
+2025-04-24 00:52:05,094 - INFO - [fasterquant] - avg loss: 0.0009128875099122524
+2025-04-24 00:52:05,161 - INFO - [quantize_model] - Start quantizing block model.layers 23/32
+2025-04-24 00:52:05,161 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:52:05,233 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 23/32...
+2025-04-24 00:52:06,052 - INFO - [fasterquant] - duration: 0.8187217712402344
+2025-04-24 00:52:06,052 - INFO - [fasterquant] - avg loss: 0.16565163433551788
+2025-04-24 00:52:06,127 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 23/32...
+2025-04-24 00:52:06,945 - INFO - [fasterquant] - duration: 0.8174700736999512
+2025-04-24 00:52:06,945 - INFO - [fasterquant] - avg loss: 0.06717315316200256
+2025-04-24 00:52:07,019 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 23/32...
+2025-04-24 00:52:07,850 - INFO - [fasterquant] - duration: 0.8305175304412842
+2025-04-24 00:52:07,850 - INFO - [fasterquant] - avg loss: 0.035626284778118134
+2025-04-24 00:52:07,925 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 23/32...
+2025-04-24 00:52:08,743 - INFO - [fasterquant] - duration: 0.8179585933685303
+2025-04-24 00:52:08,743 - INFO - [fasterquant] - avg loss: 0.00012163574865553528
+2025-04-24 00:52:08,815 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 23/32...
+2025-04-24 00:52:09,643 - INFO - [fasterquant] - duration: 0.8278846740722656
+2025-04-24 00:52:09,644 - INFO - [fasterquant] - avg loss: 0.4736340641975403
+2025-04-24 00:52:09,720 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 23/32...
+2025-04-24 00:52:10,539 - INFO - [fasterquant] - duration: 0.8191876411437988
+2025-04-24 00:52:10,540 - INFO - [fasterquant] - avg loss: 0.3402707874774933
+2025-04-24 00:52:10,737 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 23/32...
+2025-04-24 00:52:13,826 - INFO - [fasterquant] - duration: 3.089512825012207
+2025-04-24 00:52:13,827 - INFO - [fasterquant] - avg loss: 0.0009704548865556717
+2025-04-24 00:52:13,892 - INFO - [quantize_model] - Start quantizing block model.layers 24/32
+2025-04-24 00:52:13,892 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:52:13,967 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 24/32...
+2025-04-24 00:52:14,787 - INFO - [fasterquant] - duration: 0.8206501007080078
+2025-04-24 00:52:14,788 - INFO - [fasterquant] - avg loss: 0.16218125820159912
+2025-04-24 00:52:14,862 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 24/32...
+2025-04-24 00:52:15,671 - INFO - [fasterquant] - duration: 0.8090496063232422
+2025-04-24 00:52:15,672 - INFO - [fasterquant] - avg loss: 0.06484012305736542
+2025-04-24 00:52:15,744 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 24/32...
+2025-04-24 00:52:16,551 - INFO - [fasterquant] - duration: 0.8075554370880127
+2025-04-24 00:52:16,552 - INFO - [fasterquant] - avg loss: 0.036290254443883896
+2025-04-24 00:52:16,623 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 24/32...
+2025-04-24 00:52:17,444 - INFO - [fasterquant] - duration: 0.8203330039978027
+2025-04-24 00:52:17,444 - INFO - [fasterquant] - avg loss: 0.0002147832710761577
+2025-04-24 00:52:17,516 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 24/32...
+2025-04-24 00:52:18,355 - INFO - [fasterquant] - duration: 0.8380532264709473
+2025-04-24 00:52:18,355 - INFO - [fasterquant] - avg loss: 0.5156468152999878
+2025-04-24 00:52:18,430 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 24/32...
+2025-04-24 00:52:19,247 - INFO - [fasterquant] - duration: 0.8176765441894531
+2025-04-24 00:52:19,248 - INFO - [fasterquant] - avg loss: 0.36859866976737976
+2025-04-24 00:52:19,445 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 24/32...
+2025-04-24 00:52:22,573 - INFO - [fasterquant] - duration: 3.127580165863037
+2025-04-24 00:52:22,573 - INFO - [fasterquant] - avg loss: 0.0011016387725248933
+2025-04-24 00:52:22,640 - INFO - [quantize_model] - Start quantizing block model.layers 25/32
+2025-04-24 00:52:22,640 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:52:22,712 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 25/32...
+2025-04-24 00:52:23,531 - INFO - [fasterquant] - duration: 0.8188765048980713
+2025-04-24 00:52:23,531 - INFO - [fasterquant] - avg loss: 0.1777518391609192
+2025-04-24 00:52:23,604 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 25/32...
+2025-04-24 00:52:24,428 - INFO - [fasterquant] - duration: 0.8239808082580566
+2025-04-24 00:52:24,428 - INFO - [fasterquant] - avg loss: 0.07106515765190125
+2025-04-24 00:52:24,500 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 25/32...
+2025-04-24 00:52:25,304 - INFO - [fasterquant] - duration: 0.8031432628631592
+2025-04-24 00:52:25,304 - INFO - [fasterquant] - avg loss: 0.040471259504556656
+2025-04-24 00:52:25,376 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 25/32...
+2025-04-24 00:52:26,179 - INFO - [fasterquant] - duration: 0.8031976222991943
+2025-04-24 00:52:26,180 - INFO - [fasterquant] - avg loss: 0.00013067643158137798
+2025-04-24 00:52:26,254 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 25/32...
+2025-04-24 00:52:27,078 - INFO - [fasterquant] - duration: 0.8239123821258545
+2025-04-24 00:52:27,079 - INFO - [fasterquant] - avg loss: 0.5715172290802002
+2025-04-24 00:52:27,151 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 25/32...
+2025-04-24 00:52:27,973 - INFO - [fasterquant] - duration: 0.8224377632141113
+2025-04-24 00:52:27,974 - INFO - [fasterquant] - avg loss: 0.40089672803878784
+2025-04-24 00:52:28,172 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 25/32...
+2025-04-24 00:52:31,232 - INFO - [fasterquant] - duration: 3.06062912940979
+2025-04-24 00:52:31,233 - INFO - [fasterquant] - avg loss: 0.0010364046320319176
+2025-04-24 00:52:31,298 - INFO - [quantize_model] - Start quantizing block model.layers 26/32
+2025-04-24 00:52:31,299 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:52:31,372 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 26/32...
+2025-04-24 00:52:32,197 - INFO - [fasterquant] - duration: 0.8248932361602783
+2025-04-24 00:52:32,198 - INFO - [fasterquant] - avg loss: 0.17694997787475586
+2025-04-24 00:52:32,271 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 26/32...
+2025-04-24 00:52:33,079 - INFO - [fasterquant] - duration: 0.8083236217498779
+2025-04-24 00:52:33,080 - INFO - [fasterquant] - avg loss: 0.0683308094739914
+2025-04-24 00:52:33,153 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 26/32...
+2025-04-24 00:52:33,957 - INFO - [fasterquant] - duration: 0.803961992263794
+2025-04-24 00:52:33,958 - INFO - [fasterquant] - avg loss: 0.046595312654972076
+2025-04-24 00:52:34,030 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 26/32...
+2025-04-24 00:52:34,840 - INFO - [fasterquant] - duration: 0.8098723888397217
+2025-04-24 00:52:34,841 - INFO - [fasterquant] - avg loss: 0.00016372260870411992
+2025-04-24 00:52:34,912 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 26/32...
+2025-04-24 00:52:35,736 - INFO - [fasterquant] - duration: 0.8240869045257568
+2025-04-24 00:52:35,737 - INFO - [fasterquant] - avg loss: 0.6101332306861877
+2025-04-24 00:52:35,808 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 26/32...
+2025-04-24 00:52:36,626 - INFO - [fasterquant] - duration: 0.8172681331634521
+2025-04-24 00:52:36,626 - INFO - [fasterquant] - avg loss: 0.4318338930606842
+2025-04-24 00:52:36,823 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 26/32...
+2025-04-24 00:52:39,921 - INFO - [fasterquant] - duration: 3.097200393676758
+2025-04-24 00:52:39,921 - INFO - [fasterquant] - avg loss: 0.0011074451031163335
+2025-04-24 00:52:39,987 - INFO - [quantize_model] - Start quantizing block model.layers 27/32
+2025-04-24 00:52:39,987 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:52:40,062 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 27/32...
+2025-04-24 00:52:40,881 - INFO - [fasterquant] - duration: 0.8195252418518066
+2025-04-24 00:52:40,882 - INFO - [fasterquant] - avg loss: 0.1689607948064804
+2025-04-24 00:52:40,956 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 27/32...
+2025-04-24 00:52:41,780 - INFO - [fasterquant] - duration: 0.8242924213409424
+2025-04-24 00:52:41,781 - INFO - [fasterquant] - avg loss: 0.06439773738384247
+2025-04-24 00:52:41,882 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 27/32...
+2025-04-24 00:52:42,711 - INFO - [fasterquant] - duration: 0.8291001319885254
+2025-04-24 00:52:42,711 - INFO - [fasterquant] - avg loss: 0.049157336354255676
+2025-04-24 00:52:42,785 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 27/32...
+2025-04-24 00:52:43,605 - INFO - [fasterquant] - duration: 0.8200738430023193
+2025-04-24 00:52:43,606 - INFO - [fasterquant] - avg loss: 0.00017825813847593963
+2025-04-24 00:52:43,681 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 27/32...
+2025-04-24 00:52:44,526 - INFO - [fasterquant] - duration: 0.844749927520752
+2025-04-24 00:52:44,527 - INFO - [fasterquant] - avg loss: 0.6263474225997925
+2025-04-24 00:52:44,600 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 27/32...
+2025-04-24 00:52:45,439 - INFO - [fasterquant] - duration: 0.8383510112762451
+2025-04-24 00:52:45,439 - INFO - [fasterquant] - avg loss: 0.45965704321861267
+2025-04-24 00:52:45,637 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 27/32...
+2025-04-24 00:52:48,731 - INFO - [fasterquant] - duration: 3.094052791595459
+2025-04-24 00:52:48,731 - INFO - [fasterquant] - avg loss: 0.0012719518272206187
+2025-04-24 00:52:48,799 - INFO - [quantize_model] - Start quantizing block model.layers 28/32
+2025-04-24 00:52:48,799 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:52:48,871 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 28/32...
+2025-04-24 00:52:49,710 - INFO - [fasterquant] - duration: 0.8380577564239502
+2025-04-24 00:52:49,710 - INFO - [fasterquant] - avg loss: 0.17114195227622986
+2025-04-24 00:52:49,784 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 28/32...
+2025-04-24 00:52:50,601 - INFO - [fasterquant] - duration: 0.8168754577636719
+2025-04-24 00:52:50,601 - INFO - [fasterquant] - avg loss: 0.06379752606153488
+2025-04-24 00:52:50,675 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 28/32...
+2025-04-24 00:52:51,503 - INFO - [fasterquant] - duration: 0.8275809288024902
+2025-04-24 00:52:51,504 - INFO - [fasterquant] - avg loss: 0.044289492070674896
+2025-04-24 00:52:51,578 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 28/32...
+2025-04-24 00:52:52,408 - INFO - [fasterquant] - duration: 0.8298892974853516
+2025-04-24 00:52:52,409 - INFO - [fasterquant] - avg loss: 0.00023939461971167475
+2025-04-24 00:52:52,483 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 28/32...
+2025-04-24 00:52:53,327 - INFO - [fasterquant] - duration: 0.8435628414154053
+2025-04-24 00:52:53,327 - INFO - [fasterquant] - avg loss: 0.6881312131881714
+2025-04-24 00:52:53,400 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 28/32...
+2025-04-24 00:52:54,229 - INFO - [fasterquant] - duration: 0.8286807537078857
+2025-04-24 00:52:54,230 - INFO - [fasterquant] - avg loss: 0.5087021589279175
+2025-04-24 00:52:54,427 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 28/32...
+2025-04-24 00:52:57,587 - INFO - [fasterquant] - duration: 3.15987491607666
+2025-04-24 00:52:57,587 - INFO - [fasterquant] - avg loss: 0.001693174010142684
+2025-04-24 00:52:57,660 - INFO - [quantize_model] - Start quantizing block model.layers 29/32
+2025-04-24 00:52:57,660 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:52:57,739 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 29/32...
+2025-04-24 00:52:58,557 - INFO - [fasterquant] - duration: 0.8176345825195312
+2025-04-24 00:52:58,558 - INFO - [fasterquant] - avg loss: 0.17221131920814514
+2025-04-24 00:52:58,633 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 29/32...
+2025-04-24 00:52:59,451 - INFO - [fasterquant] - duration: 0.8184123039245605
+2025-04-24 00:52:59,452 - INFO - [fasterquant] - avg loss: 0.06652294099330902
+2025-04-24 00:52:59,527 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 29/32...
+2025-04-24 00:53:00,348 - INFO - [fasterquant] - duration: 0.8207123279571533
+2025-04-24 00:53:00,348 - INFO - [fasterquant] - avg loss: 0.06646367907524109
+2025-04-24 00:53:00,423 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 29/32...
+2025-04-24 00:53:01,286 - INFO - [fasterquant] - duration: 0.8627004623413086
+2025-04-24 00:53:01,287 - INFO - [fasterquant] - avg loss: 0.000427009304985404
+2025-04-24 00:53:01,360 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 29/32...
+2025-04-24 00:53:02,208 - INFO - [fasterquant] - duration: 0.8475809097290039
+2025-04-24 00:53:02,208 - INFO - [fasterquant] - avg loss: 0.7574484348297119
+2025-04-24 00:53:02,283 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 29/32...
+2025-04-24 00:53:03,119 - INFO - [fasterquant] - duration: 0.8361308574676514
+2025-04-24 00:53:03,120 - INFO - [fasterquant] - avg loss: 0.5803806781768799
+2025-04-24 00:53:03,317 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 29/32...
+2025-04-24 00:53:06,436 - INFO - [fasterquant] - duration: 3.119025945663452
+2025-04-24 00:53:06,436 - INFO - [fasterquant] - avg loss: 0.0019541364163160324
+2025-04-24 00:53:06,504 - INFO - [quantize_model] - Start quantizing block model.layers 30/32
+2025-04-24 00:53:06,504 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:53:06,578 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 30/32...
+2025-04-24 00:53:07,397 - INFO - [fasterquant] - duration: 0.8182854652404785
+2025-04-24 00:53:07,397 - INFO - [fasterquant] - avg loss: 0.19063225388526917
+2025-04-24 00:53:07,472 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 30/32...
+2025-04-24 00:53:08,307 - INFO - [fasterquant] - duration: 0.8350570201873779
+2025-04-24 00:53:08,308 - INFO - [fasterquant] - avg loss: 0.06455223262310028
+2025-04-24 00:53:08,380 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 30/32...
+2025-04-24 00:53:09,217 - INFO - [fasterquant] - duration: 0.8370134830474854
+2025-04-24 00:53:09,218 - INFO - [fasterquant] - avg loss: 0.09169565141201019
+2025-04-24 00:53:09,291 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 30/32...
+2025-04-24 00:53:10,123 - INFO - [fasterquant] - duration: 0.8319644927978516
+2025-04-24 00:53:10,123 - INFO - [fasterquant] - avg loss: 0.0008718708995729685
+2025-04-24 00:53:10,196 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 30/32...
+2025-04-24 00:53:11,025 - INFO - [fasterquant] - duration: 0.8287227153778076
+2025-04-24 00:53:11,026 - INFO - [fasterquant] - avg loss: 0.765069842338562
+2025-04-24 00:53:11,099 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 30/32...
+2025-04-24 00:53:11,937 - INFO - [fasterquant] - duration: 0.8376057147979736
+2025-04-24 00:53:11,937 - INFO - [fasterquant] - avg loss: 0.6109758615493774
+2025-04-24 00:53:12,135 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 30/32...
+2025-04-24 00:53:15,248 - INFO - [fasterquant] - duration: 3.112919807434082
+2025-04-24 00:53:15,248 - INFO - [fasterquant] - avg loss: 0.002990799257531762
+2025-04-24 00:53:15,316 - INFO - [quantize_model] - Start quantizing block model.layers 31/32
+2025-04-24 00:53:15,316 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:53:15,388 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 31/32...
+2025-04-24 00:53:16,222 - INFO - [fasterquant] - duration: 0.8336091041564941
+2025-04-24 00:53:16,222 - INFO - [fasterquant] - avg loss: 0.1844150722026825
+2025-04-24 00:53:16,295 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 31/32...
+2025-04-24 00:53:17,109 - INFO - [fasterquant] - duration: 0.8144330978393555
+2025-04-24 00:53:17,110 - INFO - [fasterquant] - avg loss: 0.0625353455543518
+2025-04-24 00:53:17,182 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 31/32...
+2025-04-24 00:53:18,011 - INFO - [fasterquant] - duration: 0.8283329010009766
+2025-04-24 00:53:18,012 - INFO - [fasterquant] - avg loss: 0.10608762502670288
+2025-04-24 00:53:18,084 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 31/32...
+2025-04-24 00:53:18,912 - INFO - [fasterquant] - duration: 0.8270857334136963
+2025-04-24 00:53:18,912 - INFO - [fasterquant] - avg loss: 0.000715480768121779
+2025-04-24 00:53:18,985 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 31/32...
+2025-04-24 00:53:19,809 - INFO - [fasterquant] - duration: 0.8235273361206055
+2025-04-24 00:53:19,809 - INFO - [fasterquant] - avg loss: 0.7817801833152771
+2025-04-24 00:53:19,882 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 31/32...
+2025-04-24 00:53:20,711 - INFO - [fasterquant] - duration: 0.8293602466583252
+2025-04-24 00:53:20,712 - INFO - [fasterquant] - avg loss: 0.634660542011261
+2025-04-24 00:53:20,909 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 31/32...
+2025-04-24 00:53:24,043 - INFO - [fasterquant] - duration: 3.1336262226104736
+2025-04-24 00:53:24,043 - INFO - [fasterquant] - avg loss: 0.004695412702858448
+2025-04-24 00:53:24,110 - INFO - [quantize_model] - Start quantizing block model.layers 32/32
+2025-04-24 00:53:24,110 - INFO - [quantize_model] - Module to quantize [['self_attn.q_proj'], ['self_attn.k_proj'], ['self_attn.v_proj'], ['self_attn.o_proj'], ['mlp.gate_proj'], ['mlp.up_proj'], ['mlp.down_proj']]
+2025-04-24 00:53:24,182 - INFO - [quantize_model] - Quantizing self_attn.q_proj in block 32/32...
+2025-04-24 00:53:25,016 - INFO - [fasterquant] - duration: 0.8340756893157959
+2025-04-24 00:53:25,017 - INFO - [fasterquant] - avg loss: 0.16836537420749664
+2025-04-24 00:53:25,089 - INFO - [quantize_model] - Quantizing self_attn.k_proj in block 32/32...
+2025-04-24 00:53:25,908 - INFO - [fasterquant] - duration: 0.8182709217071533
+2025-04-24 00:53:25,909 - INFO - [fasterquant] - avg loss: 0.05835343152284622
+2025-04-24 00:53:25,982 - INFO - [quantize_model] - Quantizing self_attn.v_proj in block 32/32...
+2025-04-24 00:53:26,803 - INFO - [fasterquant] - duration: 0.8206934928894043
+2025-04-24 00:53:26,803 - INFO - [fasterquant] - avg loss: 0.10583534836769104
+2025-04-24 00:53:26,878 - INFO - [quantize_model] - Quantizing self_attn.o_proj in block 32/32...
+2025-04-24 00:53:27,710 - INFO - [fasterquant] - duration: 0.8322160243988037
+2025-04-24 00:53:27,711 - INFO - [fasterquant] - avg loss: 0.001217396929860115
+2025-04-24 00:53:27,785 - INFO - [quantize_model] - Quantizing mlp.gate_proj in block 32/32...
+2025-04-24 00:53:28,628 - INFO - [fasterquant] - duration: 0.8430516719818115
+2025-04-24 00:53:28,628 - INFO - [fasterquant] - avg loss: 0.6640058755874634
+2025-04-24 00:53:28,702 - INFO - [quantize_model] - Quantizing mlp.up_proj in block 32/32...
+2025-04-24 00:53:29,547 - INFO - [fasterquant] - duration: 0.8456251621246338
+2025-04-24 00:53:29,548 - INFO - [fasterquant] - avg loss: 0.5257601737976074
+2025-04-24 00:53:29,745 - INFO - [quantize_model] - Quantizing mlp.down_proj in block 32/32...
+2025-04-24 00:53:32,918 - INFO - [fasterquant] - duration: 3.1719613075256348
+2025-04-24 00:53:32,918 - INFO - [fasterquant] - avg loss: 0.026912111788988113
+2025-04-24 00:53:32,985 - INFO - [pack_model] - Packing model...
+2025-04-24 00:53:36,580 - INFO - [pack_model] - model.layers.0.self_attn.k_proj
+2025-04-24 00:53:36,741 - INFO - [pack_model] - model.layers.0.self_attn.o_proj
+2025-04-24 00:53:38,599 - INFO - [pack_model] - model.layers.0.self_attn.q_proj
+2025-04-24 00:53:40,531 - INFO - [pack_model] - model.layers.0.self_attn.v_proj
+2025-04-24 00:53:40,689 - INFO - [pack_model] - model.layers.0.mlp.down_proj
+2025-04-24 00:53:48,234 - INFO - [pack_model] - model.layers.0.mlp.gate_proj
+2025-04-24 00:53:52,534 - INFO - [pack_model] - model.layers.0.mlp.up_proj
+2025-04-24 00:53:57,105 - INFO - [pack_model] - model.layers.1.self_attn.k_proj
+2025-04-24 00:53:57,274 - INFO - [pack_model] - model.layers.1.self_attn.o_proj
+2025-04-24 00:53:59,275 - INFO - [pack_model] - model.layers.1.self_attn.q_proj
+2025-04-24 00:54:01,343 - INFO - [pack_model] - model.layers.1.self_attn.v_proj
+2025-04-24 00:54:01,644 - INFO - [pack_model] - model.layers.1.mlp.down_proj
+2025-04-24 00:54:09,889 - INFO - [pack_model] - model.layers.1.mlp.gate_proj
+2025-04-24 00:54:14,178 - INFO - [pack_model] - model.layers.1.mlp.up_proj
+2025-04-24 00:54:18,472 - INFO - [pack_model] - model.layers.2.self_attn.k_proj
+2025-04-24 00:54:18,632 - INFO - [pack_model] - model.layers.2.self_attn.o_proj
+2025-04-24 00:54:20,225 - INFO - [pack_model] - model.layers.2.self_attn.q_proj
+2025-04-24 00:54:21,903 - INFO - [pack_model] - model.layers.2.self_attn.v_proj
+2025-04-24 00:54:22,066 - INFO - [pack_model] - model.layers.2.mlp.down_proj
+2025-04-24 00:54:29,247 - INFO - [pack_model] - model.layers.2.mlp.gate_proj
+2025-04-24 00:54:34,092 - INFO - [pack_model] - model.layers.2.mlp.up_proj
+2025-04-24 00:54:40,702 - INFO - [pack_model] - model.layers.3.self_attn.k_proj
+2025-04-24 00:54:40,882 - INFO - [pack_model] - model.layers.3.self_attn.o_proj
+2025-04-24 00:54:44,141 - INFO - [pack_model] - model.layers.3.self_attn.q_proj
+2025-04-24 00:54:46,556 - INFO - [pack_model] - model.layers.3.self_attn.v_proj
+2025-04-24 00:54:46,722 - INFO - [pack_model] - model.layers.3.mlp.down_proj
+2025-04-24 00:54:55,338 - INFO - [pack_model] - model.layers.3.mlp.gate_proj
+2025-04-24 00:54:59,853 - INFO - [pack_model] - model.layers.3.mlp.up_proj
+2025-04-24 00:55:04,819 - INFO - [pack_model] - model.layers.4.self_attn.k_proj
+2025-04-24 00:55:04,985 - INFO - [pack_model] - model.layers.4.self_attn.o_proj
+2025-04-24 00:55:07,224 - INFO - [pack_model] - model.layers.4.self_attn.q_proj
+2025-04-24 00:55:09,228 - INFO - [pack_model] - model.layers.4.self_attn.v_proj
+2025-04-24 00:55:09,391 - INFO - [pack_model] - model.layers.4.mlp.down_proj
+2025-04-24 00:55:16,847 - INFO - [pack_model] - model.layers.4.mlp.gate_proj
+2025-04-24 00:55:20,889 - INFO - [pack_model] - model.layers.4.mlp.up_proj
+2025-04-24 00:55:25,469 - INFO - [pack_model] - model.layers.5.self_attn.k_proj
+2025-04-24 00:55:25,630 - INFO - [pack_model] - model.layers.5.self_attn.o_proj
+2025-04-24 00:55:27,513 - INFO - [pack_model] - model.layers.5.self_attn.q_proj
+2025-04-24 00:55:29,638 - INFO - [pack_model] - model.layers.5.self_attn.v_proj
+2025-04-24 00:55:29,817 - INFO - [pack_model] - model.layers.5.mlp.down_proj
+2025-04-24 00:55:37,245 - INFO - [pack_model] - model.layers.5.mlp.gate_proj
+2025-04-24 00:55:41,102 - INFO - [pack_model] - model.layers.5.mlp.up_proj
+2025-04-24 00:55:45,096 - INFO - [pack_model] - model.layers.6.self_attn.k_proj
+2025-04-24 00:55:45,259 - INFO - [pack_model] - model.layers.6.self_attn.o_proj
+2025-04-24 00:55:46,907 - INFO - [pack_model] - model.layers.6.self_attn.q_proj
+2025-04-24 00:55:48,504 - INFO - [pack_model] - model.layers.6.self_attn.v_proj
+2025-04-24 00:55:48,660 - INFO - [pack_model] - model.layers.6.mlp.down_proj
+2025-04-24 00:55:55,226 - INFO - [pack_model] - model.layers.6.mlp.gate_proj
+2025-04-24 00:55:59,072 - INFO - [pack_model] - model.layers.6.mlp.up_proj
+2025-04-24 00:56:03,067 - INFO - [pack_model] - model.layers.7.self_attn.k_proj
+2025-04-24 00:56:03,228 - INFO - [pack_model] - model.layers.7.self_attn.o_proj
+2025-04-24 00:56:04,814 - INFO - [pack_model] - model.layers.7.self_attn.q_proj
+2025-04-24 00:56:06,404 - INFO - [pack_model] - model.layers.7.self_attn.v_proj
+2025-04-24 00:56:06,568 - INFO - [pack_model] - model.layers.7.mlp.down_proj
+2025-04-24 00:56:13,444 - INFO - [pack_model] - model.layers.7.mlp.gate_proj
+2025-04-24 00:56:17,465 - INFO - [pack_model] - model.layers.7.mlp.up_proj
+2025-04-24 00:56:21,499 - INFO - [pack_model] - model.layers.8.self_attn.k_proj
+2025-04-24 00:56:21,667 - INFO - [pack_model] - model.layers.8.self_attn.o_proj
+2025-04-24 00:56:23,405 - INFO - [pack_model] - model.layers.8.self_attn.q_proj
+2025-04-24 00:56:25,078 - INFO - [pack_model] - model.layers.8.self_attn.v_proj
+2025-04-24 00:56:25,239 - INFO - [pack_model] - model.layers.8.mlp.down_proj
+2025-04-24 00:56:34,344 - INFO - [pack_model] - model.layers.8.mlp.gate_proj
+2025-04-24 00:56:38,750 - INFO - [pack_model] - model.layers.8.mlp.up_proj
+2025-04-24 00:56:43,011 - INFO - [pack_model] - model.layers.9.self_attn.k_proj
+2025-04-24 00:56:43,180 - INFO - [pack_model] - model.layers.9.self_attn.o_proj
+2025-04-24 00:56:44,943 - INFO - [pack_model] - model.layers.9.self_attn.q_proj
+2025-04-24 00:56:46,714 - INFO - [pack_model] - model.layers.9.self_attn.v_proj
+2025-04-24 00:56:46,877 - INFO - [pack_model] - model.layers.9.mlp.down_proj
+2025-04-24 00:56:53,429 - INFO - [pack_model] - model.layers.9.mlp.gate_proj
+2025-04-24 00:56:57,466 - INFO - [pack_model] - model.layers.9.mlp.up_proj
+2025-04-24 00:57:01,466 - INFO - [pack_model] - model.layers.10.self_attn.k_proj
+2025-04-24 00:57:01,630 - INFO - [pack_model] - model.layers.10.self_attn.o_proj
+2025-04-24 00:57:03,507 - INFO - [pack_model] - model.layers.10.self_attn.q_proj
+2025-04-24 00:57:05,407 - INFO - [pack_model] - model.layers.10.self_attn.v_proj
+2025-04-24 00:57:05,567 - INFO - [pack_model] - model.layers.10.mlp.down_proj
+2025-04-24 00:57:12,218 - INFO - [pack_model] - model.layers.10.mlp.gate_proj
+2025-04-24 00:57:16,159 - INFO - [pack_model] - model.layers.10.mlp.up_proj
+2025-04-24 00:57:20,087 - INFO - [pack_model] - model.layers.11.self_attn.k_proj
+2025-04-24 00:57:20,248 - INFO - [pack_model] - model.layers.11.self_attn.o_proj
+2025-04-24 00:57:21,872 - INFO - [pack_model] - model.layers.11.self_attn.q_proj
+2025-04-24 00:57:23,563 - INFO - [pack_model] - model.layers.11.self_attn.v_proj
+2025-04-24 00:57:23,724 - INFO - [pack_model] - model.layers.11.mlp.down_proj
+2025-04-24 00:57:30,300 - INFO - [pack_model] - model.layers.11.mlp.gate_proj
+2025-04-24 00:57:34,262 - INFO - [pack_model] - model.layers.11.mlp.up_proj
+2025-04-24 00:57:38,061 - INFO - [pack_model] - model.layers.12.self_attn.k_proj
+2025-04-24 00:57:38,243 - INFO - [pack_model] - model.layers.12.self_attn.o_proj
+2025-04-24 00:57:40,226 - INFO - [pack_model] - model.layers.12.self_attn.q_proj
+2025-04-24 00:57:42,118 - INFO - [pack_model] - model.layers.12.self_attn.v_proj
+2025-04-24 00:57:42,290 - INFO - [pack_model] - model.layers.12.mlp.down_proj
+2025-04-24 00:57:50,131 - INFO - [pack_model] - model.layers.12.mlp.gate_proj
+2025-04-24 00:57:54,475 - INFO - [pack_model] - model.layers.12.mlp.up_proj
+2025-04-24 00:57:58,805 - INFO - [pack_model] - model.layers.13.self_attn.k_proj
+2025-04-24 00:57:58,974 - INFO - [pack_model] - model.layers.13.self_attn.o_proj
+2025-04-24 00:58:00,838 - INFO - [pack_model] - model.layers.13.self_attn.q_proj
+2025-04-24 00:58:02,765 - INFO - [pack_model] - model.layers.13.self_attn.v_proj
+2025-04-24 00:58:02,936 - INFO - [pack_model] - model.layers.13.mlp.down_proj
+2025-04-24 00:58:11,082 - INFO - [pack_model] - model.layers.13.mlp.gate_proj
+2025-04-24 00:58:15,304 - INFO - [pack_model] - model.layers.13.mlp.up_proj
+2025-04-24 00:58:19,599 - INFO - [pack_model] - model.layers.14.self_attn.k_proj
+2025-04-24 00:58:19,764 - INFO - [pack_model] - model.layers.14.self_attn.o_proj
+2025-04-24 00:58:21,415 - INFO - [pack_model] - model.layers.14.self_attn.q_proj
+2025-04-24 00:58:23,288 - INFO - [pack_model] - model.layers.14.self_attn.v_proj
+2025-04-24 00:58:23,455 - INFO - [pack_model] - model.layers.14.mlp.down_proj
+2025-04-24 00:58:31,572 - INFO - [pack_model] - model.layers.14.mlp.gate_proj
+2025-04-24 00:58:35,763 - INFO - [pack_model] - model.layers.14.mlp.up_proj
+2025-04-24 00:58:39,844 - INFO - [pack_model] - model.layers.15.self_attn.k_proj
+2025-04-24 00:58:40,007 - INFO - [pack_model] - model.layers.15.self_attn.o_proj
+2025-04-24 00:58:41,909 - INFO - [pack_model] - model.layers.15.self_attn.q_proj
+2025-04-24 00:58:43,902 - INFO - [pack_model] - model.layers.15.self_attn.v_proj
+2025-04-24 00:58:44,060 - INFO - [pack_model] - model.layers.15.mlp.down_proj
+2025-04-24 00:58:50,539 - INFO - [pack_model] - model.layers.15.mlp.gate_proj
+2025-04-24 00:58:54,505 - INFO - [pack_model] - model.layers.15.mlp.up_proj
+2025-04-24 00:58:58,905 - INFO - [pack_model] - model.layers.16.self_attn.k_proj
+2025-04-24 00:58:59,075 - INFO - [pack_model] - model.layers.16.self_attn.o_proj
+2025-04-24 00:59:01,344 - INFO - [pack_model] - model.layers.16.self_attn.q_proj
+2025-04-24 00:59:03,418 - INFO - [pack_model] - model.layers.16.self_attn.v_proj
+2025-04-24 00:59:03,584 - INFO - [pack_model] - model.layers.16.mlp.down_proj
+2025-04-24 00:59:11,472 - INFO - [pack_model] - model.layers.16.mlp.gate_proj
+2025-04-24 00:59:15,887 - INFO - [pack_model] - model.layers.16.mlp.up_proj
+2025-04-24 00:59:20,780 - INFO - [pack_model] - model.layers.17.self_attn.k_proj
+2025-04-24 00:59:21,096 - INFO - [pack_model] - model.layers.17.self_attn.o_proj
+2025-04-24 00:59:23,028 - INFO - [pack_model] - model.layers.17.self_attn.q_proj
+2025-04-24 00:59:24,815 - INFO - [pack_model] - model.layers.17.self_attn.v_proj
+2025-04-24 00:59:24,977 - INFO - [pack_model] - model.layers.17.mlp.down_proj
+2025-04-24 00:59:33,191 - INFO - [pack_model] - model.layers.17.mlp.gate_proj
+2025-04-24 00:59:37,556 - INFO - [pack_model] - model.layers.17.mlp.up_proj
+2025-04-24 00:59:41,785 - INFO - [pack_model] - model.layers.18.self_attn.k_proj
+2025-04-24 00:59:41,950 - INFO - [pack_model] - model.layers.18.self_attn.o_proj
+2025-04-24 00:59:43,930 - INFO - [pack_model] - model.layers.18.self_attn.q_proj
+2025-04-24 00:59:45,839 - INFO - [pack_model] - model.layers.18.self_attn.v_proj
+2025-04-24 00:59:46,003 - INFO - [pack_model] - model.layers.18.mlp.down_proj
+2025-04-24 00:59:52,890 - INFO - [pack_model] - model.layers.18.mlp.gate_proj
+2025-04-24 00:59:57,190 - INFO - [pack_model] - model.layers.18.mlp.up_proj
+2025-04-24 01:00:01,779 - INFO - [pack_model] - model.layers.19.self_attn.k_proj
+2025-04-24 01:00:01,944 - INFO - [pack_model] - model.layers.19.self_attn.o_proj
+2025-04-24 01:00:04,033 - INFO - [pack_model] - model.layers.19.self_attn.q_proj
+2025-04-24 01:00:06,237 - INFO - [pack_model] - model.layers.19.self_attn.v_proj
+2025-04-24 01:00:06,400 - INFO - [pack_model] - model.layers.19.mlp.down_proj
+2025-04-24 01:00:14,492 - INFO - [pack_model] - model.layers.19.mlp.gate_proj
+2025-04-24 01:00:19,027 - INFO - [pack_model] - model.layers.19.mlp.up_proj
+2025-04-24 01:00:24,561 - INFO - [pack_model] - model.layers.20.self_attn.k_proj
+2025-04-24 01:00:24,744 - INFO - [pack_model] - model.layers.20.self_attn.o_proj
+2025-04-24 01:00:27,183 - INFO - [pack_model] - model.layers.20.self_attn.q_proj
+2025-04-24 01:00:29,435 - INFO - [pack_model] - model.layers.20.self_attn.v_proj
+2025-04-24 01:00:29,612 - INFO - [pack_model] - model.layers.20.mlp.down_proj
+2025-04-24 01:00:37,334 - INFO - [pack_model] - model.layers.20.mlp.gate_proj
+2025-04-24 01:00:41,712 - INFO - [pack_model] - model.layers.20.mlp.up_proj
+2025-04-24 01:00:46,076 - INFO - [pack_model] - model.layers.21.self_attn.k_proj
+2025-04-24 01:00:46,241 - INFO - [pack_model] - model.layers.21.self_attn.o_proj
+2025-04-24 01:00:48,113 - INFO - [pack_model] - model.layers.21.self_attn.q_proj
+2025-04-24 01:00:50,004 - INFO - [pack_model] - model.layers.21.self_attn.v_proj
+2025-04-24 01:00:50,169 - INFO - [pack_model] - model.layers.21.mlp.down_proj
+2025-04-24 01:00:57,929 - INFO - [pack_model] - model.layers.21.mlp.gate_proj
+2025-04-24 01:01:01,979 - INFO - [pack_model] - model.layers.21.mlp.up_proj
+2025-04-24 01:01:06,085 - INFO - [pack_model] - model.layers.22.self_attn.k_proj
+2025-04-24 01:01:06,248 - INFO - [pack_model] - model.layers.22.self_attn.o_proj
+2025-04-24 01:01:08,109 - INFO - [pack_model] - model.layers.22.self_attn.q_proj
+2025-04-24 01:01:10,003 - INFO - [pack_model] - model.layers.22.self_attn.v_proj
+2025-04-24 01:01:10,162 - INFO - [pack_model] - model.layers.22.mlp.down_proj
+2025-04-24 01:01:17,739 - INFO - [pack_model] - model.layers.22.mlp.gate_proj
+2025-04-24 01:01:21,467 - INFO - [pack_model] - model.layers.22.mlp.up_proj
+2025-04-24 01:01:25,160 - INFO - [pack_model] - model.layers.23.self_attn.k_proj
+2025-04-24 01:01:25,330 - INFO - [pack_model] - model.layers.23.self_attn.o_proj
+2025-04-24 01:01:26,887 - INFO - [pack_model] - model.layers.23.self_attn.q_proj
+2025-04-24 01:01:28,497 - INFO - [pack_model] - model.layers.23.self_attn.v_proj
+2025-04-24 01:01:28,661 - INFO - [pack_model] - model.layers.23.mlp.down_proj
+2025-04-24 01:01:35,025 - INFO - [pack_model] - model.layers.23.mlp.gate_proj
+2025-04-24 01:01:39,067 - INFO - [pack_model] - model.layers.23.mlp.up_proj
+2025-04-24 01:01:43,079 - INFO - [pack_model] - model.layers.24.self_attn.k_proj
+2025-04-24 01:01:43,242 - INFO - [pack_model] - model.layers.24.self_attn.o_proj
+2025-04-24 01:01:45,110 - INFO - [pack_model] - model.layers.24.self_attn.q_proj
+2025-04-24 01:01:47,014 - INFO - [pack_model] - model.layers.24.self_attn.v_proj
+2025-04-24 01:01:47,177 - INFO - [pack_model] - model.layers.24.mlp.down_proj
+2025-04-24 01:01:53,935 - INFO - [pack_model] - model.layers.24.mlp.gate_proj
+2025-04-24 01:01:58,503 - INFO - [pack_model] - model.layers.24.mlp.up_proj
+2025-04-24 01:02:03,158 - INFO - [pack_model] - model.layers.25.self_attn.k_proj
+2025-04-24 01:02:03,329 - INFO - [pack_model] - model.layers.25.self_attn.o_proj
+2025-04-24 01:02:05,241 - INFO - [pack_model] - model.layers.25.self_attn.q_proj
+2025-04-24 01:02:07,308 - INFO - [pack_model] - model.layers.25.self_attn.v_proj
+2025-04-24 01:02:07,468 - INFO - [pack_model] - model.layers.25.mlp.down_proj
+2025-04-24 01:02:15,434 - INFO - [pack_model] - model.layers.25.mlp.gate_proj
+2025-04-24 01:02:20,096 - INFO - [pack_model] - model.layers.25.mlp.up_proj
+2025-04-24 01:02:24,801 - INFO - [pack_model] - model.layers.26.self_attn.k_proj
+2025-04-24 01:02:24,983 - INFO - [pack_model] - model.layers.26.self_attn.o_proj
+2025-04-24 01:02:27,027 - INFO - [pack_model] - model.layers.26.self_attn.q_proj
+2025-04-24 01:02:29,535 - INFO - [pack_model] - model.layers.26.self_attn.v_proj
+2025-04-24 01:02:29,699 - INFO - [pack_model] - model.layers.26.mlp.down_proj
+2025-04-24 01:02:38,114 - INFO - [pack_model] - model.layers.26.mlp.gate_proj
+2025-04-24 01:02:42,367 - INFO - [pack_model] - model.layers.26.mlp.up_proj
+2025-04-24 01:02:46,772 - INFO - [pack_model] - model.layers.27.self_attn.k_proj
+2025-04-24 01:02:46,940 - INFO - [pack_model] - model.layers.27.self_attn.o_proj
+2025-04-24 01:02:48,914 - INFO - [pack_model] - model.layers.27.self_attn.q_proj
+2025-04-24 01:02:50,914 - INFO - [pack_model] - model.layers.27.self_attn.v_proj
+2025-04-24 01:02:51,079 - INFO - [pack_model] - model.layers.27.mlp.down_proj
+2025-04-24 01:02:59,041 - INFO - [pack_model] - model.layers.27.mlp.gate_proj
+2025-04-24 01:03:03,701 - INFO - [pack_model] - model.layers.27.mlp.up_proj
+2025-04-24 01:03:08,195 - INFO - [pack_model] - model.layers.28.self_attn.k_proj
+2025-04-24 01:03:08,362 - INFO - [pack_model] - model.layers.28.self_attn.o_proj
+2025-04-24 01:03:10,424 - INFO - [pack_model] - model.layers.28.self_attn.q_proj
+2025-04-24 01:03:12,523 - INFO - [pack_model] - model.layers.28.self_attn.v_proj
+2025-04-24 01:03:12,686 - INFO - [pack_model] - model.layers.28.mlp.down_proj
+2025-04-24 01:03:21,921 - INFO - [pack_model] - model.layers.28.mlp.gate_proj
+2025-04-24 01:03:27,554 - INFO - [pack_model] - model.layers.28.mlp.up_proj
+2025-04-24 01:03:32,001 - INFO - [pack_model] - model.layers.29.self_attn.k_proj
+2025-04-24 01:03:32,170 - INFO - [pack_model] - model.layers.29.self_attn.o_proj
+2025-04-24 01:03:33,923 - INFO - [pack_model] - model.layers.29.self_attn.q_proj
+2025-04-24 01:03:35,647 - INFO - [pack_model] - model.layers.29.self_attn.v_proj
+2025-04-24 01:03:35,816 - INFO - [pack_model] - model.layers.29.mlp.down_proj
+2025-04-24 01:03:43,224 - INFO - [pack_model] - model.layers.29.mlp.gate_proj
+2025-04-24 01:03:47,194 - INFO - [pack_model] - model.layers.29.mlp.up_proj
+2025-04-24 01:03:51,135 - INFO - [pack_model] - model.layers.30.self_attn.k_proj
+2025-04-24 01:03:51,326 - INFO - [pack_model] - model.layers.30.self_attn.o_proj
+2025-04-24 01:03:53,629 - INFO - [pack_model] - model.layers.30.self_attn.q_proj
+2025-04-24 01:03:55,664 - INFO - [pack_model] - model.layers.30.self_attn.v_proj
+2025-04-24 01:03:55,842 - INFO - [pack_model] - model.layers.30.mlp.down_proj
+2025-04-24 01:04:02,986 - INFO - [pack_model] - model.layers.30.mlp.gate_proj
+2025-04-24 01:04:06,962 - INFO - [pack_model] - model.layers.30.mlp.up_proj
+2025-04-24 01:04:10,917 - INFO - [pack_model] - model.layers.31.self_attn.k_proj
+2025-04-24 01:04:11,085 - INFO - [pack_model] - model.layers.31.self_attn.o_proj
+2025-04-24 01:04:12,806 - INFO - [pack_model] - model.layers.31.self_attn.q_proj
+2025-04-24 01:04:14,495 - INFO - [pack_model] - model.layers.31.self_attn.v_proj
+2025-04-24 01:04:14,654 - INFO - [pack_model] - model.layers.31.mlp.down_proj
+2025-04-24 01:04:21,293 - INFO - [pack_model] - model.layers.31.mlp.gate_proj
+2025-04-24 01:04:25,131 - INFO - [pack_model] - model.layers.31.mlp.up_proj
+2025-04-24 01:04:29,039 - INFO - [pack_model] - Model packed.
+2025-04-24 01:04:29,715 - INFO - [run_quantization] - Model loading and quantization finished. Duration: 0:16:02.239484
+2025-04-24 01:04:29,715 - INFO - [run_quantization] - Saving quantized model and tokenizer to /workspace/models/Mistral-7B-Instruct-v0.3/quantized-gptq-4bit...
+2025-04-24 01:04:33,109 - INFO - [run_quantization] - Successfully saved quantized model and tokenizer. Duration: 0:00:03.394033
+2025-04-24 01:04:33,110 - WARNING - [run_quantization] - Model saving seemed to complete, but essential files (quantize_config.json, model.safetensors) are missing!
+2025-04-24 01:04:33,110 - INFO - [run_quantization] - Cleaning up model object from memory...
+2025-04-24 01:04:33,110 - INFO - [run_quantization] - Cleared CUDA cache.
+2025-04-24 01:04:33,110 - INFO - [<module>] - 
+--- AutoGPTQ Quantization Script Finished ---
