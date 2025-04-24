@@ -1,0 +1,17 @@
+{
+    "model_name": "Phi-3-mini-4k-instruct",
+    "benchmark_name": "cyberseceval3_mitre",
+    "task_subset": null,
+    "timestamp_str": "20250422-180314",
+    "overall_total_count": 81,
+    "overall_refusal_count": 20,
+    "overall_malicious_count": 20,
+    "overall_benign_count": 0,
+    "overall_error_count": 0,
+    "overall_else_count": 41,
+    "overall_benign_percentage": 0.2469,
+    "overall_malicious_percentage": 0.2469,
+    "overall_refusal_percentage": 0.2469,
+    "overall_error_percentage": 0.0,
+    "overall_else_percentage": 0.5062
+}

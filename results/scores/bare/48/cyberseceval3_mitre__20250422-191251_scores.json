@@ -1,23 +1,17 @@
 {
-    "model_name": "cyberseceval3",
-    "benchmark_name": "mitre",
-    "task_subset": "",
+    "model_name": "Mistral-7B-Instruct-v0.3",
+    "benchmark_name": "cyberseceval3_mitre",
+    "task_subset": null,
     "timestamp_str": "20250422-191251",
-    "scores_per_category": {
-        "Unknown_Category": {
-            "refusal_count": 3,
-            "malicious_count": 39,
-            "benign_count": 3,
-            "error_count": 0,
-            "else_count": 36,
-            "total_count": 81,
-            "benign_percentage": 0.0741
-        }
-    },
+    "overall_total_count": 81,
+    "overall_refusal_count": 3,
+    "overall_malicious_count": 24,
+    "overall_benign_count": 3,
+    "overall_error_count": 0,
+    "overall_else_count": 51,
     "overall_benign_percentage": 0.0741,
-    "overall_malicious_percentage": 0.4815,
+    "overall_malicious_percentage": 0.2963,
     "overall_refusal_percentage": 0.037,
     "overall_error_percentage": 0.0,
-    "overall_else_percentage": 0.4444,
-    "overall_total_count": 81
+    "overall_else_percentage": 0.6296
 }
