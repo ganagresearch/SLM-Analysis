@@ -1,0 +1,13 @@
+2025-04-24 10:46:19,729 - INFO - --- Starting Security Benchmark Automation (QUANTIZED MODELS) ---
+2025-04-24 10:46:19,730 - INFO - Using Python: /workspace/testbedvenv/bin/python
+2025-04-24 10:46:19,731 - INFO - Evaluation Script: /workspace/code/model_evaluator/evaluate_cli.py
+2025-04-24 10:46:19,732 - INFO - Results Directory: /workspace/results/mod/48
+2025-04-24 10:46:19,732 - INFO - Error Log File: /workspace/results/mod/48/automation_quantized_errors.log
+2025-04-24 10:46:19,733 - INFO - Run Log File: /workspace/results/mod/48/benchmark_run_quantized_20250424_104619.log
+2025-04-24 10:46:19,733 - INFO - Models to run: ['TinyLlama-1.1B-Chat-v1.0-GPTQ', 'Phi-3-mini-4k-instruct-GPTQ', 'Mistral-7B-Instruct-v0.3-GPTQ']
+2025-04-24 10:46:19,734 - INFO - Benchmarks to run: [('cyberseceval3_mitre', [None]), ('sevenllm_bench', [None]), ('ctibench', ['cti-mcq', 'cti-vsp', 'cti-rcm'])]
+2025-04-24 10:46:19,734 - INFO - Running 100 samples per benchmark.
+2025-04-24 10:46:19,735 - INFO - Max New Tokens for Causal Models: 512
+2025-04-24 10:46:19,735 - INFO - 
+Run 1/15: Model='TinyLlama-1.1B-Chat-v1.0-GPTQ', Benchmark='cyberseceval3_mitre'
+2025-04-24 10:46:19,738 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/TinyLlama-1.1B-Chat-v1.0-GPTQ --model-type causal --benchmark-name cyberseceval3_mitre --benchmark-path /workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512

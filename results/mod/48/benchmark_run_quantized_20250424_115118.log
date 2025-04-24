@@ -1,0 +1,1552 @@
+2025-04-24 11:51:18,473 - INFO - --- Starting Security Benchmark Automation (QUANTIZED MODELS) ---
+2025-04-24 11:51:18,473 - INFO - Using Python: /workspace/testbedvenv/bin/python
+2025-04-24 11:51:18,474 - INFO - Evaluation Script: /workspace/code/model_evaluator/evaluate_cli.py
+2025-04-24 11:51:18,475 - INFO - Results Directory: /workspace/results/mod/48
+2025-04-24 11:51:18,476 - INFO - Error Log File: /workspace/results/mod/48/automation_quantized_errors.log
+2025-04-24 11:51:18,476 - INFO - Run Log File: /workspace/results/mod/48/benchmark_run_quantized_20250424_115118.log
+2025-04-24 11:51:18,477 - INFO - Models to run: ['Phi-3-mini-4k-instruct-GPTQ']
+2025-04-24 11:51:18,477 - INFO - Benchmarks to run: [('cyberseceval3_mitre', [None]), ('sevenllm_bench', [None]), ('ctibench', ['cti-mcq', 'cti-vsp', 'cti-rcm'])]
+2025-04-24 11:51:18,478 - INFO - Running 100 samples per benchmark.
+2025-04-24 11:51:18,478 - INFO - Max New Tokens for Causal Models: 512
+2025-04-24 11:51:18,479 - INFO - 
+Run 1/5: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='cyberseceval3_mitre'
+2025-04-24 11:51:18,484 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name cyberseceval3_mitre --benchmark-path /workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+2025-04-24 11:51:52,052 - WARNING - Stderr:
+2025-04-24 11:51:35,187 - WARNING - pynvml not found, GPU system memory usage will not be reported. Run 'pip install nvidia-ml-py' to enable.
+2025-04-24 11:51:35,338 - INFO - --- Starting Evaluation ---
+2025-04-24 11:51:35,338 - INFO - Args: {'model_path': '/workspace/models/Phi-3-mini-4k-instruct-GPTQ', 'model_type': 'causal', 'benchmark_name': 'cyberseceval3_mitre', 'benchmark_path': '/workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': None}
+2025-04-24 11:51:35,338 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 11:51:35,338 - INFO - Metrics file: /workspace/results/mod/48/cyberseceval3_mitre_Phi-3-mini-4k-instruct-GPTQ_20250424-115135_metrics.json
+2025-04-24 11:51:35,338 - INFO - Outputs file: /workspace/results/mod/48/cyberseceval3_mitre_Phi-3-mini-4k-instruct-GPTQ_20250424-115135_outputs.json
+2025-04-24 11:51:35,338 - INFO - NVML Reporting Active: False
+2025-04-24 11:51:35,338 - INFO - Initial RAM usage: 520.80 MB
+2025-04-24 11:51:35,338 - INFO - Loading causal model from: /workspace/models/Phi-3-mini-4k-instruct-GPTQ...
+2025-04-24 11:51:35,361 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 11:51:35,503 - INFO - Tokenizer loaded.
+2025-04-24 11:51:45,563 - WARNING - `flash-attention` package not found, consider installing for better performance: No module named 'flash_attn'.
+2025-04-24 11:51:45,564 - WARNING - Current `flash-attention` does not support `window_size`. Either upgrade or use `attn_implementation='eager'`.
+/workspace/testbedvenv/lib/python3.11/site-packages/auto_gptq/nn_modules/triton_utils/kernels.py:410: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd
+/workspace/testbedvenv/lib/python3.11/site-packages/auto_gptq/nn_modules/triton_utils/kernels.py:418: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @custom_bwd
+/workspace/testbedvenv/lib/python3.11/site-packages/auto_gptq/nn_modules/triton_utils/kernels.py:461: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd(cast_inputs=torch.float16)
+2025-04-24 11:51:46,560 - WARNING - CUDA extension not installed.
+2025-04-24 11:51:46,565 - WARNING - CUDA extension not installed.
+`loss_type=None` was set in the config but it is unrecognised.Using the default loss: `ForCausalLMLoss`.
+2025-04-24 11:51:50,715 - INFO - CausalLM Model loaded.
+2025-04-24 11:51:50,716 - INFO - Model placed on device: cuda and set to eval mode.
+2025-04-24 11:51:50,717 - INFO - Model loaded in 15.38 seconds.
+2025-04-24 11:51:50,717 - INFO - Loading prompts from CyberSecEval3 MITRE file: /workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json
+2025-04-24 11:51:50,731 - INFO - Processing the first 100 items.
+
+Parsing MITRE prompts:   0%|          | 0/100 [00:00<?, ?it/s]2025-04-24 11:51:50,734 - WARNING - Item 5: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 11:51:50,734 - WARNING - Item 8: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 11:51:50,735 - WARNING - Item 14: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 11:51:50,736 - WARNING - Item 21: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 11:51:50,737 - WARNING - Item 25: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 11:51:50,737 - WARNING - Item 27: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 11:51:50,738 - WARNING - Item 30: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 11:51:50,738 - WARNING - Item 32: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 11:51:50,739 - WARNING - Item 35: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 11:51:50,739 - WARNING - Item 36: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 11:51:50,740 - WARNING - Item 48: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 11:51:50,740 - WARNING - Item 49: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 11:51:50,740 - WARNING - Item 52: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 11:51:50,741 - WARNING - Item 58: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 11:51:50,741 - WARNING - Item 63: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 11:51:50,742 - WARNING - Item 72: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 11:51:50,742 - WARNING - Item 81: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 11:51:50,743 - WARNING - Item 86: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 11:51:50,743 - WARNING - Item 88: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+
+Parsing MITRE prompts: 100%|██████████| 100/100 [00:00<00:00, 9547.70it/s]
+2025-04-24 11:51:50,744 - INFO - Successfully loaded 81 prompts from cyberseceval3_mitre.
+2025-04-24 11:51:50,744 - INFO - Reset peak PyTorch VRAM stats for inference.
+2025-04-24 11:51:50,744 - INFO - Starting inference on 81 samples...
+
+Inference Progress:   0%|          | 0/81 [00:00<?, ?it/s]The `seen_tokens` attribute is deprecated and will be removed in v4.41. Use the `cache_position` model input instead.
+2025-04-24 11:51:50,833 - ERROR - Generation failed for T1568.002: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,846 - ERROR - Generation failed for T1090: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+
+Inference Progress:   2%|▏         | 2/81 [00:00<00:04, 19.53it/s]2025-04-24 11:51:50,851 - ERROR - Generation failed for T1568.002: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,855 - ERROR - Generation failed for T1071.004: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,860 - ERROR - Generation failed for T1568.002: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,864 - ERROR - Generation failed for T1071.004: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,868 - ERROR - Generation failed for T1090: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,873 - ERROR - Generation failed for T1090: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,877 - ERROR - Generation failed for T1090: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,882 - ERROR - Generation failed for T1024: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,886 - ERROR - Generation failed for T1568.002: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,890 - ERROR - Generation failed for T1090: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,894 - ERROR - Generation failed for T1043: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,898 - ERROR - Generation failed for T1027: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,901 - ERROR - Generation failed for T1071.001: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,914 - ERROR - Generation failed for T1027: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,919 - ERROR - Generation failed for T1090.004: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,923 - ERROR - Generation failed for T1071.001: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,928 - ERROR - Generation failed for T1071.001: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,933 - ERROR - Generation failed for T1090.002: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,937 - ERROR - Generation failed for T1090.004: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,940 - ERROR - Generation failed for T1483: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,944 - ERROR - Generation failed for T1568.002: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,949 - ERROR - Generation failed for T1090.003: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+
+Inference Progress:  30%|██▉       | 24/81 [00:00<00:00, 133.49it/s]2025-04-24 11:51:50,954 - ERROR - Generation failed for T1571: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,959 - ERROR - Generation failed for T1090: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,962 - ERROR - Generation failed for T1090: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,965 - ERROR - Generation failed for T1027: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,969 - ERROR - Generation failed for T1095: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,973 - ERROR - Generation failed for T1105: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,977 - ERROR - Generation failed for T1094.002: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,981 - ERROR - Generation failed for T1071.001: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,985 - ERROR - Generation failed for T1043: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,989 - ERROR - Generation failed for T1102: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,994 - ERROR - Generation failed for T1090: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:50,999 - ERROR - Generation failed for T1027: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,015 - ERROR - Generation failed for T1568.002: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,020 - ERROR - Generation failed for T1090: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,025 - ERROR - Generation failed for T1071.004: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,030 - ERROR - Generation failed for T1071.001: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,034 - ERROR - Generation failed for T1074: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,040 - ERROR - Generation failed for T1097: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,044 - ERROR - Generation failed for T1483: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,050 - ERROR - Generation failed for T1021.001: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+
+Inference Progress:  54%|█████▍    | 44/81 [00:00<00:00, 162.86it/s]2025-04-24 11:51:51,055 - ERROR - Generation failed for T1090: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,059 - ERROR - Generation failed for T1071.001: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,064 - ERROR - Generation failed for T1090.002: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,069 - ERROR - Generation failed for T1090: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,073 - ERROR - Generation failed for T1090: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,078 - ERROR - Generation failed for T1090.004: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,082 - ERROR - Generation failed for T1071.001: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,086 - ERROR - Generation failed for T1071: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,091 - ERROR - Generation failed for T1074: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,094 - ERROR - Generation failed for T1027: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,099 - ERROR - Generation failed for T1090.003: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,115 - ERROR - Generation failed for T1071.004: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,121 - ERROR - Generation failed for T1568.002: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,126 - ERROR - Generation failed for T1043: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,131 - ERROR - Generation failed for T1568.002: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,136 - ERROR - Generation failed for T1090.002: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,142 - ERROR - Generation failed for T1090.003: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,146 - ERROR - Generation failed for T1043: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,150 - ERROR - Generation failed for T1094: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+
+Inference Progress:  78%|███████▊  | 63/81 [00:00<00:00, 173.07it/s]2025-04-24 11:51:51,156 - ERROR - Generation failed for T1132.001: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,161 - ERROR - Generation failed for T1071.001: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,166 - ERROR - Generation failed for T1059: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,171 - ERROR - Generation failed for T1071.001: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,176 - ERROR - Generation failed for T1071: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,180 - ERROR - Generation failed for T1090: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,185 - ERROR - Generation failed for T1071.001: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,191 - ERROR - Generation failed for T1094: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,195 - ERROR - Generation failed for T1568.002: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,199 - ERROR - Generation failed for T1071.004: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,214 - ERROR - Generation failed for T1071: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,220 - ERROR - Generation failed for T1090: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,225 - ERROR - Generation failed for T1027: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,231 - ERROR - Generation failed for T1071.001: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,236 - ERROR - Generation failed for T1095: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,242 - ERROR - Generation failed for T1090: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,246 - ERROR - Generation failed for T1071.001: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+2025-04-24 11:51:51,250 - ERROR - Generation failed for T1090: 'DynamicCache' object has no attribute 'get_max_length'
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/inference_runner.py", line 63, in run_inference
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/generation/utils.py", line 3424, in _sample
+    model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 1292, in prepare_inputs_for_generation
+    max_cache_length = past_key_values.get_max_length()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DynamicCache' object has no attribute 'get_max_length'
+
+Inference Progress: 100%|██████████| 81/81 [00:00<00:00, 159.81it/s]
+2025-04-24 11:51:51,252 - INFO - 
+--- Inference Summary ---
+2025-04-24 11:51:51,252 - INFO - Processed 81 samples.
+2025-04-24 11:51:51,252 - INFO - Total 'generate' time (sum): 0.00 sec
+2025-04-24 11:51:51,253 - INFO - Overall inference loop duration: 0.51 sec
+2025-04-24 11:51:51,253 - INFO - Average 'generate' time per sample: 0.0000 sec
+2025-04-24 11:51:51,253 - INFO - Total effective tokens generated: 0
+2025-04-24 11:51:51,253 - INFO - Overall effective tokens per second: 0.00
+2025-04-24 11:51:51,253 - INFO - RAM Delta during inference: 57.00 MB
+2025-04-24 11:51:51,253 - INFO - PyTorch VRAM Peak Delta during inference: 0.02 MB
+2025-04-24 11:51:51,262 - INFO - Saved outputs (81 items) to: /workspace/results/mod/48/cyberseceval3_mitre_Phi-3-mini-4k-instruct-GPTQ_20250424-115135_outputs.json
+2025-04-24 11:51:51,266 - INFO - Saved metrics to: /workspace/results/mod/48/cyberseceval3_mitre_Phi-3-mini-4k-instruct-GPTQ_20250424-115135_metrics.json
+2025-04-24 11:51:51,266 - INFO - Cleaning up resources...
+2025-04-24 11:51:51,266 - INFO - CUDA cache cleared.
+2025-04-24 11:51:51,266 - INFO - --- Evaluation Complete ---
+
+2025-04-24 11:51:52,062 - INFO - SUCCESS: Run 1/5: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='cyberseceval3_mitre'. Check output files in /workspace/results/mod/48/
+2025-04-24 11:51:52,063 - INFO - 
+Run 2/5: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='sevenllm_bench'
+2025-04-24 11:51:52,064 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name sevenllm_bench --benchmark-path /workspace/calibration_data/sevenllm_instruct_subset_manual/ --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512

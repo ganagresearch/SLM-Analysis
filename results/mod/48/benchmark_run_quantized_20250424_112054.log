@@ -1,0 +1,181 @@
+2025-04-24 11:20:54,796 - INFO - --- Starting Security Benchmark Automation (QUANTIZED MODELS) ---
+2025-04-24 11:20:54,797 - INFO - Using Python: /workspace/testbedvenv/bin/python
+2025-04-24 11:20:54,797 - INFO - Evaluation Script: /workspace/code/model_evaluator/evaluate_cli.py
+2025-04-24 11:20:54,798 - INFO - Results Directory: /workspace/results/mod/48
+2025-04-24 11:20:54,798 - INFO - Error Log File: /workspace/results/mod/48/automation_quantized_errors.log
+2025-04-24 11:20:54,808 - INFO - Run Log File: /workspace/results/mod/48/benchmark_run_quantized_20250424_112054.log
+2025-04-24 11:20:54,809 - INFO - Models to run: ['Phi-3-mini-4k-instruct-GPTQ', 'Mistral-7B-Instruct-v0.3-GPTQ']
+2025-04-24 11:20:54,810 - INFO - Benchmarks to run: [('cyberseceval3_mitre', [None]), ('sevenllm_bench', [None]), ('ctibench', ['cti-mcq', 'cti-vsp', 'cti-rcm'])]
+2025-04-24 11:20:54,811 - INFO - Running 100 samples per benchmark.
+2025-04-24 11:20:54,811 - INFO - Max New Tokens for Causal Models: 512
+2025-04-24 11:20:54,812 - INFO - 
+Run 1/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='cyberseceval3_mitre'
+2025-04-24 11:20:54,813 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name cyberseceval3_mitre --benchmark-path /workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+2025-04-24 11:21:17,639 - WARNING - Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 11, in <module>
+    from benchmark_loader import load_benchmark_prompts
+  File "/workspace/code/model_evaluator/benchmark_loader.py", line 5, in <module>
+    from datasets import load_dataset, load_from_disk, DatasetDict
+ModuleNotFoundError: No module named 'datasets'
+
+2025-04-24 11:21:17,640 - ERROR - ERROR during: Run 1/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='cyberseceval3_mitre'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name cyberseceval3_mitre --benchmark-path /workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+  Return Code: 1
+  Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 11, in <module>
+    from benchmark_loader import load_benchmark_prompts
+  File "/workspace/code/model_evaluator/benchmark_loader.py", line 5, in <module>
+    from datasets import load_dataset, load_from_disk, DatasetDict
+ModuleNotFoundError: No module named 'datasets'
+
+----------------------------------------
+
+2025-04-24 11:21:17,643 - INFO - 
+Run 2/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='sevenllm_bench'
+2025-04-24 11:21:17,645 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name sevenllm_bench --benchmark-path /workspace/calibration_data/sevenllm_instruct_subset_manual/ --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+2025-04-24 11:21:31,234 - WARNING - Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 11, in <module>
+    from benchmark_loader import load_benchmark_prompts
+  File "/workspace/code/model_evaluator/benchmark_loader.py", line 5, in <module>
+    from datasets import load_dataset, load_from_disk, DatasetDict
+ModuleNotFoundError: No module named 'datasets'
+
+2025-04-24 11:21:31,236 - ERROR - ERROR during: Run 2/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='sevenllm_bench'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name sevenllm_bench --benchmark-path /workspace/calibration_data/sevenllm_instruct_subset_manual/ --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+  Return Code: 1
+  Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 11, in <module>
+    from benchmark_loader import load_benchmark_prompts
+  File "/workspace/code/model_evaluator/benchmark_loader.py", line 5, in <module>
+    from datasets import load_dataset, load_from_disk, DatasetDict
+ModuleNotFoundError: No module named 'datasets'
+
+----------------------------------------
+
+2025-04-24 11:21:31,239 - INFO - 
+Run 3/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-mcq'
+2025-04-24 11:21:31,240 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-mcq --max-new-tokens 512
+2025-04-24 11:21:43,923 - WARNING - Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 11, in <module>
+    from benchmark_loader import load_benchmark_prompts
+  File "/workspace/code/model_evaluator/benchmark_loader.py", line 5, in <module>
+    from datasets import load_dataset, load_from_disk, DatasetDict
+ModuleNotFoundError: No module named 'datasets'
+
+2025-04-24 11:21:43,923 - ERROR - ERROR during: Run 3/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-mcq'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-mcq --max-new-tokens 512
+  Return Code: 1
+  Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 11, in <module>
+    from benchmark_loader import load_benchmark_prompts
+  File "/workspace/code/model_evaluator/benchmark_loader.py", line 5, in <module>
+    from datasets import load_dataset, load_from_disk, DatasetDict
+ModuleNotFoundError: No module named 'datasets'
+
+----------------------------------------
+
+2025-04-24 11:21:43,926 - INFO - 
+Run 4/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-vsp'
+2025-04-24 11:21:43,927 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-vsp --max-new-tokens 512
+2025-04-24 11:21:56,857 - WARNING - Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 11, in <module>
+    from benchmark_loader import load_benchmark_prompts
+  File "/workspace/code/model_evaluator/benchmark_loader.py", line 5, in <module>
+    from datasets import load_dataset, load_from_disk, DatasetDict
+ModuleNotFoundError: No module named 'datasets'
+
+2025-04-24 11:21:56,859 - ERROR - ERROR during: Run 4/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-vsp'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-vsp --max-new-tokens 512
+  Return Code: 1
+  Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 11, in <module>
+    from benchmark_loader import load_benchmark_prompts
+  File "/workspace/code/model_evaluator/benchmark_loader.py", line 5, in <module>
+    from datasets import load_dataset, load_from_disk, DatasetDict
+ModuleNotFoundError: No module named 'datasets'
+
+----------------------------------------
+
+2025-04-24 11:21:56,863 - INFO - 
+Run 5/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-rcm'
+2025-04-24 11:21:56,864 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-rcm --max-new-tokens 512
+2025-04-24 11:22:11,377 - WARNING - Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 11, in <module>
+    from benchmark_loader import load_benchmark_prompts
+  File "/workspace/code/model_evaluator/benchmark_loader.py", line 5, in <module>
+    from datasets import load_dataset, load_from_disk, DatasetDict
+ModuleNotFoundError: No module named 'datasets'
+
+2025-04-24 11:22:11,378 - ERROR - ERROR during: Run 5/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-rcm'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-rcm --max-new-tokens 512
+  Return Code: 1
+  Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 11, in <module>
+    from benchmark_loader import load_benchmark_prompts
+  File "/workspace/code/model_evaluator/benchmark_loader.py", line 5, in <module>
+    from datasets import load_dataset, load_from_disk, DatasetDict
+ModuleNotFoundError: No module named 'datasets'
+
+----------------------------------------
+
+2025-04-24 11:22:11,382 - INFO - 
+Run 6/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='cyberseceval3_mitre'
+2025-04-24 11:22:11,385 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name cyberseceval3_mitre --benchmark-path /workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+2025-04-24 11:22:27,579 - WARNING - Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 11, in <module>
+    from benchmark_loader import load_benchmark_prompts
+  File "/workspace/code/model_evaluator/benchmark_loader.py", line 5, in <module>
+    from datasets import load_dataset, load_from_disk, DatasetDict
+ModuleNotFoundError: No module named 'datasets'
+
+2025-04-24 11:22:27,580 - ERROR - ERROR during: Run 6/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='cyberseceval3_mitre'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name cyberseceval3_mitre --benchmark-path /workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+  Return Code: 1
+  Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 11, in <module>
+    from benchmark_loader import load_benchmark_prompts
+  File "/workspace/code/model_evaluator/benchmark_loader.py", line 5, in <module>
+    from datasets import load_dataset, load_from_disk, DatasetDict
+ModuleNotFoundError: No module named 'datasets'
+
+----------------------------------------
+
+2025-04-24 11:22:27,588 - INFO - 
+Run 7/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='sevenllm_bench'
+2025-04-24 11:22:27,590 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name sevenllm_bench --benchmark-path /workspace/calibration_data/sevenllm_instruct_subset_manual/ --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+2025-04-24 11:22:40,651 - WARNING - Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 11, in <module>
+    from benchmark_loader import load_benchmark_prompts
+  File "/workspace/code/model_evaluator/benchmark_loader.py", line 5, in <module>
+    from datasets import load_dataset, load_from_disk, DatasetDict
+ModuleNotFoundError: No module named 'datasets'
+
+2025-04-24 11:22:40,652 - ERROR - ERROR during: Run 7/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='sevenllm_bench'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name sevenllm_bench --benchmark-path /workspace/calibration_data/sevenllm_instruct_subset_manual/ --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+  Return Code: 1
+  Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 11, in <module>
+    from benchmark_loader import load_benchmark_prompts
+  File "/workspace/code/model_evaluator/benchmark_loader.py", line 5, in <module>
+    from datasets import load_dataset, load_from_disk, DatasetDict
+ModuleNotFoundError: No module named 'datasets'
+
+----------------------------------------
+
+2025-04-24 11:22:40,656 - INFO - 
+Run 8/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='ctibench', Subset='cti-mcq'
+2025-04-24 11:22:40,657 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-mcq --max-new-tokens 512

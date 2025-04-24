@@ -1,0 +1,173 @@
+2025-04-24 07:32:31,796 - INFO - --- Starting Security Benchmark Automation (QUANTIZED MODELS) ---
+2025-04-24 07:32:31,797 - INFO - Using Python: /workspace/testbedvenv/bin/python
+2025-04-24 07:32:31,798 - INFO - Evaluation Script: /workspace/code/model_evaluator/evaluate_cli.py
+2025-04-24 07:32:31,799 - INFO - Results Directory: /workspace/results/mod/48
+2025-04-24 07:32:31,800 - INFO - Error Log File: /workspace/results/mod/48/automation_quantized_errors.log
+2025-04-24 07:32:31,800 - INFO - Run Log File: /workspace/results/mod/48/benchmark_run_quantized_20250424_073231.log
+2025-04-24 07:32:31,810 - INFO - Models to run: ['TinyLlama-1.1B-Chat-v1.0-GPTQ', 'Phi-3-mini-4k-instruct-GPTQ', 'Mistral-7B-Instruct-v0.3-GPTQ']
+2025-04-24 07:32:31,811 - INFO - Benchmarks to run: [('cyberseceval3_mitre', [None]), ('sevenllm_bench', [None]), ('ctibench', ['cti-mcq', 'cti-vsp', 'cti-rcm'])]
+2025-04-24 07:32:31,812 - INFO - Running 100 samples per benchmark.
+2025-04-24 07:32:31,813 - INFO - Max New Tokens for Causal Models: 512
+2025-04-24 07:32:31,813 - INFO - 
+Run 1/15: Model='TinyLlama-1.1B-Chat-v1.0-GPTQ', Benchmark='cyberseceval3_mitre'
+2025-04-24 07:32:31,815 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/TinyLlama-1.1B-Chat-v1.0-GPTQ --model-type causal --benchmark-name cyberseceval3_mitre --benchmark-path /workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+2025-04-24 07:33:27,535 - WARNING - Stderr:
+2025-04-24 07:33:21,110 - INFO - Initialized NVML for device 0.
+2025-04-24 07:33:21,271 - INFO - --- Starting Evaluation ---
+2025-04-24 07:33:21,271 - INFO - Args: {'model_path': '/workspace/models/TinyLlama-1.1B-Chat-v1.0-GPTQ', 'model_type': 'causal', 'benchmark_name': 'cyberseceval3_mitre', 'benchmark_path': '/workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': None}
+2025-04-24 07:33:21,271 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 07:33:21,271 - INFO - Metrics file: /workspace/results/mod/48/cyberseceval3_mitre_TinyLlama-1.1B-Chat-v1.0-GPTQ_20250424-073321_metrics.json
+2025-04-24 07:33:21,271 - INFO - Outputs file: /workspace/results/mod/48/cyberseceval3_mitre_TinyLlama-1.1B-Chat-v1.0-GPTQ_20250424-073321_outputs.json
+2025-04-24 07:33:21,271 - INFO - NVML Reporting Active: True
+2025-04-24 07:33:21,271 - INFO - Initial RAM usage: 661.26 MB
+2025-04-24 07:33:21,271 - INFO - Initial System VRAM usage: 556.06 MB
+2025-04-24 07:33:21,271 - INFO - Loading causal model from: /workspace/models/TinyLlama-1.1B-Chat-v1.0-GPTQ...
+2025-04-24 07:33:21,284 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 07:33:21,606 - INFO - Tokenizer loaded.
+2025-04-24 07:33:25,124 - ERROR - Error loading model: Loading a GPTQ quantized model requires the auto-gptq library (`pip install auto-gptq`)
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/model_loader.py", line 33, in load_model_and_tokenizer
+    model = AutoModelForCausalLM.from_pretrained(model_path, device_map=device, **model_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 564, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 3620, in from_pretrained
+    hf_quantizer.validate_environment(
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/quantizers/quantizer_gptq.py", line 59, in validate_environment
+    raise ImportError(
+ImportError: Loading a GPTQ quantized model requires the auto-gptq library (`pip install auto-gptq`)
+2025-04-24 07:33:25,145 - ERROR - An error occurred during evaluation pipeline: Model/Tokenizer loading failed
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 66, in main
+    raise RuntimeError("Model/Tokenizer loading failed")
+RuntimeError: Model/Tokenizer loading failed
+2025-04-24 07:33:25,146 - INFO - Cleaning up resources...
+2025-04-24 07:33:25,146 - INFO - CUDA cache cleared.
+2025-04-24 07:33:25,147 - INFO - NVML shut down.
+2025-04-24 07:33:25,147 - INFO - --- Evaluation Complete ---
+
+2025-04-24 07:33:27,537 - INFO - SUCCESS: Run 1/15: Model='TinyLlama-1.1B-Chat-v1.0-GPTQ', Benchmark='cyberseceval3_mitre'. Check output files in /workspace/results/mod/48/
+2025-04-24 07:33:27,538 - INFO - 
+Run 2/15: Model='TinyLlama-1.1B-Chat-v1.0-GPTQ', Benchmark='sevenllm_bench'
+2025-04-24 07:33:27,539 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/TinyLlama-1.1B-Chat-v1.0-GPTQ --model-type causal --benchmark-name sevenllm_bench --benchmark-path /workspace/calibration_data/sevenllm_instruct_subset_manual/ --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+2025-04-24 07:33:56,778 - WARNING - Stderr:
+2025-04-24 07:33:52,850 - INFO - Initialized NVML for device 0.
+2025-04-24 07:33:52,998 - INFO - --- Starting Evaluation ---
+2025-04-24 07:33:52,999 - INFO - Args: {'model_path': '/workspace/models/TinyLlama-1.1B-Chat-v1.0-GPTQ', 'model_type': 'causal', 'benchmark_name': 'sevenllm_bench', 'benchmark_path': '/workspace/calibration_data/sevenllm_instruct_subset_manual/', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': None}
+2025-04-24 07:33:52,999 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 07:33:52,999 - INFO - Metrics file: /workspace/results/mod/48/sevenllm_bench_TinyLlama-1.1B-Chat-v1.0-GPTQ_20250424-073352_metrics.json
+2025-04-24 07:33:52,999 - INFO - Outputs file: /workspace/results/mod/48/sevenllm_bench_TinyLlama-1.1B-Chat-v1.0-GPTQ_20250424-073352_outputs.json
+2025-04-24 07:33:52,999 - INFO - NVML Reporting Active: True
+2025-04-24 07:33:52,999 - INFO - Initial RAM usage: 665.44 MB
+2025-04-24 07:33:52,999 - INFO - Initial System VRAM usage: 556.06 MB
+2025-04-24 07:33:52,999 - INFO - Loading causal model from: /workspace/models/TinyLlama-1.1B-Chat-v1.0-GPTQ...
+2025-04-24 07:33:53,003 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 07:33:53,160 - INFO - Tokenizer loaded.
+2025-04-24 07:33:56,058 - ERROR - Error loading model: Loading a GPTQ quantized model requires the auto-gptq library (`pip install auto-gptq`)
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/model_loader.py", line 33, in load_model_and_tokenizer
+    model = AutoModelForCausalLM.from_pretrained(model_path, device_map=device, **model_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 564, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 3620, in from_pretrained
+    hf_quantizer.validate_environment(
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/quantizers/quantizer_gptq.py", line 59, in validate_environment
+    raise ImportError(
+ImportError: Loading a GPTQ quantized model requires the auto-gptq library (`pip install auto-gptq`)
+2025-04-24 07:33:56,068 - ERROR - An error occurred during evaluation pipeline: Model/Tokenizer loading failed
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 66, in main
+    raise RuntimeError("Model/Tokenizer loading failed")
+RuntimeError: Model/Tokenizer loading failed
+2025-04-24 07:33:56,069 - INFO - Cleaning up resources...
+2025-04-24 07:33:56,070 - INFO - CUDA cache cleared.
+2025-04-24 07:33:56,070 - INFO - NVML shut down.
+2025-04-24 07:33:56,070 - INFO - --- Evaluation Complete ---
+
+2025-04-24 07:33:56,780 - INFO - SUCCESS: Run 2/15: Model='TinyLlama-1.1B-Chat-v1.0-GPTQ', Benchmark='sevenllm_bench'. Check output files in /workspace/results/mod/48/
+2025-04-24 07:33:56,781 - INFO - 
+Run 3/15: Model='TinyLlama-1.1B-Chat-v1.0-GPTQ', Benchmark='ctibench', Subset='cti-mcq'
+2025-04-24 07:33:56,782 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/TinyLlama-1.1B-Chat-v1.0-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-mcq --max-new-tokens 512
+2025-04-24 07:34:26,724 - WARNING - Stderr:
+2025-04-24 07:34:22,735 - INFO - Initialized NVML for device 0.
+2025-04-24 07:34:22,882 - INFO - --- Starting Evaluation ---
+2025-04-24 07:34:22,882 - INFO - Args: {'model_path': '/workspace/models/TinyLlama-1.1B-Chat-v1.0-GPTQ', 'model_type': 'causal', 'benchmark_name': 'ctibench', 'benchmark_path': '/workspace/datasets', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': 'cti-mcq'}
+2025-04-24 07:34:22,883 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 07:34:22,883 - INFO - Metrics file: /workspace/results/mod/48/ctibench_cti-mcq_TinyLlama-1.1B-Chat-v1.0-GPTQ_20250424-073422_metrics.json
+2025-04-24 07:34:22,883 - INFO - Outputs file: /workspace/results/mod/48/ctibench_cti-mcq_TinyLlama-1.1B-Chat-v1.0-GPTQ_20250424-073422_outputs.json
+2025-04-24 07:34:22,883 - INFO - NVML Reporting Active: True
+2025-04-24 07:34:22,883 - INFO - Initial RAM usage: 668.48 MB
+2025-04-24 07:34:22,883 - INFO - Initial System VRAM usage: 556.06 MB
+2025-04-24 07:34:22,883 - INFO - Loading causal model from: /workspace/models/TinyLlama-1.1B-Chat-v1.0-GPTQ...
+2025-04-24 07:34:22,887 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 07:34:23,055 - INFO - Tokenizer loaded.
+2025-04-24 07:34:25,977 - ERROR - Error loading model: Loading a GPTQ quantized model requires the auto-gptq library (`pip install auto-gptq`)
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/model_loader.py", line 33, in load_model_and_tokenizer
+    model = AutoModelForCausalLM.from_pretrained(model_path, device_map=device, **model_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 564, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 3620, in from_pretrained
+    hf_quantizer.validate_environment(
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/quantizers/quantizer_gptq.py", line 59, in validate_environment
+    raise ImportError(
+ImportError: Loading a GPTQ quantized model requires the auto-gptq library (`pip install auto-gptq`)
+2025-04-24 07:34:25,988 - ERROR - An error occurred during evaluation pipeline: Model/Tokenizer loading failed
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 66, in main
+    raise RuntimeError("Model/Tokenizer loading failed")
+RuntimeError: Model/Tokenizer loading failed
+2025-04-24 07:34:25,989 - INFO - Cleaning up resources...
+2025-04-24 07:34:25,989 - INFO - CUDA cache cleared.
+2025-04-24 07:34:25,989 - INFO - NVML shut down.
+2025-04-24 07:34:25,989 - INFO - --- Evaluation Complete ---
+
+2025-04-24 07:34:26,726 - INFO - SUCCESS: Run 3/15: Model='TinyLlama-1.1B-Chat-v1.0-GPTQ', Benchmark='ctibench', Subset='cti-mcq'. Check output files in /workspace/results/mod/48/
+2025-04-24 07:34:26,727 - INFO - 
+Run 4/15: Model='TinyLlama-1.1B-Chat-v1.0-GPTQ', Benchmark='ctibench', Subset='cti-vsp'
+2025-04-24 07:34:26,728 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/TinyLlama-1.1B-Chat-v1.0-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-vsp --max-new-tokens 512
+2025-04-24 07:34:56,313 - WARNING - Stderr:
+2025-04-24 07:34:52,306 - INFO - Initialized NVML for device 0.
+2025-04-24 07:34:52,452 - INFO - --- Starting Evaluation ---
+2025-04-24 07:34:52,452 - INFO - Args: {'model_path': '/workspace/models/TinyLlama-1.1B-Chat-v1.0-GPTQ', 'model_type': 'causal', 'benchmark_name': 'ctibench', 'benchmark_path': '/workspace/datasets', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': 'cti-vsp'}
+2025-04-24 07:34:52,452 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 07:34:52,453 - INFO - Metrics file: /workspace/results/mod/48/ctibench_cti-vsp_TinyLlama-1.1B-Chat-v1.0-GPTQ_20250424-073452_metrics.json
+2025-04-24 07:34:52,453 - INFO - Outputs file: /workspace/results/mod/48/ctibench_cti-vsp_TinyLlama-1.1B-Chat-v1.0-GPTQ_20250424-073452_outputs.json
+2025-04-24 07:34:52,453 - INFO - NVML Reporting Active: True
+2025-04-24 07:34:52,453 - INFO - Initial RAM usage: 668.18 MB
+2025-04-24 07:34:52,453 - INFO - Initial System VRAM usage: 556.06 MB
+2025-04-24 07:34:52,453 - INFO - Loading causal model from: /workspace/models/TinyLlama-1.1B-Chat-v1.0-GPTQ...
+2025-04-24 07:34:52,457 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 07:34:52,596 - INFO - Tokenizer loaded.
+2025-04-24 07:34:55,577 - ERROR - Error loading model: Loading a GPTQ quantized model requires the auto-gptq library (`pip install auto-gptq`)
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/model_loader.py", line 33, in load_model_and_tokenizer
+    model = AutoModelForCausalLM.from_pretrained(model_path, device_map=device, **model_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 564, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 3620, in from_pretrained
+    hf_quantizer.validate_environment(
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/quantizers/quantizer_gptq.py", line 59, in validate_environment
+    raise ImportError(
+ImportError: Loading a GPTQ quantized model requires the auto-gptq library (`pip install auto-gptq`)
+2025-04-24 07:34:55,588 - ERROR - An error occurred during evaluation pipeline: Model/Tokenizer loading failed
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 66, in main
+    raise RuntimeError("Model/Tokenizer loading failed")
+RuntimeError: Model/Tokenizer loading failed
+2025-04-24 07:34:55,589 - INFO - Cleaning up resources...
+2025-04-24 07:34:55,589 - INFO - CUDA cache cleared.
+2025-04-24 07:34:55,589 - INFO - NVML shut down.
+2025-04-24 07:34:55,589 - INFO - --- Evaluation Complete ---
+
+2025-04-24 07:34:56,315 - INFO - SUCCESS: Run 4/15: Model='TinyLlama-1.1B-Chat-v1.0-GPTQ', Benchmark='ctibench', Subset='cti-vsp'. Check output files in /workspace/results/mod/48/
+2025-04-24 07:34:56,315 - INFO - 
+Run 5/15: Model='TinyLlama-1.1B-Chat-v1.0-GPTQ', Benchmark='ctibench', Subset='cti-rcm'
+2025-04-24 07:34:56,317 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/TinyLlama-1.1B-Chat-v1.0-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-rcm --max-new-tokens 512

@@ -23,6 +23,8 @@ def main():
     parser.add_argument("--max-new-tokens", type=int, default=256, help="Max new tokens for model generation.")
     parser.add_argument("--num-samples", type=int, default=None, help="Number of samples to load/run (loads/runs all if None or <= 0).")
     parser.add_argument("--cti-subset", type=str, default=None, help="Specify the CTIBench subset name if using benchmark-name 'ctibench'.")
+    parser.add_argument("--batch-size", type=int, default=1, help="Batch size for inference.")
+    parser.add_argument("--trust-remote-code", action="store_true", help="Allow loading models with custom code from Hugging Face Hub.")
     args = parser.parse_args()
 
     setup_logging() # Configure logging first
@@ -95,7 +97,12 @@ def main():
                 inference_metrics = {}
             else:
                 inference_results, inference_metrics = run_inference(
-                    model, tokenizer, prompts_data, args.device, args.max_new_tokens
+                    model,
+                    tokenizer,
+                    prompts_data,
+                    args.device,
+                    args.max_new_tokens,
+                    batch_size=args.batch_size
                 )
                 # Log inference summary here
                 logging.info(f"\n--- Inference Summary ---")

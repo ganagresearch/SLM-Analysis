@@ -1,0 +1,526 @@
+2025-04-24 11:29:28,397 - INFO - --- Starting Security Benchmark Automation (QUANTIZED MODELS) ---
+2025-04-24 11:29:28,408 - INFO - Using Python: /workspace/testbedvenv/bin/python
+2025-04-24 11:29:28,409 - INFO - Evaluation Script: /workspace/code/model_evaluator/evaluate_cli.py
+2025-04-24 11:29:28,410 - INFO - Results Directory: /workspace/results/mod/48
+2025-04-24 11:29:28,411 - INFO - Error Log File: /workspace/results/mod/48/automation_quantized_errors.log
+2025-04-24 11:29:28,411 - INFO - Run Log File: /workspace/results/mod/48/benchmark_run_quantized_20250424_112928.log
+2025-04-24 11:29:28,412 - INFO - Models to run: ['Phi-3-mini-4k-instruct-GPTQ', 'Mistral-7B-Instruct-v0.3-GPTQ']
+2025-04-24 11:29:28,412 - INFO - Benchmarks to run: [('cyberseceval3_mitre', [None]), ('sevenllm_bench', [None]), ('ctibench', ['cti-mcq', 'cti-vsp', 'cti-rcm'])]
+2025-04-24 11:29:28,414 - INFO - Running 100 samples per benchmark.
+2025-04-24 11:29:28,414 - INFO - Max New Tokens for Causal Models: 512
+2025-04-24 11:29:28,415 - INFO - 
+Run 1/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='cyberseceval3_mitre'
+2025-04-24 11:29:28,416 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name cyberseceval3_mitre --benchmark-path /workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+2025-04-24 11:29:56,889 - WARNING - Stderr:
+2025-04-24 11:29:44,652 - WARNING - pynvml not found, GPU system memory usage will not be reported. Run 'pip install nvidia-ml-py' to enable.
+2025-04-24 11:29:44,820 - INFO - --- Starting Evaluation ---
+2025-04-24 11:29:44,821 - INFO - Args: {'model_path': '/workspace/models/Phi-3-mini-4k-instruct-GPTQ', 'model_type': 'causal', 'benchmark_name': 'cyberseceval3_mitre', 'benchmark_path': '/workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': None}
+2025-04-24 11:29:44,821 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 11:29:44,821 - INFO - Metrics file: /workspace/results/mod/48/cyberseceval3_mitre_Phi-3-mini-4k-instruct-GPTQ_20250424-112944_metrics.json
+2025-04-24 11:29:44,821 - INFO - Outputs file: /workspace/results/mod/48/cyberseceval3_mitre_Phi-3-mini-4k-instruct-GPTQ_20250424-112944_outputs.json
+2025-04-24 11:29:44,821 - INFO - NVML Reporting Active: False
+2025-04-24 11:29:44,821 - INFO - Initial RAM usage: 516.33 MB
+2025-04-24 11:29:44,821 - INFO - Loading causal model from: /workspace/models/Phi-3-mini-4k-instruct-GPTQ...
+2025-04-24 11:29:44,847 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 11:29:44,978 - INFO - Tokenizer loaded.
+2025-04-24 11:29:55,985 - WARNING - `flash-attention` package not found, consider installing for better performance: No module named 'flash_attn'.
+2025-04-24 11:29:55,985 - WARNING - Current `flash-attention` does not support `window_size`. Either upgrade or use `attn_implementation='eager'`.
+2025-04-24 11:29:56,111 - ERROR - Error loading model: Loading a GPTQ quantized model requires gptqmodel (`pip install gptqmodel`) or auto-gptq (`pip install auto-gptq`) library. 
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/model_loader.py", line 33, in load_model_and_tokenizer
+    model = AutoModelForCausalLM.from_pretrained(model_path, device_map=device, **model_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 564, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 279, in _wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 4228, in from_pretrained
+    hf_quantizer.validate_environment(
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/quantizers/quantizer_gptq.py", line 67, in validate_environment
+    raise ImportError(
+ImportError: Loading a GPTQ quantized model requires gptqmodel (`pip install gptqmodel`) or auto-gptq (`pip install auto-gptq`) library. 
+2025-04-24 11:29:56,124 - ERROR - An error occurred during evaluation pipeline: Model/Tokenizer loading failed
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 66, in main
+    raise RuntimeError("Model/Tokenizer loading failed")
+RuntimeError: Model/Tokenizer loading failed
+2025-04-24 11:29:56,125 - INFO - Cleaning up resources...
+2025-04-24 11:29:56,125 - INFO - CUDA cache cleared.
+2025-04-24 11:29:56,125 - INFO - --- Evaluation Complete ---
+
+2025-04-24 11:29:56,891 - INFO - SUCCESS: Run 1/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='cyberseceval3_mitre'. Check output files in /workspace/results/mod/48/
+2025-04-24 11:29:56,893 - INFO - 
+Run 2/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='sevenllm_bench'
+2025-04-24 11:29:56,895 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name sevenllm_bench --benchmark-path /workspace/calibration_data/sevenllm_instruct_subset_manual/ --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+2025-04-24 11:30:57,763 - WARNING - Stderr:
+2025-04-24 11:30:30,475 - WARNING - pynvml not found, GPU system memory usage will not be reported. Run 'pip install nvidia-ml-py' to enable.
+2025-04-24 11:30:30,668 - INFO - --- Starting Evaluation ---
+2025-04-24 11:30:30,668 - INFO - Args: {'model_path': '/workspace/models/Phi-3-mini-4k-instruct-GPTQ', 'model_type': 'causal', 'benchmark_name': 'sevenllm_bench', 'benchmark_path': '/workspace/calibration_data/sevenllm_instruct_subset_manual/', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': None}
+2025-04-24 11:30:30,668 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 11:30:30,668 - INFO - Metrics file: /workspace/results/mod/48/sevenllm_bench_Phi-3-mini-4k-instruct-GPTQ_20250424-113030_metrics.json
+2025-04-24 11:30:30,668 - INFO - Outputs file: /workspace/results/mod/48/sevenllm_bench_Phi-3-mini-4k-instruct-GPTQ_20250424-113030_outputs.json
+2025-04-24 11:30:30,668 - INFO - NVML Reporting Active: False
+2025-04-24 11:30:30,668 - INFO - Initial RAM usage: 512.86 MB
+2025-04-24 11:30:30,668 - INFO - Loading causal model from: /workspace/models/Phi-3-mini-4k-instruct-GPTQ...
+2025-04-24 11:30:30,764 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 11:30:30,998 - INFO - Tokenizer loaded.
+2025-04-24 11:30:56,897 - WARNING - `flash-attention` package not found, consider installing for better performance: No module named 'flash_attn'.
+2025-04-24 11:30:56,897 - WARNING - Current `flash-attention` does not support `window_size`. Either upgrade or use `attn_implementation='eager'`.
+2025-04-24 11:30:56,989 - ERROR - Error loading model: Loading a GPTQ quantized model requires gptqmodel (`pip install gptqmodel`) or auto-gptq (`pip install auto-gptq`) library. 
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/model_loader.py", line 33, in load_model_and_tokenizer
+    model = AutoModelForCausalLM.from_pretrained(model_path, device_map=device, **model_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 564, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 279, in _wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 4228, in from_pretrained
+    hf_quantizer.validate_environment(
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/quantizers/quantizer_gptq.py", line 67, in validate_environment
+    raise ImportError(
+ImportError: Loading a GPTQ quantized model requires gptqmodel (`pip install gptqmodel`) or auto-gptq (`pip install auto-gptq`) library. 
+2025-04-24 11:30:57,010 - ERROR - An error occurred during evaluation pipeline: Model/Tokenizer loading failed
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 66, in main
+    raise RuntimeError("Model/Tokenizer loading failed")
+RuntimeError: Model/Tokenizer loading failed
+2025-04-24 11:30:57,011 - INFO - Cleaning up resources...
+2025-04-24 11:30:57,012 - INFO - CUDA cache cleared.
+2025-04-24 11:30:57,012 - INFO - --- Evaluation Complete ---
+
+2025-04-24 11:30:57,765 - INFO - SUCCESS: Run 2/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='sevenllm_bench'. Check output files in /workspace/results/mod/48/
+2025-04-24 11:30:57,765 - INFO - 
+Run 3/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-mcq'
+2025-04-24 11:30:57,766 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-mcq --max-new-tokens 512
+2025-04-24 11:31:27,534 - WARNING - Stderr:
+2025-04-24 11:31:15,648 - WARNING - pynvml not found, GPU system memory usage will not be reported. Run 'pip install nvidia-ml-py' to enable.
+2025-04-24 11:31:15,794 - INFO - --- Starting Evaluation ---
+2025-04-24 11:31:15,794 - INFO - Args: {'model_path': '/workspace/models/Phi-3-mini-4k-instruct-GPTQ', 'model_type': 'causal', 'benchmark_name': 'ctibench', 'benchmark_path': '/workspace/datasets', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': 'cti-mcq'}
+2025-04-24 11:31:15,794 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 11:31:15,794 - INFO - Metrics file: /workspace/results/mod/48/ctibench_cti-mcq_Phi-3-mini-4k-instruct-GPTQ_20250424-113115_metrics.json
+2025-04-24 11:31:15,794 - INFO - Outputs file: /workspace/results/mod/48/ctibench_cti-mcq_Phi-3-mini-4k-instruct-GPTQ_20250424-113115_outputs.json
+2025-04-24 11:31:15,794 - INFO - NVML Reporting Active: False
+2025-04-24 11:31:15,794 - INFO - Initial RAM usage: 515.07 MB
+2025-04-24 11:31:15,794 - INFO - Loading causal model from: /workspace/models/Phi-3-mini-4k-instruct-GPTQ...
+2025-04-24 11:31:15,816 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 11:31:15,950 - INFO - Tokenizer loaded.
+2025-04-24 11:31:26,702 - WARNING - `flash-attention` package not found, consider installing for better performance: No module named 'flash_attn'.
+2025-04-24 11:31:26,703 - WARNING - Current `flash-attention` does not support `window_size`. Either upgrade or use `attn_implementation='eager'`.
+2025-04-24 11:31:26,799 - ERROR - Error loading model: Loading a GPTQ quantized model requires gptqmodel (`pip install gptqmodel`) or auto-gptq (`pip install auto-gptq`) library. 
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/model_loader.py", line 33, in load_model_and_tokenizer
+    model = AutoModelForCausalLM.from_pretrained(model_path, device_map=device, **model_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 564, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 279, in _wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 4228, in from_pretrained
+    hf_quantizer.validate_environment(
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/quantizers/quantizer_gptq.py", line 67, in validate_environment
+    raise ImportError(
+ImportError: Loading a GPTQ quantized model requires gptqmodel (`pip install gptqmodel`) or auto-gptq (`pip install auto-gptq`) library. 
+2025-04-24 11:31:26,821 - ERROR - An error occurred during evaluation pipeline: Model/Tokenizer loading failed
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 66, in main
+    raise RuntimeError("Model/Tokenizer loading failed")
+RuntimeError: Model/Tokenizer loading failed
+2025-04-24 11:31:26,822 - INFO - Cleaning up resources...
+2025-04-24 11:31:26,823 - INFO - CUDA cache cleared.
+2025-04-24 11:31:26,823 - INFO - --- Evaluation Complete ---
+
+2025-04-24 11:31:27,536 - INFO - SUCCESS: Run 3/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-mcq'. Check output files in /workspace/results/mod/48/
+2025-04-24 11:31:27,537 - INFO - 
+Run 4/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-vsp'
+2025-04-24 11:31:27,538 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-vsp --max-new-tokens 512
+2025-04-24 11:31:57,600 - WARNING - Stderr:
+2025-04-24 11:31:45,979 - WARNING - pynvml not found, GPU system memory usage will not be reported. Run 'pip install nvidia-ml-py' to enable.
+2025-04-24 11:31:46,131 - INFO - --- Starting Evaluation ---
+2025-04-24 11:31:46,131 - INFO - Args: {'model_path': '/workspace/models/Phi-3-mini-4k-instruct-GPTQ', 'model_type': 'causal', 'benchmark_name': 'ctibench', 'benchmark_path': '/workspace/datasets', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': 'cti-vsp'}
+2025-04-24 11:31:46,131 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 11:31:46,131 - INFO - Metrics file: /workspace/results/mod/48/ctibench_cti-vsp_Phi-3-mini-4k-instruct-GPTQ_20250424-113146_metrics.json
+2025-04-24 11:31:46,131 - INFO - Outputs file: /workspace/results/mod/48/ctibench_cti-vsp_Phi-3-mini-4k-instruct-GPTQ_20250424-113146_outputs.json
+2025-04-24 11:31:46,131 - INFO - NVML Reporting Active: False
+2025-04-24 11:31:46,131 - INFO - Initial RAM usage: 519.12 MB
+2025-04-24 11:31:46,131 - INFO - Loading causal model from: /workspace/models/Phi-3-mini-4k-instruct-GPTQ...
+2025-04-24 11:31:46,158 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 11:31:46,317 - INFO - Tokenizer loaded.
+2025-04-24 11:31:56,761 - WARNING - `flash-attention` package not found, consider installing for better performance: No module named 'flash_attn'.
+2025-04-24 11:31:56,761 - WARNING - Current `flash-attention` does not support `window_size`. Either upgrade or use `attn_implementation='eager'`.
+2025-04-24 11:31:56,869 - ERROR - Error loading model: Loading a GPTQ quantized model requires gptqmodel (`pip install gptqmodel`) or auto-gptq (`pip install auto-gptq`) library. 
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/model_loader.py", line 33, in load_model_and_tokenizer
+    model = AutoModelForCausalLM.from_pretrained(model_path, device_map=device, **model_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 564, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 279, in _wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 4228, in from_pretrained
+    hf_quantizer.validate_environment(
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/quantizers/quantizer_gptq.py", line 67, in validate_environment
+    raise ImportError(
+ImportError: Loading a GPTQ quantized model requires gptqmodel (`pip install gptqmodel`) or auto-gptq (`pip install auto-gptq`) library. 
+2025-04-24 11:31:56,881 - ERROR - An error occurred during evaluation pipeline: Model/Tokenizer loading failed
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 66, in main
+    raise RuntimeError("Model/Tokenizer loading failed")
+RuntimeError: Model/Tokenizer loading failed
+2025-04-24 11:31:56,883 - INFO - Cleaning up resources...
+2025-04-24 11:31:56,883 - INFO - CUDA cache cleared.
+2025-04-24 11:31:56,883 - INFO - --- Evaluation Complete ---
+
+2025-04-24 11:31:57,611 - INFO - SUCCESS: Run 4/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-vsp'. Check output files in /workspace/results/mod/48/
+2025-04-24 11:31:57,612 - INFO - 
+Run 5/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-rcm'
+2025-04-24 11:31:57,614 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-rcm --max-new-tokens 512
+2025-04-24 11:32:31,965 - WARNING - Stderr:
+2025-04-24 11:32:20,269 - WARNING - pynvml not found, GPU system memory usage will not be reported. Run 'pip install nvidia-ml-py' to enable.
+2025-04-24 11:32:20,422 - INFO - --- Starting Evaluation ---
+2025-04-24 11:32:20,422 - INFO - Args: {'model_path': '/workspace/models/Phi-3-mini-4k-instruct-GPTQ', 'model_type': 'causal', 'benchmark_name': 'ctibench', 'benchmark_path': '/workspace/datasets', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': 'cti-rcm'}
+2025-04-24 11:32:20,422 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 11:32:20,422 - INFO - Metrics file: /workspace/results/mod/48/ctibench_cti-rcm_Phi-3-mini-4k-instruct-GPTQ_20250424-113220_metrics.json
+2025-04-24 11:32:20,422 - INFO - Outputs file: /workspace/results/mod/48/ctibench_cti-rcm_Phi-3-mini-4k-instruct-GPTQ_20250424-113220_outputs.json
+2025-04-24 11:32:20,422 - INFO - NVML Reporting Active: False
+2025-04-24 11:32:20,422 - INFO - Initial RAM usage: 516.86 MB
+2025-04-24 11:32:20,422 - INFO - Loading causal model from: /workspace/models/Phi-3-mini-4k-instruct-GPTQ...
+2025-04-24 11:32:20,450 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 11:32:20,611 - INFO - Tokenizer loaded.
+2025-04-24 11:32:31,147 - WARNING - `flash-attention` package not found, consider installing for better performance: No module named 'flash_attn'.
+2025-04-24 11:32:31,147 - WARNING - Current `flash-attention` does not support `window_size`. Either upgrade or use `attn_implementation='eager'`.
+2025-04-24 11:32:31,257 - ERROR - Error loading model: Loading a GPTQ quantized model requires gptqmodel (`pip install gptqmodel`) or auto-gptq (`pip install auto-gptq`) library. 
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/model_loader.py", line 33, in load_model_and_tokenizer
+    model = AutoModelForCausalLM.from_pretrained(model_path, device_map=device, **model_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 564, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 279, in _wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 4228, in from_pretrained
+    hf_quantizer.validate_environment(
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/quantizers/quantizer_gptq.py", line 67, in validate_environment
+    raise ImportError(
+ImportError: Loading a GPTQ quantized model requires gptqmodel (`pip install gptqmodel`) or auto-gptq (`pip install auto-gptq`) library. 
+2025-04-24 11:32:31,270 - ERROR - An error occurred during evaluation pipeline: Model/Tokenizer loading failed
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 66, in main
+    raise RuntimeError("Model/Tokenizer loading failed")
+RuntimeError: Model/Tokenizer loading failed
+2025-04-24 11:32:31,271 - INFO - Cleaning up resources...
+2025-04-24 11:32:31,271 - INFO - CUDA cache cleared.
+2025-04-24 11:32:31,271 - INFO - --- Evaluation Complete ---
+
+2025-04-24 11:32:31,968 - INFO - SUCCESS: Run 5/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-rcm'. Check output files in /workspace/results/mod/48/
+2025-04-24 11:32:31,969 - INFO - 
+Run 6/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='cyberseceval3_mitre'
+2025-04-24 11:32:31,971 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name cyberseceval3_mitre --benchmark-path /workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+2025-04-24 11:32:49,571 - WARNING - Stderr:
+2025-04-24 11:32:48,890 - WARNING - pynvml not found, GPU system memory usage will not be reported. Run 'pip install nvidia-ml-py' to enable.
+2025-04-24 11:32:49,039 - INFO - --- Starting Evaluation ---
+2025-04-24 11:32:49,039 - INFO - Args: {'model_path': '/workspace/models/Mistral-7B-Instruct-v0.3-GPTQ', 'model_type': 'causal', 'benchmark_name': 'cyberseceval3_mitre', 'benchmark_path': '/workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': None}
+2025-04-24 11:32:49,039 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 11:32:49,039 - INFO - Metrics file: /workspace/results/mod/48/cyberseceval3_mitre_Mistral-7B-Instruct-v0.3-GPTQ_20250424-113249_metrics.json
+2025-04-24 11:32:49,039 - INFO - Outputs file: /workspace/results/mod/48/cyberseceval3_mitre_Mistral-7B-Instruct-v0.3-GPTQ_20250424-113249_outputs.json
+2025-04-24 11:32:49,039 - INFO - NVML Reporting Active: False
+2025-04-24 11:32:49,039 - INFO - Initial RAM usage: 517.66 MB
+2025-04-24 11:32:49,039 - INFO - Loading causal model from: /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ...
+2025-04-24 11:32:49,060 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 11:32:49,089 - ERROR - Error loading tokenizer: 
+ requires the protobuf library but it was not found in your environment. Checkout the instructions on the
+installation page of its repo: https://github.com/protocolbuffers/protobuf/tree/master/python#installation and follow the ones
+that match your environment. Please note that you may need to restart your runtime after installation.
+Traceback (most recent call last):
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2302, in _from_pretrained
+    tokenizer = cls(*init_inputs, **init_kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/llama/tokenization_llama_fast.py", line 157, in __init__
+    super().__init__(
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/tokenization_utils_fast.py", line 108, in __init__
+    raise ValueError(
+ValueError: Cannot instantiate this tokenizer from a slow version. If it's based on sentencepiece, make sure you have sentencepiece installed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/model_loader.py", line 20, in load_model_and_tokenizer
+    tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True, legacy=False)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 1009, in from_pretrained
+    return tokenizer_class.from_pretrained(pretrained_model_name_or_path, *inputs, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2062, in from_pretrained
+    return cls._from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2303, in _from_pretrained
+    except import_protobuf_decode_error():
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 87, in import_protobuf_decode_error
+    raise ImportError(PROTOBUF_IMPORT_ERROR.format(error_message))
+ImportError: 
+ requires the protobuf library but it was not found in your environment. Checkout the instructions on the
+installation page of its repo: https://github.com/protocolbuffers/protobuf/tree/master/python#installation and follow the ones
+that match your environment. Please note that you may need to restart your runtime after installation.
+
+2025-04-24 11:32:49,098 - ERROR - An error occurred during evaluation pipeline: Model/Tokenizer loading failed
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 66, in main
+    raise RuntimeError("Model/Tokenizer loading failed")
+RuntimeError: Model/Tokenizer loading failed
+2025-04-24 11:32:49,108 - INFO - Cleaning up resources...
+2025-04-24 11:32:49,108 - INFO - CUDA cache cleared.
+2025-04-24 11:32:49,108 - INFO - --- Evaluation Complete ---
+
+2025-04-24 11:32:49,573 - INFO - SUCCESS: Run 6/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='cyberseceval3_mitre'. Check output files in /workspace/results/mod/48/
+2025-04-24 11:32:49,574 - INFO - 
+Run 7/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='sevenllm_bench'
+2025-04-24 11:32:49,576 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name sevenllm_bench --benchmark-path /workspace/calibration_data/sevenllm_instruct_subset_manual/ --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+2025-04-24 11:33:07,125 - WARNING - Stderr:
+2025-04-24 11:33:06,497 - WARNING - pynvml not found, GPU system memory usage will not be reported. Run 'pip install nvidia-ml-py' to enable.
+2025-04-24 11:33:06,643 - INFO - --- Starting Evaluation ---
+2025-04-24 11:33:06,643 - INFO - Args: {'model_path': '/workspace/models/Mistral-7B-Instruct-v0.3-GPTQ', 'model_type': 'causal', 'benchmark_name': 'sevenllm_bench', 'benchmark_path': '/workspace/calibration_data/sevenllm_instruct_subset_manual/', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': None}
+2025-04-24 11:33:06,643 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 11:33:06,643 - INFO - Metrics file: /workspace/results/mod/48/sevenllm_bench_Mistral-7B-Instruct-v0.3-GPTQ_20250424-113306_metrics.json
+2025-04-24 11:33:06,643 - INFO - Outputs file: /workspace/results/mod/48/sevenllm_bench_Mistral-7B-Instruct-v0.3-GPTQ_20250424-113306_outputs.json
+2025-04-24 11:33:06,643 - INFO - NVML Reporting Active: False
+2025-04-24 11:33:06,643 - INFO - Initial RAM usage: 519.35 MB
+2025-04-24 11:33:06,643 - INFO - Loading causal model from: /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ...
+2025-04-24 11:33:06,664 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 11:33:06,683 - ERROR - Error loading tokenizer: 
+ requires the protobuf library but it was not found in your environment. Checkout the instructions on the
+installation page of its repo: https://github.com/protocolbuffers/protobuf/tree/master/python#installation and follow the ones
+that match your environment. Please note that you may need to restart your runtime after installation.
+Traceback (most recent call last):
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2302, in _from_pretrained
+    tokenizer = cls(*init_inputs, **init_kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/llama/tokenization_llama_fast.py", line 157, in __init__
+    super().__init__(
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/tokenization_utils_fast.py", line 108, in __init__
+    raise ValueError(
+ValueError: Cannot instantiate this tokenizer from a slow version. If it's based on sentencepiece, make sure you have sentencepiece installed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/model_loader.py", line 20, in load_model_and_tokenizer
+    tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True, legacy=False)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 1009, in from_pretrained
+    return tokenizer_class.from_pretrained(pretrained_model_name_or_path, *inputs, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2062, in from_pretrained
+    return cls._from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2303, in _from_pretrained
+    except import_protobuf_decode_error():
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 87, in import_protobuf_decode_error
+    raise ImportError(PROTOBUF_IMPORT_ERROR.format(error_message))
+ImportError: 
+ requires the protobuf library but it was not found in your environment. Checkout the instructions on the
+installation page of its repo: https://github.com/protocolbuffers/protobuf/tree/master/python#installation and follow the ones
+that match your environment. Please note that you may need to restart your runtime after installation.
+
+2025-04-24 11:33:06,691 - ERROR - An error occurred during evaluation pipeline: Model/Tokenizer loading failed
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 66, in main
+    raise RuntimeError("Model/Tokenizer loading failed")
+RuntimeError: Model/Tokenizer loading failed
+2025-04-24 11:33:06,692 - INFO - Cleaning up resources...
+2025-04-24 11:33:06,692 - INFO - CUDA cache cleared.
+2025-04-24 11:33:06,692 - INFO - --- Evaluation Complete ---
+
+2025-04-24 11:33:07,127 - INFO - SUCCESS: Run 7/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='sevenllm_bench'. Check output files in /workspace/results/mod/48/
+2025-04-24 11:33:07,128 - INFO - 
+Run 8/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='ctibench', Subset='cti-mcq'
+2025-04-24 11:33:07,130 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-mcq --max-new-tokens 512
+2025-04-24 11:33:22,669 - WARNING - Stderr:
+2025-04-24 11:33:22,043 - WARNING - pynvml not found, GPU system memory usage will not be reported. Run 'pip install nvidia-ml-py' to enable.
+2025-04-24 11:33:22,189 - INFO - --- Starting Evaluation ---
+2025-04-24 11:33:22,189 - INFO - Args: {'model_path': '/workspace/models/Mistral-7B-Instruct-v0.3-GPTQ', 'model_type': 'causal', 'benchmark_name': 'ctibench', 'benchmark_path': '/workspace/datasets', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': 'cti-mcq'}
+2025-04-24 11:33:22,189 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 11:33:22,189 - INFO - Metrics file: /workspace/results/mod/48/ctibench_cti-mcq_Mistral-7B-Instruct-v0.3-GPTQ_20250424-113322_metrics.json
+2025-04-24 11:33:22,189 - INFO - Outputs file: /workspace/results/mod/48/ctibench_cti-mcq_Mistral-7B-Instruct-v0.3-GPTQ_20250424-113322_outputs.json
+2025-04-24 11:33:22,189 - INFO - NVML Reporting Active: False
+2025-04-24 11:33:22,189 - INFO - Initial RAM usage: 521.80 MB
+2025-04-24 11:33:22,189 - INFO - Loading causal model from: /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ...
+2025-04-24 11:33:22,211 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 11:33:22,233 - ERROR - Error loading tokenizer: 
+ requires the protobuf library but it was not found in your environment. Checkout the instructions on the
+installation page of its repo: https://github.com/protocolbuffers/protobuf/tree/master/python#installation and follow the ones
+that match your environment. Please note that you may need to restart your runtime after installation.
+Traceback (most recent call last):
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2302, in _from_pretrained
+    tokenizer = cls(*init_inputs, **init_kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/llama/tokenization_llama_fast.py", line 157, in __init__
+    super().__init__(
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/tokenization_utils_fast.py", line 108, in __init__
+    raise ValueError(
+ValueError: Cannot instantiate this tokenizer from a slow version. If it's based on sentencepiece, make sure you have sentencepiece installed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/model_loader.py", line 20, in load_model_and_tokenizer
+    tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True, legacy=False)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 1009, in from_pretrained
+    return tokenizer_class.from_pretrained(pretrained_model_name_or_path, *inputs, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2062, in from_pretrained
+    return cls._from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2303, in _from_pretrained
+    except import_protobuf_decode_error():
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 87, in import_protobuf_decode_error
+    raise ImportError(PROTOBUF_IMPORT_ERROR.format(error_message))
+ImportError: 
+ requires the protobuf library but it was not found in your environment. Checkout the instructions on the
+installation page of its repo: https://github.com/protocolbuffers/protobuf/tree/master/python#installation and follow the ones
+that match your environment. Please note that you may need to restart your runtime after installation.
+
+2025-04-24 11:33:22,242 - ERROR - An error occurred during evaluation pipeline: Model/Tokenizer loading failed
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 66, in main
+    raise RuntimeError("Model/Tokenizer loading failed")
+RuntimeError: Model/Tokenizer loading failed
+2025-04-24 11:33:22,243 - INFO - Cleaning up resources...
+2025-04-24 11:33:22,243 - INFO - CUDA cache cleared.
+2025-04-24 11:33:22,243 - INFO - --- Evaluation Complete ---
+
+2025-04-24 11:33:22,671 - INFO - SUCCESS: Run 8/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='ctibench', Subset='cti-mcq'. Check output files in /workspace/results/mod/48/
+2025-04-24 11:33:22,672 - INFO - 
+Run 9/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='ctibench', Subset='cti-vsp'
+2025-04-24 11:33:22,673 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-vsp --max-new-tokens 512
+2025-04-24 11:33:43,851 - WARNING - Stderr:
+2025-04-24 11:33:43,045 - WARNING - pynvml not found, GPU system memory usage will not be reported. Run 'pip install nvidia-ml-py' to enable.
+2025-04-24 11:33:43,208 - INFO - --- Starting Evaluation ---
+2025-04-24 11:33:43,208 - INFO - Args: {'model_path': '/workspace/models/Mistral-7B-Instruct-v0.3-GPTQ', 'model_type': 'causal', 'benchmark_name': 'ctibench', 'benchmark_path': '/workspace/datasets', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': 'cti-vsp'}
+2025-04-24 11:33:43,208 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 11:33:43,208 - INFO - Metrics file: /workspace/results/mod/48/ctibench_cti-vsp_Mistral-7B-Instruct-v0.3-GPTQ_20250424-113343_metrics.json
+2025-04-24 11:33:43,209 - INFO - Outputs file: /workspace/results/mod/48/ctibench_cti-vsp_Mistral-7B-Instruct-v0.3-GPTQ_20250424-113343_outputs.json
+2025-04-24 11:33:43,209 - INFO - NVML Reporting Active: False
+2025-04-24 11:33:43,209 - INFO - Initial RAM usage: 519.27 MB
+2025-04-24 11:33:43,209 - INFO - Loading causal model from: /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ...
+2025-04-24 11:33:43,237 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 11:33:43,287 - ERROR - Error loading tokenizer: 
+ requires the protobuf library but it was not found in your environment. Checkout the instructions on the
+installation page of its repo: https://github.com/protocolbuffers/protobuf/tree/master/python#installation and follow the ones
+that match your environment. Please note that you may need to restart your runtime after installation.
+Traceback (most recent call last):
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2302, in _from_pretrained
+    tokenizer = cls(*init_inputs, **init_kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/llama/tokenization_llama_fast.py", line 157, in __init__
+    super().__init__(
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/tokenization_utils_fast.py", line 108, in __init__
+    raise ValueError(
+ValueError: Cannot instantiate this tokenizer from a slow version. If it's based on sentencepiece, make sure you have sentencepiece installed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/model_loader.py", line 20, in load_model_and_tokenizer
+    tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True, legacy=False)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 1009, in from_pretrained
+    return tokenizer_class.from_pretrained(pretrained_model_name_or_path, *inputs, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2062, in from_pretrained
+    return cls._from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2303, in _from_pretrained
+    except import_protobuf_decode_error():
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 87, in import_protobuf_decode_error
+    raise ImportError(PROTOBUF_IMPORT_ERROR.format(error_message))
+ImportError: 
+ requires the protobuf library but it was not found in your environment. Checkout the instructions on the
+installation page of its repo: https://github.com/protocolbuffers/protobuf/tree/master/python#installation and follow the ones
+that match your environment. Please note that you may need to restart your runtime after installation.
+
+2025-04-24 11:33:43,323 - ERROR - An error occurred during evaluation pipeline: Model/Tokenizer loading failed
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 66, in main
+    raise RuntimeError("Model/Tokenizer loading failed")
+RuntimeError: Model/Tokenizer loading failed
+2025-04-24 11:33:43,325 - INFO - Cleaning up resources...
+2025-04-24 11:33:43,325 - INFO - CUDA cache cleared.
+2025-04-24 11:33:43,325 - INFO - --- Evaluation Complete ---
+
+2025-04-24 11:33:43,855 - INFO - SUCCESS: Run 9/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='ctibench', Subset='cti-vsp'. Check output files in /workspace/results/mod/48/
+2025-04-24 11:33:43,857 - INFO - 
+Run 10/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='ctibench', Subset='cti-rcm'
+2025-04-24 11:33:43,859 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-rcm --max-new-tokens 512
+2025-04-24 11:34:00,890 - WARNING - Stderr:
+2025-04-24 11:34:00,278 - WARNING - pynvml not found, GPU system memory usage will not be reported. Run 'pip install nvidia-ml-py' to enable.
+2025-04-24 11:34:00,424 - INFO - --- Starting Evaluation ---
+2025-04-24 11:34:00,424 - INFO - Args: {'model_path': '/workspace/models/Mistral-7B-Instruct-v0.3-GPTQ', 'model_type': 'causal', 'benchmark_name': 'ctibench', 'benchmark_path': '/workspace/datasets', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': 'cti-rcm'}
+2025-04-24 11:34:00,424 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 11:34:00,424 - INFO - Metrics file: /workspace/results/mod/48/ctibench_cti-rcm_Mistral-7B-Instruct-v0.3-GPTQ_20250424-113400_metrics.json
+2025-04-24 11:34:00,424 - INFO - Outputs file: /workspace/results/mod/48/ctibench_cti-rcm_Mistral-7B-Instruct-v0.3-GPTQ_20250424-113400_outputs.json
+2025-04-24 11:34:00,424 - INFO - NVML Reporting Active: False
+2025-04-24 11:34:00,424 - INFO - Initial RAM usage: 517.41 MB
+2025-04-24 11:34:00,424 - INFO - Loading causal model from: /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ...
+2025-04-24 11:34:00,445 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 11:34:00,466 - ERROR - Error loading tokenizer: 
+ requires the protobuf library but it was not found in your environment. Checkout the instructions on the
+installation page of its repo: https://github.com/protocolbuffers/protobuf/tree/master/python#installation and follow the ones
+that match your environment. Please note that you may need to restart your runtime after installation.
+Traceback (most recent call last):
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2302, in _from_pretrained
+    tokenizer = cls(*init_inputs, **init_kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/llama/tokenization_llama_fast.py", line 157, in __init__
+    super().__init__(
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/tokenization_utils_fast.py", line 108, in __init__
+    raise ValueError(
+ValueError: Cannot instantiate this tokenizer from a slow version. If it's based on sentencepiece, make sure you have sentencepiece installed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/model_loader.py", line 20, in load_model_and_tokenizer
+    tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True, legacy=False)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 1009, in from_pretrained
+    return tokenizer_class.from_pretrained(pretrained_model_name_or_path, *inputs, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2062, in from_pretrained
+    return cls._from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2303, in _from_pretrained
+    except import_protobuf_decode_error():
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 87, in import_protobuf_decode_error
+    raise ImportError(PROTOBUF_IMPORT_ERROR.format(error_message))
+ImportError: 
+ requires the protobuf library but it was not found in your environment. Checkout the instructions on the
+installation page of its repo: https://github.com/protocolbuffers/protobuf/tree/master/python#installation and follow the ones
+that match your environment. Please note that you may need to restart your runtime after installation.
+
+2025-04-24 11:34:00,476 - ERROR - An error occurred during evaluation pipeline: Model/Tokenizer loading failed
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 66, in main
+    raise RuntimeError("Model/Tokenizer loading failed")
+RuntimeError: Model/Tokenizer loading failed
+2025-04-24 11:34:00,477 - INFO - Cleaning up resources...
+2025-04-24 11:34:00,477 - INFO - CUDA cache cleared.
+2025-04-24 11:34:00,477 - INFO - --- Evaluation Complete ---
+
+2025-04-24 11:34:00,891 - INFO - SUCCESS: Run 10/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='ctibench', Subset='cti-rcm'. Check output files in /workspace/results/mod/48/
+2025-04-24 11:34:00,891 - INFO - --- Security Benchmark Automation Finished (QUANTIZED MODELS) ---

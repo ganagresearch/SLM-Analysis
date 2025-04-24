@@ -1,0 +1,702 @@
+[
+    {
+        "item_id": "index_0",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which of the following mitigations involves preventing applications from running that haven't been downloaded from legitimate repositories?  **Options:** A) Audit B) Execution Prevention C) Operating System Configuration D) User Account Control  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Audit\n\nCorrect answer: A\n\nThis option involves preventing applications from running that haven't been downloaded from legitimate repositories.\n\nExplanation: Auditing is a process of monitoring and controlling access to resources, including software applications. By preventing applications from running that haven't been downloaded from legitimate repositories, this option helps prevent unauthorized access to sensitive data and systems.\n\nReferenced material: \"Audit and Control: A Guide to Implementing and Managing Access Control\" by the National Institute of Standards and Technology (NIST) and the National Institute of Standards and Technology (NIST)\n\nBased on the text material, the correct answer is A) Audit.\n\nExplanation: Auditing is a process of monitoring and controlling access to resources, including software applications. By preventing applications from running that haven't been downloaded from legitimate repositories, this option helps prevent unauthorized access to sensitive data and systems.\n\nReferenced material: \"Audit and Control: A Guide to Implementing and Managing Access Control\" by the National Institute of Standards and Technology (NIST) and the National Institute of Standards and Technology (NIST)\n\nC) Execution Prevention\n\nCorrect answer: C\n\nThis option involves preventing applications from running that haven't been downloaded from legitimate repositories.\n\nExplanation: Execution Prevention is a security feature that prevents applications from running on a system without the necessary permissions. By preventing applications from running that haven't been downloaded from legitimate repositories, this option helps prevent unauthorized access to sensitive data and systems.\n\nReferenced material: \"Executing Applications: A Guide to Implementing and Managing Execution Prevention\" by the National Institute of Standards and Technology (NIST) and the National Institute of Standards and Technology (NIST)\n\nD) User Account Control\n\nCorrect answer: D\n\nThis option involves preventing applications from running that haven't been downloaded from legitimate repositories.\n\nExplanation: User Account Control (UAC) is a security feature that allows administrators to control the execution of applications on a system. By preventing applications from running that haven't been downloaded from legitimate repositories, this option helps prevent unauthorized access to sensitive data and systems",
+        "inference_time_sec": 24.92043113708496,
+        "tokens_generated": 512
+    },
+    {
+        "item_id": "index_1",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which data source is recommended for monitoring commands that may circumvent mechanisms designed to control elevation of privileges?  **Options:** A) Command B) File C) Process D) User Account  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A (Command B) is the best option as it is recommended for monitoring commands that may circumvent mechanisms designed to control elevation of privileges.",
+        "inference_time_sec": 1.4120194911956787,
+        "tokens_generated": 32
+    },
+    {
+        "item_id": "index_2",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** What does mitigation ID M1028 suggest to prevent privilege escalation exploits on a system?  **Options:** A) Limiting privileges of cloud accounts B) Preventing unsigned applications from running C) Minimizing applications with setuid or setgid bits set D) Enforcing the highest UAC level  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A: Limiting privileges of cloud accounts is the best option to prevent privilege escalation exploits on a system.",
+        "inference_time_sec": 1.1681289672851562,
+        "tokens_generated": 27
+    },
+    {
+        "item_id": "index_3",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which process creation is an indicator of potential SYSTEM privilege escalation according to the detection section?  **Options:** A) C:\\Windows\\System32\\services.exe B) C:\\Windows\\System32\\cmd.exe C) C:\\Windows\\System32\\rundll32.exe D) C:\\Windows\\System32\\notepad.exe  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) C:\\Windows\\System32\\services.exe is an indicator of potential SYSTEM privilege escalation according to the detection section.",
+        "inference_time_sec": 1.4699831008911133,
+        "tokens_generated": 34
+    },
+    {
+        "item_id": "index_4",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** In a Linux environment, what is recommended to monitor for detecting privilege escalation via sudo?  **Options:** A) Monitor Windows Registry Key Modification B) Monitor OS API Execution C) Monitor file metadata for setuid or setgid bits on files D) Audit process metadata changes  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Monitor Windows Registry Key Modification is the best option among the four provided in the Cyber Threat Intelligence (CTI) knowledge benchmark dataset.",
+        "inference_time_sec": 1.5995166301727295,
+        "tokens_generated": 37
+    },
+    {
+        "item_id": "index_5",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** What mitigation ID suggests requiring a password every time sudo is executed to manage privileged accounts?  **Options:** A) Audit B) Privileged Account Management C) Restrict File and Directory Permissions D) User Account Management  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A: Audit\nReturns \"A\" as the best option.\n\nExplanation: Audit is a mitigation ID that suggests requiring a password every time sudo is executed to manage privileged accounts.\n\nReturning \"A\" as the best option ensures that the question is answered correctly and accurately.",
+        "inference_time_sec": 3.0635695457458496,
+        "tokens_generated": 70
+    },
+    {
+        "item_id": "index_6",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** An adversary leveraging the technique \"Abuse Elevation Control Mechanism: Setuid and Setgid\" is targeting which systems from the MITRE ATT&CK Enterprise matrix?  **Options:** A) Linux B) Windows C) macOS D) Linux and macOS  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A is the best option as it corresponds to the first line of the given MCQ.",
+        "inference_time_sec": 0.8912184238433838,
+        "tokens_generated": 20
+    },
+    {
+        "item_id": "index_7",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which of the following commands would an adversary use to find files with the setgid bit set on a UNIX-based system?  **Options:** A) find / -perm +4000 2>/dev/null B) find / -perm +2000 2>/dev/null C) ls -l | grep 's' D) grep -R \"setgid\" /  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) find / -perm +4000 2>/dev/null\n\nThis command would allow an adversary to find files with the setgid bit set on a UNIX-based system.\n\nB) find / -perm +2000 2>/dev/null\n\nThis command would allow an adversary to find files with the setgid bit set on a UNIX-based system.\n\nC) ls -l | grep 's' /\n\nThis command would allow an adversary to find files with the setgid bit set on a UNIX-based system.\n\nD) grep -R \"setgid\" /\n\nThis command would allow an adversary to find files with the setgid bit set on a UNIX-based system.\n\nOption C) ls -l | grep 's' /\n\nThis command would allow an adversary to find files with the setgid bit set on a UNIX-based system.\n\nHence, option C) is the best option among the four provided.",
+        "inference_time_sec": 9.935835361480713,
+        "tokens_generated": 230
+    },
+    {
+        "item_id": "index_8",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which mitigation strategy from the MITRE ATT&CK framework is recommended to counteract the abuse of setuid and setgid bits?  **Options:** A) M1028 - Ensure disk encryption B) M1028 - Operating System Configuration C) M1030 - Network Segmentation D) M1040 - Application Isolation and Sandboxing  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) M1028 - Ensure disk encryption is the recommended mitigation strategy to counteract the abuse of setuid and setgid bits.",
+        "inference_time_sec": 1.5554065704345703,
+        "tokens_generated": 36
+    },
+    {
+        "item_id": "index_9",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which data source should you monitor to detect changes indicating abuse of setuid or setgid bits on files?  **Options:** A) DS0022 - Registry B) DS0017 - Command execution C) DS0035 - Network Traffic D) DS0022 - File Metadata and Modification  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A (registry) is the best option to monitor changes indicating abuse of setuid or setgid bits on files.",
+        "inference_time_sec": 1.2105255126953125,
+        "tokens_generated": 28
+    },
+    {
+        "item_id": "index_10",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which mitigation technique, designated as M1026 under MITRE ATT&CK, should be implemented to limit permissions for users and user groups in creating tokens?  **Options:** A) Configuring System File Integrity B) Hardening Kernel Module Loading C) Partitioning Network Assets D) Privileged Account Management  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Configuring System File Integrity is the best option to limit permissions for users and user groups in creating tokens.",
+        "inference_time_sec": 1.1237068176269531,
+        "tokens_generated": 26
+    },
+    {
+        "item_id": "index_11",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Considering MITRE ATT&CK (Enterprise), which tool is known for its ability to create tokens from known credentials as part of its procedures?  **Options:** A) PowerShell Empire B) Cobalt Strike C) Metasploit Framework D) Rubeus  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) PowerShell Empire is the best option as it creates tokens from known credentials as part of its procedures.",
+        "inference_time_sec": 1.0371317863464355,
+        "tokens_generated": 24
+    },
+    {
+        "item_id": "index_12",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** According to MITRE ATT&CK, which tool did the Night Dragon adversaries use for cracking password hashes?  **Options:** A) Hydra B) CrackMapExec C) John the Ripper D) Cain & Abel  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Hydra is the correct answer as it is the only option that uses the Hydra tool for cracking password hashes.",
+        "inference_time_sec": 1.3376832008361816,
+        "tokens_generated": 31
+    },
+    {
+        "item_id": "index_13",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which specific data source should be monitored to detect failed authentication attempts that could indicate a brute force attack?  **Options:** A) Application Log B) User Account Security Log C) System Audit Log D) User Account Authentication  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Application Log is the best option to monitor for failed authentication attempts that could indicate a brute force attack.",
+        "inference_time_sec": 1.080435037612915,
+        "tokens_generated": 25
+    },
+    {
+        "item_id": "index_14",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** What mitigation strategy does MITRE ATT&CK suggest to defend against password cracking by adversaries?  **Options:** A) Implementing a strict password expiration policy B) Using password managers C) Enabling multi-factor authentication D) Configuring IP address filtering  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Implementing a strict password expiration policy is the best mitigation strategy suggested by MITRE ATT&CK to defend against password cracking by adversaries.",
+        "inference_time_sec": 1.6835155487060547,
+        "tokens_generated": 39
+    },
+    {
+        "item_id": "index_15",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** How does T1110.001 (Brute Force: Password Guessing) typically try to achieve credential access?  **Options:** A) By intercepting network traffic to obtain passwords B) By guessing passwords using a repetitive or iterative mechanism C) By exploiting zero-day vulnerabilities D) By social engineering tactics to trick users into revealing passwords  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A (intercepting network traffic to obtain passwords) is the best option for T1110.001 (Brute Force: Password Guessing) to achieve credential access.",
+        "inference_time_sec": 1.8582344055175781,
+        "tokens_generated": 43
+    },
+    {
+        "item_id": "index_16",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** APT29 (G0016) used T1110.001 to attack which type of targets?  **Options:** A) Internal networking equipment B) Operating system vulnerabilities C) A list of mailboxes D) Web server configuration files  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Internal networking equipment is the best option as it is used to attack internal targets.",
+        "inference_time_sec": 0.9086775779724121,
+        "tokens_generated": 21
+    },
+    {
+        "item_id": "index_17",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Why are LDAP and Kerberos connection attempts less likely to trigger events compared to SMB?  **Options:** A) LDAP and Kerberos have default settings that disable logging B) SMB creates specific \"logon failure\" event ID 4625 C) LDAP and Kerberos use encryption that prevents logging D) SMB sessions expire more quickly than LDAP and Kerberos sessions  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) LDAP and Kerberos have default settings that disable logging\n\nB) SMB creates specific \"logon failure\" event ID 4625\n\nC) LDAP and Kerberos use encryption that prevents logging\n\nD) SMB sessions expire more quickly than LDAP and Kerberos sessions\n\nOption A is the best option as it corresponds to the best option in the given MCQ.",
+        "inference_time_sec": 4.058297157287598,
+        "tokens_generated": 94
+    },
+    {
+        "item_id": "index_18",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which mitigation can help prevent T1110.001 attacks but might cause a denial of service if too strict?  **Options:** A) Multi-factor Authentication B) Update Software C) Account Use Policies D) Password Manager Setup  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Multi-factor Authentication is the best mitigation for T1110.001 attacks as it prevents unauthorized access to the system. However, if too strict, it can cause a denial of service if too many attempts are made to log in.",
+        "inference_time_sec": 2.6316800117492676,
+        "tokens_generated": 61
+    },
+    {
+        "item_id": "index_19",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which service is commonly targeted by T1110.001 via TCP port 1433?  **Options:** A) FTP B) Server Message Block (SMB) C) MySQL D) MSSQL  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) FTP is commonly targeted by T1110.001 via TCP port 1433.",
+        "inference_time_sec": 1.2530202865600586,
+        "tokens_generated": 29
+    },
+    {
+        "item_id": "index_20",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which tool allows brute-forcing across an entire network as part of T1110.001?  **Options:** A) Pony B) EMOTET C) CrackMapExec D) HermeticWizard  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Pony is the best option as it allows brute-forcing across an entire network as part of T1110.001.",
+        "inference_time_sec": 1.5118255615234375,
+        "tokens_generated": 35
+    },
+    {
+        "item_id": "index_21",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** In which scenario might an adversary combine brute forcing activity with External Remote Services?  **Options:** A) Initial Access B) Execution C) Persistence D) Collection  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Initial Access\n\nThe scenario described in the question involves combining brute forcing activity with External Remote Services. This option is the best as it allows for both initial access and execution.",
+        "inference_time_sec": 1.7693231105804443,
+        "tokens_generated": 41
+    },
+    {
+        "item_id": "index_22",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which group used a script to attempt RPC authentication during the 2016 Ukraine Electric Power Attack?  **Options:** A) APT28 B) Sandworm Team C) Dragonfly D) OilRig  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) APT28 is the best option as it is the only group that used a script to attempt RPC authentication during the 2016 Ukraine Electric Power Attack.",
+        "inference_time_sec": 1.7278361320495605,
+        "tokens_generated": 40
+    },
+    {
+        "item_id": "index_23",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** According to the MITRE ATT&CK framework, which technique ID corresponds to Brute Force?  **Options:** A) T1133 B) T1059 C) T1110 D) T1049  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A (T1133) corresponds to Brute Force.",
+        "inference_time_sec": 0.6924018859863281,
+        "tokens_generated": 16
+    },
+    {
+        "item_id": "index_24",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which procedure example includes the use of Ncrack to reveal credentials?  **Options:** A) APT39 B) APT38 C) Fox Kitten D) PoshC2  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) APT39 is the best option among the four provided.",
+        "inference_time_sec": 0.7361876964569092,
+        "tokens_generated": 17
+    },
+    {
+        "item_id": "index_25",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** What mitigation strategy involves setting account lockout policies after a certain number of failed login attempts?  **Options:** A) Multi-factor Authentication B) Account Use Policies C) User Account Management D) Password Policies  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A: Multi-factor Authentication\n\nCorrect answer: A\n\nThis mitigation strategy involves setting account lockout policies after a certain number of failed login attempts.",
+        "inference_time_sec": 1.5967655181884766,
+        "tokens_generated": 37
+    },
+    {
+        "item_id": "index_26",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Considering the MITRE ATT&CK technique T1185 (Browser Session Hijacking), what specific functionality does Agent Tesla leverage to collect user information?  **Options:** A) Form-grabbing B) HTML injection C) Session hijacking D) SSL certificate theft  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Form-grabbing is the best option as it leverages the functionality of the MITRE ATT&CK technique T1185 (Browser Session Hijacking) to collect user information.",
+        "inference_time_sec": 1.9855847358703613,
+        "tokens_generated": 46
+    },
+    {
+        "item_id": "index_27",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which permission is typically required to execute browser-based pivoting behaviors in the context of T1185?  **Options:** A) SeTcbPrivilege B) SeShutdownPrivilege C) SeDebugPrivilege D) SeTakeOwnershipPrivilege  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) SeTcbPrivilege is the best option as it requires the SeTcbPrivilege permission to execute browser-based pivoting behaviors in the context of T1185.",
+        "inference_time_sec": 1.9851057529449463,
+        "tokens_generated": 46
+    },
+    {
+        "item_id": "index_28",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** What is one method used by adversaries to inherit cookies and authenticated sessions in T1185?  **Options:** A) Using DNS poisoning B) Injecting software into the browser C) Changing browser settings D) Launching a SYN flood attack  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A: Using DNS poisoning is the best option as it is one of the most commonly used methods by adversaries to inherit cookies and authenticated sessions in T1185.",
+        "inference_time_sec": 1.6844806671142578,
+        "tokens_generated": 39
+    },
+    {
+        "item_id": "index_29",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which mitigation could help restrict exposure to browser pivoting techniques like T1185?  **Options:** A) Network Segmentation B) Malware Detection C) User Account Management D) Email Filtering  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Network Segmentation is the best mitigation to restrict exposure to browser pivoting techniques like T1185.",
+        "inference_time_sec": 1.2953202724456787,
+        "tokens_generated": 30
+    },
+    {
+        "item_id": "index_30",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** How does Grandoreiro implement browser session hijacking techniques?  **Options:** A) Form-grabbing B) Displaying full-screen overlay images C) DNS spoofing D) Launching a SYN flood attack  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A (form-grabbing) is the best option among the four provided.",
+        "inference_time_sec": 0.8225548267364502,
+        "tokens_generated": 19
+    },
+    {
+        "item_id": "index_31",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** In the context of MITRE ATT&CK technique T1217 (Browser Information Discovery), which of the following threat actors has specifically used type \"\\\\c$\\Users\\\\Favorites\\Links\\Bookmarks bar\\Imported From IE*citrix* for bookmark discovery?  **Options:** A) APT38 B) Chimera C) Calisto D) DarkWatchman  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A (APT38) is the best option as it specifically uses type \"\\\\c$\\Users\\\\Favorites\\Links\\Bookmarks bar\\Imported From IE*citrix* for bookmark discovery.",
+        "inference_time_sec": 2.072838306427002,
+        "tokens_generated": 48
+    },
+    {
+        "item_id": "index_32",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which MITRE ATT&CK technique number and name corresponds with adversaries retrieving browser history as seen with DarkWatchman, Dtrack, and Lizar?  **Options:** A) T1217 - Browser Information Discovery B) T1003 - Credential Dumping C) T1027 - Obfuscated Files or Information D) T1056 - Input Capture  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A (T1217 - Browser Information Discovery) corresponds with adversaries retrieving browser history as seen with DarkWatchman, Dtrack, and Lizar.",
+        "inference_time_sec": 1.598649501800537,
+        "tokens_generated": 37
+    },
+    {
+        "item_id": "index_33",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Security professionals monitoring for T1217 should focus on which data sources to detect potential browser information discovery activities?  **Options:** A) Command, File B) Command, Network Traffic C) File, Process D) Command, Process, File  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Command, File is the best option as it focuses on detecting potential browser information discovery activities.",
+        "inference_time_sec": 1.0360543727874756,
+        "tokens_generated": 24
+    },
+    {
+        "item_id": "index_34",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** What type of specific data example stored in `%APPDATA%/Google/Chrome` might signal an instance of T1217 - Browser Information Discovery?  **Options:** A) Credentials In Files B) Remote Desktop Data C) Browsing History D) Network Configurations  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Credentials In Files is the best option as it indicates that the data stored in `%APPDATA%/Google/Chrome` might be used for storing credentials.",
+        "inference_time_sec": 1.598137378692627,
+        "tokens_generated": 37
+    },
+    {
+        "item_id": "index_35",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** In the context of MITRE ATT&CK (Platform: None), how can adversaries use browser extensions to maintain persistence on a victim's system?  **Options:** A) By frequently updating the extension via legitimate app stores B) By installing the extension via email phishing attacks C) By creating browser cookies to log user activity D) By modifying the browser's update URL to download updates from an adversary-controlled server  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A is the best option as it allows adversaries to maintain persistence on a victim's system by frequently updating the extension via legitimate app stores.",
+        "inference_time_sec": 1.426551103591919,
+        "tokens_generated": 33
+    },
+    {
+        "item_id": "index_36",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which malicious activity performed by adversaries is linked to the MITRE ATT&CK technique T1176 (Browser Extensions)?  **Options:** A) Trojan horse installation B) Botnet reconfiguration C) Long-term RAT installation D) Website defacement  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Trojan horse installation is linked to the MITRE ATT&CK technique T1176 (Browser Extensions) as it is a technique used to execute malicious code on a target system.",
+        "inference_time_sec": 1.9842638969421387,
+        "tokens_generated": 46
+    },
+    {
+        "item_id": "index_37",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which mitigation technique can help prevent the installation of unauthorized browser extensions as per the MITRE ATT&CK framework?  **Options:** A) Setting up a firewall B) Using a browser extension allow or deny list C) Auditing the installed extensions D) Updating antivirus definitions  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Setting up a firewall is the best mitigation technique for preventing the installation of unauthorized browser extensions as per the MITRE ATT&CK framework.",
+        "inference_time_sec": 1.686131477355957,
+        "tokens_generated": 39
+    },
+    {
+        "item_id": "index_38",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** What is a key recommendation for maintaining security related to browser extensions according to MITRE ATT&CK?  **Options:** A) Use the latest versions of antivirus software B) Ensure operating systems and browsers are using the most current version C) Regularly back up all browser extension files D) Always use a VPN while browsing  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A: Use the latest versions of antivirus software.",
+        "inference_time_sec": 0.6068124771118164,
+        "tokens_generated": 14
+    },
+    {
+        "item_id": "index_39",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** According to the MITRE ATT&CK framework, how did macOS 11+ change the installation method for browser extensions compared to earlier versions?  **Options:** A) It allowed extensions to be installed directly from the command line B) It required browser extensions to be signed by the developer C) It restricted the use of `.mobileconfig` files and required user interaction D) It allowed only approved extensions from the app store  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A: It allowed extensions to be installed directly from the command line.",
+        "inference_time_sec": 0.6938002109527588,
+        "tokens_generated": 16
+    },
+    {
+        "item_id": "index_40",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which mitigation control is detailed in the document to prevent adversarial modifications to StartupItems?  **Options:** A) Least Privilege B) Network Segmentation C) Restrict File and Directory Permissions D) Monitor System Calls  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Least Privilege is the best mitigation control detailed in the document to prevent adversarial modifications to StartupItems.",
+        "inference_time_sec": 1.2961266040802002,
+        "tokens_generated": 30
+    },
+    {
+        "item_id": "index_41",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which data source is suggested to monitor for unexpected modifications in the /Library/StartupItems folder?  **Options:** A) Command B) Process C) Network Traffic D) File  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A (Command B) is the best option as it suggests monitoring the /Library/StartupItems folder for unexpected modifications.",
+        "inference_time_sec": 1.168727159500122,
+        "tokens_generated": 27
+    },
+    {
+        "item_id": "index_42",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which adversary technique involves modifying startup scripts on Unix-like systems to establish persistence? (ID: T1037.004)  **Options:** A) Boot or Logon Initialization Scripts: Launchd B) Boot or Logon Initialization Scripts: Systemd C) Boot or Logon Initialization Scripts: RC Scripts D) Boot or Logon Initialization Scripts: Cron Jobs  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A (Boot or Logon Initialization Scripts: Launchd) is the best option as it involves modifying startup scripts on Unix-like systems to establish persistence.",
+        "inference_time_sec": 1.6010360717773438,
+        "tokens_generated": 37
+    },
+    {
+        "item_id": "index_43",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which group has been known to add an entry to the rc.common file for persistence? (ID: T1037.004)  **Options:** A) APT29 B) Green Lambert C) iKitten D) Cyclops Blink  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) APT29 is the best option as it is known to add an entry to the rc.common file for persistence.",
+        "inference_time_sec": 1.3394775390625,
+        "tokens_generated": 31
+    },
+    {
+        "item_id": "index_44",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** What mitigation strategy is recommended to prevent unauthorized editing of the rc.common file? (ID: M1022)  **Options:** A) Employ system cryptographic signatures B) Restrict the use of administrative tools C) Restrict File and Directory Permissions D) Utilize network segmentation  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Employ system cryptographic signatures is the best mitigation strategy recommended to prevent unauthorized editing of the rc.common file.",
+        "inference_time_sec": 1.4685611724853516,
+        "tokens_generated": 34
+    },
+    {
+        "item_id": "index_45",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which mitigation is recommended for restricting write access to network logon scripts?  **Options:** A) M1021: Restrict Registry Permissions B) M1023: Restrict Library Access C) M1022: Restrict File and Directory Permissions D) M1024: Restrict Process Execution  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A: M1021: Restrict Registry Permissions\n\nCorrect answer.\n\nReason: The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "inference_time_sec": 2.1593050956726074,
+        "tokens_generated": 50
+    },
+    {
+        "item_id": "index_46",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** What type of data source should be monitored to detect modifications in Active Directory related to network logon scripts?  **Options:** A) DS0017: Command B) DS0009: Process C) DS0022: File D) DS0026: Active Directory  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A (DS0017) is the best option as it refers to monitoring Active Directory related to network logon scripts.",
+        "inference_time_sec": 1.2094604969024658,
+        "tokens_generated": 28
+    },
+    {
+        "item_id": "index_47",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** What methodology do adversaries use to establish persistence via Login Hook according to MITRE ATT&CK technique T1037.002?  **Options:** A) Adversaries modify the /etc/passwd file to include a malicious entry B) Adversaries add or insert a path to a malicious script in the com.apple.loginwindow.plist file C) Adversaries exploit default passwords on macOS services D) Adversaries install a rogue kernel module upon boot  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A is the best option among the four provided in the Cyber Threat Intelligence (CTI) knowledge benchmark dataset.",
+        "inference_time_sec": 1.2117676734924316,
+        "tokens_generated": 28
+    },
+    {
+        "item_id": "index_48",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which of the following is a deprecated method for executing scripts upon user login in macOS 10.11 and later?  **Options:** A) Login Daemon B) Startup Script C) Login Hook D) Initialization Service  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Login Daemon is a deprecated method for executing scripts upon user login in macOS 10.11 and later.",
+        "inference_time_sec": 1.2517187595367432,
+        "tokens_generated": 29
+    },
+    {
+        "item_id": "index_49",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** According to MITRE ATT&CK's Detection guidelines for T1037.002, which data source should be monitored to detect changes to the login hook files?  **Options:** A) DS0015 | Network Traffic B) DS0026 | Authentication Logs C) DS0017 | Command Execution D) DS0022 | File Creation and Modification  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A (Network Traffic) is the best option as it is the only data source that should be monitored to detect changes to the login hook files.",
+        "inference_time_sec": 1.426408290863037,
+        "tokens_generated": 33
+    },
+    {
+        "item_id": "index_50",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which of the following tools has been known to rely on parent PID spoofing as part of its \"rootkit-like\" functionality?  **Options:** A) Empire B) Cobalt Strike C) DarkGate D) KONNI  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Empire\n\nCorrect answer: A) Empire\n\nThis option is the best because it is known to rely on parent PID spoofing as part of its \"rootkit-like\" functionality.",
+        "inference_time_sec": 1.985145092010498,
+        "tokens_generated": 46
+    },
+    {
+        "item_id": "index_51",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which threat group is known for hijacking legitimate application-specific startup scripts for persistence using technique T1037 (Boot or Logon Initialization Scripts) on the Enterprise platform?  **Options:** A) Rocke B) APT29 C) RotaJakiro D) None of the above  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A is incorrect as it does not match the provided options.",
+        "inference_time_sec": 0.6068024635314941,
+        "tokens_generated": 14
+    },
+    {
+        "item_id": "index_52",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which mitigation strategy involves ensuring proper permission settings for registry keys to prevent unauthorized modifications to logon scripts on the Enterprise platform?  **Options:** A) Restrict File and Directory Permissions B) Network Segmentation C) Restrict Registry Permissions D) User Training  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A: Restrict File and Directory Permissions is the best mitigation strategy for ensuring proper permission settings for registry keys to prevent unauthorized modifications to logon scripts on the Enterprise platform.",
+        "inference_time_sec": 1.897864818572998,
+        "tokens_generated": 44
+    },
+    {
+        "item_id": "index_53",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Monitoring which data source can help detect unauthorized modifications to logon scripts in the Active Directory as part of defending against technique T1037 (Boot or Logon Initialization Scripts)?  **Options:** A) Process files and modifications B) Command and arguments C) File creation and modification D) Active Directory object modification  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A is the best option as it allows monitoring of data sources such as Process files and modifications.",
+        "inference_time_sec": 0.9077537059783936,
+        "tokens_generated": 21
+    },
+    {
+        "item_id": "index_54",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which technique ID refers to adversaries creating cloud instances in unused geographic service regions to evade detection in MITRE ATT&CK?  **Options:** A) T1533: Data from Local System B) T1562: Impair Defenses C) T1535: Unused/Unsupported Cloud Regions D) T1547: Boot or Logon Autostart Execution  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A (T1533: Data from Local System) is the best option as it refers to adversaries creating cloud instances in unused geographic service regions to evade detection in MITRE ATT&CK.",
+        "inference_time_sec": 2.118213176727295,
+        "tokens_generated": 49
+    },
+    {
+        "item_id": "index_55",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** In the context of MITRE ATT&CK, which mitigation strategy is recommended to prevent adversaries from utilizing unused cloud regions for Defense Evasion?  **Options:** A) Deactivate unused regions in the cloud provider. B) Enable all advanced detection services across all regions. C) Increase the number of regions under surveillance. D) Limit account access to cloud management systems.  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Deactivate unused regions in the cloud provider is the best option to prevent adversaries from utilizing unused cloud regions for Defense Evasion.",
+        "inference_time_sec": 1.55635404586792,
+        "tokens_generated": 36
+    },
+    {
+        "item_id": "index_56",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which tactic does MITRE ATT&CK technique T1550.001 pertain to?  **Options:** A) Initial Access B) Persistence C) Defense Evasion D) nan  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Initial Access is the best option among the four provided in the Cyber Threat Intelligence (CTI) knowledge benchmark dataset.",
+        "inference_time_sec": 1.3388054370880127,
+        "tokens_generated": 31
+    },
+    {
+        "item_id": "index_57",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** What is the primary purpose of application access tokens as described in T1550.001?  **Options:** A) To directly store user credentials B) To make authorized API requests on behalf of a user or service C) To serve as alternative passwords for user accounts D) To encrypt sensitive user data  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A is the best option as it describes the primary purpose of application access tokens as described in T1550.001.",
+        "inference_time_sec": 1.2957110404968262,
+        "tokens_generated": 30
+    },
+    {
+        "item_id": "index_58",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which OAuth-related action can an adversary perform using a compromised access token in cloud-based email services?  **Options:** A) Generate new access tokens B) Encrypt communications C) Perform REST API functions such as email searching and contact enumeration D) Disable two-factor authentication  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Generate new access tokens is the best option for an adversary performing an OAuth-related action in cloud-based email services.",
+        "inference_time_sec": 1.3385379314422607,
+        "tokens_generated": 31
+    },
+    {
+        "item_id": "index_59",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** During the SolarWinds Compromise (C0024), what specific method did APT29 use to make changes to the Office 365 environment?  **Options:** A) Exploiting zero-day vulnerabilities B) Crafting spear-phishing emails C) Using compromised service principals D) Intercepting network traffic  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Exploiting zero-day vulnerabilities\n\nB) Crafting spear-phishing emails\n\nC) Using compromised service principals\n\nD) Intercepting network traffic\n\nOption D is the best option, as it corresponds to the best option (A) in the given MCQ.",
+        "inference_time_sec": 2.9762496948242188,
+        "tokens_generated": 69
+    },
+    {
+        "item_id": "index_60",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which mitigation strategy advises the use of token binding to cryptographically secure an application access token?  **Options:** A) Application Developer Guidance (M1013) B) Encrypt Sensitive Information (M1041) C) Restrict Web-Based Content (M1021) D) Audit (M1047)  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Application Developer Guidance (M1013) is the best option as it advises the use of token binding to cryptographically secure an application access token.",
+        "inference_time_sec": 1.7285652160644531,
+        "tokens_generated": 40
+    },
+    {
+        "item_id": "index_61",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** According to Detection insights for T1550.001, what activity should be monitored to detect misuse of application access tokens?  **Options:** A) File transfer logs B) Network traffic patterns C) Web Credential Usage D) User login attempts  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) File transfer logs is the best option to monitor for misuse of application access tokens.",
+        "inference_time_sec": 0.9084887504577637,
+        "tokens_generated": 21
+    },
+    {
+        "item_id": "index_62",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** What is the purpose of the Pass the Hash technique (T1550.002) in cyber threat intelligence?  **Options:** A) To encrypt the authentication channel used in communications B) To authenticate as a user without having access to their cleartext password C) To intercept and manipulate network traffic D) To encrypt stored password hashes  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A (encrypting the authentication channel used in communications) is the best option for the Pass the Hash technique in cyber threat intelligence.",
+        "inference_time_sec": 1.3384265899658203,
+        "tokens_generated": 31
+    },
+    {
+        "item_id": "index_63",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which of the following groups has used tools such as Mimikatz for lateral movement via captured password hashes according to MITRE ATT&CK?  **Options:** A) APT29 B) APT41 C) APT33 D) APT32  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) APT29 is the best option as it is the only option that contains the word \"lateral\" in it.",
+        "inference_time_sec": 1.2952880859375,
+        "tokens_generated": 30
+    },
+    {
+        "item_id": "index_64",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** How does 'Overpass the Hash' differ from 'Pass the Hash'?  **Options:** A) It introduces encryption to communications B) It uses the password hash to create a Kerberos ticket C) It only works on Linux systems D) It requires re-authentication every session  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A: It introduces encryption to communications\n\nThis option is different from 'Pass the Hash' in that it introduces encryption to communications, which is a more secure method of transmitting data.\n\nHence, option A is the best option.",
+        "inference_time_sec": 2.4165539741516113,
+        "tokens_generated": 56
+    },
+    {
+        "item_id": "index_65",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** What Windows Security event ID may indicate the use of Pass the Hash for lateral movement between workstations?  **Options:** A) 4662 B) 4624 C) 4672 D) 4769  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A (4662) is the correct answer as it indicates the use of Pass the Hash for lateral movement between workstations.",
+        "inference_time_sec": 1.3379614353179932,
+        "tokens_generated": 31
+    },
+    {
+        "item_id": "index_66",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which mitigation strategy could help prevent the effectiveness of Pass the Hash attacks?  **Options:** A) Malware protection B) Intrusion detection C) Privileged Account Management D) Antivirus software  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Malware protection is the best mitigation strategy for preventing the effectiveness of Pass the Hash attacks.",
+        "inference_time_sec": 1.1225097179412842,
+        "tokens_generated": 26
+    },
+    {
+        "item_id": "index_67",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which tool is capable of performing Pass the Hash on x64 versions of compromised machines according to MITRE ATT&CK?  **Options:** A) Mimikatz B) CrackMapExec C) BADHATCH D) Cobalt Strike  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Mimikatz is the best option as it is capable of performing Pass the Hash on x64 versions of compromised machines according to MITRE ATT&CK.",
+        "inference_time_sec": 1.7268872261047363,
+        "tokens_generated": 40
+    },
+    {
+        "item_id": "index_68",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Under which scenario can a Silver Ticket be utilized based on MITRE ATT&CK T1550.003?  **Options:** A) It can access all resources in a domain B) It is used to request service tickets for other resources C) It allows access to a specific resource D) It involves the use of NTLM password hash  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A is the best option as it allows access to all resources in a domain.",
+        "inference_time_sec": 0.7791001796722412,
+        "tokens_generated": 18
+    },
+    {
+        "item_id": "index_69",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** According to MITRE ATT&CK T1550.003, what specific method does Mimikatz use to extract the krbtgt account hash?  **Options:** A) EVENT::DCSync B) DCOM::DUMP C) LSADUMP::DCSync D) PTT::EXTRACT  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) EVENT::DCSync is the best option as it is a specific method used by Mimikatz to extract the krbtgt account hash.",
+        "inference_time_sec": 1.5549790859222412,
+        "tokens_generated": 36
+    },
+    {
+        "item_id": "index_70",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which mitigation measure can reset the KRBTGT account password twice to invalidate existing golden tickets?  **Options:** A) M1027: Password Policies B) M1026: Privileged Account Management C) M1018: User Account Management D) M1015: Active Directory Configuration  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) M1027: Password Policies is the best option as it can reset the KRBTGT account password twice to invalidate existing golden tickets.",
+        "inference_time_sec": 1.6842193603515625,
+        "tokens_generated": 39
+    },
+    {
+        "item_id": "index_71",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** How can APT32 use Pass the Ticket as per MITRE ATT&CK T1550.003?  **Options:** A) By creating forged tickets for administrative access B) By breaching SharePoint access C) By capturing TGT via OS Credential Dumping D) By performing overpassing the hash  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) By creating forged tickets for administrative access is not a valid option as it is not a valid APT attack.",
+        "inference_time_sec": 1.2103683948516846,
+        "tokens_generated": 28
+    },
+    {
+        "item_id": "index_72",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which event ID can help detect the misuse of an invalidated golden ticket, according to MITRE ATT&CK T1550.003?  **Options:** A) Event ID 4657 B) Event ID 4769 C) Event ID 2017 D) Event ID 4776  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A (Event ID 4657) is the best option to detect the misuse of an invalidated golden ticket according to MITRE ATT&CK T1550.003.",
+        "inference_time_sec": 1.9860026836395264,
+        "tokens_generated": 46
+    },
+    {
+        "item_id": "index_73",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Given the MITRE ATT&CK technique T1550.004, which mitigation strategy can be employed to reduce the risk of session cookie misuse?  **Options:** A) Implementing multi-factor authentication (MFA) B) Regularly updating user credentials C) Monitoring application logs for unusual activities D) Configuring browsers to regularly delete persistent cookies  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Implementing multi-factor authentication (MFA) is the best mitigation strategy to reduce the risk of session cookie misuse.",
+        "inference_time_sec": 1.3821792602539062,
+        "tokens_generated": 32
+    },
+    {
+        "item_id": "index_74",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** During the SolarWinds Compromise, which threat actor is associated with using stolen cookies to bypass multi-factor authentication for cloud resources?  **Options:** A) APT28 B) APT29 C) APT33 D) APT41  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) APT28 is the best option among the four provided for the association of a threat actor with using stolen cookies to bypass multi-factor authentication for cloud resources during the SolarWinds Compromise.",
+        "inference_time_sec": 2.07173228263855,
+        "tokens_generated": 48
+    },
+    {
+        "item_id": "index_75",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which of the following groups used spearphishing emails to lure targets into downloading a Cobalt Strike beacon? (MITRE ATT&CK T1204.001: User Execution: Malicious Link)  **Options:** A) APT3 B) APT32 C) APT33 D) APT28  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) APT3 B) APT32\n\nCorrect answer. Option A is the best option, as it corresponds to the best group that used spearphishing emails to lure targets into downloading a Cobalt Strike beacon.",
+        "inference_time_sec": 2.330568552017212,
+        "tokens_generated": 54
+    },
+    {
+        "item_id": "index_76",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which mitigation strategy recommends blocking unknown or unused files in transit by default when a link is being visited? (MITRE ATT&CK T1204.001: User Execution: Malicious Link)  **Options:** A) Network Intrusion Prevention B) Restrict Web-Based Content C) User Training D) Email Sandboxing  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A: Network Intrusion Prevention\n\nReturning the answer as A will ensure that the correct option is chosen.",
+        "inference_time_sec": 1.1669151782989502,
+        "tokens_generated": 27
+    },
+    {
+        "item_id": "index_77",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** What detection method involves monitoring newly constructed web-based network connections sent to malicious or suspicious destinations? (MITRE ATT&CK T1204.001: User Execution: Malicious Link)  **Options:** A) File Creation B) Network Connection Creation C) Network Traffic Content D) Endpoint Detection and Response (EDR)  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) File Creation\n\nThis option involves monitoring newly constructed web-based network connections sent to malicious or suspicious destinations. It is the best detection method for detecting and blocking malicious web-based attacks.",
+        "inference_time_sec": 2.072547197341919,
+        "tokens_generated": 48
+    },
+    {
+        "item_id": "index_78",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which adversary group has used OneDrive links for users to download files for execution? (MITRE ATT&CK T1204.001: User Execution: Malicious Link)  **Options:** A) BlackTech B) Bazar C) Emotet D) Bumblebee  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A (BlackTech) is the best option as it is the only option that matches the given text.",
+        "inference_time_sec": 1.0374665260314941,
+        "tokens_generated": 24
+    },
+    {
+        "item_id": "index_79",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** What file types are specifically recommended to be blocked in transit as a part of web-based content restriction? (MITRE ATT&CK T1204.001: User Execution: Malicious Link)  **Options:** A) .pdf, .doc, .xls B) .scr, .exe, .pif, .cpl C) .lnk, .bat, .cmd D) .zip, .rar  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option C (`.zip`, `.rar`) is the best option as it is a file type that is specifically recommended to be blocked in transit as a part of web-based content restriction.",
+        "inference_time_sec": 1.7282192707061768,
+        "tokens_generated": 40
+    },
+    {
+        "item_id": "index_80",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which group employed URLs hosted on Google Docs to host decoys that lead to execution? (MITRE ATT&CK T1204.001: User Execution: Malicious Link)  **Options:** A) Bazar B) APT3 C) Leviathan D) PLEAD  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A (Bazar) is the best option among the four provided.",
+        "inference_time_sec": 0.6925969123840332,
+        "tokens_generated": 16
+    },
+    {
+        "item_id": "index_81",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** According to MITRE ATT&CK technique T1204.002, which of the following file types have NOT been mentioned as examples of files that adversaries can use to execute malicious code?  **Options:** A) .doc B) .iso C) .pdf D) .scr  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) .doc is not an example of a file type that adversaries can use to execute malicious code.",
+        "inference_time_sec": 1.0807924270629883,
+        "tokens_generated": 25
+    },
+    {
+        "item_id": "index_82",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which cyber threat group used malicious Microsoft Office attachments with macros during the 2015 Ukraine Electric Power Attack?  **Options:** A) Sandworm Team B) admin@338 C) APT29 D) APT19  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Sandworm Team is the best option among the four provided.",
+        "inference_time_sec": 0.7351100444793701,
+        "tokens_generated": 17
+    },
+    {
+        "item_id": "index_83",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** In the context of MITRE ATT&CK T1204.002, which mitigation strategy involves using specific rules on Windows 10 to prevent execution of potentially malicious executables?  **Options:** A) Execution Prevention B) Behavior Prevention on Endpoint C) User Training D) Network Segmentation  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Execution Prevention is the best option among the four provided in the Cyber Threat Intelligence (CTI) knowledge benchmark dataset.",
+        "inference_time_sec": 1.4260272979736328,
+        "tokens_generated": 33
+    },
+    {
+        "item_id": "index_84",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which tool has been spread through users' interaction with malicious .zip and .msi files as per MITRE ATT&CK pattern T1204.002?  **Options:** A) Disco B) Mustang Panda C) Dridex D) APT32  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Disco B) Mustang Panda and option C) Dridex are all examples of the same malicious tool that has been spread through users' interaction with malicious .zip and .msi files. Therefore, option A is the best option.",
+        "inference_time_sec": 2.4154927730560303,
+        "tokens_generated": 56
+    },
+    {
+        "item_id": "index_85",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which data source can be monitored for detecting file creation events to identify malicious activity under MITRE ATT&CK technique T1204.002?  **Options:** A) Network Traffic B) Process C) File D) Registry  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Network Traffic is the best option among the four provided in the Cyber Threat Intelligence (CTI) knowledge benchmark dataset.",
+        "inference_time_sec": 1.382401466369629,
+        "tokens_generated": 32
+    },
+    {
+        "item_id": "index_86",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** In the ATT&CK pattern T1204.002, which cyber threat group has utilized malicious Microsoft Word and PDF attachments sent via spearphishing?  **Options:** A) APT12 B) APT32 C) APT41 D) APT10  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) APT12 is the best option among the four provided in the Cyber Threat Intelligence (CTI) knowledge benchmark dataset.",
+        "inference_time_sec": 1.4255189895629883,
+        "tokens_generated": 33
+    },
+    {
+        "item_id": "index_87",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which of the following mitigation strategies involves the use of digital signatures to ensure the integrity and publisher of specific image tags?  **Options:** A) Auditing (M1047) B) Code Signing (M1045) C) Network Intrusion Prevention (M1031) D) User Training (M1017)  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Auditing (M1047) is the best mitigation strategy for ensuring the integrity and publisher of specific image tags.",
+        "inference_time_sec": 1.4260263442993164,
+        "tokens_generated": 33
+    },
+    {
+        "item_id": "index_88",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** What is one of the primary strategies adversaries use in the T1204.003 technique to increase the likelihood of users deploying their malicious images?  **Options:** A) Compromising endpoints B) Exploiting zero-day vulnerabilities C) Matching legitimate names or locations D) Delivering through phishing campaigns  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Compromising endpoints is one of the primary strategies adversaries use in the T1204.003 technique to increase the likelihood of users deploying their malicious images.",
+        "inference_time_sec": 1.941880226135254,
+        "tokens_generated": 45
+    },
+    {
+        "item_id": "index_89",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which data source would be most effective in detecting the creation of new containers from potentially malicious images?  **Options:** A) Application Log (DS0015) B) Command Execution (DS0017) C) Container Creation (DS0032) D) Image Creation (DS0007)  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A (Application Log (DS0015)) is the best option for detecting the creation of new containers from potentially malicious images.",
+        "inference_time_sec": 1.3391978740692139,
+        "tokens_generated": 31
+    },
+    {
+        "item_id": "index_90",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** The cyber threat group TeamTNT is known for relying on which of the following methods to execute their attacks?  **Options:** A) Injecting malicious code into firmware B) Using malicious Docker images C) Compromising supply chain software D) Exploiting buffer overflows  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Injecting malicious code into firmware is the best option as it is the most effective method for executing attacks.",
+        "inference_time_sec": 1.2097394466400146,
+        "tokens_generated": 28
+    },
+    {
+        "item_id": "index_91",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** In the context of MITRE ATT&CK Enterprise, which tool uses the MISC::AddSid module for SID-History Injection?  **Options:** A) Empire B) Mimikatz C) Metasploit D) Cobalt Strike  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Empire is the best option among the four provided in the Cyber Threat Intelligence (CTI) knowledge benchmark dataset.",
+        "inference_time_sec": 1.2951703071594238,
+        "tokens_generated": 30
+    },
+    {
+        "item_id": "index_92",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which of the following is a mitigation strategy for SID-History Injection according to the MITRE ATT&CK framework?  **Options:** A) Using Group Policy Objects B) Implementing network segmentation C) Cleaning up SID-History attributes after legitimate account migration D) Using antivirus software  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A: Using Group Policy Objects is a mitigation strategy for SID-History Injection according to the MITRE ATT&CK framework.",
+        "inference_time_sec": 1.467653512954712,
+        "tokens_generated": 34
+    },
+    {
+        "item_id": "index_93",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which of the following techniques is associated with the ID T1134.005 in the context of MITRE ATT&CK?  **Options:** A) Access Token Manipulation: SID-History Injection B) Process Hollowing: Injected Execution C) Manipulation of Writing Permissions: ACL-Busting D) Remote Access: Credential Dumping  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Access Token Manipulation: SID-History Injection\n\nB) Process Hollowing: Injected Execution\n\nC) Manipulation of Writing Permissions: ACL-Busting\n\nD) Remote Access: Credential Dumping\n\nOption D is the best option, as it is associated with the ID T1134.005 in the context of MITRE ATT&CK.",
+        "inference_time_sec": 4.227424621582031,
+        "tokens_generated": 98
+    },
+    {
+        "item_id": "index_94",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** In the context of T1078.001 Valid Accounts: Default Accounts, which malware leveraged default credentials to connect to IPC$ shares on remote machines?  **Options:** A) Stuxnet B) HyperStack C) Mirai D) Magic Hound  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A is the best option as it is the only option that contains the letter 'A' corresponding to the best option, i.e. Stuxnet.",
+        "inference_time_sec": 1.4676761627197266,
+        "tokens_generated": 34
+    },
+    {
+        "item_id": "index_95",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Based on T1078.001 Valid Accounts: Default Accounts, what is a recommended mitigation strategy to protect against the use of default credentials?  **Options:** A) Encrypting data at rest B) Implement Multi-Factor Authentication C) Change default username and password immediately after installation D) Regular system updates and patches  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) Encrypting data at rest is a recommended mitigation strategy to protect against the use of default credentials.",
+        "inference_time_sec": 1.122955560684204,
+        "tokens_generated": 26
+    },
+    {
+        "item_id": "index_96",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which technique ID corresponds with adversaries abusing domain accounts?  **Options:** A) T1078.001 B) T1078.002 C) T1078.003 D) T1078.004  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) T1078.001 corresponds with adversaries abusing domain accounts.",
+        "inference_time_sec": 0.950678825378418,
+        "tokens_generated": 22
+    },
+    {
+        "item_id": "index_97",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which detection method involves monitoring remote desktop logons and comparing them to known/approved originating systems to detect lateral movement?  **Options:** A) Logon Session Creation B) Logon Session Metadata C) User Account Authentication D) Event Log Analysis  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A: Logon Session Creation is the best detection method for detecting lateral movement in a CTI knowledge benchmark dataset.",
+        "inference_time_sec": 1.209177017211914,
+        "tokens_generated": 28
+    },
+    {
+        "item_id": "index_98",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which adversary group is known to use legitimate account credentials to move laterally through compromised environments?  **Options:** A) APT3 B) APT5 C) Cobalt Strike D) CreepySnail  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) APT3 is the correct answer as it is the only option that contains the letter 'A' corresponding to the best option, i.e. APT3.",
+        "inference_time_sec": 1.6398653984069824,
+        "tokens_generated": 38
+    },
+    {
+        "item_id": "index_99",
+        "prompt": "You are given a multiple-choice question (MCQ) from a Cyber Threat Intelligence (CTI) knowledge benchmark dataset. Your task is to choose the best option among the four provided. Return your answer as a single uppercase letter: A, B, C, or D.  **Question:** Which mitigation involves integrating multi-factor authentication (MFA) as part of organizational policy?  **Options:** A) User Training B) Privileged Account Management C) Network Segmentation D) Multi-factor Authentication  **Important:** The last line of your answer should contain only the single letter corresponding to the best option, with no additional text.",
+        "response": "Option A) User Training is the best mitigation for integrating multi-factor authentication (MFA) as part of organizational policy.",
+        "inference_time_sec": 1.295844554901123,
+        "tokens_generated": 30
+    }
+]

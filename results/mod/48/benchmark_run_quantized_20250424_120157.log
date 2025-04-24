@@ -1,0 +1,431 @@
+2025-04-24 12:01:57,214 - INFO - --- Starting Security Benchmark Automation (QUANTIZED MODELS) ---
+2025-04-24 12:01:57,215 - INFO - Using Python: /workspace/testbedvenv/bin/python
+2025-04-24 12:01:57,215 - INFO - Evaluation Script: /workspace/code/model_evaluator/evaluate_cli.py
+2025-04-24 12:01:57,216 - INFO - Results Directory: /workspace/results/mod/48
+2025-04-24 12:01:57,217 - INFO - Error Log File: /workspace/results/mod/48/automation_quantized_errors.log
+2025-04-24 12:01:57,217 - INFO - Run Log File: /workspace/results/mod/48/benchmark_run_quantized_20250424_120157.log
+2025-04-24 12:01:57,218 - INFO - Models to run: ['TinyLlama-1.1B-Chat-v1.0-GPTQ', 'Phi-3-mini-4k-instruct-GPTQ', 'Mistral-7B-Instruct-v0.3-GPTQ']
+2025-04-24 12:01:57,218 - INFO - Benchmarks to run: [('cyberseceval3_mitre', [None]), ('sevenllm_bench', [None]), ('ctibench', ['cti-mcq', 'cti-vsp', 'cti-rcm'])]
+2025-04-24 12:01:57,219 - INFO - Running 100 samples per benchmark.
+2025-04-24 12:01:57,219 - INFO - Max New Tokens for Causal Models: 512
+2025-04-24 12:01:57,220 - INFO - 
+Run 1/15: Model='TinyLlama-1.1B-Chat-v1.0-GPTQ', Benchmark='cyberseceval3_mitre'
+2025-04-24 12:01:57,222 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/TinyLlama-1.1B-Chat-v1.0-GPTQ --model-type causal --benchmark-name cyberseceval3_mitre --benchmark-path /workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 8 --max-new-tokens 512
+2025-04-24 12:02:15,323 - WARNING - Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: unrecognized arguments: --batch-size 8
+
+2025-04-24 12:02:15,324 - ERROR - ERROR during: Run 1/15: Model='TinyLlama-1.1B-Chat-v1.0-GPTQ', Benchmark='cyberseceval3_mitre'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/TinyLlama-1.1B-Chat-v1.0-GPTQ --model-type causal --benchmark-name cyberseceval3_mitre --benchmark-path /workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 8 --max-new-tokens 512
+  Return Code: 2
+  Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: unrecognized arguments: --batch-size 8
+
+----------------------------------------
+
+2025-04-24 12:02:15,328 - INFO - 
+Run 2/15: Model='TinyLlama-1.1B-Chat-v1.0-GPTQ', Benchmark='sevenllm_bench'
+2025-04-24 12:02:15,329 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/TinyLlama-1.1B-Chat-v1.0-GPTQ --model-type causal --benchmark-name sevenllm_bench --benchmark-path /workspace/calibration_data/sevenllm_instruct_subset_manual/ --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 8 --max-new-tokens 512
+2025-04-24 12:02:32,607 - WARNING - Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: unrecognized arguments: --batch-size 8
+
+2025-04-24 12:02:32,615 - ERROR - ERROR during: Run 2/15: Model='TinyLlama-1.1B-Chat-v1.0-GPTQ', Benchmark='sevenllm_bench'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/TinyLlama-1.1B-Chat-v1.0-GPTQ --model-type causal --benchmark-name sevenllm_bench --benchmark-path /workspace/calibration_data/sevenllm_instruct_subset_manual/ --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 8 --max-new-tokens 512
+  Return Code: 2
+  Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: unrecognized arguments: --batch-size 8
+
+----------------------------------------
+
+2025-04-24 12:02:32,618 - INFO - 
+Run 3/15: Model='TinyLlama-1.1B-Chat-v1.0-GPTQ', Benchmark='ctibench', Subset='cti-mcq'
+2025-04-24 12:02:32,619 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/TinyLlama-1.1B-Chat-v1.0-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 8 --cti-subset cti-mcq --max-new-tokens 512
+2025-04-24 12:02:50,214 - WARNING - Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: unrecognized arguments: --batch-size 8
+
+2025-04-24 12:02:50,215 - ERROR - ERROR during: Run 3/15: Model='TinyLlama-1.1B-Chat-v1.0-GPTQ', Benchmark='ctibench', Subset='cti-mcq'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/TinyLlama-1.1B-Chat-v1.0-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 8 --cti-subset cti-mcq --max-new-tokens 512
+  Return Code: 2
+  Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: unrecognized arguments: --batch-size 8
+
+----------------------------------------
+
+2025-04-24 12:02:50,219 - INFO - 
+Run 4/15: Model='TinyLlama-1.1B-Chat-v1.0-GPTQ', Benchmark='ctibench', Subset='cti-vsp'
+2025-04-24 12:02:50,220 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/TinyLlama-1.1B-Chat-v1.0-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 8 --cti-subset cti-vsp --max-new-tokens 512
+2025-04-24 12:03:07,273 - WARNING - Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: unrecognized arguments: --batch-size 8
+
+2025-04-24 12:03:07,274 - ERROR - ERROR during: Run 4/15: Model='TinyLlama-1.1B-Chat-v1.0-GPTQ', Benchmark='ctibench', Subset='cti-vsp'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/TinyLlama-1.1B-Chat-v1.0-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 8 --cti-subset cti-vsp --max-new-tokens 512
+  Return Code: 2
+  Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: unrecognized arguments: --batch-size 8
+
+----------------------------------------
+
+2025-04-24 12:03:07,279 - INFO - 
+Run 5/15: Model='TinyLlama-1.1B-Chat-v1.0-GPTQ', Benchmark='ctibench', Subset='cti-rcm'
+2025-04-24 12:03:07,280 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/TinyLlama-1.1B-Chat-v1.0-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 8 --cti-subset cti-rcm --max-new-tokens 512
+2025-04-24 12:03:24,343 - WARNING - Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: unrecognized arguments: --batch-size 8
+
+2025-04-24 12:03:24,344 - ERROR - ERROR during: Run 5/15: Model='TinyLlama-1.1B-Chat-v1.0-GPTQ', Benchmark='ctibench', Subset='cti-rcm'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/TinyLlama-1.1B-Chat-v1.0-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 8 --cti-subset cti-rcm --max-new-tokens 512
+  Return Code: 2
+  Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: unrecognized arguments: --batch-size 8
+
+----------------------------------------
+
+2025-04-24 12:03:24,347 - INFO - 
+Run 6/15: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='cyberseceval3_mitre'
+2025-04-24 12:03:24,349 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name cyberseceval3_mitre --benchmark-path /workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 8 --max-new-tokens 512
+2025-04-24 12:03:40,879 - WARNING - Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: unrecognized arguments: --batch-size 8
+
+2025-04-24 12:03:40,880 - ERROR - ERROR during: Run 6/15: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='cyberseceval3_mitre'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name cyberseceval3_mitre --benchmark-path /workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 8 --max-new-tokens 512
+  Return Code: 2
+  Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: unrecognized arguments: --batch-size 8
+
+----------------------------------------
+
+2025-04-24 12:03:40,884 - INFO - 
+Run 7/15: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='sevenllm_bench'
+2025-04-24 12:03:40,885 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name sevenllm_bench --benchmark-path /workspace/calibration_data/sevenllm_instruct_subset_manual/ --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 8 --max-new-tokens 512
+2025-04-24 12:03:57,904 - WARNING - Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: unrecognized arguments: --batch-size 8
+
+2025-04-24 12:03:57,911 - ERROR - ERROR during: Run 7/15: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='sevenllm_bench'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name sevenllm_bench --benchmark-path /workspace/calibration_data/sevenllm_instruct_subset_manual/ --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 8 --max-new-tokens 512
+  Return Code: 2
+  Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: unrecognized arguments: --batch-size 8
+
+----------------------------------------
+
+2025-04-24 12:03:57,915 - INFO - 
+Run 8/15: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-mcq'
+2025-04-24 12:03:57,916 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 8 --cti-subset cti-mcq --max-new-tokens 512
+2025-04-24 12:04:14,249 - WARNING - Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: unrecognized arguments: --batch-size 8
+
+2025-04-24 12:04:14,251 - ERROR - ERROR during: Run 8/15: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-mcq'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 8 --cti-subset cti-mcq --max-new-tokens 512
+  Return Code: 2
+  Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: unrecognized arguments: --batch-size 8
+
+----------------------------------------
+
+2025-04-24 12:04:14,254 - INFO - 
+Run 9/15: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-vsp'
+2025-04-24 12:04:14,255 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 8 --cti-subset cti-vsp --max-new-tokens 512
+2025-04-24 12:04:30,641 - WARNING - Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: unrecognized arguments: --batch-size 8
+
+2025-04-24 12:04:30,643 - ERROR - ERROR during: Run 9/15: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-vsp'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 8 --cti-subset cti-vsp --max-new-tokens 512
+  Return Code: 2
+  Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: unrecognized arguments: --batch-size 8
+
+----------------------------------------
+
+2025-04-24 12:04:30,648 - INFO - 
+Run 10/15: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-rcm'
+2025-04-24 12:04:30,649 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 8 --cti-subset cti-rcm --max-new-tokens 512
+2025-04-24 12:04:47,567 - WARNING - Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: unrecognized arguments: --batch-size 8
+
+2025-04-24 12:04:47,569 - ERROR - ERROR during: Run 10/15: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-rcm'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 8 --cti-subset cti-rcm --max-new-tokens 512
+  Return Code: 2
+  Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: unrecognized arguments: --batch-size 8
+
+----------------------------------------
+
+2025-04-24 12:04:47,573 - INFO - 
+Run 11/15: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='cyberseceval3_mitre'
+2025-04-24 12:04:47,574 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name cyberseceval3_mitre --benchmark-path /workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 8 --max-new-tokens 512 --trust-remote-code
+2025-04-24 12:05:04,439 - WARNING - Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: unrecognized arguments: --batch-size 8 --trust-remote-code
+
+2025-04-24 12:05:04,440 - ERROR - ERROR during: Run 11/15: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='cyberseceval3_mitre'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name cyberseceval3_mitre --benchmark-path /workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 8 --max-new-tokens 512 --trust-remote-code
+  Return Code: 2
+  Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: unrecognized arguments: --batch-size 8 --trust-remote-code
+
+----------------------------------------
+
+2025-04-24 12:05:04,445 - INFO - 
+Run 12/15: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='sevenllm_bench'
+2025-04-24 12:05:04,447 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name sevenllm_bench --benchmark-path /workspace/calibration_data/sevenllm_instruct_subset_manual/ --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 8 --max-new-tokens 512 --trust-remote-code
+2025-04-24 12:05:20,843 - WARNING - Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: unrecognized arguments: --batch-size 8 --trust-remote-code
+
+2025-04-24 12:05:20,845 - ERROR - ERROR during: Run 12/15: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='sevenllm_bench'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name sevenllm_bench --benchmark-path /workspace/calibration_data/sevenllm_instruct_subset_manual/ --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 8 --max-new-tokens 512 --trust-remote-code
+  Return Code: 2
+  Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: unrecognized arguments: --batch-size 8 --trust-remote-code
+
+----------------------------------------
+
+2025-04-24 12:05:20,848 - INFO - 
+Run 13/15: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='ctibench', Subset='cti-mcq'
+2025-04-24 12:05:20,849 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 8 --cti-subset cti-mcq --max-new-tokens 512 --trust-remote-code
+2025-04-24 12:05:36,936 - WARNING - Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: unrecognized arguments: --batch-size 8 --trust-remote-code
+
+2025-04-24 12:05:36,936 - ERROR - ERROR during: Run 13/15: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='ctibench', Subset='cti-mcq'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 8 --cti-subset cti-mcq --max-new-tokens 512 --trust-remote-code
+  Return Code: 2
+  Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: unrecognized arguments: --batch-size 8 --trust-remote-code
+
+----------------------------------------
+
+2025-04-24 12:05:36,940 - INFO - 
+Run 14/15: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='ctibench', Subset='cti-vsp'
+2025-04-24 12:05:36,941 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 8 --cti-subset cti-vsp --max-new-tokens 512 --trust-remote-code
+2025-04-24 12:05:54,173 - WARNING - Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: unrecognized arguments: --batch-size 8 --trust-remote-code
+
+2025-04-24 12:05:54,175 - ERROR - ERROR during: Run 14/15: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='ctibench', Subset='cti-vsp'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 8 --cti-subset cti-vsp --max-new-tokens 512 --trust-remote-code
+  Return Code: 2
+  Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: unrecognized arguments: --batch-size 8 --trust-remote-code
+
+----------------------------------------
+
+2025-04-24 12:05:54,179 - INFO - 
+Run 15/15: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='ctibench', Subset='cti-rcm'
+2025-04-24 12:05:54,180 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 8 --cti-subset cti-rcm --max-new-tokens 512 --trust-remote-code
+2025-04-24 12:06:11,725 - WARNING - Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: unrecognized arguments: --batch-size 8 --trust-remote-code
+
+2025-04-24 12:06:11,727 - ERROR - ERROR during: Run 15/15: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='ctibench', Subset='cti-rcm'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 8 --cti-subset cti-rcm --max-new-tokens 512 --trust-remote-code
+  Return Code: 2
+  Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: unrecognized arguments: --batch-size 8 --trust-remote-code
+
+----------------------------------------
+
+2025-04-24 12:06:11,729 - INFO - --- Security Benchmark Automation Finished (QUANTIZED MODELS) ---

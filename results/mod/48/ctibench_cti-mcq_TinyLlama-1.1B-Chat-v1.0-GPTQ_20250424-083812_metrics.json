@@ -1,0 +1,38 @@
+{
+    "run_args": {
+        "model_path": "/workspace/models/TinyLlama-1.1B-Chat-v1.0-GPTQ",
+        "model_type": "causal",
+        "benchmark_name": "ctibench",
+        "benchmark_path": "/workspace/datasets",
+        "results_dir": "/workspace/results/mod/48",
+        "device": "cuda",
+        "max_new_tokens": 512,
+        "num_samples": 100,
+        "cti_subset": "cti-mcq"
+    },
+    "load_metrics": {
+        "ram_initial_mb": 662.05859375,
+        "system_vram_current_initial_mb": 556.0625,
+        "load_time_sec": 13.241381168365479,
+        "ram_after_load_mb": 1225.69921875,
+        "pytorch_vram_current_after_load_mb": 739.72705078125,
+        "pytorch_vram_peak_load_mb": 739.72705078125,
+        "system_vram_current_after_load_mb": null
+    },
+    "inference_metrics": {
+        "total_generate_time_sec": 183.49387645721436,
+        "overall_inference_duration_sec": 183.6347382068634,
+        "avg_generate_time_per_sample_sec": 1.8349387645721436,
+        "total_tokens_generated": 4082,
+        "tokens_per_second": 22.2459739736972,
+        "ram_before_inference_mb": 1228.69921875,
+        "ram_after_inference_mb": 1680.19921875,
+        "pytorch_vram_before_inference_mb": 739.72705078125,
+        "pytorch_vram_after_inference_mb": 747.931640625,
+        "pytorch_vram_peak_inference_mb": 817.6396484375,
+        "system_vram_before_inference_mb": 1605.375,
+        "system_vram_after_inference_mb": 1745.375,
+        "system_vram_peak_inference_approx_mb": 0,
+        "num_samples_run": 100
+    }
+}

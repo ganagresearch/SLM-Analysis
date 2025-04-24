@@ -1,0 +1,41 @@
+{
+    "run_args": {
+        "model_path": "/workspace/models/Mistral-7B-Instruct-v0.3-GPTQ",
+        "model_type": "causal",
+        "benchmark_name": "ctibench",
+        "benchmark_path": "/workspace/datasets",
+        "results_dir": "/workspace/results/mod/48",
+        "device": "cuda",
+        "max_new_tokens": 512,
+        "num_samples": 100,
+        "cti_subset": "cti-rcm",
+        "batch_size": 32,
+        "trust_remote_code": true
+    },
+    "load_metrics": {
+        "ram_initial_mb": 530.02734375,
+        "system_vram_current_initial_mb": 556.0625,
+        "load_time_sec": 16.485604524612427,
+        "ram_after_load_mb": 3436.65234375,
+        "pytorch_vram_current_after_load_mb": 3975.25830078125,
+        "pytorch_vram_peak_load_mb": 3975.25830078125,
+        "system_vram_current_after_load_mb": null
+    },
+    "inference_metrics": {
+        "total_generate_time_sec": 369.44643926620483,
+        "overall_inference_duration_sec": 369.5563495159149,
+        "avg_generate_time_per_sample_sec": 3.694464392662048,
+        "total_tokens_generated": 30604,
+        "tokens_per_second": 82.83744745459103,
+        "ram_before_inference_mb": 3438.15234375,
+        "ram_after_inference_mb": 3597.15234375,
+        "pytorch_vram_before_inference_mb": 3975.25830078125,
+        "pytorch_vram_after_inference_mb": 3983.5263671875,
+        "pytorch_vram_peak_inference_mb": 9125.1123046875,
+        "system_vram_before_inference_mb": 4797.375,
+        "system_vram_after_inference_mb": 11425.375,
+        "system_vram_peak_inference_approx_mb": 0,
+        "num_samples_run": 100,
+        "num_results_produced": 100
+    }
+}

@@ -1,0 +1,177 @@
+2025-04-24 11:23:32,872 - INFO - --- Starting Security Benchmark Automation (QUANTIZED MODELS) ---
+2025-04-24 11:23:32,873 - INFO - Using Python: /workspace/testbedvenv/bin/python
+2025-04-24 11:23:32,874 - INFO - Evaluation Script: /workspace/code/model_evaluator/evaluate_cli.py
+2025-04-24 11:23:32,874 - INFO - Results Directory: /workspace/results/mod/48
+2025-04-24 11:23:32,875 - INFO - Error Log File: /workspace/results/mod/48/automation_quantized_errors.log
+2025-04-24 11:23:32,875 - INFO - Run Log File: /workspace/results/mod/48/benchmark_run_quantized_20250424_112332.log
+2025-04-24 11:23:32,876 - INFO - Models to run: ['Phi-3-mini-4k-instruct-GPTQ', 'Mistral-7B-Instruct-v0.3-GPTQ']
+2025-04-24 11:23:32,876 - INFO - Benchmarks to run: [('cyberseceval3_mitre', [None]), ('sevenllm_bench', [None]), ('ctibench', ['cti-mcq', 'cti-vsp', 'cti-rcm'])]
+2025-04-24 11:23:32,877 - INFO - Running 100 samples per benchmark.
+2025-04-24 11:23:32,877 - INFO - Max New Tokens for Causal Models: 512
+2025-04-24 11:23:32,878 - INFO - 
+Run 1/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='cyberseceval3_mitre'
+2025-04-24 11:23:32,880 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name cyberseceval3_mitre --benchmark-path /workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+2025-04-24 11:24:29,952 - WARNING - Stderr:
+2025-04-24 11:23:56,362 - WARNING - pynvml not found, GPU system memory usage will not be reported. Run 'pip install nvidia-ml-py' to enable.
+2025-04-24 11:23:56,516 - INFO - --- Starting Evaluation ---
+2025-04-24 11:23:56,516 - INFO - Args: {'model_path': '/workspace/models/Phi-3-mini-4k-instruct-GPTQ', 'model_type': 'causal', 'benchmark_name': 'cyberseceval3_mitre', 'benchmark_path': '/workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': None}
+2025-04-24 11:23:56,516 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 11:23:56,516 - INFO - Metrics file: /workspace/results/mod/48/cyberseceval3_mitre_Phi-3-mini-4k-instruct-GPTQ_20250424-112356_metrics.json
+2025-04-24 11:23:56,516 - INFO - Outputs file: /workspace/results/mod/48/cyberseceval3_mitre_Phi-3-mini-4k-instruct-GPTQ_20250424-112356_outputs.json
+2025-04-24 11:23:56,516 - INFO - NVML Reporting Active: False
+2025-04-24 11:23:56,516 - INFO - Initial RAM usage: 523.46 MB
+2025-04-24 11:23:56,517 - INFO - Loading causal model from: /workspace/models/Phi-3-mini-4k-instruct-GPTQ...
+2025-04-24 11:23:56,543 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 11:23:56,740 - INFO - Tokenizer loaded.
+2025-04-24 11:24:29,141 - WARNING - `flash-attention` package not found, consider installing for better performance: No module named 'flash_attn'.
+2025-04-24 11:24:29,141 - WARNING - Current `flash-attention` does not support `window_size`. Either upgrade or use `attn_implementation='eager'`.
+2025-04-24 11:24:29,166 - ERROR - Error loading model: Using a `device_map` or `tp_plan` requires `accelerate`. You can install it with `pip install accelerate`
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/model_loader.py", line 33, in load_model_and_tokenizer
+    model = AutoModelForCausalLM.from_pretrained(model_path, device_map=device, **model_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 564, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 279, in _wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 4139, in from_pretrained
+    raise ValueError(
+ValueError: Using a `device_map` or `tp_plan` requires `accelerate`. You can install it with `pip install accelerate`
+2025-04-24 11:24:29,180 - ERROR - An error occurred during evaluation pipeline: Model/Tokenizer loading failed
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 66, in main
+    raise RuntimeError("Model/Tokenizer loading failed")
+RuntimeError: Model/Tokenizer loading failed
+2025-04-24 11:24:29,181 - INFO - Cleaning up resources...
+2025-04-24 11:24:29,181 - INFO - CUDA cache cleared.
+2025-04-24 11:24:29,181 - INFO - --- Evaluation Complete ---
+
+2025-04-24 11:24:29,955 - INFO - SUCCESS: Run 1/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='cyberseceval3_mitre'. Check output files in /workspace/results/mod/48/
+2025-04-24 11:24:29,955 - INFO - 
+Run 2/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='sevenllm_bench'
+2025-04-24 11:24:29,957 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name sevenllm_bench --benchmark-path /workspace/calibration_data/sevenllm_instruct_subset_manual/ --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+2025-04-24 11:24:58,331 - WARNING - Stderr:
+2025-04-24 11:24:45,976 - WARNING - pynvml not found, GPU system memory usage will not be reported. Run 'pip install nvidia-ml-py' to enable.
+2025-04-24 11:24:46,126 - INFO - --- Starting Evaluation ---
+2025-04-24 11:24:46,126 - INFO - Args: {'model_path': '/workspace/models/Phi-3-mini-4k-instruct-GPTQ', 'model_type': 'causal', 'benchmark_name': 'sevenllm_bench', 'benchmark_path': '/workspace/calibration_data/sevenllm_instruct_subset_manual/', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': None}
+2025-04-24 11:24:46,126 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 11:24:46,126 - INFO - Metrics file: /workspace/results/mod/48/sevenllm_bench_Phi-3-mini-4k-instruct-GPTQ_20250424-112446_metrics.json
+2025-04-24 11:24:46,126 - INFO - Outputs file: /workspace/results/mod/48/sevenllm_bench_Phi-3-mini-4k-instruct-GPTQ_20250424-112446_outputs.json
+2025-04-24 11:24:46,126 - INFO - NVML Reporting Active: False
+2025-04-24 11:24:46,126 - INFO - Initial RAM usage: 515.34 MB
+2025-04-24 11:24:46,126 - INFO - Loading causal model from: /workspace/models/Phi-3-mini-4k-instruct-GPTQ...
+2025-04-24 11:24:46,149 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 11:24:46,272 - INFO - Tokenizer loaded.
+2025-04-24 11:24:57,652 - WARNING - `flash-attention` package not found, consider installing for better performance: No module named 'flash_attn'.
+2025-04-24 11:24:57,652 - WARNING - Current `flash-attention` does not support `window_size`. Either upgrade or use `attn_implementation='eager'`.
+2025-04-24 11:24:57,677 - ERROR - Error loading model: Using a `device_map` or `tp_plan` requires `accelerate`. You can install it with `pip install accelerate`
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/model_loader.py", line 33, in load_model_and_tokenizer
+    model = AutoModelForCausalLM.from_pretrained(model_path, device_map=device, **model_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 564, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 279, in _wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 4139, in from_pretrained
+    raise ValueError(
+ValueError: Using a `device_map` or `tp_plan` requires `accelerate`. You can install it with `pip install accelerate`
+2025-04-24 11:24:57,686 - ERROR - An error occurred during evaluation pipeline: Model/Tokenizer loading failed
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 66, in main
+    raise RuntimeError("Model/Tokenizer loading failed")
+RuntimeError: Model/Tokenizer loading failed
+2025-04-24 11:24:57,687 - INFO - Cleaning up resources...
+2025-04-24 11:24:57,688 - INFO - CUDA cache cleared.
+2025-04-24 11:24:57,688 - INFO - --- Evaluation Complete ---
+
+2025-04-24 11:24:58,332 - INFO - SUCCESS: Run 2/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='sevenllm_bench'. Check output files in /workspace/results/mod/48/
+2025-04-24 11:24:58,334 - INFO - 
+Run 3/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-mcq'
+2025-04-24 11:24:58,335 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-mcq --max-new-tokens 512
+2025-04-24 11:25:27,415 - WARNING - Stderr:
+2025-04-24 11:25:14,924 - WARNING - pynvml not found, GPU system memory usage will not be reported. Run 'pip install nvidia-ml-py' to enable.
+2025-04-24 11:25:15,068 - INFO - --- Starting Evaluation ---
+2025-04-24 11:25:15,068 - INFO - Args: {'model_path': '/workspace/models/Phi-3-mini-4k-instruct-GPTQ', 'model_type': 'causal', 'benchmark_name': 'ctibench', 'benchmark_path': '/workspace/datasets', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': 'cti-mcq'}
+2025-04-24 11:25:15,068 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 11:25:15,068 - INFO - Metrics file: /workspace/results/mod/48/ctibench_cti-mcq_Phi-3-mini-4k-instruct-GPTQ_20250424-112515_metrics.json
+2025-04-24 11:25:15,068 - INFO - Outputs file: /workspace/results/mod/48/ctibench_cti-mcq_Phi-3-mini-4k-instruct-GPTQ_20250424-112515_outputs.json
+2025-04-24 11:25:15,068 - INFO - NVML Reporting Active: False
+2025-04-24 11:25:15,068 - INFO - Initial RAM usage: 516.04 MB
+2025-04-24 11:25:15,068 - INFO - Loading causal model from: /workspace/models/Phi-3-mini-4k-instruct-GPTQ...
+2025-04-24 11:25:15,091 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 11:25:15,273 - INFO - Tokenizer loaded.
+2025-04-24 11:25:26,703 - WARNING - `flash-attention` package not found, consider installing for better performance: No module named 'flash_attn'.
+2025-04-24 11:25:26,704 - WARNING - Current `flash-attention` does not support `window_size`. Either upgrade or use `attn_implementation='eager'`.
+2025-04-24 11:25:26,728 - ERROR - Error loading model: Using a `device_map` or `tp_plan` requires `accelerate`. You can install it with `pip install accelerate`
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/model_loader.py", line 33, in load_model_and_tokenizer
+    model = AutoModelForCausalLM.from_pretrained(model_path, device_map=device, **model_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 564, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 279, in _wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 4139, in from_pretrained
+    raise ValueError(
+ValueError: Using a `device_map` or `tp_plan` requires `accelerate`. You can install it with `pip install accelerate`
+2025-04-24 11:25:26,738 - ERROR - An error occurred during evaluation pipeline: Model/Tokenizer loading failed
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 66, in main
+    raise RuntimeError("Model/Tokenizer loading failed")
+RuntimeError: Model/Tokenizer loading failed
+2025-04-24 11:25:26,739 - INFO - Cleaning up resources...
+2025-04-24 11:25:26,739 - INFO - CUDA cache cleared.
+2025-04-24 11:25:26,739 - INFO - --- Evaluation Complete ---
+
+2025-04-24 11:25:27,417 - INFO - SUCCESS: Run 3/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-mcq'. Check output files in /workspace/results/mod/48/
+2025-04-24 11:25:27,418 - INFO - 
+Run 4/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-vsp'
+2025-04-24 11:25:27,419 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-vsp --max-new-tokens 512
+2025-04-24 11:25:54,370 - WARNING - Stderr:
+2025-04-24 11:25:42,699 - WARNING - pynvml not found, GPU system memory usage will not be reported. Run 'pip install nvidia-ml-py' to enable.
+2025-04-24 11:25:42,847 - INFO - --- Starting Evaluation ---
+2025-04-24 11:25:42,847 - INFO - Args: {'model_path': '/workspace/models/Phi-3-mini-4k-instruct-GPTQ', 'model_type': 'causal', 'benchmark_name': 'ctibench', 'benchmark_path': '/workspace/datasets', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': 'cti-vsp'}
+2025-04-24 11:25:42,847 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 11:25:42,847 - INFO - Metrics file: /workspace/results/mod/48/ctibench_cti-vsp_Phi-3-mini-4k-instruct-GPTQ_20250424-112542_metrics.json
+2025-04-24 11:25:42,847 - INFO - Outputs file: /workspace/results/mod/48/ctibench_cti-vsp_Phi-3-mini-4k-instruct-GPTQ_20250424-112542_outputs.json
+2025-04-24 11:25:42,847 - INFO - NVML Reporting Active: False
+2025-04-24 11:25:42,847 - INFO - Initial RAM usage: 515.30 MB
+2025-04-24 11:25:42,847 - INFO - Loading causal model from: /workspace/models/Phi-3-mini-4k-instruct-GPTQ...
+2025-04-24 11:25:42,872 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 11:25:43,003 - INFO - Tokenizer loaded.
+2025-04-24 11:25:53,699 - WARNING - `flash-attention` package not found, consider installing for better performance: No module named 'flash_attn'.
+2025-04-24 11:25:53,700 - WARNING - Current `flash-attention` does not support `window_size`. Either upgrade or use `attn_implementation='eager'`.
+2025-04-24 11:25:53,723 - ERROR - Error loading model: Using a `device_map` or `tp_plan` requires `accelerate`. You can install it with `pip install accelerate`
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/model_loader.py", line 33, in load_model_and_tokenizer
+    model = AutoModelForCausalLM.from_pretrained(model_path, device_map=device, **model_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 564, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 279, in _wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 4139, in from_pretrained
+    raise ValueError(
+ValueError: Using a `device_map` or `tp_plan` requires `accelerate`. You can install it with `pip install accelerate`
+2025-04-24 11:25:53,733 - ERROR - An error occurred during evaluation pipeline: Model/Tokenizer loading failed
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 66, in main
+    raise RuntimeError("Model/Tokenizer loading failed")
+RuntimeError: Model/Tokenizer loading failed
+2025-04-24 11:25:53,734 - INFO - Cleaning up resources...
+2025-04-24 11:25:53,734 - INFO - CUDA cache cleared.
+2025-04-24 11:25:53,734 - INFO - --- Evaluation Complete ---
+
+2025-04-24 11:25:54,372 - INFO - SUCCESS: Run 4/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-vsp'. Check output files in /workspace/results/mod/48/
+2025-04-24 11:25:54,374 - INFO - 
+Run 5/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-rcm'
+2025-04-24 11:25:54,375 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-rcm --max-new-tokens 512

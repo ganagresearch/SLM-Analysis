@@ -14,6 +14,7 @@ RESULTS_DIR = os.path.join(WORKSPACE_ROOT, "results/mod/48") # Quantized results
 ERROR_LOG_FILE = os.path.join(RESULTS_DIR, "automation_quantized_errors.log")
 NUM_SAMPLES = 100
 MAX_NEW_TOKENS = 512 # Used only for causal models
+<<<<<<< HEAD
 BATCH_SIZE = 8  # Add batch size configuration
 
 MODELS_TO_EVALUATE = [
@@ -29,6 +30,23 @@ MODELS_TO_EVALUATE = [
         "type": "causal",
         "trust_remote_code_loader": False # Change this to False based on testing
     },
+=======
+BATCH_SIZE = 32  # Add batch size configuration
+
+MODELS_TO_EVALUATE = [
+    #{
+    #    "name": "TinyLlama-1.1B-Chat-v1.0-GPTQ",
+    #    "path": os.path.join(WORKSPACE_ROOT, 'models/TinyLlama-1.1B-Chat-v1.0-GPTQ'),
+    #    "type": "causal",
+    #    "trust_remote_code_loader": False # Keep this if needed by loader
+    #},
+    #{
+    #    "name": "Phi-3-mini-4k-instruct-GPTQ",
+    #    "path": os.path.join(WORKSPACE_ROOT, 'models/Phi-3-mini-4k-instruct-GPTQ'),
+    #    "type": "causal",
+    #    "trust_remote_code_loader": False # Change this to False based on testing
+    #},
+>>>>>>> 5b6cb0d (all benchmarked)
     {
         "name": "Mistral-7B-Instruct-v0.3-GPTQ",
         "path": os.path.join(WORKSPACE_ROOT, 'models/Mistral-7B-Instruct-v0.3-GPTQ'),
@@ -209,3 +227,4 @@ for model_config in MODELS_TO_EVALUATE:
 
 
 logging.info("--- Security Benchmark Automation Finished (QUANTIZED MODELS) ---") 
+

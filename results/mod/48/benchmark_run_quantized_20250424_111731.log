@@ -1,0 +1,291 @@
+2025-04-24 11:17:31,142 - INFO - --- Starting Security Benchmark Automation (QUANTIZED MODELS) ---
+2025-04-24 11:17:31,143 - INFO - Using Python: /workspace/testbedvenv/bin/python
+2025-04-24 11:17:31,143 - INFO - Evaluation Script: /workspace/code/model_evaluator/evaluate_cli.py
+2025-04-24 11:17:31,144 - INFO - Results Directory: /workspace/results/mod/48
+2025-04-24 11:17:31,145 - INFO - Error Log File: /workspace/results/mod/48/automation_quantized_errors.log
+2025-04-24 11:17:31,146 - INFO - Run Log File: /workspace/results/mod/48/benchmark_run_quantized_20250424_111731.log
+2025-04-24 11:17:31,146 - INFO - Models to run: ['Phi-3-mini-4k-instruct-GPTQ', 'Mistral-7B-Instruct-v0.3-GPTQ']
+2025-04-24 11:17:31,147 - INFO - Benchmarks to run: [('cyberseceval3_mitre', [None]), ('sevenllm_bench', [None]), ('ctibench', ['cti-mcq', 'cti-vsp', 'cti-rcm'])]
+2025-04-24 11:17:31,147 - INFO - Running 100 samples per benchmark.
+2025-04-24 11:17:31,148 - INFO - Max New Tokens for Causal Models: 512
+2025-04-24 11:17:31,148 - INFO - 
+Run 1/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='cyberseceval3_mitre'
+2025-04-24 11:17:31,151 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name cyberseceval3_mitre --benchmark-path /workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+2025-04-24 11:17:37,523 - WARNING - Stderr:
+/workspace/testbedvenv/lib/python3.11/site-packages/torch/_subclasses/functional_tensor.py:276: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 10, in <module>
+    from model_loader import load_model_and_tokenizer
+  File "/workspace/code/model_evaluator/model_loader.py", line 4, in <module>
+    from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
+ModuleNotFoundError: No module named 'transformers'
+
+2025-04-24 11:17:37,525 - ERROR - ERROR during: Run 1/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='cyberseceval3_mitre'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name cyberseceval3_mitre --benchmark-path /workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+  Return Code: 1
+  Stderr:
+/workspace/testbedvenv/lib/python3.11/site-packages/torch/_subclasses/functional_tensor.py:276: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 10, in <module>
+    from model_loader import load_model_and_tokenizer
+  File "/workspace/code/model_evaluator/model_loader.py", line 4, in <module>
+    from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
+ModuleNotFoundError: No module named 'transformers'
+
+----------------------------------------
+
+2025-04-24 11:17:37,528 - INFO - 
+Run 2/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='sevenllm_bench'
+2025-04-24 11:17:37,530 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name sevenllm_bench --benchmark-path /workspace/calibration_data/sevenllm_instruct_subset_manual/ --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+2025-04-24 11:17:43,924 - WARNING - Stderr:
+/workspace/testbedvenv/lib/python3.11/site-packages/torch/_subclasses/functional_tensor.py:276: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 10, in <module>
+    from model_loader import load_model_and_tokenizer
+  File "/workspace/code/model_evaluator/model_loader.py", line 4, in <module>
+    from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
+ModuleNotFoundError: No module named 'transformers'
+
+2025-04-24 11:17:43,925 - ERROR - ERROR during: Run 2/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='sevenllm_bench'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name sevenllm_bench --benchmark-path /workspace/calibration_data/sevenllm_instruct_subset_manual/ --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+  Return Code: 1
+  Stderr:
+/workspace/testbedvenv/lib/python3.11/site-packages/torch/_subclasses/functional_tensor.py:276: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 10, in <module>
+    from model_loader import load_model_and_tokenizer
+  File "/workspace/code/model_evaluator/model_loader.py", line 4, in <module>
+    from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
+ModuleNotFoundError: No module named 'transformers'
+
+----------------------------------------
+
+2025-04-24 11:17:43,929 - INFO - 
+Run 3/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-mcq'
+2025-04-24 11:17:43,931 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-mcq --max-new-tokens 512
+2025-04-24 11:17:50,227 - WARNING - Stderr:
+/workspace/testbedvenv/lib/python3.11/site-packages/torch/_subclasses/functional_tensor.py:276: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 10, in <module>
+    from model_loader import load_model_and_tokenizer
+  File "/workspace/code/model_evaluator/model_loader.py", line 4, in <module>
+    from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
+ModuleNotFoundError: No module named 'transformers'
+
+2025-04-24 11:17:50,228 - ERROR - ERROR during: Run 3/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-mcq'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-mcq --max-new-tokens 512
+  Return Code: 1
+  Stderr:
+/workspace/testbedvenv/lib/python3.11/site-packages/torch/_subclasses/functional_tensor.py:276: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 10, in <module>
+    from model_loader import load_model_and_tokenizer
+  File "/workspace/code/model_evaluator/model_loader.py", line 4, in <module>
+    from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
+ModuleNotFoundError: No module named 'transformers'
+
+----------------------------------------
+
+2025-04-24 11:17:50,232 - INFO - 
+Run 4/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-vsp'
+2025-04-24 11:17:50,234 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-vsp --max-new-tokens 512
+2025-04-24 11:17:56,617 - WARNING - Stderr:
+/workspace/testbedvenv/lib/python3.11/site-packages/torch/_subclasses/functional_tensor.py:276: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 10, in <module>
+    from model_loader import load_model_and_tokenizer
+  File "/workspace/code/model_evaluator/model_loader.py", line 4, in <module>
+    from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
+ModuleNotFoundError: No module named 'transformers'
+
+2025-04-24 11:17:56,618 - ERROR - ERROR during: Run 4/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-vsp'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-vsp --max-new-tokens 512
+  Return Code: 1
+  Stderr:
+/workspace/testbedvenv/lib/python3.11/site-packages/torch/_subclasses/functional_tensor.py:276: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 10, in <module>
+    from model_loader import load_model_and_tokenizer
+  File "/workspace/code/model_evaluator/model_loader.py", line 4, in <module>
+    from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
+ModuleNotFoundError: No module named 'transformers'
+
+----------------------------------------
+
+2025-04-24 11:17:56,623 - INFO - 
+Run 5/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-rcm'
+2025-04-24 11:17:56,624 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-rcm --max-new-tokens 512
+2025-04-24 11:18:02,569 - WARNING - Stderr:
+/workspace/testbedvenv/lib/python3.11/site-packages/torch/_subclasses/functional_tensor.py:276: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 10, in <module>
+    from model_loader import load_model_and_tokenizer
+  File "/workspace/code/model_evaluator/model_loader.py", line 4, in <module>
+    from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
+ModuleNotFoundError: No module named 'transformers'
+
+2025-04-24 11:18:02,571 - ERROR - ERROR during: Run 5/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-rcm'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-rcm --max-new-tokens 512
+  Return Code: 1
+  Stderr:
+/workspace/testbedvenv/lib/python3.11/site-packages/torch/_subclasses/functional_tensor.py:276: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 10, in <module>
+    from model_loader import load_model_and_tokenizer
+  File "/workspace/code/model_evaluator/model_loader.py", line 4, in <module>
+    from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
+ModuleNotFoundError: No module named 'transformers'
+
+----------------------------------------
+
+2025-04-24 11:18:02,574 - INFO - 
+Run 6/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='cyberseceval3_mitre'
+2025-04-24 11:18:02,576 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name cyberseceval3_mitre --benchmark-path /workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+2025-04-24 11:18:08,520 - WARNING - Stderr:
+/workspace/testbedvenv/lib/python3.11/site-packages/torch/_subclasses/functional_tensor.py:276: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 10, in <module>
+    from model_loader import load_model_and_tokenizer
+  File "/workspace/code/model_evaluator/model_loader.py", line 4, in <module>
+    from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
+ModuleNotFoundError: No module named 'transformers'
+
+2025-04-24 11:18:08,522 - ERROR - ERROR during: Run 6/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='cyberseceval3_mitre'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name cyberseceval3_mitre --benchmark-path /workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+  Return Code: 1
+  Stderr:
+/workspace/testbedvenv/lib/python3.11/site-packages/torch/_subclasses/functional_tensor.py:276: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 10, in <module>
+    from model_loader import load_model_and_tokenizer
+  File "/workspace/code/model_evaluator/model_loader.py", line 4, in <module>
+    from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
+ModuleNotFoundError: No module named 'transformers'
+
+----------------------------------------
+
+2025-04-24 11:18:08,525 - INFO - 
+Run 7/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='sevenllm_bench'
+2025-04-24 11:18:08,527 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name sevenllm_bench --benchmark-path /workspace/calibration_data/sevenllm_instruct_subset_manual/ --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+2025-04-24 11:18:14,782 - WARNING - Stderr:
+/workspace/testbedvenv/lib/python3.11/site-packages/torch/_subclasses/functional_tensor.py:276: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 10, in <module>
+    from model_loader import load_model_and_tokenizer
+  File "/workspace/code/model_evaluator/model_loader.py", line 4, in <module>
+    from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
+ModuleNotFoundError: No module named 'transformers'
+
+2025-04-24 11:18:14,784 - ERROR - ERROR during: Run 7/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='sevenllm_bench'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name sevenllm_bench --benchmark-path /workspace/calibration_data/sevenllm_instruct_subset_manual/ --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+  Return Code: 1
+  Stderr:
+/workspace/testbedvenv/lib/python3.11/site-packages/torch/_subclasses/functional_tensor.py:276: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 10, in <module>
+    from model_loader import load_model_and_tokenizer
+  File "/workspace/code/model_evaluator/model_loader.py", line 4, in <module>
+    from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
+ModuleNotFoundError: No module named 'transformers'
+
+----------------------------------------
+
+2025-04-24 11:18:14,788 - INFO - 
+Run 8/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='ctibench', Subset='cti-mcq'
+2025-04-24 11:18:14,789 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-mcq --max-new-tokens 512
+2025-04-24 11:18:22,573 - WARNING - Stderr:
+/workspace/testbedvenv/lib/python3.11/site-packages/torch/_subclasses/functional_tensor.py:276: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 10, in <module>
+    from model_loader import load_model_and_tokenizer
+  File "/workspace/code/model_evaluator/model_loader.py", line 4, in <module>
+    from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
+ModuleNotFoundError: No module named 'transformers'
+
+2025-04-24 11:18:22,574 - ERROR - ERROR during: Run 8/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='ctibench', Subset='cti-mcq'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-mcq --max-new-tokens 512
+  Return Code: 1
+  Stderr:
+/workspace/testbedvenv/lib/python3.11/site-packages/torch/_subclasses/functional_tensor.py:276: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 10, in <module>
+    from model_loader import load_model_and_tokenizer
+  File "/workspace/code/model_evaluator/model_loader.py", line 4, in <module>
+    from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
+ModuleNotFoundError: No module named 'transformers'
+
+----------------------------------------
+
+2025-04-24 11:18:22,578 - INFO - 
+Run 9/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='ctibench', Subset='cti-vsp'
+2025-04-24 11:18:22,580 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-vsp --max-new-tokens 512
+2025-04-24 11:18:29,106 - WARNING - Stderr:
+/workspace/testbedvenv/lib/python3.11/site-packages/torch/_subclasses/functional_tensor.py:276: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 10, in <module>
+    from model_loader import load_model_and_tokenizer
+  File "/workspace/code/model_evaluator/model_loader.py", line 4, in <module>
+    from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
+ModuleNotFoundError: No module named 'transformers'
+
+2025-04-24 11:18:29,109 - ERROR - ERROR during: Run 9/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='ctibench', Subset='cti-vsp'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-vsp --max-new-tokens 512
+  Return Code: 1
+  Stderr:
+/workspace/testbedvenv/lib/python3.11/site-packages/torch/_subclasses/functional_tensor.py:276: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 10, in <module>
+    from model_loader import load_model_and_tokenizer
+  File "/workspace/code/model_evaluator/model_loader.py", line 4, in <module>
+    from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
+ModuleNotFoundError: No module named 'transformers'
+
+----------------------------------------
+
+2025-04-24 11:18:29,115 - INFO - 
+Run 10/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='ctibench', Subset='cti-rcm'
+2025-04-24 11:18:29,116 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-rcm --max-new-tokens 512
+2025-04-24 11:18:35,257 - WARNING - Stderr:
+/workspace/testbedvenv/lib/python3.11/site-packages/torch/_subclasses/functional_tensor.py:276: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 10, in <module>
+    from model_loader import load_model_and_tokenizer
+  File "/workspace/code/model_evaluator/model_loader.py", line 4, in <module>
+    from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
+ModuleNotFoundError: No module named 'transformers'
+
+2025-04-24 11:18:35,259 - ERROR - ERROR during: Run 10/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='ctibench', Subset='cti-rcm'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-rcm --max-new-tokens 512
+  Return Code: 1
+  Stderr:
+/workspace/testbedvenv/lib/python3.11/site-packages/torch/_subclasses/functional_tensor.py:276: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 10, in <module>
+    from model_loader import load_model_and_tokenizer
+  File "/workspace/code/model_evaluator/model_loader.py", line 4, in <module>
+    from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
+ModuleNotFoundError: No module named 'transformers'
+
+----------------------------------------
+
+2025-04-24 11:18:35,263 - INFO - --- Security Benchmark Automation Finished (QUANTIZED MODELS) ---

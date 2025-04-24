@@ -1,0 +1,56 @@
+2025-04-24 11:27:39,121 - INFO - --- Starting Security Benchmark Automation (QUANTIZED MODELS) ---
+2025-04-24 11:27:39,122 - INFO - Using Python: /workspace/testbedvenv/bin/python
+2025-04-24 11:27:39,122 - INFO - Evaluation Script: /workspace/code/model_evaluator/evaluate_cli.py
+2025-04-24 11:27:39,123 - INFO - Results Directory: /workspace/results/mod/48
+2025-04-24 11:27:39,124 - INFO - Error Log File: /workspace/results/mod/48/automation_quantized_errors.log
+2025-04-24 11:27:39,124 - INFO - Run Log File: /workspace/results/mod/48/benchmark_run_quantized_20250424_112739.log
+2025-04-24 11:27:39,125 - INFO - Models to run: ['Phi-3-mini-4k-instruct-GPTQ', 'Mistral-7B-Instruct-v0.3-GPTQ']
+2025-04-24 11:27:39,125 - INFO - Benchmarks to run: [('cyberseceval3_mitre', [None]), ('sevenllm_bench', [None]), ('ctibench', ['cti-mcq', 'cti-vsp', 'cti-rcm'])]
+2025-04-24 11:27:39,126 - INFO - Running 100 samples per benchmark.
+2025-04-24 11:27:39,126 - INFO - Max New Tokens for Causal Models: 512
+2025-04-24 11:27:39,127 - INFO - 
+Run 1/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='cyberseceval3_mitre'
+2025-04-24 11:27:39,129 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name cyberseceval3_mitre --benchmark-path /workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+2025-04-24 11:28:05,878 - WARNING - Stderr:
+2025-04-24 11:27:54,633 - WARNING - pynvml not found, GPU system memory usage will not be reported. Run 'pip install nvidia-ml-py' to enable.
+2025-04-24 11:27:54,782 - INFO - --- Starting Evaluation ---
+2025-04-24 11:27:54,783 - INFO - Args: {'model_path': '/workspace/models/Phi-3-mini-4k-instruct-GPTQ', 'model_type': 'causal', 'benchmark_name': 'cyberseceval3_mitre', 'benchmark_path': '/workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': None}
+2025-04-24 11:27:54,783 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 11:27:54,783 - INFO - Metrics file: /workspace/results/mod/48/cyberseceval3_mitre_Phi-3-mini-4k-instruct-GPTQ_20250424-112754_metrics.json
+2025-04-24 11:27:54,783 - INFO - Outputs file: /workspace/results/mod/48/cyberseceval3_mitre_Phi-3-mini-4k-instruct-GPTQ_20250424-112754_outputs.json
+2025-04-24 11:27:54,783 - INFO - NVML Reporting Active: False
+2025-04-24 11:27:54,783 - INFO - Initial RAM usage: 519.12 MB
+2025-04-24 11:27:54,783 - INFO - Loading causal model from: /workspace/models/Phi-3-mini-4k-instruct-GPTQ...
+2025-04-24 11:27:54,811 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 11:27:54,946 - INFO - Tokenizer loaded.
+2025-04-24 11:28:04,866 - WARNING - `flash-attention` package not found, consider installing for better performance: No module named 'flash_attn'.
+2025-04-24 11:28:04,866 - WARNING - Current `flash-attention` does not support `window_size`. Either upgrade or use `attn_implementation='eager'`.
+2025-04-24 11:28:05,157 - ERROR - Error loading model: Loading a GPTQ quantized model requires gptqmodel (`pip install gptqmodel`) or auto-gptq (`pip install auto-gptq`) library. 
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/model_loader.py", line 33, in load_model_and_tokenizer
+    model = AutoModelForCausalLM.from_pretrained(model_path, device_map=device, **model_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 564, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 279, in _wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 4228, in from_pretrained
+    hf_quantizer.validate_environment(
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/quantizers/quantizer_gptq.py", line 67, in validate_environment
+    raise ImportError(
+ImportError: Loading a GPTQ quantized model requires gptqmodel (`pip install gptqmodel`) or auto-gptq (`pip install auto-gptq`) library. 
+2025-04-24 11:28:05,168 - ERROR - An error occurred during evaluation pipeline: Model/Tokenizer loading failed
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 66, in main
+    raise RuntimeError("Model/Tokenizer loading failed")
+RuntimeError: Model/Tokenizer loading failed
+2025-04-24 11:28:05,169 - INFO - Cleaning up resources...
+2025-04-24 11:28:05,169 - INFO - CUDA cache cleared.
+2025-04-24 11:28:05,169 - INFO - --- Evaluation Complete ---
+
+2025-04-24 11:28:05,880 - INFO - SUCCESS: Run 1/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='cyberseceval3_mitre'. Check output files in /workspace/results/mod/48/
+2025-04-24 11:28:05,881 - INFO - 
+Run 2/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='sevenllm_bench'
+2025-04-24 11:28:05,882 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name sevenllm_bench --benchmark-path /workspace/calibration_data/sevenllm_instruct_subset_manual/ --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512

@@ -1,0 +1,354 @@
+2025-04-24 12:23:03,853 - INFO - --- Starting Security Benchmark Automation (QUANTIZED MODELS) ---
+2025-04-24 12:23:03,854 - INFO - Using Python: /workspace/testbedvenv/bin/python
+2025-04-24 12:23:03,856 - INFO - Evaluation Script: /workspace/code/model_evaluator/evaluate_cli.py
+2025-04-24 12:23:03,856 - INFO - Results Directory: /workspace/results/mod/48
+2025-04-24 12:23:03,857 - INFO - Error Log File: /workspace/results/mod/48/automation_quantized_errors.log
+2025-04-24 12:23:03,857 - INFO - Run Log File: /workspace/results/mod/48/benchmark_run_quantized_20250424_122303.log
+2025-04-24 12:23:03,858 - INFO - Models to run: ['Phi-3-mini-4k-instruct-GPTQ']
+2025-04-24 12:23:03,859 - INFO - Benchmarks to run: [('cyberseceval3_mitre', [None]), ('sevenllm_bench', [None]), ('ctibench', ['cti-mcq', 'cti-vsp', 'cti-rcm'])]
+2025-04-24 12:23:03,859 - INFO - Running 100 samples per benchmark.
+2025-04-24 12:23:03,860 - INFO - Max New Tokens for Causal Models: 512
+2025-04-24 12:23:03,861 - INFO - 
+Run 1/5: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='cyberseceval3_mitre'
+2025-04-24 12:23:03,862 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name cyberseceval3_mitre --benchmark-path /workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 32 --max-new-tokens 512
+2025-04-24 12:28:36,782 - WARNING - Stderr:
+2025-04-24 12:23:20,481 - INFO - Initialized NVML for device 0.
+2025-04-24 12:23:20,633 - INFO - --- Starting Evaluation ---
+2025-04-24 12:23:20,633 - INFO - Args: {'model_path': '/workspace/models/Phi-3-mini-4k-instruct-GPTQ', 'model_type': 'causal', 'benchmark_name': 'cyberseceval3_mitre', 'benchmark_path': '/workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': None, 'batch_size': 32, 'trust_remote_code': False}
+2025-04-24 12:23:20,633 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 12:23:20,633 - INFO - Metrics file: /workspace/results/mod/48/cyberseceval3_mitre_Phi-3-mini-4k-instruct-GPTQ_20250424-122320_metrics.json
+2025-04-24 12:23:20,633 - INFO - Outputs file: /workspace/results/mod/48/cyberseceval3_mitre_Phi-3-mini-4k-instruct-GPTQ_20250424-122320_outputs.json
+2025-04-24 12:23:20,633 - INFO - NVML Reporting Active: True
+2025-04-24 12:23:20,633 - INFO - Initial RAM usage: 536.88 MB
+2025-04-24 12:23:20,633 - INFO - Initial System VRAM usage: 556.06 MB
+2025-04-24 12:23:20,633 - INFO - Loading causal model from: /workspace/models/Phi-3-mini-4k-instruct-GPTQ...
+2025-04-24 12:23:20,633 - INFO - Trust Remote Code: False
+2025-04-24 12:23:20,639 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 12:23:20,772 - INFO - Tokenizer loaded.
+/workspace/testbedvenv/lib/python3.11/site-packages/auto_gptq/nn_modules/triton_utils/kernels.py:410: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd
+/workspace/testbedvenv/lib/python3.11/site-packages/auto_gptq/nn_modules/triton_utils/kernels.py:418: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @custom_bwd
+/workspace/testbedvenv/lib/python3.11/site-packages/auto_gptq/nn_modules/triton_utils/kernels.py:461: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd(cast_inputs=torch.float16)
+2025-04-24 12:23:31,795 - WARNING - CUDA extension not installed.
+2025-04-24 12:23:31,800 - WARNING - CUDA extension not installed.
+`loss_type=None` was set in the config but it is unrecognised.Using the default loss: `ForCausalLMLoss`.
+2025-04-24 12:23:35,720 - INFO - CausalLM Model loaded.
+2025-04-24 12:23:35,721 - INFO - Model placed on device: cuda and set to eval mode.
+2025-04-24 12:23:35,722 - INFO - Model loaded in 15.09 seconds.
+2025-04-24 12:23:35,722 - INFO - Loading prompts from CyberSecEval3 MITRE file: /workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json
+2025-04-24 12:23:35,736 - INFO - Processing the first 100 items.
+
+Parsing MITRE prompts:   0%|          | 0/100 [00:00<?, ?it/s]2025-04-24 12:23:35,739 - WARNING - Item 5: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 12:23:35,740 - WARNING - Item 8: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 12:23:35,740 - WARNING - Item 14: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 12:23:35,741 - WARNING - Item 21: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 12:23:35,741 - WARNING - Item 25: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 12:23:35,741 - WARNING - Item 27: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 12:23:35,742 - WARNING - Item 30: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 12:23:35,742 - WARNING - Item 32: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 12:23:35,742 - WARNING - Item 35: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 12:23:35,742 - WARNING - Item 36: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 12:23:35,743 - WARNING - Item 48: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 12:23:35,743 - WARNING - Item 49: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 12:23:35,744 - WARNING - Item 52: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 12:23:35,744 - WARNING - Item 58: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 12:23:35,745 - WARNING - Item 63: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 12:23:35,745 - WARNING - Item 72: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 12:23:35,746 - WARNING - Item 81: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 12:23:35,746 - WARNING - Item 86: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+2025-04-24 12:23:35,746 - WARNING - Item 88: Regex failed to find/extract 'prompt' value from mutated_prompt_str.
+
+Parsing MITRE prompts: 100%|██████████| 100/100 [00:00<00:00, 11126.66it/s]
+2025-04-24 12:23:35,747 - INFO - Successfully loaded 81 prompts from cyberseceval3_mitre.
+2025-04-24 12:23:35,748 - INFO - Reset peak PyTorch VRAM stats for inference.
+2025-04-24 12:23:35,748 - INFO - Starting inference on 81 samples with batch size 32...
+
+Inference Batches:   0%|          | 0/3 [00:00<?, ?it/s]
+Inference Batches:  33%|███▎      | 1/3 [01:45<03:30, 105.21s/it]
+Inference Batches:  67%|██████▋   | 2/3 [03:29<01:44, 104.65s/it]
+Inference Batches: 100%|██████████| 3/3 [04:58<00:00, 97.74s/it] 
+Inference Batches: 100%|██████████| 3/3 [04:58<00:00, 99.66s/it]
+2025-04-24 12:28:34,742 - INFO - 
+--- Inference Summary ---
+2025-04-24 12:28:34,742 - INFO - Processed 81 samples.
+2025-04-24 12:28:34,742 - INFO - Total 'generate' time (sum): 298.93 sec
+2025-04-24 12:28:34,742 - INFO - Overall inference loop duration: 298.99 sec
+2025-04-24 12:28:34,742 - INFO - Average 'generate' time per sample: 3.6905 sec
+2025-04-24 12:28:34,742 - INFO - Total effective tokens generated: 41459
+2025-04-24 12:28:34,742 - INFO - Overall effective tokens per second: 138.69
+2025-04-24 12:28:34,742 - INFO - RAM Delta during inference: 282.00 MB
+2025-04-24 12:28:34,742 - INFO - PyTorch VRAM Peak Delta during inference: 13273.81 MB
+2025-04-24 12:28:34,742 - INFO - System VRAM Peak Approx. Delta during inference: -3033.38 MB
+2025-04-24 12:28:35,451 - INFO - Saved outputs (81 items) to: /workspace/results/mod/48/cyberseceval3_mitre_Phi-3-mini-4k-instruct-GPTQ_20250424-122320_outputs.json
+2025-04-24 12:28:35,460 - INFO - Saved metrics to: /workspace/results/mod/48/cyberseceval3_mitre_Phi-3-mini-4k-instruct-GPTQ_20250424-122320_metrics.json
+2025-04-24 12:28:35,460 - INFO - Cleaning up resources...
+2025-04-24 12:28:35,540 - INFO - CUDA cache cleared.
+2025-04-24 12:28:35,541 - INFO - NVML shut down.
+2025-04-24 12:28:35,541 - INFO - --- Evaluation Complete ---
+
+2025-04-24 12:28:36,785 - INFO - SUCCESS: Run 1/5: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='cyberseceval3_mitre'. Check output files in /workspace/results/mod/48/
+2025-04-24 12:28:36,786 - INFO - 
+Run 2/5: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='sevenllm_bench'
+2025-04-24 12:28:36,787 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name sevenllm_bench --benchmark-path /workspace/calibration_data/sevenllm_instruct_subset_manual/ --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 32 --max-new-tokens 512
+2025-04-24 12:36:31,451 - WARNING - Stderr:
+2025-04-24 12:28:54,195 - INFO - Initialized NVML for device 0.
+2025-04-24 12:28:54,348 - INFO - --- Starting Evaluation ---
+2025-04-24 12:28:54,349 - INFO - Args: {'model_path': '/workspace/models/Phi-3-mini-4k-instruct-GPTQ', 'model_type': 'causal', 'benchmark_name': 'sevenllm_bench', 'benchmark_path': '/workspace/calibration_data/sevenllm_instruct_subset_manual/', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': None, 'batch_size': 32, 'trust_remote_code': False}
+2025-04-24 12:28:54,349 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 12:28:54,349 - INFO - Metrics file: /workspace/results/mod/48/sevenllm_bench_Phi-3-mini-4k-instruct-GPTQ_20250424-122854_metrics.json
+2025-04-24 12:28:54,349 - INFO - Outputs file: /workspace/results/mod/48/sevenllm_bench_Phi-3-mini-4k-instruct-GPTQ_20250424-122854_outputs.json
+2025-04-24 12:28:54,349 - INFO - NVML Reporting Active: True
+2025-04-24 12:28:54,349 - INFO - Initial RAM usage: 521.73 MB
+2025-04-24 12:28:54,349 - INFO - Initial System VRAM usage: 556.06 MB
+2025-04-24 12:28:54,349 - INFO - Loading causal model from: /workspace/models/Phi-3-mini-4k-instruct-GPTQ...
+2025-04-24 12:28:54,349 - INFO - Trust Remote Code: False
+2025-04-24 12:28:54,357 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 12:28:54,505 - INFO - Tokenizer loaded.
+/workspace/testbedvenv/lib/python3.11/site-packages/auto_gptq/nn_modules/triton_utils/kernels.py:410: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd
+/workspace/testbedvenv/lib/python3.11/site-packages/auto_gptq/nn_modules/triton_utils/kernels.py:418: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @custom_bwd
+/workspace/testbedvenv/lib/python3.11/site-packages/auto_gptq/nn_modules/triton_utils/kernels.py:461: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd(cast_inputs=torch.float16)
+2025-04-24 12:29:06,279 - WARNING - CUDA extension not installed.
+2025-04-24 12:29:06,285 - WARNING - CUDA extension not installed.
+`loss_type=None` was set in the config but it is unrecognised.Using the default loss: `ForCausalLMLoss`.
+2025-04-24 12:29:09,748 - INFO - CausalLM Model loaded.
+2025-04-24 12:29:09,749 - INFO - Model placed on device: cuda and set to eval mode.
+2025-04-24 12:29:09,750 - INFO - Model loaded in 15.40 seconds.
+2025-04-24 12:29:09,750 - INFO - Loading prompts from SEvenLLM saved dataset directory: /workspace/calibration_data/sevenllm_instruct_subset_manual/
+2025-04-24 12:29:09,843 - INFO - Loaded dataset: Dataset({
+    features: ['output', 'category', 'thought', 'input', 'id', 'instruction'],
+    num_rows: 200
+})
+2025-04-24 12:29:09,845 - INFO - Selected first 100 samples for evaluation.
+
+Parsing SEvenLLM prompts:   0%|          | 0/100 [00:00<?, ?it/s]
+Parsing SEvenLLM prompts: 100%|██████████| 100/100 [00:00<00:00, 6295.96it/s]
+2025-04-24 12:29:09,862 - INFO - Successfully loaded 100 prompts from sevenllm_bench.
+2025-04-24 12:29:09,863 - INFO - Reset peak PyTorch VRAM stats for inference.
+2025-04-24 12:29:09,864 - INFO - Starting inference on 100 samples with batch size 32...
+
+Inference Batches:   0%|          | 0/4 [00:00<?, ?it/s]
+Inference Batches:  25%|██▌       | 1/4 [02:04<06:12, 124.31s/it]
+Inference Batches:  50%|█████     | 2/4 [03:58<03:57, 118.62s/it]
+Inference Batches:  75%|███████▌  | 3/4 [06:01<02:00, 120.54s/it]
+Inference Batches: 100%|██████████| 4/4 [07:20<00:00, 104.09s/it]
+Inference Batches: 100%|██████████| 4/4 [07:20<00:00, 110.16s/it]
+2025-04-24 12:36:30,520 - INFO - 
+--- Inference Summary ---
+2025-04-24 12:36:30,520 - INFO - Processed 100 samples.
+2025-04-24 12:36:30,520 - INFO - Total 'generate' time (sum): 440.54 sec
+2025-04-24 12:36:30,520 - INFO - Overall inference loop duration: 440.66 sec
+2025-04-24 12:36:30,520 - INFO - Average 'generate' time per sample: 4.4054 sec
+2025-04-24 12:36:30,520 - INFO - Total effective tokens generated: 51173
+2025-04-24 12:36:30,520 - INFO - Overall effective tokens per second: 116.16
+2025-04-24 12:36:30,520 - INFO - RAM Delta during inference: 463.50 MB
+2025-04-24 12:36:30,520 - INFO - PyTorch VRAM Peak Delta during inference: 24122.80 MB
+2025-04-24 12:36:30,520 - INFO - System VRAM Peak Approx. Delta during inference: -3033.38 MB
+2025-04-24 12:36:30,532 - INFO - Saved outputs (100 items) to: /workspace/results/mod/48/sevenllm_bench_Phi-3-mini-4k-instruct-GPTQ_20250424-122854_outputs.json
+2025-04-24 12:36:30,536 - INFO - Saved metrics to: /workspace/results/mod/48/sevenllm_bench_Phi-3-mini-4k-instruct-GPTQ_20250424-122854_metrics.json
+2025-04-24 12:36:30,537 - INFO - Cleaning up resources...
+2025-04-24 12:36:30,650 - INFO - CUDA cache cleared.
+2025-04-24 12:36:30,650 - INFO - NVML shut down.
+2025-04-24 12:36:30,650 - INFO - --- Evaluation Complete ---
+
+2025-04-24 12:36:31,454 - INFO - SUCCESS: Run 2/5: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='sevenllm_bench'. Check output files in /workspace/results/mod/48/
+2025-04-24 12:36:31,455 - INFO - 
+Run 3/5: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-mcq'
+2025-04-24 12:36:31,457 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 32 --cti-subset cti-mcq --max-new-tokens 512
+2025-04-24 12:37:11,047 - WARNING - Stderr:
+2025-04-24 12:36:49,592 - INFO - Initialized NVML for device 0.
+2025-04-24 12:36:49,738 - INFO - --- Starting Evaluation ---
+2025-04-24 12:36:49,738 - INFO - Args: {'model_path': '/workspace/models/Phi-3-mini-4k-instruct-GPTQ', 'model_type': 'causal', 'benchmark_name': 'ctibench', 'benchmark_path': '/workspace/datasets', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': 'cti-mcq', 'batch_size': 32, 'trust_remote_code': False}
+2025-04-24 12:36:49,738 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 12:36:49,738 - INFO - Metrics file: /workspace/results/mod/48/ctibench_cti-mcq_Phi-3-mini-4k-instruct-GPTQ_20250424-123649_metrics.json
+2025-04-24 12:36:49,738 - INFO - Outputs file: /workspace/results/mod/48/ctibench_cti-mcq_Phi-3-mini-4k-instruct-GPTQ_20250424-123649_outputs.json
+2025-04-24 12:36:49,738 - INFO - NVML Reporting Active: True
+2025-04-24 12:36:49,738 - INFO - Initial RAM usage: 525.71 MB
+2025-04-24 12:36:49,738 - INFO - Initial System VRAM usage: 556.06 MB
+2025-04-24 12:36:49,738 - INFO - Loading causal model from: /workspace/models/Phi-3-mini-4k-instruct-GPTQ...
+2025-04-24 12:36:49,738 - INFO - Trust Remote Code: False
+2025-04-24 12:36:49,744 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 12:36:49,891 - INFO - Tokenizer loaded.
+/workspace/testbedvenv/lib/python3.11/site-packages/auto_gptq/nn_modules/triton_utils/kernels.py:410: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd
+/workspace/testbedvenv/lib/python3.11/site-packages/auto_gptq/nn_modules/triton_utils/kernels.py:418: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @custom_bwd
+/workspace/testbedvenv/lib/python3.11/site-packages/auto_gptq/nn_modules/triton_utils/kernels.py:461: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd(cast_inputs=torch.float16)
+2025-04-24 12:37:01,478 - WARNING - CUDA extension not installed.
+2025-04-24 12:37:01,483 - WARNING - CUDA extension not installed.
+`loss_type=None` was set in the config but it is unrecognised.Using the default loss: `ForCausalLMLoss`.
+2025-04-24 12:37:04,200 - INFO - CausalLM Model loaded.
+2025-04-24 12:37:04,201 - INFO - Model placed on device: cuda and set to eval mode.
+2025-04-24 12:37:04,202 - INFO - Model loaded in 14.46 seconds.
+2025-04-24 12:37:04,202 - INFO - Loading prompts from CTIBench subset: cti-mcq
+2025-04-24 12:37:05,953 - INFO - Using split 'test' from CTIBench DatasetDict.
+2025-04-24 12:37:05,960 - INFO - Selected first 100 samples.
+2025-04-24 12:37:05,960 - INFO - Using columns for cti-mcq: prompt='Prompt', id=index fallback
+
+Parsing CTIBench (cti-mcq):   0%|          | 0/100 [00:00<?, ?it/s]
+Parsing CTIBench (cti-mcq): 100%|██████████| 100/100 [00:00<00:00, 4462.88it/s]
+2025-04-24 12:37:05,984 - INFO - Successfully loaded 100 prompts from ctibench subset cti-mcq.
+2025-04-24 12:37:05,984 - INFO - Reset peak PyTorch VRAM stats for inference.
+2025-04-24 12:37:05,985 - INFO - Starting inference on 100 samples with batch size 32...
+
+Inference Batches:   0%|          | 0/4 [00:00<?, ?it/s]
+Inference Batches:  25%|██▌       | 1/4 [00:01<00:04,  1.57s/it]
+Inference Batches:  50%|█████     | 2/4 [00:02<00:02,  1.29s/it]
+Inference Batches:  75%|███████▌  | 3/4 [00:03<00:01,  1.18s/it]
+Inference Batches: 100%|██████████| 4/4 [00:04<00:00,  1.11it/s]
+Inference Batches: 100%|██████████| 4/4 [00:04<00:00,  1.05s/it]
+2025-04-24 12:37:10,178 - INFO - 
+--- Inference Summary ---
+2025-04-24 12:37:10,179 - INFO - Processed 100 samples.
+2025-04-24 12:37:10,179 - INFO - Total 'generate' time (sum): 4.14 sec
+2025-04-24 12:37:10,179 - INFO - Overall inference loop duration: 4.19 sec
+2025-04-24 12:37:10,179 - INFO - Average 'generate' time per sample: 0.0414 sec
+2025-04-24 12:37:10,179 - INFO - Total effective tokens generated: 200
+2025-04-24 12:37:10,179 - INFO - Overall effective tokens per second: 48.31
+2025-04-24 12:37:10,179 - INFO - RAM Delta during inference: 537.00 MB
+2025-04-24 12:37:10,179 - INFO - PyTorch VRAM Peak Delta during inference: 5622.46 MB
+2025-04-24 12:37:10,179 - INFO - System VRAM Peak Approx. Delta during inference: -3033.38 MB
+2025-04-24 12:37:10,189 - INFO - Saved outputs (100 items) to: /workspace/results/mod/48/ctibench_cti-mcq_Phi-3-mini-4k-instruct-GPTQ_20250424-123649_outputs.json
+2025-04-24 12:37:10,192 - INFO - Saved metrics to: /workspace/results/mod/48/ctibench_cti-mcq_Phi-3-mini-4k-instruct-GPTQ_20250424-123649_metrics.json
+2025-04-24 12:37:10,192 - INFO - Cleaning up resources...
+2025-04-24 12:37:10,254 - INFO - CUDA cache cleared.
+2025-04-24 12:37:10,254 - INFO - NVML shut down.
+2025-04-24 12:37:10,254 - INFO - --- Evaluation Complete ---
+
+2025-04-24 12:37:11,050 - INFO - SUCCESS: Run 3/5: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-mcq'. Check output files in /workspace/results/mod/48/
+2025-04-24 12:37:11,052 - INFO - 
+Run 4/5: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-vsp'
+2025-04-24 12:37:11,053 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 32 --cti-subset cti-vsp --max-new-tokens 512
+2025-04-24 12:45:07,000 - WARNING - Stderr:
+2025-04-24 12:37:28,922 - INFO - Initialized NVML for device 0.
+2025-04-24 12:37:29,067 - INFO - --- Starting Evaluation ---
+2025-04-24 12:37:29,067 - INFO - Args: {'model_path': '/workspace/models/Phi-3-mini-4k-instruct-GPTQ', 'model_type': 'causal', 'benchmark_name': 'ctibench', 'benchmark_path': '/workspace/datasets', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': 'cti-vsp', 'batch_size': 32, 'trust_remote_code': False}
+2025-04-24 12:37:29,067 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 12:37:29,067 - INFO - Metrics file: /workspace/results/mod/48/ctibench_cti-vsp_Phi-3-mini-4k-instruct-GPTQ_20250424-123729_metrics.json
+2025-04-24 12:37:29,067 - INFO - Outputs file: /workspace/results/mod/48/ctibench_cti-vsp_Phi-3-mini-4k-instruct-GPTQ_20250424-123729_outputs.json
+2025-04-24 12:37:29,067 - INFO - NVML Reporting Active: True
+2025-04-24 12:37:29,067 - INFO - Initial RAM usage: 535.72 MB
+2025-04-24 12:37:29,068 - INFO - Initial System VRAM usage: 556.06 MB
+2025-04-24 12:37:29,068 - INFO - Loading causal model from: /workspace/models/Phi-3-mini-4k-instruct-GPTQ...
+2025-04-24 12:37:29,068 - INFO - Trust Remote Code: False
+2025-04-24 12:37:29,073 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 12:37:29,219 - INFO - Tokenizer loaded.
+/workspace/testbedvenv/lib/python3.11/site-packages/auto_gptq/nn_modules/triton_utils/kernels.py:410: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd
+/workspace/testbedvenv/lib/python3.11/site-packages/auto_gptq/nn_modules/triton_utils/kernels.py:418: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @custom_bwd
+/workspace/testbedvenv/lib/python3.11/site-packages/auto_gptq/nn_modules/triton_utils/kernels.py:461: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd(cast_inputs=torch.float16)
+2025-04-24 12:37:40,673 - WARNING - CUDA extension not installed.
+2025-04-24 12:37:40,680 - WARNING - CUDA extension not installed.
+`loss_type=None` was set in the config but it is unrecognised.Using the default loss: `ForCausalLMLoss`.
+2025-04-24 12:37:43,361 - INFO - CausalLM Model loaded.
+2025-04-24 12:37:43,362 - INFO - Model placed on device: cuda and set to eval mode.
+2025-04-24 12:37:43,362 - INFO - Model loaded in 14.29 seconds.
+2025-04-24 12:37:43,362 - INFO - Loading prompts from CTIBench subset: cti-vsp
+2025-04-24 12:37:44,295 - INFO - Using split 'test' from CTIBench DatasetDict.
+2025-04-24 12:37:44,299 - INFO - Selected first 100 samples.
+2025-04-24 12:37:44,299 - INFO - Using columns for cti-vsp: prompt='Prompt', id=index fallback
+
+Parsing CTIBench (cti-vsp):   0%|          | 0/100 [00:00<?, ?it/s]
+Parsing CTIBench (cti-vsp): 100%|██████████| 100/100 [00:00<00:00, 6377.23it/s]
+2025-04-24 12:37:44,316 - INFO - Successfully loaded 100 prompts from ctibench subset cti-vsp.
+2025-04-24 12:37:44,316 - INFO - Reset peak PyTorch VRAM stats for inference.
+2025-04-24 12:37:44,318 - INFO - Starting inference on 100 samples with batch size 32...
+
+Inference Batches:   0%|          | 0/4 [00:00<?, ?it/s]
+Inference Batches:  25%|██▌       | 1/4 [02:02<06:07, 122.61s/it]
+Inference Batches:  50%|█████     | 2/4 [04:10<04:11, 125.53s/it]
+Inference Batches:  75%|███████▌  | 3/4 [06:05<02:00, 120.67s/it]
+Inference Batches: 100%|██████████| 4/4 [07:21<00:00, 103.27s/it]
+Inference Batches: 100%|██████████| 4/4 [07:21<00:00, 110.42s/it]
+2025-04-24 12:45:05,990 - INFO - 
+--- Inference Summary ---
+2025-04-24 12:45:05,990 - INFO - Processed 100 samples.
+2025-04-24 12:45:05,990 - INFO - Total 'generate' time (sum): 441.56 sec
+2025-04-24 12:45:05,990 - INFO - Overall inference loop duration: 441.67 sec
+2025-04-24 12:45:05,990 - INFO - Average 'generate' time per sample: 4.4156 sec
+2025-04-24 12:45:05,990 - INFO - Total effective tokens generated: 51146
+2025-04-24 12:45:05,990 - INFO - Overall effective tokens per second: 115.83
+2025-04-24 12:45:05,990 - INFO - RAM Delta during inference: 159.00 MB
+2025-04-24 12:45:05,990 - INFO - PyTorch VRAM Peak Delta during inference: 26377.94 MB
+2025-04-24 12:45:05,990 - INFO - System VRAM Peak Approx. Delta during inference: -3033.38 MB
+2025-04-24 12:45:06,028 - INFO - Saved outputs (100 items) to: /workspace/results/mod/48/ctibench_cti-vsp_Phi-3-mini-4k-instruct-GPTQ_20250424-123729_outputs.json
+2025-04-24 12:45:06,040 - INFO - Saved metrics to: /workspace/results/mod/48/ctibench_cti-vsp_Phi-3-mini-4k-instruct-GPTQ_20250424-123729_metrics.json
+2025-04-24 12:45:06,040 - INFO - Cleaning up resources...
+2025-04-24 12:45:06,131 - INFO - CUDA cache cleared.
+2025-04-24 12:45:06,132 - INFO - NVML shut down.
+2025-04-24 12:45:06,132 - INFO - --- Evaluation Complete ---
+
+2025-04-24 12:45:07,018 - INFO - SUCCESS: Run 4/5: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-vsp'. Check output files in /workspace/results/mod/48/
+2025-04-24 12:45:07,019 - INFO - 
+Run 5/5: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-rcm'
+2025-04-24 12:45:07,022 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --batch-size 32 --cti-subset cti-rcm --max-new-tokens 512
+2025-04-24 12:50:01,046 - WARNING - Stderr:
+2025-04-24 12:45:34,610 - INFO - Initialized NVML for device 0.
+2025-04-24 12:45:34,763 - INFO - --- Starting Evaluation ---
+2025-04-24 12:45:34,763 - INFO - Args: {'model_path': '/workspace/models/Phi-3-mini-4k-instruct-GPTQ', 'model_type': 'causal', 'benchmark_name': 'ctibench', 'benchmark_path': '/workspace/datasets', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': 'cti-rcm', 'batch_size': 32, 'trust_remote_code': False}
+2025-04-24 12:45:34,763 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 12:45:34,763 - INFO - Metrics file: /workspace/results/mod/48/ctibench_cti-rcm_Phi-3-mini-4k-instruct-GPTQ_20250424-124534_metrics.json
+2025-04-24 12:45:34,763 - INFO - Outputs file: /workspace/results/mod/48/ctibench_cti-rcm_Phi-3-mini-4k-instruct-GPTQ_20250424-124534_outputs.json
+2025-04-24 12:45:34,763 - INFO - NVML Reporting Active: True
+2025-04-24 12:45:34,763 - INFO - Initial RAM usage: 526.28 MB
+2025-04-24 12:45:34,763 - INFO - Initial System VRAM usage: 556.06 MB
+2025-04-24 12:45:34,763 - INFO - Loading causal model from: /workspace/models/Phi-3-mini-4k-instruct-GPTQ...
+2025-04-24 12:45:34,763 - INFO - Trust Remote Code: False
+2025-04-24 12:45:34,769 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 12:45:34,949 - INFO - Tokenizer loaded.
+/workspace/testbedvenv/lib/python3.11/site-packages/auto_gptq/nn_modules/triton_utils/kernels.py:410: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd
+/workspace/testbedvenv/lib/python3.11/site-packages/auto_gptq/nn_modules/triton_utils/kernels.py:418: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @custom_bwd
+/workspace/testbedvenv/lib/python3.11/site-packages/auto_gptq/nn_modules/triton_utils/kernels.py:461: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd(cast_inputs=torch.float16)
+2025-04-24 12:45:46,501 - WARNING - CUDA extension not installed.
+2025-04-24 12:45:46,515 - WARNING - CUDA extension not installed.
+`loss_type=None` was set in the config but it is unrecognised.Using the default loss: `ForCausalLMLoss`.
+2025-04-24 12:45:49,745 - INFO - CausalLM Model loaded.
+2025-04-24 12:45:49,746 - INFO - Model placed on device: cuda and set to eval mode.
+2025-04-24 12:45:49,746 - INFO - Model loaded in 14.98 seconds.
+2025-04-24 12:45:49,746 - INFO - Loading prompts from CTIBench subset: cti-rcm
+2025-04-24 12:45:50,980 - INFO - Using split 'test' from CTIBench DatasetDict.
+2025-04-24 12:45:50,984 - INFO - Selected first 100 samples.
+2025-04-24 12:45:50,984 - INFO - Using columns for cti-rcm: prompt='Prompt', id=index fallback
+
+Parsing CTIBench (cti-rcm):   0%|          | 0/100 [00:00<?, ?it/s]
+Parsing CTIBench (cti-rcm): 100%|██████████| 100/100 [00:00<00:00, 3389.12it/s]
+2025-04-24 12:45:51,015 - INFO - Successfully loaded 100 prompts from ctibench subset cti-rcm.
+2025-04-24 12:45:51,016 - INFO - Reset peak PyTorch VRAM stats for inference.
+2025-04-24 12:45:51,017 - INFO - Starting inference on 100 samples with batch size 32...
+
+Inference Batches:   0%|          | 0/4 [00:00<?, ?it/s]
+Inference Batches:  25%|██▌       | 1/4 [00:31<01:35, 31.92s/it]
+Inference Batches:  50%|█████     | 2/4 [02:25<02:40, 80.25s/it]
+Inference Batches:  75%|███████▌  | 3/4 [02:53<00:56, 56.32s/it]
+Inference Batches: 100%|██████████| 4/4 [04:08<00:00, 63.75s/it]
+Inference Batches: 100%|██████████| 4/4 [04:08<00:00, 62.25s/it]
+2025-04-24 12:50:00,006 - INFO - 
+--- Inference Summary ---
+2025-04-24 12:50:00,006 - INFO - Processed 100 samples.
+2025-04-24 12:50:00,006 - INFO - Total 'generate' time (sum): 248.91 sec
+2025-04-24 12:50:00,007 - INFO - Overall inference loop duration: 248.99 sec
+2025-04-24 12:50:00,007 - INFO - Average 'generate' time per sample: 2.4891 sec
+2025-04-24 12:50:00,007 - INFO - Total effective tokens generated: 27966
+2025-04-24 12:50:00,007 - INFO - Overall effective tokens per second: 112.36
+2025-04-24 12:50:00,007 - INFO - RAM Delta during inference: 413.25 MB
+2025-04-24 12:50:00,007 - INFO - PyTorch VRAM Peak Delta during inference: 18343.13 MB
+2025-04-24 12:50:00,007 - INFO - System VRAM Peak Approx. Delta during inference: -3033.38 MB
+2025-04-24 12:50:00,032 - INFO - Saved outputs (100 items) to: /workspace/results/mod/48/ctibench_cti-rcm_Phi-3-mini-4k-instruct-GPTQ_20250424-124534_outputs.json
+2025-04-24 12:50:00,037 - INFO - Saved metrics to: /workspace/results/mod/48/ctibench_cti-rcm_Phi-3-mini-4k-instruct-GPTQ_20250424-124534_metrics.json
+2025-04-24 12:50:00,037 - INFO - Cleaning up resources...
+2025-04-24 12:50:00,122 - INFO - CUDA cache cleared.
+2025-04-24 12:50:00,122 - INFO - NVML shut down.
+2025-04-24 12:50:00,122 - INFO - --- Evaluation Complete ---
+
+2025-04-24 12:50:01,049 - INFO - SUCCESS: Run 5/5: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-rcm'. Check output files in /workspace/results/mod/48/
+2025-04-24 12:50:01,050 - INFO - --- Security Benchmark Automation Finished (QUANTIZED MODELS) ---

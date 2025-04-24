@@ -1,0 +1,211 @@
+2025-04-24 11:13:45,397 - INFO - --- Starting Security Benchmark Automation (QUANTIZED MODELS) ---
+2025-04-24 11:13:45,398 - INFO - Using Python: /workspace/testbedvenv/bin/python
+2025-04-24 11:13:45,399 - INFO - Evaluation Script: /workspace/code/model_evaluator/evaluate_cli.py
+2025-04-24 11:13:45,399 - INFO - Results Directory: /workspace/results/mod/48
+2025-04-24 11:13:45,409 - INFO - Error Log File: /workspace/results/mod/48/automation_quantized_errors.log
+2025-04-24 11:13:45,410 - INFO - Run Log File: /workspace/results/mod/48/benchmark_run_quantized_20250424_111345.log
+2025-04-24 11:13:45,411 - INFO - Models to run: ['Phi-3-mini-4k-instruct-GPTQ', 'Mistral-7B-Instruct-v0.3-GPTQ']
+2025-04-24 11:13:45,412 - INFO - Benchmarks to run: [('cyberseceval3_mitre', [None]), ('sevenllm_bench', [None]), ('ctibench', ['cti-mcq', 'cti-vsp', 'cti-rcm'])]
+2025-04-24 11:13:45,413 - INFO - Running 100 samples per benchmark.
+2025-04-24 11:13:45,413 - INFO - Max New Tokens for Causal Models: 512
+2025-04-24 11:13:45,414 - INFO - 
+Run 1/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='cyberseceval3_mitre'
+2025-04-24 11:13:45,416 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name cyberseceval3_mitre --benchmark-path /workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+2025-04-24 11:13:45,465 - WARNING - Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 5, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+2025-04-24 11:13:45,467 - ERROR - ERROR during: Run 1/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='cyberseceval3_mitre'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name cyberseceval3_mitre --benchmark-path /workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+  Return Code: 1
+  Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 5, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+----------------------------------------
+
+2025-04-24 11:13:45,472 - INFO - 
+Run 2/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='sevenllm_bench'
+2025-04-24 11:13:45,473 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name sevenllm_bench --benchmark-path /workspace/calibration_data/sevenllm_instruct_subset_manual/ --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+2025-04-24 11:13:45,542 - WARNING - Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 5, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+2025-04-24 11:13:45,543 - ERROR - ERROR during: Run 2/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='sevenllm_bench'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name sevenllm_bench --benchmark-path /workspace/calibration_data/sevenllm_instruct_subset_manual/ --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+  Return Code: 1
+  Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 5, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+----------------------------------------
+
+2025-04-24 11:13:45,546 - INFO - 
+Run 3/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-mcq'
+2025-04-24 11:13:45,547 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-mcq --max-new-tokens 512
+2025-04-24 11:13:45,602 - WARNING - Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 5, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+2025-04-24 11:13:45,610 - ERROR - ERROR during: Run 3/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-mcq'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-mcq --max-new-tokens 512
+  Return Code: 1
+  Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 5, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+----------------------------------------
+
+2025-04-24 11:13:45,613 - INFO - 
+Run 4/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-vsp'
+2025-04-24 11:13:45,613 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-vsp --max-new-tokens 512
+2025-04-24 11:13:45,666 - WARNING - Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 5, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+2025-04-24 11:13:45,667 - ERROR - ERROR during: Run 4/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-vsp'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-vsp --max-new-tokens 512
+  Return Code: 1
+  Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 5, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+----------------------------------------
+
+2025-04-24 11:13:45,669 - INFO - 
+Run 5/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-rcm'
+2025-04-24 11:13:45,670 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-rcm --max-new-tokens 512
+2025-04-24 11:13:45,745 - WARNING - Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 5, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+2025-04-24 11:13:45,746 - ERROR - ERROR during: Run 5/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-rcm'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-rcm --max-new-tokens 512
+  Return Code: 1
+  Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 5, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+----------------------------------------
+
+2025-04-24 11:13:45,748 - INFO - 
+Run 6/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='cyberseceval3_mitre'
+2025-04-24 11:13:45,749 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name cyberseceval3_mitre --benchmark-path /workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+2025-04-24 11:13:45,818 - WARNING - Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 5, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+2025-04-24 11:13:45,819 - ERROR - ERROR during: Run 6/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='cyberseceval3_mitre'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name cyberseceval3_mitre --benchmark-path /workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+  Return Code: 1
+  Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 5, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+----------------------------------------
+
+2025-04-24 11:13:45,822 - INFO - 
+Run 7/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='sevenllm_bench'
+2025-04-24 11:13:45,822 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name sevenllm_bench --benchmark-path /workspace/calibration_data/sevenllm_instruct_subset_manual/ --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+2025-04-24 11:13:45,875 - WARNING - Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 5, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+2025-04-24 11:13:45,876 - ERROR - ERROR during: Run 7/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='sevenllm_bench'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name sevenllm_bench --benchmark-path /workspace/calibration_data/sevenllm_instruct_subset_manual/ --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+  Return Code: 1
+  Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 5, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+----------------------------------------
+
+2025-04-24 11:13:45,878 - INFO - 
+Run 8/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='ctibench', Subset='cti-mcq'
+2025-04-24 11:13:45,879 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-mcq --max-new-tokens 512
+2025-04-24 11:13:45,954 - WARNING - Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 5, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+2025-04-24 11:13:45,955 - ERROR - ERROR during: Run 8/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='ctibench', Subset='cti-mcq'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-mcq --max-new-tokens 512
+  Return Code: 1
+  Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 5, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+----------------------------------------
+
+2025-04-24 11:13:45,957 - INFO - 
+Run 9/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='ctibench', Subset='cti-vsp'
+2025-04-24 11:13:45,958 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-vsp --max-new-tokens 512
+2025-04-24 11:13:46,023 - WARNING - Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 5, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+2025-04-24 11:13:46,024 - ERROR - ERROR during: Run 9/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='ctibench', Subset='cti-vsp'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-vsp --max-new-tokens 512
+  Return Code: 1
+  Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 5, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+----------------------------------------
+
+2025-04-24 11:13:46,027 - INFO - 
+Run 10/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='ctibench', Subset='cti-rcm'
+2025-04-24 11:13:46,028 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-rcm --max-new-tokens 512
+2025-04-24 11:13:46,079 - WARNING - Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 5, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+2025-04-24 11:13:46,080 - ERROR - ERROR during: Run 10/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='ctibench', Subset='cti-rcm'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-rcm --max-new-tokens 512
+  Return Code: 1
+  Stderr:
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 5, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+----------------------------------------
+
+2025-04-24 11:13:46,085 - INFO - --- Security Benchmark Automation Finished (QUANTIZED MODELS) ---

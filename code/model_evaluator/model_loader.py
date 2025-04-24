@@ -78,3 +78,4 @@ def load_model_and_tokenizer(model_path, model_type='causal', device='cuda', tru
         "system_vram_current_after_load_mb": sys_vram_after_load if NVML_FOUND and nvml_handle else None,
     }
     return model, tokenizer, load_metrics_partial 
+

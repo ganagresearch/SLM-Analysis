@@ -1,0 +1,696 @@
+2025-04-24 11:01:18,594 - INFO - --- Starting Security Benchmark Automation (QUANTIZED MODELS) ---
+2025-04-24 11:01:18,595 - INFO - Using Python: /workspace/testbedvenv/bin/python
+2025-04-24 11:01:18,596 - INFO - Evaluation Script: /workspace/code/model_evaluator/evaluate_cli.py
+2025-04-24 11:01:18,597 - INFO - Results Directory: /workspace/results/mod/48
+2025-04-24 11:01:18,597 - INFO - Error Log File: /workspace/results/mod/48/automation_quantized_errors.log
+2025-04-24 11:01:18,598 - INFO - Run Log File: /workspace/results/mod/48/benchmark_run_quantized_20250424_110118.log
+2025-04-24 11:01:18,598 - INFO - Models to run: ['Phi-3-mini-4k-instruct-GPTQ', 'Mistral-7B-Instruct-v0.3-GPTQ']
+2025-04-24 11:01:18,599 - INFO - Benchmarks to run: [('cyberseceval3_mitre', [None]), ('sevenllm_bench', [None]), ('ctibench', ['cti-mcq', 'cti-vsp', 'cti-rcm'])]
+2025-04-24 11:01:18,599 - INFO - Running 100 samples per benchmark.
+2025-04-24 11:01:18,600 - INFO - Max New Tokens for Causal Models: 512
+2025-04-24 11:01:18,612 - INFO - 
+Run 1/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='cyberseceval3_mitre'
+2025-04-24 11:01:18,615 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name cyberseceval3_mitre --benchmark-path /workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+2025-04-24 11:02:03,970 - WARNING - Stderr:
+2025-04-24 11:01:53,001 - INFO - Initialized NVML for device 0.
+2025-04-24 11:01:53,155 - INFO - --- Starting Evaluation ---
+2025-04-24 11:01:53,155 - INFO - Args: {'model_path': '/workspace/models/Phi-3-mini-4k-instruct-GPTQ', 'model_type': 'causal', 'benchmark_name': 'cyberseceval3_mitre', 'benchmark_path': '/workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': None}
+2025-04-24 11:01:53,155 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 11:01:53,155 - INFO - Metrics file: /workspace/results/mod/48/cyberseceval3_mitre_Phi-3-mini-4k-instruct-GPTQ_20250424-110153_metrics.json
+2025-04-24 11:01:53,155 - INFO - Outputs file: /workspace/results/mod/48/cyberseceval3_mitre_Phi-3-mini-4k-instruct-GPTQ_20250424-110153_outputs.json
+2025-04-24 11:01:53,155 - INFO - NVML Reporting Active: True
+2025-04-24 11:01:53,155 - INFO - Initial RAM usage: 598.23 MB
+2025-04-24 11:01:53,155 - INFO - Initial System VRAM usage: 556.06 MB
+2025-04-24 11:01:53,155 - INFO - Loading causal model from: /workspace/models/Phi-3-mini-4k-instruct-GPTQ...
+2025-04-24 11:01:53,170 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 11:01:53,496 - INFO - Tokenizer loaded.
+2025-04-24 11:02:01,934 - ERROR - Error loading model: /workspace/testbedvenv/lib/python3.11/site-packages/flash_attn_2_cuda.cpython-311-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC2ENS_14SourceLocationESs
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/model_loader.py", line 33, in load_model_and_tokenizer
+    model = AutoModelForCausalLM.from_pretrained(model_path, device_map=device, **model_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 558, in from_pretrained
+    model_class = get_class_from_dynamic_module(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/dynamic_module_utils.py", line 570, in get_class_from_dynamic_module
+    return get_class_in_module(class_name, final_module, force_reload=force_download)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/dynamic_module_utils.py", line 267, in get_class_in_module
+    module_spec.loader.exec_module(module)
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 38, in <module>
+    from transformers.modeling_utils import PreTrainedModel
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 62, in <module>
+    from .integrations.flash_attention import flash_attention_forward
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/integrations/flash_attention.py", line 5, in <module>
+    from ..modeling_flash_attention_utils import _flash_attention_forward, flash_attn_supports_top_left_mask
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_flash_attention_utils.py", line 36, in <module>
+    from flash_attn.bert_padding import index_first_axis, pad_input, unpad_input  # noqa
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/flash_attn/__init__.py", line 3, in <module>
+    from flash_attn.flash_attn_interface import (
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/flash_attn/flash_attn_interface.py", line 15, in <module>
+    import flash_attn_2_cuda as flash_attn_gpu
+ImportError: /workspace/testbedvenv/lib/python3.11/site-packages/flash_attn_2_cuda.cpython-311-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC2ENS_14SourceLocationESs
+2025-04-24 11:02:01,963 - ERROR - An error occurred during evaluation pipeline: Model/Tokenizer loading failed
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 66, in main
+    raise RuntimeError("Model/Tokenizer loading failed")
+RuntimeError: Model/Tokenizer loading failed
+2025-04-24 11:02:01,964 - INFO - Cleaning up resources...
+2025-04-24 11:02:01,964 - INFO - CUDA cache cleared.
+2025-04-24 11:02:01,964 - INFO - NVML shut down.
+2025-04-24 11:02:01,964 - INFO - --- Evaluation Complete ---
+
+2025-04-24 11:02:03,972 - INFO - SUCCESS: Run 1/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='cyberseceval3_mitre'. Check output files in /workspace/results/mod/48/
+2025-04-24 11:02:03,973 - INFO - 
+Run 2/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='sevenllm_bench'
+2025-04-24 11:02:03,974 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name sevenllm_bench --benchmark-path /workspace/calibration_data/sevenllm_instruct_subset_manual/ --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+2025-04-24 11:02:31,179 - WARNING - Stderr:
+2025-04-24 11:02:23,718 - INFO - Initialized NVML for device 0.
+2025-04-24 11:02:23,862 - INFO - --- Starting Evaluation ---
+2025-04-24 11:02:23,863 - INFO - Args: {'model_path': '/workspace/models/Phi-3-mini-4k-instruct-GPTQ', 'model_type': 'causal', 'benchmark_name': 'sevenllm_bench', 'benchmark_path': '/workspace/calibration_data/sevenllm_instruct_subset_manual/', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': None}
+2025-04-24 11:02:23,863 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 11:02:23,863 - INFO - Metrics file: /workspace/results/mod/48/sevenllm_bench_Phi-3-mini-4k-instruct-GPTQ_20250424-110223_metrics.json
+2025-04-24 11:02:23,863 - INFO - Outputs file: /workspace/results/mod/48/sevenllm_bench_Phi-3-mini-4k-instruct-GPTQ_20250424-110223_outputs.json
+2025-04-24 11:02:23,863 - INFO - NVML Reporting Active: True
+2025-04-24 11:02:23,863 - INFO - Initial RAM usage: 603.91 MB
+2025-04-24 11:02:23,863 - INFO - Initial System VRAM usage: 556.06 MB
+2025-04-24 11:02:23,863 - INFO - Loading causal model from: /workspace/models/Phi-3-mini-4k-instruct-GPTQ...
+2025-04-24 11:02:23,869 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 11:02:24,010 - INFO - Tokenizer loaded.
+2025-04-24 11:02:30,553 - ERROR - Error loading model: /workspace/testbedvenv/lib/python3.11/site-packages/flash_attn_2_cuda.cpython-311-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC2ENS_14SourceLocationESs
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/model_loader.py", line 33, in load_model_and_tokenizer
+    model = AutoModelForCausalLM.from_pretrained(model_path, device_map=device, **model_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 558, in from_pretrained
+    model_class = get_class_from_dynamic_module(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/dynamic_module_utils.py", line 570, in get_class_from_dynamic_module
+    return get_class_in_module(class_name, final_module, force_reload=force_download)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/dynamic_module_utils.py", line 267, in get_class_in_module
+    module_spec.loader.exec_module(module)
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 38, in <module>
+    from transformers.modeling_utils import PreTrainedModel
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 62, in <module>
+    from .integrations.flash_attention import flash_attention_forward
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/integrations/flash_attention.py", line 5, in <module>
+    from ..modeling_flash_attention_utils import _flash_attention_forward, flash_attn_supports_top_left_mask
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_flash_attention_utils.py", line 36, in <module>
+    from flash_attn.bert_padding import index_first_axis, pad_input, unpad_input  # noqa
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/flash_attn/__init__.py", line 3, in <module>
+    from flash_attn.flash_attn_interface import (
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/flash_attn/flash_attn_interface.py", line 15, in <module>
+    import flash_attn_2_cuda as flash_attn_gpu
+ImportError: /workspace/testbedvenv/lib/python3.11/site-packages/flash_attn_2_cuda.cpython-311-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC2ENS_14SourceLocationESs
+2025-04-24 11:02:30,578 - ERROR - An error occurred during evaluation pipeline: Model/Tokenizer loading failed
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 66, in main
+    raise RuntimeError("Model/Tokenizer loading failed")
+RuntimeError: Model/Tokenizer loading failed
+2025-04-24 11:02:30,579 - INFO - Cleaning up resources...
+2025-04-24 11:02:30,579 - INFO - CUDA cache cleared.
+2025-04-24 11:02:30,580 - INFO - NVML shut down.
+2025-04-24 11:02:30,580 - INFO - --- Evaluation Complete ---
+
+2025-04-24 11:02:31,181 - INFO - SUCCESS: Run 2/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='sevenllm_bench'. Check output files in /workspace/results/mod/48/
+2025-04-24 11:02:31,182 - INFO - 
+Run 3/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-mcq'
+2025-04-24 11:02:31,183 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-mcq --max-new-tokens 512
+2025-04-24 11:02:59,629 - WARNING - Stderr:
+2025-04-24 11:02:52,509 - INFO - Initialized NVML for device 0.
+2025-04-24 11:02:52,655 - INFO - --- Starting Evaluation ---
+2025-04-24 11:02:52,655 - INFO - Args: {'model_path': '/workspace/models/Phi-3-mini-4k-instruct-GPTQ', 'model_type': 'causal', 'benchmark_name': 'ctibench', 'benchmark_path': '/workspace/datasets', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': 'cti-mcq'}
+2025-04-24 11:02:52,655 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 11:02:52,655 - INFO - Metrics file: /workspace/results/mod/48/ctibench_cti-mcq_Phi-3-mini-4k-instruct-GPTQ_20250424-110252_metrics.json
+2025-04-24 11:02:52,655 - INFO - Outputs file: /workspace/results/mod/48/ctibench_cti-mcq_Phi-3-mini-4k-instruct-GPTQ_20250424-110252_outputs.json
+2025-04-24 11:02:52,655 - INFO - NVML Reporting Active: True
+2025-04-24 11:02:52,655 - INFO - Initial RAM usage: 601.63 MB
+2025-04-24 11:02:52,655 - INFO - Initial System VRAM usage: 556.06 MB
+2025-04-24 11:02:52,655 - INFO - Loading causal model from: /workspace/models/Phi-3-mini-4k-instruct-GPTQ...
+2025-04-24 11:02:52,661 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 11:02:52,812 - INFO - Tokenizer loaded.
+2025-04-24 11:02:58,995 - ERROR - Error loading model: /workspace/testbedvenv/lib/python3.11/site-packages/flash_attn_2_cuda.cpython-311-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC2ENS_14SourceLocationESs
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/model_loader.py", line 33, in load_model_and_tokenizer
+    model = AutoModelForCausalLM.from_pretrained(model_path, device_map=device, **model_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 558, in from_pretrained
+    model_class = get_class_from_dynamic_module(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/dynamic_module_utils.py", line 570, in get_class_from_dynamic_module
+    return get_class_in_module(class_name, final_module, force_reload=force_download)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/dynamic_module_utils.py", line 267, in get_class_in_module
+    module_spec.loader.exec_module(module)
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 38, in <module>
+    from transformers.modeling_utils import PreTrainedModel
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 62, in <module>
+    from .integrations.flash_attention import flash_attention_forward
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/integrations/flash_attention.py", line 5, in <module>
+    from ..modeling_flash_attention_utils import _flash_attention_forward, flash_attn_supports_top_left_mask
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_flash_attention_utils.py", line 36, in <module>
+    from flash_attn.bert_padding import index_first_axis, pad_input, unpad_input  # noqa
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/flash_attn/__init__.py", line 3, in <module>
+    from flash_attn.flash_attn_interface import (
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/flash_attn/flash_attn_interface.py", line 15, in <module>
+    import flash_attn_2_cuda as flash_attn_gpu
+ImportError: /workspace/testbedvenv/lib/python3.11/site-packages/flash_attn_2_cuda.cpython-311-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC2ENS_14SourceLocationESs
+2025-04-24 11:02:59,023 - ERROR - An error occurred during evaluation pipeline: Model/Tokenizer loading failed
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 66, in main
+    raise RuntimeError("Model/Tokenizer loading failed")
+RuntimeError: Model/Tokenizer loading failed
+2025-04-24 11:02:59,024 - INFO - Cleaning up resources...
+2025-04-24 11:02:59,025 - INFO - CUDA cache cleared.
+2025-04-24 11:02:59,025 - INFO - NVML shut down.
+2025-04-24 11:02:59,025 - INFO - --- Evaluation Complete ---
+
+2025-04-24 11:02:59,631 - INFO - SUCCESS: Run 3/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-mcq'. Check output files in /workspace/results/mod/48/
+2025-04-24 11:02:59,632 - INFO - 
+Run 4/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-vsp'
+2025-04-24 11:02:59,633 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-vsp --max-new-tokens 512
+2025-04-24 11:03:24,853 - WARNING - Stderr:
+2025-04-24 11:03:17,788 - INFO - Initialized NVML for device 0.
+2025-04-24 11:03:17,929 - INFO - --- Starting Evaluation ---
+2025-04-24 11:03:17,929 - INFO - Args: {'model_path': '/workspace/models/Phi-3-mini-4k-instruct-GPTQ', 'model_type': 'causal', 'benchmark_name': 'ctibench', 'benchmark_path': '/workspace/datasets', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': 'cti-vsp'}
+2025-04-24 11:03:17,929 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 11:03:17,929 - INFO - Metrics file: /workspace/results/mod/48/ctibench_cti-vsp_Phi-3-mini-4k-instruct-GPTQ_20250424-110317_metrics.json
+2025-04-24 11:03:17,929 - INFO - Outputs file: /workspace/results/mod/48/ctibench_cti-vsp_Phi-3-mini-4k-instruct-GPTQ_20250424-110317_outputs.json
+2025-04-24 11:03:17,929 - INFO - NVML Reporting Active: True
+2025-04-24 11:03:17,929 - INFO - Initial RAM usage: 604.32 MB
+2025-04-24 11:03:17,929 - INFO - Initial System VRAM usage: 556.06 MB
+2025-04-24 11:03:17,929 - INFO - Loading causal model from: /workspace/models/Phi-3-mini-4k-instruct-GPTQ...
+2025-04-24 11:03:17,936 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 11:03:18,068 - INFO - Tokenizer loaded.
+2025-04-24 11:03:24,237 - ERROR - Error loading model: /workspace/testbedvenv/lib/python3.11/site-packages/flash_attn_2_cuda.cpython-311-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC2ENS_14SourceLocationESs
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/model_loader.py", line 33, in load_model_and_tokenizer
+    model = AutoModelForCausalLM.from_pretrained(model_path, device_map=device, **model_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 558, in from_pretrained
+    model_class = get_class_from_dynamic_module(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/dynamic_module_utils.py", line 570, in get_class_from_dynamic_module
+    return get_class_in_module(class_name, final_module, force_reload=force_download)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/dynamic_module_utils.py", line 267, in get_class_in_module
+    module_spec.loader.exec_module(module)
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 38, in <module>
+    from transformers.modeling_utils import PreTrainedModel
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 62, in <module>
+    from .integrations.flash_attention import flash_attention_forward
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/integrations/flash_attention.py", line 5, in <module>
+    from ..modeling_flash_attention_utils import _flash_attention_forward, flash_attn_supports_top_left_mask
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_flash_attention_utils.py", line 36, in <module>
+    from flash_attn.bert_padding import index_first_axis, pad_input, unpad_input  # noqa
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/flash_attn/__init__.py", line 3, in <module>
+    from flash_attn.flash_attn_interface import (
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/flash_attn/flash_attn_interface.py", line 15, in <module>
+    import flash_attn_2_cuda as flash_attn_gpu
+ImportError: /workspace/testbedvenv/lib/python3.11/site-packages/flash_attn_2_cuda.cpython-311-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC2ENS_14SourceLocationESs
+2025-04-24 11:03:24,256 - ERROR - An error occurred during evaluation pipeline: Model/Tokenizer loading failed
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 66, in main
+    raise RuntimeError("Model/Tokenizer loading failed")
+RuntimeError: Model/Tokenizer loading failed
+2025-04-24 11:03:24,257 - INFO - Cleaning up resources...
+2025-04-24 11:03:24,257 - INFO - CUDA cache cleared.
+2025-04-24 11:03:24,257 - INFO - NVML shut down.
+2025-04-24 11:03:24,257 - INFO - --- Evaluation Complete ---
+
+2025-04-24 11:03:24,855 - INFO - SUCCESS: Run 4/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-vsp'. Check output files in /workspace/results/mod/48/
+2025-04-24 11:03:24,856 - INFO - 
+Run 5/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-rcm'
+2025-04-24 11:03:24,857 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Phi-3-mini-4k-instruct-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-rcm --max-new-tokens 512
+2025-04-24 11:03:55,327 - WARNING - Stderr:
+2025-04-24 11:03:44,837 - INFO - Initialized NVML for device 0.
+2025-04-24 11:03:44,986 - INFO - --- Starting Evaluation ---
+2025-04-24 11:03:44,986 - INFO - Args: {'model_path': '/workspace/models/Phi-3-mini-4k-instruct-GPTQ', 'model_type': 'causal', 'benchmark_name': 'ctibench', 'benchmark_path': '/workspace/datasets', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': 'cti-rcm'}
+2025-04-24 11:03:44,986 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 11:03:44,986 - INFO - Metrics file: /workspace/results/mod/48/ctibench_cti-rcm_Phi-3-mini-4k-instruct-GPTQ_20250424-110344_metrics.json
+2025-04-24 11:03:44,986 - INFO - Outputs file: /workspace/results/mod/48/ctibench_cti-rcm_Phi-3-mini-4k-instruct-GPTQ_20250424-110344_outputs.json
+2025-04-24 11:03:44,986 - INFO - NVML Reporting Active: True
+2025-04-24 11:03:44,986 - INFO - Initial RAM usage: 595.72 MB
+2025-04-24 11:03:44,986 - INFO - Initial System VRAM usage: 556.06 MB
+2025-04-24 11:03:44,986 - INFO - Loading causal model from: /workspace/models/Phi-3-mini-4k-instruct-GPTQ...
+2025-04-24 11:03:44,994 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 11:03:45,183 - INFO - Tokenizer loaded.
+2025-04-24 11:03:54,570 - ERROR - Error loading model: /workspace/testbedvenv/lib/python3.11/site-packages/flash_attn_2_cuda.cpython-311-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC2ENS_14SourceLocationESs
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/model_loader.py", line 33, in load_model_and_tokenizer
+    model = AutoModelForCausalLM.from_pretrained(model_path, device_map=device, **model_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 558, in from_pretrained
+    model_class = get_class_from_dynamic_module(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/dynamic_module_utils.py", line 570, in get_class_from_dynamic_module
+    return get_class_in_module(class_name, final_module, force_reload=force_download)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/dynamic_module_utils.py", line 267, in get_class_in_module
+    module_spec.loader.exec_module(module)
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/root/.cache/huggingface/modules/transformers_modules/microsoft/Phi-3-mini-4k-instruct/0a67737cc96d2554230f90338b163bc6380a2a85/modeling_phi3.py", line 38, in <module>
+    from transformers.modeling_utils import PreTrainedModel
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 62, in <module>
+    from .integrations.flash_attention import flash_attention_forward
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/integrations/flash_attention.py", line 5, in <module>
+    from ..modeling_flash_attention_utils import _flash_attention_forward, flash_attn_supports_top_left_mask
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_flash_attention_utils.py", line 36, in <module>
+    from flash_attn.bert_padding import index_first_axis, pad_input, unpad_input  # noqa
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/flash_attn/__init__.py", line 3, in <module>
+    from flash_attn.flash_attn_interface import (
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/flash_attn/flash_attn_interface.py", line 15, in <module>
+    import flash_attn_2_cuda as flash_attn_gpu
+ImportError: /workspace/testbedvenv/lib/python3.11/site-packages/flash_attn_2_cuda.cpython-311-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC2ENS_14SourceLocationESs
+2025-04-24 11:03:54,601 - ERROR - An error occurred during evaluation pipeline: Model/Tokenizer loading failed
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 66, in main
+    raise RuntimeError("Model/Tokenizer loading failed")
+RuntimeError: Model/Tokenizer loading failed
+2025-04-24 11:03:54,610 - INFO - Cleaning up resources...
+2025-04-24 11:03:54,610 - INFO - CUDA cache cleared.
+2025-04-24 11:03:54,610 - INFO - NVML shut down.
+2025-04-24 11:03:54,610 - INFO - --- Evaluation Complete ---
+
+2025-04-24 11:03:55,331 - INFO - SUCCESS: Run 5/10: Model='Phi-3-mini-4k-instruct-GPTQ', Benchmark='ctibench', Subset='cti-rcm'. Check output files in /workspace/results/mod/48/
+2025-04-24 11:03:55,332 - INFO - 
+Run 6/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='cyberseceval3_mitre'
+2025-04-24 11:03:55,335 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name cyberseceval3_mitre --benchmark-path /workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+2025-04-24 11:04:16,198 - WARNING - Stderr:
+2025-04-24 11:04:14,283 - INFO - Initialized NVML for device 0.
+2025-04-24 11:04:14,426 - INFO - --- Starting Evaluation ---
+2025-04-24 11:04:14,426 - INFO - Args: {'model_path': '/workspace/models/Mistral-7B-Instruct-v0.3-GPTQ', 'model_type': 'causal', 'benchmark_name': 'cyberseceval3_mitre', 'benchmark_path': '/workspace/code/PurpleLlama/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': None}
+2025-04-24 11:04:14,427 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 11:04:14,427 - INFO - Metrics file: /workspace/results/mod/48/cyberseceval3_mitre_Mistral-7B-Instruct-v0.3-GPTQ_20250424-110414_metrics.json
+2025-04-24 11:04:14,427 - INFO - Outputs file: /workspace/results/mod/48/cyberseceval3_mitre_Mistral-7B-Instruct-v0.3-GPTQ_20250424-110414_outputs.json
+2025-04-24 11:04:14,427 - INFO - NVML Reporting Active: True
+2025-04-24 11:04:14,427 - INFO - Initial RAM usage: 597.88 MB
+2025-04-24 11:04:14,427 - INFO - Initial System VRAM usage: 556.06 MB
+2025-04-24 11:04:14,427 - INFO - Loading causal model from: /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ...
+2025-04-24 11:04:14,433 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 11:04:15,023 - INFO - Tokenizer loaded.
+2025-04-24 11:04:15,593 - ERROR - Error loading model: Failed to import transformers.models.mistral.modeling_mistral because of the following error (look up to see its traceback):
+/workspace/testbedvenv/lib/python3.11/site-packages/flash_attn_2_cuda.cpython-311-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC2ENS_14SourceLocationESs
+Traceback (most recent call last):
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/utils/import_utils.py", line 1967, in _get_module
+    return importlib.import_module("." + module_name, self.__name__)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/mistral/modeling_mistral.py", line 17, in <module>
+    from ...modeling_flash_attention_utils import FlashAttentionKwargs
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_flash_attention_utils.py", line 36, in <module>
+    from flash_attn.bert_padding import index_first_axis, pad_input, unpad_input  # noqa
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/flash_attn/__init__.py", line 3, in <module>
+    from flash_attn.flash_attn_interface import (
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/flash_attn/flash_attn_interface.py", line 15, in <module>
+    import flash_attn_2_cuda as flash_attn_gpu
+ImportError: /workspace/testbedvenv/lib/python3.11/site-packages/flash_attn_2_cuda.cpython-311-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC2ENS_14SourceLocationESs
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/model_loader.py", line 33, in load_model_and_tokenizer
+    model = AutoModelForCausalLM.from_pretrained(model_path, device_map=device, **model_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 568, in from_pretrained
+    model_class = _get_model_class(config, cls._model_mapping)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 388, in _get_model_class
+    supported_models = model_mapping[type(config)]
+                       ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 770, in __getitem__
+    return self._load_attr_from_module(model_type, model_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 784, in _load_attr_from_module
+    return getattribute_from_module(self._modules[module_name], attr)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 700, in getattribute_from_module
+    if hasattr(module, attr):
+       ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/utils/import_utils.py", line 1955, in __getattr__
+    module = self._get_module(self._class_to_module[name])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/utils/import_utils.py", line 1969, in _get_module
+    raise RuntimeError(
+RuntimeError: Failed to import transformers.models.mistral.modeling_mistral because of the following error (look up to see its traceback):
+/workspace/testbedvenv/lib/python3.11/site-packages/flash_attn_2_cuda.cpython-311-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC2ENS_14SourceLocationESs
+2025-04-24 11:04:15,624 - ERROR - An error occurred during evaluation pipeline: Model/Tokenizer loading failed
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 66, in main
+    raise RuntimeError("Model/Tokenizer loading failed")
+RuntimeError: Model/Tokenizer loading failed
+2025-04-24 11:04:15,625 - INFO - Cleaning up resources...
+2025-04-24 11:04:15,625 - INFO - CUDA cache cleared.
+2025-04-24 11:04:15,625 - INFO - NVML shut down.
+2025-04-24 11:04:15,626 - INFO - --- Evaluation Complete ---
+
+2025-04-24 11:04:16,200 - INFO - SUCCESS: Run 6/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='cyberseceval3_mitre'. Check output files in /workspace/results/mod/48/
+2025-04-24 11:04:16,212 - INFO - 
+Run 7/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='sevenllm_bench'
+2025-04-24 11:04:16,213 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name sevenllm_bench --benchmark-path /workspace/calibration_data/sevenllm_instruct_subset_manual/ --results-dir /workspace/results/mod/48 --num-samples 100 --max-new-tokens 512
+2025-04-24 11:04:36,653 - WARNING - Stderr:
+2025-04-24 11:04:34,961 - INFO - Initialized NVML for device 0.
+2025-04-24 11:04:35,111 - INFO - --- Starting Evaluation ---
+2025-04-24 11:04:35,111 - INFO - Args: {'model_path': '/workspace/models/Mistral-7B-Instruct-v0.3-GPTQ', 'model_type': 'causal', 'benchmark_name': 'sevenllm_bench', 'benchmark_path': '/workspace/calibration_data/sevenllm_instruct_subset_manual/', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': None}
+2025-04-24 11:04:35,111 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 11:04:35,111 - INFO - Metrics file: /workspace/results/mod/48/sevenllm_bench_Mistral-7B-Instruct-v0.3-GPTQ_20250424-110435_metrics.json
+2025-04-24 11:04:35,111 - INFO - Outputs file: /workspace/results/mod/48/sevenllm_bench_Mistral-7B-Instruct-v0.3-GPTQ_20250424-110435_outputs.json
+2025-04-24 11:04:35,111 - INFO - NVML Reporting Active: True
+2025-04-24 11:04:35,111 - INFO - Initial RAM usage: 603.54 MB
+2025-04-24 11:04:35,111 - INFO - Initial System VRAM usage: 556.06 MB
+2025-04-24 11:04:35,111 - INFO - Loading causal model from: /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ...
+2025-04-24 11:04:35,117 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 11:04:35,592 - INFO - Tokenizer loaded.
+2025-04-24 11:04:36,065 - ERROR - Error loading model: Failed to import transformers.models.mistral.modeling_mistral because of the following error (look up to see its traceback):
+/workspace/testbedvenv/lib/python3.11/site-packages/flash_attn_2_cuda.cpython-311-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC2ENS_14SourceLocationESs
+Traceback (most recent call last):
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/utils/import_utils.py", line 1967, in _get_module
+    return importlib.import_module("." + module_name, self.__name__)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/mistral/modeling_mistral.py", line 17, in <module>
+    from ...modeling_flash_attention_utils import FlashAttentionKwargs
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_flash_attention_utils.py", line 36, in <module>
+    from flash_attn.bert_padding import index_first_axis, pad_input, unpad_input  # noqa
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/flash_attn/__init__.py", line 3, in <module>
+    from flash_attn.flash_attn_interface import (
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/flash_attn/flash_attn_interface.py", line 15, in <module>
+    import flash_attn_2_cuda as flash_attn_gpu
+ImportError: /workspace/testbedvenv/lib/python3.11/site-packages/flash_attn_2_cuda.cpython-311-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC2ENS_14SourceLocationESs
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/model_loader.py", line 33, in load_model_and_tokenizer
+    model = AutoModelForCausalLM.from_pretrained(model_path, device_map=device, **model_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 568, in from_pretrained
+    model_class = _get_model_class(config, cls._model_mapping)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 388, in _get_model_class
+    supported_models = model_mapping[type(config)]
+                       ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 770, in __getitem__
+    return self._load_attr_from_module(model_type, model_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 784, in _load_attr_from_module
+    return getattribute_from_module(self._modules[module_name], attr)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 700, in getattribute_from_module
+    if hasattr(module, attr):
+       ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/utils/import_utils.py", line 1955, in __getattr__
+    module = self._get_module(self._class_to_module[name])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/utils/import_utils.py", line 1969, in _get_module
+    raise RuntimeError(
+RuntimeError: Failed to import transformers.models.mistral.modeling_mistral because of the following error (look up to see its traceback):
+/workspace/testbedvenv/lib/python3.11/site-packages/flash_attn_2_cuda.cpython-311-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC2ENS_14SourceLocationESs
+2025-04-24 11:04:36,083 - ERROR - An error occurred during evaluation pipeline: Model/Tokenizer loading failed
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 66, in main
+    raise RuntimeError("Model/Tokenizer loading failed")
+RuntimeError: Model/Tokenizer loading failed
+2025-04-24 11:04:36,084 - INFO - Cleaning up resources...
+2025-04-24 11:04:36,085 - INFO - CUDA cache cleared.
+2025-04-24 11:04:36,085 - INFO - NVML shut down.
+2025-04-24 11:04:36,085 - INFO - --- Evaluation Complete ---
+
+2025-04-24 11:04:36,656 - INFO - SUCCESS: Run 7/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='sevenllm_bench'. Check output files in /workspace/results/mod/48/
+2025-04-24 11:04:36,656 - INFO - 
+Run 8/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='ctibench', Subset='cti-mcq'
+2025-04-24 11:04:36,657 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-mcq --max-new-tokens 512
+2025-04-24 11:04:57,366 - WARNING - Stderr:
+2025-04-24 11:04:55,667 - INFO - Initialized NVML for device 0.
+2025-04-24 11:04:55,811 - INFO - --- Starting Evaluation ---
+2025-04-24 11:04:55,811 - INFO - Args: {'model_path': '/workspace/models/Mistral-7B-Instruct-v0.3-GPTQ', 'model_type': 'causal', 'benchmark_name': 'ctibench', 'benchmark_path': '/workspace/datasets', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': 'cti-mcq'}
+2025-04-24 11:04:55,811 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 11:04:55,811 - INFO - Metrics file: /workspace/results/mod/48/ctibench_cti-mcq_Mistral-7B-Instruct-v0.3-GPTQ_20250424-110455_metrics.json
+2025-04-24 11:04:55,811 - INFO - Outputs file: /workspace/results/mod/48/ctibench_cti-mcq_Mistral-7B-Instruct-v0.3-GPTQ_20250424-110455_outputs.json
+2025-04-24 11:04:55,811 - INFO - NVML Reporting Active: True
+2025-04-24 11:04:55,811 - INFO - Initial RAM usage: 603.64 MB
+2025-04-24 11:04:55,811 - INFO - Initial System VRAM usage: 556.06 MB
+2025-04-24 11:04:55,811 - INFO - Loading causal model from: /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ...
+2025-04-24 11:04:55,817 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 11:04:56,283 - INFO - Tokenizer loaded.
+2025-04-24 11:04:56,756 - ERROR - Error loading model: Failed to import transformers.models.mistral.modeling_mistral because of the following error (look up to see its traceback):
+/workspace/testbedvenv/lib/python3.11/site-packages/flash_attn_2_cuda.cpython-311-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC2ENS_14SourceLocationESs
+Traceback (most recent call last):
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/utils/import_utils.py", line 1967, in _get_module
+    return importlib.import_module("." + module_name, self.__name__)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/mistral/modeling_mistral.py", line 17, in <module>
+    from ...modeling_flash_attention_utils import FlashAttentionKwargs
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_flash_attention_utils.py", line 36, in <module>
+    from flash_attn.bert_padding import index_first_axis, pad_input, unpad_input  # noqa
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/flash_attn/__init__.py", line 3, in <module>
+    from flash_attn.flash_attn_interface import (
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/flash_attn/flash_attn_interface.py", line 15, in <module>
+    import flash_attn_2_cuda as flash_attn_gpu
+ImportError: /workspace/testbedvenv/lib/python3.11/site-packages/flash_attn_2_cuda.cpython-311-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC2ENS_14SourceLocationESs
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/model_loader.py", line 33, in load_model_and_tokenizer
+    model = AutoModelForCausalLM.from_pretrained(model_path, device_map=device, **model_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 568, in from_pretrained
+    model_class = _get_model_class(config, cls._model_mapping)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 388, in _get_model_class
+    supported_models = model_mapping[type(config)]
+                       ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 770, in __getitem__
+    return self._load_attr_from_module(model_type, model_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 784, in _load_attr_from_module
+    return getattribute_from_module(self._modules[module_name], attr)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 700, in getattribute_from_module
+    if hasattr(module, attr):
+       ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/utils/import_utils.py", line 1955, in __getattr__
+    module = self._get_module(self._class_to_module[name])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/utils/import_utils.py", line 1969, in _get_module
+    raise RuntimeError(
+RuntimeError: Failed to import transformers.models.mistral.modeling_mistral because of the following error (look up to see its traceback):
+/workspace/testbedvenv/lib/python3.11/site-packages/flash_attn_2_cuda.cpython-311-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC2ENS_14SourceLocationESs
+2025-04-24 11:04:56,772 - ERROR - An error occurred during evaluation pipeline: Model/Tokenizer loading failed
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 66, in main
+    raise RuntimeError("Model/Tokenizer loading failed")
+RuntimeError: Model/Tokenizer loading failed
+2025-04-24 11:04:56,773 - INFO - Cleaning up resources...
+2025-04-24 11:04:56,773 - INFO - CUDA cache cleared.
+2025-04-24 11:04:56,773 - INFO - NVML shut down.
+2025-04-24 11:04:56,773 - INFO - --- Evaluation Complete ---
+
+2025-04-24 11:04:57,368 - INFO - SUCCESS: Run 8/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='ctibench', Subset='cti-mcq'. Check output files in /workspace/results/mod/48/
+2025-04-24 11:04:57,369 - INFO - 
+Run 9/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='ctibench', Subset='cti-vsp'
+2025-04-24 11:04:57,370 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-vsp --max-new-tokens 512
+2025-04-24 11:05:17,567 - WARNING - Stderr:
+2025-04-24 11:05:15,836 - INFO - Initialized NVML for device 0.
+2025-04-24 11:05:15,981 - INFO - --- Starting Evaluation ---
+2025-04-24 11:05:15,981 - INFO - Args: {'model_path': '/workspace/models/Mistral-7B-Instruct-v0.3-GPTQ', 'model_type': 'causal', 'benchmark_name': 'ctibench', 'benchmark_path': '/workspace/datasets', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': 'cti-vsp'}
+2025-04-24 11:05:15,981 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 11:05:15,981 - INFO - Metrics file: /workspace/results/mod/48/ctibench_cti-vsp_Mistral-7B-Instruct-v0.3-GPTQ_20250424-110515_metrics.json
+2025-04-24 11:05:15,981 - INFO - Outputs file: /workspace/results/mod/48/ctibench_cti-vsp_Mistral-7B-Instruct-v0.3-GPTQ_20250424-110515_outputs.json
+2025-04-24 11:05:15,981 - INFO - NVML Reporting Active: True
+2025-04-24 11:05:15,981 - INFO - Initial RAM usage: 600.45 MB
+2025-04-24 11:05:15,981 - INFO - Initial System VRAM usage: 556.06 MB
+2025-04-24 11:05:15,981 - INFO - Loading causal model from: /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ...
+2025-04-24 11:05:15,987 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 11:05:16,486 - INFO - Tokenizer loaded.
+2025-04-24 11:05:16,978 - ERROR - Error loading model: Failed to import transformers.models.mistral.modeling_mistral because of the following error (look up to see its traceback):
+/workspace/testbedvenv/lib/python3.11/site-packages/flash_attn_2_cuda.cpython-311-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC2ENS_14SourceLocationESs
+Traceback (most recent call last):
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/utils/import_utils.py", line 1967, in _get_module
+    return importlib.import_module("." + module_name, self.__name__)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/mistral/modeling_mistral.py", line 17, in <module>
+    from ...modeling_flash_attention_utils import FlashAttentionKwargs
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_flash_attention_utils.py", line 36, in <module>
+    from flash_attn.bert_padding import index_first_axis, pad_input, unpad_input  # noqa
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/flash_attn/__init__.py", line 3, in <module>
+    from flash_attn.flash_attn_interface import (
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/flash_attn/flash_attn_interface.py", line 15, in <module>
+    import flash_attn_2_cuda as flash_attn_gpu
+ImportError: /workspace/testbedvenv/lib/python3.11/site-packages/flash_attn_2_cuda.cpython-311-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC2ENS_14SourceLocationESs
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/model_loader.py", line 33, in load_model_and_tokenizer
+    model = AutoModelForCausalLM.from_pretrained(model_path, device_map=device, **model_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 568, in from_pretrained
+    model_class = _get_model_class(config, cls._model_mapping)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 388, in _get_model_class
+    supported_models = model_mapping[type(config)]
+                       ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 770, in __getitem__
+    return self._load_attr_from_module(model_type, model_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 784, in _load_attr_from_module
+    return getattribute_from_module(self._modules[module_name], attr)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 700, in getattribute_from_module
+    if hasattr(module, attr):
+       ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/utils/import_utils.py", line 1955, in __getattr__
+    module = self._get_module(self._class_to_module[name])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/utils/import_utils.py", line 1969, in _get_module
+    raise RuntimeError(
+RuntimeError: Failed to import transformers.models.mistral.modeling_mistral because of the following error (look up to see its traceback):
+/workspace/testbedvenv/lib/python3.11/site-packages/flash_attn_2_cuda.cpython-311-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC2ENS_14SourceLocationESs
+2025-04-24 11:05:16,994 - ERROR - An error occurred during evaluation pipeline: Model/Tokenizer loading failed
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 66, in main
+    raise RuntimeError("Model/Tokenizer loading failed")
+RuntimeError: Model/Tokenizer loading failed
+2025-04-24 11:05:16,995 - INFO - Cleaning up resources...
+2025-04-24 11:05:16,995 - INFO - CUDA cache cleared.
+2025-04-24 11:05:16,995 - INFO - NVML shut down.
+2025-04-24 11:05:16,995 - INFO - --- Evaluation Complete ---
+
+2025-04-24 11:05:17,569 - INFO - SUCCESS: Run 9/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='ctibench', Subset='cti-vsp'. Check output files in /workspace/results/mod/48/
+2025-04-24 11:05:17,570 - INFO - 
+Run 10/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='ctibench', Subset='cti-rcm'
+2025-04-24 11:05:17,571 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ --model-type causal --benchmark-name ctibench --benchmark-path /workspace/datasets --results-dir /workspace/results/mod/48 --num-samples 100 --cti-subset cti-rcm --max-new-tokens 512
+2025-04-24 11:05:38,071 - WARNING - Stderr:
+2025-04-24 11:05:36,305 - INFO - Initialized NVML for device 0.
+2025-04-24 11:05:36,451 - INFO - --- Starting Evaluation ---
+2025-04-24 11:05:36,451 - INFO - Args: {'model_path': '/workspace/models/Mistral-7B-Instruct-v0.3-GPTQ', 'model_type': 'causal', 'benchmark_name': 'ctibench', 'benchmark_path': '/workspace/datasets', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 512, 'num_samples': 100, 'cti_subset': 'cti-rcm'}
+2025-04-24 11:05:36,451 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 11:05:36,451 - INFO - Metrics file: /workspace/results/mod/48/ctibench_cti-rcm_Mistral-7B-Instruct-v0.3-GPTQ_20250424-110536_metrics.json
+2025-04-24 11:05:36,451 - INFO - Outputs file: /workspace/results/mod/48/ctibench_cti-rcm_Mistral-7B-Instruct-v0.3-GPTQ_20250424-110536_outputs.json
+2025-04-24 11:05:36,451 - INFO - NVML Reporting Active: True
+2025-04-24 11:05:36,451 - INFO - Initial RAM usage: 600.26 MB
+2025-04-24 11:05:36,451 - INFO - Initial System VRAM usage: 556.06 MB
+2025-04-24 11:05:36,451 - INFO - Loading causal model from: /workspace/models/Mistral-7B-Instruct-v0.3-GPTQ...
+2025-04-24 11:05:36,459 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 11:05:36,949 - INFO - Tokenizer loaded.
+2025-04-24 11:05:37,425 - ERROR - Error loading model: Failed to import transformers.models.mistral.modeling_mistral because of the following error (look up to see its traceback):
+/workspace/testbedvenv/lib/python3.11/site-packages/flash_attn_2_cuda.cpython-311-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC2ENS_14SourceLocationESs
+Traceback (most recent call last):
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/utils/import_utils.py", line 1967, in _get_module
+    return importlib.import_module("." + module_name, self.__name__)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/mistral/modeling_mistral.py", line 17, in <module>
+    from ...modeling_flash_attention_utils import FlashAttentionKwargs
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/modeling_flash_attention_utils.py", line 36, in <module>
+    from flash_attn.bert_padding import index_first_axis, pad_input, unpad_input  # noqa
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/flash_attn/__init__.py", line 3, in <module>
+    from flash_attn.flash_attn_interface import (
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/flash_attn/flash_attn_interface.py", line 15, in <module>
+    import flash_attn_2_cuda as flash_attn_gpu
+ImportError: /workspace/testbedvenv/lib/python3.11/site-packages/flash_attn_2_cuda.cpython-311-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC2ENS_14SourceLocationESs
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/model_loader.py", line 33, in load_model_and_tokenizer
+    model = AutoModelForCausalLM.from_pretrained(model_path, device_map=device, **model_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 568, in from_pretrained
+    model_class = _get_model_class(config, cls._model_mapping)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 388, in _get_model_class
+    supported_models = model_mapping[type(config)]
+                       ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 770, in __getitem__
+    return self._load_attr_from_module(model_type, model_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 784, in _load_attr_from_module
+    return getattribute_from_module(self._modules[module_name], attr)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 700, in getattribute_from_module
+    if hasattr(module, attr):
+       ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/utils/import_utils.py", line 1955, in __getattr__
+    module = self._get_module(self._class_to_module[name])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/testbedvenv/lib/python3.11/site-packages/transformers/utils/import_utils.py", line 1969, in _get_module
+    raise RuntimeError(
+RuntimeError: Failed to import transformers.models.mistral.modeling_mistral because of the following error (look up to see its traceback):
+/workspace/testbedvenv/lib/python3.11/site-packages/flash_attn_2_cuda.cpython-311-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC2ENS_14SourceLocationESs
+2025-04-24 11:05:37,441 - ERROR - An error occurred during evaluation pipeline: Model/Tokenizer loading failed
+Traceback (most recent call last):
+  File "/workspace/code/model_evaluator/evaluate_cli.py", line 66, in main
+    raise RuntimeError("Model/Tokenizer loading failed")
+RuntimeError: Model/Tokenizer loading failed
+2025-04-24 11:05:37,442 - INFO - Cleaning up resources...
+2025-04-24 11:05:37,443 - INFO - CUDA cache cleared.
+2025-04-24 11:05:37,443 - INFO - NVML shut down.
+2025-04-24 11:05:37,443 - INFO - --- Evaluation Complete ---
+
+2025-04-24 11:05:38,073 - INFO - SUCCESS: Run 10/10: Model='Mistral-7B-Instruct-v0.3-GPTQ', Benchmark='ctibench', Subset='cti-rcm'. Check output files in /workspace/results/mod/48/
+2025-04-24 11:05:38,073 - INFO - --- Security Benchmark Automation Finished (QUANTIZED MODELS) ---
