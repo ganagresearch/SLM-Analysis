@@ -10,19 +10,33 @@ from datetime import datetime
 PYTHON_EXE = "/workspace/testbedvenv/bin/python" # Path to python executable in the venv
 EVAL_SCRIPT_REL_PATH = "code/model_evaluator/evaluate_cli.py" # Relative to workspace root
 WORKSPACE_ROOT = "/workspace/"
-# *** Update results directory ***
 RESULTS_DIR = os.path.join(WORKSPACE_ROOT, "results/mod/48") # Quantized results
-# *** Update log file name pattern if desired (matching run_benchmark.py) ***
 ERROR_LOG_FILE = os.path.join(RESULTS_DIR, "automation_quantized_errors.log")
-# *** Define number of samples and max tokens (matching run_benchmark.py) ***
 NUM_SAMPLES = 100
 MAX_NEW_TOKENS = 512 # Used only for causal models
+BATCH_SIZE = 8  # Add batch size configuration
 
-# *** Define Benchmark Paths (Structure similar to run_benchmark.py) ***
-# Use the directory containing the saved HF dataset for sevenllm
-# Use the specific JSON file for cyberseceval
-# Use a general cache/base path for ctibench_*
-DEFAULT_HF_DATASETS_PATH = os.path.join(WORKSPACE_ROOT, "datasets") # Default for Hub sets
+MODELS_TO_EVALUATE = [
+    {
+        "name": "TinyLlama-1.1B-Chat-v1.0-GPTQ",
+        "path": os.path.join(WORKSPACE_ROOT, 'models/TinyLlama-1.1B-Chat-v1.0-GPTQ'),
+        "type": "causal",
+        "trust_remote_code_loader": False # Keep this if needed by loader
+    },
+    {
+        "name": "Phi-3-mini-4k-instruct-GPTQ",
+        "path": os.path.join(WORKSPACE_ROOT, 'models/Phi-3-mini-4k-instruct-GPTQ'),
+        "type": "causal",
+        "trust_remote_code_loader": True # Keep this if needed by loader
+    },
+    {
+        "name": "Mistral-7B-Instruct-v0.3-GPTQ",
+        "path": os.path.join(WORKSPACE_ROOT, 'models/Mistral-7B-Instruct-v0.3-GPTQ'),
+        "type": "causal",
+        "trust_remote_code_loader": True # Keep this if needed by loader
+    },
+]
+
 BENCHMARKS = [
     {
         "name": "cyberseceval3_mitre",
@@ -31,43 +45,19 @@ BENCHMARKS = [
     },
     {
         "name": "sevenllm_bench",
-        # "path": os.path.join(WORKSPACE_ROOT, "datasets/SEVENLLM_instruct_HF"), # Original path for quantized
-        "path": os.path.join(WORKSPACE_ROOT, "calibration_data/sevenllm_instruct_subset_manual/"), # Path from run_benchmark.py - CHOOSE THE CORRECT ONE
+        "path": os.path.join(WORKSPACE_ROOT, "calibration_data/sevenllm_instruct_subset_manual/"),
         "subsets": [None], # No subset needed
     },
     {
         "name": "ctibench",
-        "path": DEFAULT_HF_DATASETS_PATH, # Path to cache/dataset dir for HF
-        # Adjust subset names if evaluate_cli.py expects them differently for quantized runs
-        # These are based on run_benchmark_quantized.py's splitting logic
-        "subsets": ["attack", "exploit_target", "threat_actor", "ttps"],
+        "path": os.path.join(WORKSPACE_ROOT, "datasets"), # Path to cache/dataset dir for HF
+        "subsets": ["cti-mcq", "cti-vsp", "cti-rcm"], # Subsets to run
     },
 ]
 
 
 # Models to evaluate (Quantized versions - excluding Electra)
-# *** Update model paths and names ***
-MODELS_TO_EVALUATE = [
-    {
-        "name": "TinyLlama-1.1B-Chat-v1.0-GPTQ",
-        "path": os.path.join(WORKSPACE_ROOT, 'models/TinyLlama-1.1B-Chat-v1.0/quantized-gptq-4bit/'),
-        "type": "causal",
-        "trust_remote_code_loader": False # Keep this if needed by loader
-    },
-    {
-        "name": "Phi-3-mini-4k-instruct-GPTQ",
-        "path": os.path.join(WORKSPACE_ROOT, 'models/Phi-3-mini-4k-instruct/quantized-gptq-4bit/'),
-        "type": "causal",
-        "trust_remote_code_loader": True # Keep this if needed by loader
-    },
-    {
-        "name": "Mistral-7B-Instruct-v0.3-GPTQ",
-        "path": os.path.join(WORKSPACE_ROOT, 'models/Mistral-7B-Instruct-v0.3/quantized-gptq-4bit/'),
-        "type": "causal",
-        "trust_remote_code_loader": True # Keep this if needed by loader
-    },
-    # Electra is not suitable for these generation benchmarks
-]
+
 
 # Benchmarks to run (derived from BENCHMARKS structure)
 # BENCHMARKS_TO_RUN = list(BENCHMARK_PATHS.keys()) # Old way
@@ -113,7 +103,7 @@ for model_config in MODELS_TO_EVALUATE:
     model_name = model_config["name"]
     model_path = model_config["path"]
     model_type = model_config["type"]
-    # trust_remote_loader = model_config["trust_remote_code_loader"] # This isn't passed directly
+    trust_remote_loader = model_config["trust_remote_code_loader"]
 
     for bench_config in BENCHMARKS:
         bench_name = bench_config["name"]
@@ -122,13 +112,10 @@ for model_config in MODELS_TO_EVALUATE:
         for subset in bench_config["subsets"]:
             current_run += 1
             run_desc = f"Run {current_run}/{total_runs}: Model='{model_name}', Benchmark='{bench_name}'"
-            # Adjust benchmark name if subset exists (for CTI mainly)
             actual_benchmark_name = bench_name
             if subset and bench_name == "ctibench":
                  run_desc += f", Subset='{subset}'"
-                 # If evaluate_cli expects "ctibench_attack", construct it here
-                 # actual_benchmark_name = f"{bench_name}_{subset}" # Or pass subset separately
-            elif subset: # Handle potential future benchmarks with subsets
+            elif subset:
                  run_desc += f", Subset='{subset}'"
 
 
@@ -136,7 +123,7 @@ for model_config in MODELS_TO_EVALUATE:
 
             # Check if specific benchmark file/dir exists if not using default path
             # (This check was in the original quantized script, retaining for safety)
-            if not os.path.exists(bench_path) and bench_path != DEFAULT_HF_DATASETS_PATH:
+            if not os.path.exists(bench_path) and bench_path != os.path.join(WORKSPACE_ROOT, "datasets"):
                 logging.error(f"Benchmark path does not exist: {bench_path}. Skipping this run.")
                 # Log to error file manually just in case logging fails
                 with open(ERROR_LOG_FILE, 'a') as f_err:
@@ -150,21 +137,24 @@ for model_config in MODELS_TO_EVALUATE:
                 eval_script_abs_path,
                 "--model-path", model_path,
                 "--model-type", model_type,
-                "--benchmark-name", actual_benchmark_name, # Use potentially adjusted name or original
+                "--benchmark-name", actual_benchmark_name,
                 "--benchmark-path", bench_path,
                 "--results-dir", RESULTS_DIR,
-                "--num-samples", str(NUM_SAMPLES), # Pass num_samples always
-                # Potentially add trust_remote_code here if evaluate_cli needs it
-                # "--trust-remote-code", # Example, adjust arg name if needed
+                "--num-samples", str(NUM_SAMPLES),
+                "--batch-size", str(BATCH_SIZE),  # Add batch size parameter
             ]
 
             # Add CTI subset if applicable
             if subset and bench_name == "ctibench":
-                 cmd.extend(["--cti-subset", subset]) # Pass subset separately
+                 cmd.extend(["--cti-subset", subset])
 
             # Add max-new-tokens only for causal models
             if model_type == "causal":
                 cmd.extend(["--max-new-tokens", str(MAX_NEW_TOKENS)])
+
+            # *** Conditionally add --trust-remote-code flag ***
+            if trust_remote_loader:
+                cmd.append("--trust-remote-code")
 
 
             logging.info(f"Executing command: {' '.join(cmd)}")

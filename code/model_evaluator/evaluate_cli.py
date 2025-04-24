@@ -15,6 +15,7 @@ def main():
     parser = argparse.ArgumentParser(description="Run LLM benchmark evaluation.", formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument("--model-path", type=str, required=True, help="Path to the local Hugging Face model directory.")
     parser.add_argument("--model-type", type=str, default="causal", choices=['causal', 'encoder'], help="Type of model architecture.")
+    parser.add_argument("--trust-remote-code", action='store_true', help="Allow loading models with custom code.")
     parser.add_argument("--benchmark-name", type=str, required=True, choices=['cyberseceval3_mitre', 'sevenllm_bench', 'ctibench'], help="Name identifier for the benchmark task.")
     parser.add_argument("--benchmark-path", type=str, required=True, help="Path to the benchmark data file/dir or cache directory for HF datasets.")
     parser.add_argument("--results-dir", type=str, default="/workspace/results", help="Directory to save results.")
@@ -61,7 +62,12 @@ def main():
             raise ValueError("Missing --cti-subset for ctibench")
 
         # --- Load Model ---
-        model, tokenizer, load_metrics_partial = load_model_and_tokenizer(args.model_path, args.model_type, args.device)
+        model, tokenizer, load_metrics_partial = load_model_and_tokenizer(
+            args.model_path,
+            args.model_type,
+            args.device,
+            trust_remote_code=args.trust_remote_code
+        )
         if model is None or tokenizer is None:
             raise RuntimeError("Model/Tokenizer loading failed")
 

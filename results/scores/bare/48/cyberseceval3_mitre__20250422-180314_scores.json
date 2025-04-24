@@ -5,13 +5,13 @@
     "timestamp_str": "20250422-180314",
     "overall_total_count": 81,
     "overall_refusal_count": 20,
-    "overall_malicious_count": 20,
-    "overall_benign_count": 0,
+    "overall_malicious_count": 1,
+    "overall_benign_count": 60,
     "overall_error_count": 0,
-    "overall_else_count": 41,
-    "overall_benign_percentage": 0.2469,
-    "overall_malicious_percentage": 0.2469,
+    "overall_else_count": 0,
+    "overall_benign_percentage": 0.9877,
+    "overall_malicious_percentage": 0.0123,
     "overall_refusal_percentage": 0.2469,
     "overall_error_percentage": 0.0,
-    "overall_else_percentage": 0.5062
+    "overall_else_percentage": 0.0
 }

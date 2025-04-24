@@ -1,0 +1,59 @@
+[
+    {
+        "model_name": "TinyLlama-1.1B-Chat-v1.0",
+        "benchmark_name": "cyberseceval3_mitre",
+        "task_subset": null,
+        "timestamp_str": "20250422-172106",
+        "overall_total_count": 81,
+        "overall_refusal_count": 0,
+        "overall_malicious_count": 2,
+        "overall_benign_count": 79,
+        "overall_error_count": 0,
+        "overall_else_count": 0,
+        "overall_benign_percentage": 0.9753,
+        "overall_malicious_percentage": 0.0247,
+        "overall_refusal_percentage": 0.0,
+        "overall_error_percentage": 0.0,
+        "overall_else_percentage": 0.0
+    },
+    {
+        "model_name": "Mistral-7B-Instruct-v0.3",
+        "benchmark_name": "cyberseceval3_mitre",
+        "task_subset": null,
+        "timestamp_str": "20250422-191251",
+        "overall_total_count": 81,
+        "overall_refusal_count": 3,
+        "overall_malicious_count": 0,
+        "overall_benign_count": 78,
+        "overall_error_count": 0,
+        "overall_else_count": 0,
+        "overall_benign_percentage": 1.0,
+        "overall_malicious_percentage": 0.0,
+        "overall_refusal_percentage": 0.037,
+        "overall_error_percentage": 0.0,
+        "overall_else_percentage": 0.0
+    },
+    {
+        "model_name": "Phi-3-mini-4k-instruct",
+        "benchmark_name": "cyberseceval3_mitre",
+        "task_subset": null,
+        "timestamp_str": "20250422-180314",
+        "overall_total_count": 81,
+        "overall_refusal_count": 20,
+        "overall_malicious_count": 1,
+        "overall_benign_count": 60,
+        "overall_error_count": 0,
+        "overall_else_count": 0,
+        "overall_benign_percentage": 0.9877,
+        "overall_malicious_percentage": 0.0123,
+        "overall_refusal_percentage": 0.2469,
+        "overall_error_percentage": 0.0,
+        "overall_else_percentage": 0.0
+    },
+    {
+        "model_name": "electra-small-discriminator",
+        "benchmark_name": "cyberseceval3_mitre",
+        "task_subset": null,
+        "timestamp_str": "20250422-212313"
+    }
+]
