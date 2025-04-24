@@ -223,7 +223,7 @@ def parse_security_metrics_json(file_path, quantization_type):
         run_args = metrics.get("run_args", {})
         load_metrics = metrics.get("load_metrics", {})
         inference_metrics = metrics.get("inference_metrics", {})
-        outputs_file = metrics.get("outputs_file", None) # Get the outputs file path
+        # outputs_file = metrics.get("outputs_file", None) # REMOVE THIS - outputs_file is not in metrics.json
 
         model_path = run_args.get("model_path")
         data["model_path"] = model_path
@@ -235,6 +235,23 @@ def parse_security_metrics_json(file_path, quantization_type):
              model_base_name = filename_model_name # Use filename parsed name
              if model_base_name == "Unknown":
                  logging.warning(f"Could not parse model name from path '{model_path}' or filename in {file_path}")
+
+        # --- Construct the outputs_json_path from the metrics file path ---
+        metrics_filename = os.path.basename(file_path)
+        outputs_filename = metrics_filename.replace("_metrics.json", "_outputs.json")
+        # Determine the correct directory ('results/bare' or 'results/mod')
+        # We can infer this from the quantization_type or the input file_path dir
+        parent_dir = os.path.dirname(file_path) # e.g., results/bare or results/mod
+        outputs_file_constructed_path = os.path.join(parent_dir, outputs_filename)
+
+        # Check if the constructed path actually exists (optional but good practice)
+        if not os.path.isfile(outputs_file_constructed_path):
+            logging.warning(f"Constructed output path does not exist: {outputs_file_constructed_path} (derived from {file_path})")
+            # Decide how to handle: set to None, or keep the constructed path? Let's keep it for now for merging attempt.
+            # data["outputs_json_path"] = None # Option 1: Set to None if not found
+            data["outputs_json_path"] = outputs_file_constructed_path # Option 2: Keep constructed path
+        else:
+             data["outputs_json_path"] = outputs_file_constructed_path # Store the constructed path
 
         # --- Extract Fields ---
         data["model_name"] = model_base_name
@@ -270,7 +287,7 @@ def parse_security_metrics_json(file_path, quantization_type):
         data["evaluation_script"] = "evaluate_cli.py" # Assuming this script generated these metrics
         data["timestamp"] = parse_timestamp_from_filename(os.path.basename(file_path))
         data["metrics_json_path"] = file_path
-        data["outputs_json_path"] = outputs_file # Store path to outputs file for joining scores
+        # outputs_json_path is now set above via construction
 
         # Placeholders for fields not present in security metrics
         data["score_metric"] = None
@@ -421,10 +438,11 @@ def parse_calculated_scores_json(file_path):
             # --- Key Information for Linking ---
             # Path to the original output file evaluated
             # Check common keys used by different eval scripts
-            original_outputs_path = entry.get("outputs_file", entry.get("output_file", entry.get("results_file")))
+            # ADD "input_output_file" to the list of keys to check
+            original_outputs_path = entry.get("outputs_file", entry.get("output_file", entry.get("results_file", entry.get("input_output_file"))))
 
             if not original_outputs_path:
-                logging.warning(f"Skipping entry in {file_path}: Missing 'outputs_file' key or equivalent. Entry: {entry}")
+                logging.warning(f"Skipping entry in {file_path}: Missing 'outputs_file' key or equivalent (checked outputs_file, output_file, results_file, input_output_file). Entry: {entry}")
                 continue
 
             # --- Extract Metadata from entry or filename ---
@@ -451,6 +469,20 @@ def parse_calculated_scores_json(file_path):
             # Scores might be in a nested "scores" dict, or top-level
             scores = entry.get("scores", entry) # Default to top level if "scores" key absent
 
+            # Specific handling for ctibench summary where stats are top-level
+            if benchmark_name == "ctibench" and "accuracy" in entry:
+                 scores = {"accuracy": entry["accuracy"]} # Adapt if other metrics exist
+
+            # Specific handling for sevenllm summary
+            elif benchmark_name == "sevenllm_bench" and "average_rougeL_f1" in entry:
+                  scores = {
+                       "average_rouge1_f1": entry.get("average_rouge1_f1"),
+                       "average_rouge2_f1": entry.get("average_rouge2_f1"),
+                       "average_rougeL_f1": entry.get("average_rougeL_f1"),
+                       "exact_match_accuracy": entry.get("exact_match_accuracy"),
+                  }
+            # Add more specific handlers if needed
+
             if not isinstance(scores, dict):
                 logging.warning(f"Scores data is not a dict in {file_path} for {original_outputs_path}. Entry: {entry}")
                 continue
@@ -458,11 +490,22 @@ def parse_calculated_scores_json(file_path):
             extracted_any_score = False
             for metric, value in scores.items():
                 # Skip non-score fields that might be at top level
-                if metric in ["outputs_file", "output_file", "results_file", "model_name", "benchmark_name", "cti_subset", "details_file", "num_processed", "num_errors"]:
+                skip_keys = [
+                    "outputs_file", "output_file", "results_file", "input_output_file",
+                    "model_name", "benchmark_name", "cti_subset", "details_file",
+                    "num_processed", "num_errors", "timestamp", "task_type",
+                    "total_items_in_output", "items_with_ground_truth",
+                    "items_missing_ground_truth", "items_refused",
+                    "items_parsing_error", "items_processed_for_accuracy",
+                    "correct_matches", "timestamp_str", "input_metrics_file",
+                    "input_ground_truth_file"
+                    # Add any other non-score keys found in summary files
+                ]
+                if metric in skip_keys:
                     continue
                 if value is None: continue # Skip null scores
 
-                # Handle nested dicts like ROUGE often returns
+                # Handle nested dicts like ROUGE often returns (e.g., from CyberSecEval score files)
                 score_value = value
                 if isinstance(value, dict):
                     # Try common patterns like .fmeasure or direct value if just one
@@ -540,7 +583,7 @@ def aggregate_metrics(results_base_dir, file_pattern, parser_func, quantization_
 
 
 def aggregate_nlp_results(results_base_dir, file_pattern, parser_func):
-    """Find and parse lm-eval-harness result files."""
+    """Find and parse lm-evaluation-harness result files."""
     search_pattern = os.path.join(results_base_dir, "**", file_pattern) # Recursive needed
     all_metrics_files = glob.glob(search_pattern, recursive=True)
     logging.info(f"Found {len(all_metrics_files)} files matching '{search_pattern}' in {results_base_dir}")
@@ -889,3 +932,4 @@ if __name__ == "__main__":
 
     else:
         print("No data aggregated.")
+
