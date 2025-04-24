@@ -1,0 +1,27 @@
+{
+    "model_name": "TinyLlama-1.1B-Chat-v1.0-GPTQ",
+    "timestamp": "20250424-091924",
+    "input_output_file": "results/mod/48/ctibench_cti-rcm_TinyLlama-1.1B-Chat-v1.0-GPTQ_20250424-091924_outputs.json",
+    "input_metrics_file": "results/mod/48/ctibench_cti-rcm_TinyLlama-1.1B-Chat-v1.0-GPTQ_20250424-091924_metrics.json",
+    "input_ground_truth_file": "code/analysis/ctibench_ground_truth/cti-rcm_ground_truth.jsonl",
+    "run_args": {
+        "model_path": "/workspace/models/TinyLlama-1.1B-Chat-v1.0-GPTQ",
+        "model_type": "causal",
+        "benchmark_name": "ctibench",
+        "benchmark_path": "/workspace/datasets",
+        "results_dir": "/workspace/results/mod/48",
+        "device": "cuda",
+        "max_new_tokens": 512,
+        "num_samples": 100,
+        "cti_subset": "cti-rcm"
+    },
+    "task_type": "rcm",
+    "total_items_in_output": 100,
+    "items_with_ground_truth": 100,
+    "items_missing_ground_truth": 0,
+    "items_refused": 0,
+    "items_parsing_error": 41,
+    "items_processed_for_accuracy": 59,
+    "correct_matches": 14,
+    "accuracy": 0.2373
+}

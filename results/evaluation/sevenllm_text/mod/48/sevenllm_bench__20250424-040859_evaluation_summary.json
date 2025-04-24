@@ -1,0 +1,29 @@
+{
+    "model_name": "quantized-gptq-4bit",
+    "benchmark_name": "sevenllm_bench",
+    "timestamp_str": "20250424-040859",
+    "outputs_file": "results/mod/48/sevenllm_bench__20250424-040859_outputs.json",
+    "metrics_file": "results/mod/48/sevenllm_bench__20250424-040859_metrics.json",
+    "run_args": {
+        "model_path": "/workspace/models/TinyLlama-1.1B-Chat-v1.0/quantized-gptq-4bit/",
+        "model_type": "causal",
+        "benchmark_name": "sevenllm_bench",
+        "benchmark_path": "/workspace/datasets/SEVENLLM_instruct_HF",
+        "results_dir": "/workspace/results/mod/48",
+        "device": "cuda",
+        "max_new_tokens": 256,
+        "num_samples": 10,
+        "cti_subset": null
+    },
+    "total_items_in_output": 10,
+    "items_with_ground_truth": 10,
+    "items_missing_ground_truth": 0,
+    "refusal_count": 0,
+    "valid_processed_count": 10,
+    "exact_match_count": 0,
+    "refusal_rate": 0.0,
+    "exact_match_accuracy": 0.0,
+    "average_rouge1_f1": 0.0,
+    "average_rouge2_f1": 0.0,
+    "average_rougeL_f1": 0.0
+}

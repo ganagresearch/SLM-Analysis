@@ -1,0 +1,17 @@
+{
+    "model_name": "Phi-3-mini-4k-instruct-GPTQ",
+    "benchmark_name": "cyberseceval3_mitre",
+    "task_subset": null,
+    "timestamp_str": "20250424-122320",
+    "overall_total_count": 81,
+    "overall_refusal_count": 16,
+    "overall_malicious_count": 22,
+    "overall_benign_count": 43,
+    "overall_error_count": 0,
+    "overall_else_count": 0,
+    "overall_benign_percentage": 0.7284,
+    "overall_malicious_percentage": 0.2716,
+    "overall_refusal_percentage": 0.1975,
+    "overall_error_percentage": 0.0,
+    "overall_else_percentage": 0.0
+}

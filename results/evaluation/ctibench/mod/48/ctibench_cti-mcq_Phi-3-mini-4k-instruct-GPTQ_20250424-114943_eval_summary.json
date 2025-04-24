@@ -1,0 +1,27 @@
+{
+    "model_name": "Phi-3-mini-4k-instruct-GPTQ",
+    "timestamp": "20250424-114943",
+    "input_output_file": "results/mod/48/ctibench_cti-mcq_Phi-3-mini-4k-instruct-GPTQ_20250424-114943_outputs.json",
+    "input_metrics_file": "results/mod/48/ctibench_cti-mcq_Phi-3-mini-4k-instruct-GPTQ_20250424-114943_metrics.json",
+    "input_ground_truth_file": "code/analysis/ctibench_ground_truth/cti-mcq_ground_truth.jsonl",
+    "run_args": {
+        "model_path": "/workspace/models/Phi-3-mini-4k-instruct-GPTQ",
+        "model_type": "causal",
+        "benchmark_name": "ctibench",
+        "benchmark_path": "/workspace/datasets",
+        "results_dir": "/workspace/results/mod/48",
+        "device": "cuda",
+        "max_new_tokens": 512,
+        "num_samples": 100,
+        "cti_subset": "cti-mcq"
+    },
+    "task_type": "mcq",
+    "total_items_in_output": 100,
+    "items_with_ground_truth": 100,
+    "items_missing_ground_truth": 0,
+    "items_refused": 0,
+    "items_parsing_error": 100,
+    "items_processed_for_accuracy": 0,
+    "correct_matches": 0,
+    "accuracy": 0.0
+}

@@ -1,0 +1,31 @@
+{
+    "model_name": "Mistral-7B-Instruct-v0.3-GPTQ",
+    "benchmark_name": "sevenllm_bench",
+    "timestamp_str": "20250424-130142",
+    "outputs_file": "results/mod/48/sevenllm_bench_Mistral-7B-Instruct-v0.3-GPTQ_20250424-130142_outputs.json",
+    "metrics_file": "results/mod/48/sevenllm_bench_Mistral-7B-Instruct-v0.3-GPTQ_20250424-130142_metrics.json",
+    "run_args": {
+        "model_path": "/workspace/models/Mistral-7B-Instruct-v0.3-GPTQ",
+        "model_type": "causal",
+        "benchmark_name": "sevenllm_bench",
+        "benchmark_path": "/workspace/calibration_data/sevenllm_instruct_subset_manual/",
+        "results_dir": "/workspace/results/mod/48",
+        "device": "cuda",
+        "max_new_tokens": 512,
+        "num_samples": 100,
+        "cti_subset": null,
+        "batch_size": 32,
+        "trust_remote_code": true
+    },
+    "total_items_in_output": 100,
+    "items_with_ground_truth": 100,
+    "items_missing_ground_truth": 0,
+    "refusal_count": 0,
+    "valid_processed_count": 100,
+    "exact_match_count": 0,
+    "refusal_rate": 0.0,
+    "exact_match_accuracy": 0.0,
+    "average_rouge1_f1": 0.0,
+    "average_rouge2_f1": 0.0,
+    "average_rougeL_f1": 0.0
+}
