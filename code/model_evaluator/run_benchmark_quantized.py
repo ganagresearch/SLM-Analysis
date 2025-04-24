@@ -27,7 +27,7 @@ MODELS_TO_EVALUATE = [
         "name": "Phi-3-mini-4k-instruct-GPTQ",
         "path": os.path.join(WORKSPACE_ROOT, 'models/Phi-3-mini-4k-instruct-GPTQ'),
         "type": "causal",
-        "trust_remote_code_loader": True # Keep this if needed by loader
+        "trust_remote_code_loader": False # Change this to False based on testing
     },
     {
         "name": "Mistral-7B-Instruct-v0.3-GPTQ",
