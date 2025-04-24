@@ -1,30 +1,26 @@
 # Virtual environment
 /testbedvenv/
 
-<<<<<<< HEAD
 =======
 # Python cache files
 code/model_evaluator/__pycache__/
 
->>>>>>> 29f8998 (Initial commit)
 # --- Hugging Face / Datasets ---
 # Model files (very large)
-/models/
+models/
+temp_for_zip_extract
 # Raw datasets (often large and downloadable)
-/datasets/SEVENLLM_raw/
+datasets/SEVENLLM_raw/
 # Processed datasets (generated artifacts)
-/calibration_data/
+calibration_data/
 # Hugging Face cache directory (automatically generated)
-/datasets/.hf_cache/
+datasets/.hf_cache/
 *.hf_cache/ # General pattern for any HF cache
 .hf_cache/
 
 # --- External Tools / Submodules (Optional) ---
-# If these are managed separately or very large, ignore them
-<<<<<<< HEAD
 /lm-evaluation-harness/
 /PurpleLlama/
 =======
 code/lm-evaluation-harness/
 code/PurpleLlama/
->>>>>>> 29f8998 (Initial commit)
