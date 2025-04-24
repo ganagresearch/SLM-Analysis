@@ -1,0 +1,17 @@
+{
+    "model_name": "Mistral-7B-Instruct-v0.3",
+    "benchmark_name": "sevenllm_bench",
+    "timestamp_str": "20250422-195413",
+    "outputs_file": "/workspace/results/bare/48/sevenllm_bench__20250422-195413_outputs.json",
+    "total_items_in_output": 100,
+    "items_with_ground_truth": 100,
+    "items_missing_ground_truth": 0,
+    "refusal_count": 0,
+    "valid_processed_count": 100,
+    "exact_match_count": 0,
+    "refusal_rate": 0.0,
+    "exact_match_accuracy": 0.0,
+    "average_rouge1_f1": 0.4226,
+    "average_rouge2_f1": 0.212,
+    "average_rougeL_f1": 0.3019
+}

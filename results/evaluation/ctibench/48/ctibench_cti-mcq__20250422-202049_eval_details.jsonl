@@ -1,0 +1,100 @@
+{"item_id": "index_0", "model_response_raw": "A) Execution Prevention", "predicted_answer": "A", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_1", "model_response_raw": "D) User Account", "predicted_answer": "D", "ground_truth": "D", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_2", "model_response_raw": "A", "predicted_answer": "A", "ground_truth": "C", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_3", "model_response_raw": "C) C:\\Windows\\System32\\rundll32.exe", "predicted_answer": "C", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_4", "model_response_raw": "D\n\nExplanation: In a Linux environment, monitoring process metadata changes is recommended to detect privilege escalation via sudo. This includes auditing changes in the sudoers file, sudo logs, and other system logs that may indicate unauthorized access or privilege escalation attempts. Monitoring file metadata for setuid or setgid bits on files (Option C) is also important, but it does not directly relate to sudo privilege escalation. Monitoring OS API Execution (Option B) and Windows Registry Key Modification (Option A) are not relevant to Linux systems.", "predicted_answer": "D", "ground_truth": "C", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_5", "model_response_raw": "D) User Account Management", "predicted_answer": "D", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_6", "model_response_raw": "A", "predicted_answer": "A", "ground_truth": "D", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_7", "model_response_raw": "A) find / -perm +4000 2>/dev/null", "predicted_answer": "A", "ground_truth": "A", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_8", "model_response_raw": "C) M1030 - Network Segmentation", "predicted_answer": "C", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_9", "model_response_raw": "D", "predicted_answer": "D", "ground_truth": "D", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_10", "model_response_raw": "D) Privileged Account Management", "predicted_answer": "D", "ground_truth": "D", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_11", "model_response_raw": "D) RUBEUS", "predicted_answer": "D", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_12", "model_response_raw": "A", "predicted_answer": "A", "ground_truth": "D", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_13", "model_response_raw": "A", "predicted_answer": "A", "ground_truth": "D", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_14", "model_response_raw": "D\n\nThe best option to defend against password cracking by adversaries, as suggested by MITRE ATT&CK, is D) Configuring IP address filtering. This strategy can help limit the number of failed login attempts from a single IP address, making it harder for attackers to crack passwords through brute force attacks. However, it's important to note that this is not the only mitigation strategy and a comprehensive approach to cybersecurity should include multiple layers of defense.", "predicted_answer": "D", "ground_truth": "C", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_15", "model_response_raw": "C", "predicted_answer": "C", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_16", "model_response_raw": "D", "predicted_answer": "D", "ground_truth": "C", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_17", "model_response_raw": "A) LDAP and Kerberos have default settings that disable logging", "predicted_answer": "A", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_18", "model_response_raw": "A", "predicted_answer": "A", "ground_truth": "C", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_19", "model_response_raw": "D) MSSQL", "predicted_answer": "D", "ground_truth": "D", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_20", "model_response_raw": "C) CrackMapExec", "predicted_answer": "C", "ground_truth": "C", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_21", "model_response_raw": "D) Collection", "predicted_answer": "D", "ground_truth": "A", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_22", "model_response_raw": "A", "predicted_answer": "A", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_23", "model_response_raw": "D) T1110", "predicted_answer": "D", "ground_truth": "C", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_24", "model_response_raw": "D) PoshC2", "predicted_answer": "D", "ground_truth": "A", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_25", "model_response_raw": "D) PASSWORD POLICIES", "predicted_answer": "D", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_26", "model_response_raw": "A", "predicted_answer": "A", "ground_truth": "A", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_27", "model_response_raw": "C) SeDebugPrivilege", "predicted_answer": "C", "ground_truth": "C", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_28", "model_response_raw": "C", "predicted_answer": "C", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_29", "model_response_raw": "A) Network Segmentation", "predicted_answer": "A", "ground_truth": "C", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_30", "model_response_raw": "A", "predicted_answer": "A", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_31", "model_response_raw": "A", "predicted_answer": "A", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_32", "model_response_raw": "A) T1217 - Browser Information Discovery", "predicted_answer": "A", "ground_truth": "A", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_33", "model_response_raw": "D", "predicted_answer": "D", "ground_truth": "D", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_34", "model_response_raw": "A", "predicted_answer": "A", "ground_truth": "C", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_35", "model_response_raw": "D", "predicted_answer": "D", "ground_truth": "D", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_36", "model_response_raw": "A", "predicted_answer": "A", "ground_truth": "C", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_37", "model_response_raw": "C) Auditing the installed extensions", "predicted_answer": "C", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_38", "model_response_raw": "C", "predicted_answer": "C", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_39", "model_response_raw": "C", "predicted_answer": "C", "ground_truth": "C", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_40", "model_response_raw": "D) Monitor System Calls", "predicted_answer": "D", "ground_truth": "C", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_41", "model_response_raw": "D) FILE", "predicted_answer": "D", "ground_truth": "D", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_42", "model_response_raw": "D\n\nThe correct answer is D, as Cron Jobs are used for scheduling tasks to run periodically at fixed times, but they are not used for establishing persistence on Unix-like systems. Launchd (A) and Systemd (B) are used for managing processes, services, and startup scripts on macOS and Linux respectively, but modifying them can also establish persistence. However, RC Scripts (C) are used in older Unix systems and are not commonly used for persistence in modern systems. Therefore, the best option is D, Cron Jobs.", "predicted_answer": "D", "ground_truth": "C", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_43", "model_response_raw": "A", "predicted_answer": "A", "ground_truth": "C", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_44", "model_response_raw": "C) Restrict File and Directory Permissions", "predicted_answer": "C", "ground_truth": "C", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_45", "model_response_raw": "A) M1022: Restrict File and Directory Permissions", "predicted_answer": "A", "ground_truth": "C", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_46", "model_response_raw": "D", "predicted_answer": "D", "ground_truth": "D", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_47", "model_response_raw": "C", "predicted_answer": "C", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_48", "model_response_raw": "D) Initialization Service", "predicted_answer": "D", "ground_truth": "C", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_49", "model_response_raw": "D\n\nThe best option to monitor changes to the login hook files according to MITRE ATT&CK's Detection guidelines for T1037.002 is DS0022 | File Creation and Modification.", "predicted_answer": "D", "ground_truth": "D", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_50", "model_response_raw": "D) KONNI", "predicted_answer": "D", "ground_truth": "C", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_51", "model_response_raw": "A) APT29", "predicted_answer": "A", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_52", "model_response_raw": "C) RESTRICT REGISTRY PERMISSIONS", "predicted_answer": "C", "ground_truth": "C", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_53", "model_response_raw": "D", "predicted_answer": "D", "ground_truth": "D", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_54", "model_response_raw": "D) T1535: Unused/Unsupported Cloud Regions", "predicted_answer": "D", "ground_truth": "C", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_55", "model_response_raw": "A", "predicted_answer": "A", "ground_truth": "A", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_56", "model_response_raw": "D", "predicted_answer": "D", "ground_truth": "C", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_57", "model_response_raw": "C", "predicted_answer": "C", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_58", "model_response_raw": "A", "predicted_answer": "A", "ground_truth": "C", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_59", "model_response_raw": "C", "predicted_answer": "C", "ground_truth": "C", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_60", "model_response_raw": "A", "predicted_answer": "A", "ground_truth": "A", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_61", "model_response_raw": "A", "predicted_answer": "A", "ground_truth": "C", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_62", "model_response_raw": "C", "predicted_answer": "C", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_63", "model_response_raw": "A", "predicted_answer": "A", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_64", "model_response_raw": "C", "predicted_answer": "C", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_65", "model_response_raw": "A", "predicted_answer": "A", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_66", "model_response_raw": "C) Privileged Account Management", "predicted_answer": "C", "ground_truth": "C", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_67", "model_response_raw": "A", "predicted_answer": "A", "ground_truth": "C", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_68", "model_response_raw": "C", "predicted_answer": "C", "ground_truth": "C", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_69", "model_response_raw": "D\n\n(Answer: D) PTT::EXTRACT", "predicted_answer": "D", "ground_truth": "C", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_70", "model_response_raw": "C) M1018: User Account Management", "predicted_answer": "C", "ground_truth": "D", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_71", "model_response_raw": "D", "predicted_answer": "D", "ground_truth": "C", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_72", "model_response_raw": "A", "predicted_answer": "A", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_73", "model_response_raw": "D", "predicted_answer": "D", "ground_truth": "D", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_74", "model_response_raw": "A", "predicted_answer": "A", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_75", "model_response_raw": "A", "predicted_answer": "A", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_76", "model_response_raw": "A) Network Intrusion Prevention", "predicted_answer": "A", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_77", "model_response_raw": "C) Network Connection Creation", "predicted_answer": "C", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_78", "model_response_raw": "A", "predicted_answer": "A", "ground_truth": "D", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_79", "model_response_raw": "D", "predicted_answer": "D", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_80", "model_response_raw": "A", "predicted_answer": "A", "ground_truth": "A", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_81", "model_response_raw": "D\n\nThe MITRE ATT&CK technique T1204.002, which is \"Scripting,\" does not specifically mention .scr files as examples of files that adversaries can use to execute malicious code. While .doc, .iso, and .pdf files can potentially be used to execute malicious code, .scr files are more commonly associated with this category due to their scripting nature.", "predicted_answer": "D", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_82", "model_response_raw": "A) Sandworm Team", "predicted_answer": "A", "ground_truth": "A", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_83", "model_response_raw": "A", "predicted_answer": "A", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_84", "model_response_raw": "C) Dridex", "predicted_answer": "C", "ground_truth": "A", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_85", "model_response_raw": "D) FILE", "predicted_answer": "D", "ground_truth": "C", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_86", "model_response_raw": "D) APT10", "predicted_answer": "D", "ground_truth": "A", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_87", "model_response_raw": "B) Code Signing (M1045)", "predicted_answer": "B", "ground_truth": "B", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_88", "model_response_raw": "D", "predicted_answer": "D", "ground_truth": "C", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_89", "model_response_raw": "C) CONTAINER CREATION (DS0032)", "predicted_answer": "C", "ground_truth": "C", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_90", "model_response_raw": "A", "predicted_answer": "A", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_91", "model_response_raw": "D) Cobalt Strike", "predicted_answer": "D", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_92", "model_response_raw": "C", "predicted_answer": "C", "ground_truth": "C", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_93", "model_response_raw": "A", "predicted_answer": "A", "ground_truth": "A", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_94", "model_response_raw": "A", "predicted_answer": "A", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_95", "model_response_raw": "C", "predicted_answer": "C", "ground_truth": "C", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_96", "model_response_raw": "A", "predicted_answer": "A", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_97", "model_response_raw": "A", "predicted_answer": "A", "ground_truth": "A", "is_correct": true, "status": "Evaluated"}
+{"item_id": "index_98", "model_response_raw": "A", "predicted_answer": "A", "ground_truth": "B", "is_correct": false, "status": "Evaluated"}
+{"item_id": "index_99", "model_response_raw": "D) MULTI-FACTOR AUTHENTICATION", "predicted_answer": "D", "ground_truth": "D", "is_correct": true, "status": "Evaluated"}
