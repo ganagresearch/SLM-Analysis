@@ -1,0 +1,38 @@
+2025-04-24 04:06:02,309 - INFO - --- Starting Security Benchmark Automation (QUANTIZED MODELS) ---
+2025-04-24 04:06:02,309 - INFO - Using Python: /workspace/testbedvenv/bin/python
+2025-04-24 04:06:02,309 - INFO - Evaluate CLI Script: /workspace/code/model_evaluator/evaluate_cli.py
+2025-04-24 04:06:02,309 - INFO - Results Base Directory: /workspace/results/mod/48
+2025-04-24 04:06:02,309 - INFO - Limiting samples per benchmark to: 10
+2025-04-24 04:06:02,309 - INFO - 
+Run 1/1: Model='TinyLlama-1.1B-Chat-v1.0-GPTQ', Benchmark='sevenllm_bench'
+2025-04-24 04:06:02,309 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model_path /workspace/models/TinyLlama-1.1B-Chat-v1.0/quantized-gptq-4bit/ --model_type causal --benchmark_name sevenllm_bench --output_dir /workspace/results/mod/48 --model_display_name TinyLlama-1.1B-Chat-v1.0-GPTQ --benchmark-path /workspace/datasets/SEVENLLM_instruct_HF --limit 10
+2025-04-24 04:06:04,808 - INFO - Stdout:
+
+2025-04-24 04:06:04,808 - WARNING - Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: the following arguments are required: --model-path, --benchmark-name
+
+2025-04-24 04:06:04,808 - ERROR - ERROR during: Run 1/1: Model='TinyLlama-1.1B-Chat-v1.0-GPTQ', Benchmark='sevenllm_bench'
+  Command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model_path /workspace/models/TinyLlama-1.1B-Chat-v1.0/quantized-gptq-4bit/ --model_type causal --benchmark_name sevenllm_bench --output_dir /workspace/results/mod/48 --model_display_name TinyLlama-1.1B-Chat-v1.0-GPTQ --benchmark-path /workspace/datasets/SEVENLLM_instruct_HF --limit 10
+  Return Code: 2
+  Stderr:
+usage: evaluate_cli.py [-h] --model-path MODEL_PATH
+                       [--model-type {causal,encoder}] --benchmark-name
+                       {cyberseceval3_mitre,sevenllm_bench,ctibench}
+                       --benchmark-path BENCHMARK_PATH
+                       [--results-dir RESULTS_DIR] [--device DEVICE]
+                       [--max-new-tokens MAX_NEW_TOKENS]
+                       [--num-samples NUM_SAMPLES] [--cti-subset CTI_SUBSET]
+evaluate_cli.py: error: the following arguments are required: --model-path, --benchmark-name
+
+  Stdout:
+
+----------------------------------------
+
+2025-04-24 04:06:04,808 - INFO - --- Security Benchmark Automation Finished (QUANTIZED MODELS) ---

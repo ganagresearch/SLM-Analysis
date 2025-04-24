@@ -1,0 +1,9 @@
+2025-04-24 03:56:46,922 - INFO - --- Starting Security Benchmark Automation (QUANTIZED MODELS) ---
+2025-04-24 03:56:46,922 - INFO - Using Python: /workspace/testbedvenv/bin/python
+2025-04-24 03:56:46,922 - INFO - Evaluate CLI Script: /workspace/code/model_evaluator/evaluate_cli.py
+2025-04-24 03:56:46,922 - INFO - Results Base Directory: /workspace/results/mod/48
+2025-04-24 03:56:46,922 - INFO - Limiting samples per benchmark to: 10
+2025-04-24 03:56:46,922 - INFO - 
+Run 1/1: Model='TinyLlama-1.1B-Chat-v1.0-GPTQ', Benchmark='sevenllm_bench'
+2025-04-24 03:56:46,922 - ERROR - Benchmark path does not exist for 'sevenllm_bench': /workspace/datasets/SEVENLLM_instruct_HF. Skipping this run.
+2025-04-24 03:56:46,922 - INFO - --- Security Benchmark Automation Finished (QUANTIZED MODELS) ---

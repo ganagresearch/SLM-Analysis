@@ -74,6 +74,8 @@ def load_json(file_path):
 # --- Configuration ---
 RAW_DATA_DIR = "/workspace/datasets/SEVENLLM_raw"
 CALIBRATION_SAVE_DIR = "/workspace/calibration_data/sevenllm_instruct_subset_manual"
+# *** Define where to save the full HF DatasetDict ***
+FULL_DATASET_SAVE_DIR = "/workspace/datasets/SEVENLLM_instruct_HF"
 NUM_CALIBRATION_SAMPLES = 200
 
 # --- Define File Paths ---
@@ -133,9 +135,8 @@ def filter_dict_to_features(data_list, features):
 if train_data_list:
     try:
         print("\nAttempting conversion of training data with defined Features...")
-        # Filter list before conversion to handle potential extra keys in source data
         filtered_train_list = filter_dict_to_features(train_data_list, sevenllm_features)
-        if filtered_train_list: # Proceed only if filtering didn't remove all data
+        if filtered_train_list:
             train_dataset = Dataset.from_list(filtered_train_list, features=sevenllm_features)
             print("Successfully converted training data to Hugging Face Dataset:")
             print(train_dataset)
@@ -191,21 +192,29 @@ else:
     print("\nNo calibration data loaded, skipping saving.")
 
 
-# --- Optional: Create a DatasetDict ---
+# --- Create and Save DatasetDict ---
 dataset_dict_content = {}
 if train_dataset:
     dataset_dict_content['train'] = train_dataset
 if test_dataset:
-     dataset_dict_content['test'] = test_dataset
+     dataset_dict_content['test'] = test_dataset # Usually want the test split for eval
 
 if dataset_dict_content:
     sevenllm_dataset_dict = DatasetDict(dataset_dict_content)
     print("\nCreated DatasetDict:")
     print(sevenllm_dataset_dict)
+    # *** Add saving logic here ***
+    try:
+        os.makedirs(FULL_DATASET_SAVE_DIR, exist_ok=True)
+        sevenllm_dataset_dict.save_to_disk(FULL_DATASET_SAVE_DIR)
+        print(f"\nFull dataset dictionary saved successfully to {FULL_DATASET_SAVE_DIR}")
+    except Exception as e:
+        print(f"\nError saving full dataset dictionary to {FULL_DATASET_SAVE_DIR}: {e}", file=sys.stderr)
 else:
     sevenllm_dataset_dict = None
     print("\nCould not create DatasetDict as no data was loaded/converted successfully.")
 
 
 print("\nScript completed.")
+
 

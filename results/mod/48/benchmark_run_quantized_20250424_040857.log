@@ -1,0 +1,76 @@
+2025-04-24 04:08:57,403 - INFO - --- Starting Security Benchmark Automation (QUANTIZED MODELS) ---
+2025-04-24 04:08:57,403 - INFO - Using Python: /workspace/testbedvenv/bin/python
+2025-04-24 04:08:57,404 - INFO - Evaluate CLI Script: /workspace/code/model_evaluator/evaluate_cli.py
+2025-04-24 04:08:57,404 - INFO - Results Base Directory: /workspace/results/mod/48
+2025-04-24 04:08:57,404 - INFO - Limiting samples per benchmark to: 10
+2025-04-24 04:08:57,404 - INFO - 
+Run 1/1: Model='TinyLlama-1.1B-Chat-v1.0-GPTQ', Benchmark='sevenllm_bench'
+2025-04-24 04:08:57,404 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/TinyLlama-1.1B-Chat-v1.0/quantized-gptq-4bit/ --model-type causal --benchmark-name sevenllm_bench --benchmark-path /workspace/datasets/SEVENLLM_instruct_HF --results-dir /workspace/results/mod/48 --num-samples 10
+2025-04-24 04:09:28,167 - INFO - Stdout:
+
+2025-04-24 04:09:28,167 - WARNING - Stderr:
+2025-04-24 04:08:59,594 - WARNING - pynvml not found, GPU system memory usage will not be reported. Run 'pip install nvidia-ml-py' to enable.
+2025-04-24 04:08:59,961 - INFO - --- Starting Evaluation ---
+2025-04-24 04:08:59,961 - INFO - Args: {'model_path': '/workspace/models/TinyLlama-1.1B-Chat-v1.0/quantized-gptq-4bit/', 'model_type': 'causal', 'benchmark_name': 'sevenllm_bench', 'benchmark_path': '/workspace/datasets/SEVENLLM_instruct_HF', 'results_dir': '/workspace/results/mod/48', 'device': 'cuda', 'max_new_tokens': 256, 'num_samples': 10, 'cti_subset': None}
+2025-04-24 04:08:59,961 - INFO - Results Dir: /workspace/results/mod/48
+2025-04-24 04:08:59,961 - INFO - Metrics file: /workspace/results/mod/48/sevenllm_bench__20250424-040859_metrics.json
+2025-04-24 04:08:59,961 - INFO - Outputs file: /workspace/results/mod/48/sevenllm_bench__20250424-040859_outputs.json
+2025-04-24 04:08:59,961 - INFO - NVML Reporting Active: False
+2025-04-24 04:08:59,961 - INFO - Initial RAM usage: 556.79 MB
+2025-04-24 04:08:59,961 - INFO - Loading causal model from: /workspace/models/TinyLlama-1.1B-Chat-v1.0/quantized-gptq-4bit/...
+2025-04-24 04:08:59,981 - INFO - Reset peak PyTorch VRAM stats.
+2025-04-24 04:09:00,074 - INFO - Tokenizer loaded.
+`loss_type=None` was set in the config but it is unrecognised.Using the default loss: `ForCausalLMLoss`.
+2025-04-24 04:09:02,251 - INFO - CausalLM Model loaded.
+2025-04-24 04:09:02,252 - INFO - Model placed on device: cuda and set to eval mode.
+2025-04-24 04:09:02,252 - INFO - Model loaded in 2.29 seconds.
+2025-04-24 04:09:02,252 - INFO - Loading prompts from SEvenLLM saved dataset directory: /workspace/datasets/SEVENLLM_instruct_HF
+2025-04-24 04:09:02,260 - INFO - Loaded dataset: DatasetDict({
+    train: Dataset({
+        features: ['id', 'output', 'instruction', 'input', 'category', 'thought'],
+        num_rows: 91401
+    })
+    test: Dataset({
+        features: ['id', 'output', 'instruction', 'input', 'category', 'thought'],
+        num_rows: 1300
+    })
+})
+2025-04-24 04:09:02,260 - WARNING - Loaded a DatasetDict for SEvenLLM, using first split 'train'.
+2025-04-24 04:09:02,261 - INFO - Selected first 10 samples for evaluation.
+
+Parsing SEvenLLM prompts:   0%|          | 0/10 [00:00<?, ?it/s]
+Parsing SEvenLLM prompts: 100%|██████████| 10/10 [00:00<00:00, 15465.72it/s]
+2025-04-24 04:09:02,262 - INFO - Successfully loaded 10 prompts from sevenllm_bench.
+2025-04-24 04:09:02,263 - INFO - Reset peak PyTorch VRAM stats for inference.
+2025-04-24 04:09:02,263 - INFO - Starting inference on 10 samples...
+
+Inference Progress:   0%|          | 0/10 [00:00<?, ?it/s]
+Inference Progress:  10%|█         | 1/10 [00:03<00:28,  3.12s/it]
+Inference Progress:  20%|██        | 2/10 [00:05<00:20,  2.62s/it]
+Inference Progress:  30%|███       | 3/10 [00:08<00:18,  2.68s/it]
+Inference Progress:  40%|████      | 4/10 [00:10<00:16,  2.71s/it]
+Inference Progress:  50%|█████     | 5/10 [00:12<00:11,  2.35s/it]
+Inference Progress:  60%|██████    | 6/10 [00:15<00:09,  2.49s/it]
+Inference Progress:  70%|███████   | 7/10 [00:17<00:07,  2.39s/it]
+Inference Progress:  80%|████████  | 8/10 [00:20<00:05,  2.51s/it]
+Inference Progress:  90%|█████████ | 9/10 [00:22<00:02,  2.37s/it]
+Inference Progress: 100%|██████████| 10/10 [00:25<00:00,  2.48s/it]
+Inference Progress: 100%|██████████| 10/10 [00:25<00:00,  2.51s/it]
+2025-04-24 04:09:27,382 - INFO - 
+--- Inference Summary ---
+2025-04-24 04:09:27,382 - INFO - Processed 10 samples.
+2025-04-24 04:09:27,382 - INFO - Total 'generate' time (sum): 25.09 sec
+2025-04-24 04:09:27,382 - INFO - Overall inference loop duration: 25.12 sec
+2025-04-24 04:09:27,382 - INFO - Average 'generate' time per sample: 2.5092 sec
+2025-04-24 04:09:27,382 - INFO - Total effective tokens generated: 2308
+2025-04-24 04:09:27,382 - INFO - Overall effective tokens per second: 91.98
+2025-04-24 04:09:27,382 - INFO - RAM Delta during inference: 600.05 MB
+2025-04-24 04:09:27,382 - INFO - PyTorch VRAM Peak Delta during inference: 58.36 MB
+2025-04-24 04:09:27,383 - INFO - Saved outputs (10 items) to: /workspace/results/mod/48/sevenllm_bench__20250424-040859_outputs.json
+2025-04-24 04:09:27,383 - INFO - Saved metrics to: /workspace/results/mod/48/sevenllm_bench__20250424-040859_metrics.json
+2025-04-24 04:09:27,383 - INFO - Cleaning up resources...
+2025-04-24 04:09:27,384 - INFO - CUDA cache cleared.
+2025-04-24 04:09:27,384 - INFO - --- Evaluation Complete ---
+
+2025-04-24 04:09:28,167 - INFO - SUCCESS: Run 1/1: Model='TinyLlama-1.1B-Chat-v1.0-GPTQ', Benchmark='sevenllm_bench'. Check output files in /workspace/results/mod/48/
+2025-04-24 04:09:28,167 - INFO - --- Security Benchmark Automation Finished (QUANTIZED MODELS) ---

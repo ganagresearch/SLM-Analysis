@@ -1,0 +1,11 @@
+2025-04-24 04:12:18,622 - INFO - --- Starting Security Benchmark Automation (QUANTIZED MODELS) ---
+2025-04-24 04:12:18,622 - INFO - Using Python: /workspace/testbedvenv/bin/python
+2025-04-24 04:12:18,622 - INFO - Evaluate CLI Script: /workspace/code/model_evaluator/evaluate_cli.py
+2025-04-24 04:12:18,622 - INFO - Results Base Directory: /workspace/results/mod/48
+2025-04-24 04:12:18,622 - INFO - Running 100 samples per benchmark (unless overridden by benchmark data size).
+2025-04-24 04:12:18,622 - INFO - 
+Run 1/18: Model='TinyLlama-1.1B-Chat-v1.0-GPTQ', Benchmark='cyberseceval3_mitre'
+2025-04-24 04:12:18,622 - ERROR - Benchmark path does not exist for 'cyberseceval3_mitre': /workspace/PurpleLlama/eval/eval-pipeline/eval_data/cyberseceval3-mitre-tactic-dataset.json. Skipping this run.
+2025-04-24 04:12:18,622 - INFO - 
+Run 2/18: Model='TinyLlama-1.1B-Chat-v1.0-GPTQ', Benchmark='sevenllm_bench'
+2025-04-24 04:12:18,622 - INFO - Executing command: /workspace/testbedvenv/bin/python /workspace/code/model_evaluator/evaluate_cli.py --model-path /workspace/models/TinyLlama-1.1B-Chat-v1.0/quantized-gptq-4bit/ --model-type causal --benchmark-name sevenllm_bench --benchmark-path /workspace/datasets/SEVENLLM_instruct_HF --results-dir /workspace/results/mod/48
