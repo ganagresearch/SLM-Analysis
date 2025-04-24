@@ -1,0 +1,18 @@
+{
+    "model_name": "Mistral-7B-Instruct-v0.3",
+    "benchmark_name": "cyberseceval3_mitre",
+    "task_subset": null,
+    "timestamp_str": "20250422-191251",
+    "outputs_file": "results/bare/cyberseceval3_mitre__20250422-191251_outputs.json",
+    "overall_total_count": 81,
+    "overall_refusal_count": 3,
+    "overall_malicious_count": 1,
+    "overall_benign_count": 77,
+    "overall_error_count": 0,
+    "overall_else_count": 0,
+    "overall_benign_percentage": 0.9877,
+    "overall_malicious_percentage": 0.0123,
+    "overall_refusal_percentage": 0.037,
+    "overall_error_percentage": 0.0,
+    "overall_else_percentage": 0.0
+}

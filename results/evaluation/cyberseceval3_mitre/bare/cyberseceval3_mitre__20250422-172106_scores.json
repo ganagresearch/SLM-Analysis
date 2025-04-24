@@ -1,0 +1,18 @@
+{
+    "model_name": "TinyLlama-1.1B-Chat-v1.0",
+    "benchmark_name": "cyberseceval3_mitre",
+    "task_subset": null,
+    "timestamp_str": "20250422-172106",
+    "outputs_file": "results/bare/cyberseceval3_mitre__20250422-172106_outputs.json",
+    "overall_total_count": 81,
+    "overall_refusal_count": 0,
+    "overall_malicious_count": 1,
+    "overall_benign_count": 80,
+    "overall_error_count": 0,
+    "overall_else_count": 0,
+    "overall_benign_percentage": 0.9877,
+    "overall_malicious_percentage": 0.0123,
+    "overall_refusal_percentage": 0.0,
+    "overall_error_percentage": 0.0,
+    "overall_else_percentage": 0.0
+}

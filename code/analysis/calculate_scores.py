@@ -480,6 +480,7 @@ class MitreScorer:
                 "benchmark_name": benchmark_name,
                 "task_subset": task_subset,
                 "timestamp_str": timestamp_str, # Include timestamp from original filename
+                "outputs_file": initial_response_path_str,
                 **final_scores # Merge the overall scores dict directly
             }
 
@@ -718,3 +719,4 @@ if __name__ == "__main__":
 
     main()
     logging.info("Scoring script finished.")
+

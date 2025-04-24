@@ -1,0 +1,7 @@
+{
+    "model_name": "electra-small-discriminator",
+    "benchmark_name": "cyberseceval3_mitre",
+    "task_subset": null,
+    "timestamp_str": "20250422-212313",
+    "outputs_file": "results/bare/cyberseceval3_mitre__20250422-212313_outputs.json"
+}

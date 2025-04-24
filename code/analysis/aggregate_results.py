@@ -655,30 +655,51 @@ def calculate_and_add_model_sizes(df):
     unique_paths = df['model_path'].dropna().unique()
     # Filter out placeholder paths like 'None' or empty strings if they sneak in
     unique_paths = [p for p in unique_paths if p and p.lower() != 'none']
-    logging.info(f"Found {len(unique_paths)} unique, valid model paths to calculate size for.")
+    logging.info(f"Found {len(unique_paths)} unique, valid model paths to attempt size calculation for.")
 
     model_sizes = {}
-    missing_paths = []
+    missing_paths_details = {} # Store path and reason for missing
+
     for path in unique_paths:
         # Adjust path if it's pointing inside a 'quantized-gptq-4bit' dir for size calc
         effective_path = path
+        is_quant_subdir = False
         if os.path.basename(path) == 'quantized-gptq-4bit':
             effective_path = os.path.dirname(path) # Calculate size of parent dir
+            is_quant_subdir = True
+            logging.info(f"Path '{path}' points to quant subdir. Will attempt size calculation using parent: '{effective_path}'")
+        else:
+            logging.info(f"Will attempt size calculation using path: '{effective_path}'")
 
-        size_gb = get_dir_size(effective_path)
+
+        # --- Check path existence and type BEFORE calling get_dir_size ---
+        if not os.path.exists(effective_path):
+            reason = "Path does not exist"
+            logging.warning(f"{reason}: '{effective_path}' (derived from original path '{path}')")
+            missing_paths_details[path] = reason
+            continue # Skip to next path
+        if not os.path.isdir(effective_path):
+             reason = "Path exists but is not a directory"
+             logging.warning(f"{reason}: '{effective_path}' (derived from original path '{path}')")
+             missing_paths_details[path] = reason
+             continue # Skip to next path
+        # --- Path exists and is a directory at this point ---
+
+        size_gb = get_dir_size(effective_path) # Call get_dir_size only if path is valid
+
         if size_gb is not None:
             model_sizes[path] = size_gb # Store size against original path used in run
         else:
-            # Log only paths that were expected to be found
-            if os.path.exists(effective_path):
-                 logging.warning(f"Could not calculate size for existing path: {path} (tried {effective_path})")
-            else:
-                 missing_paths.append(path)
-                 logging.debug(f"Model path not found for size calculation: {path} (tried {effective_path})")
+            # This case means get_dir_size failed internally (e.g., permissions)
+             reason = f"get_dir_size returned None"
+             logging.warning(f"Could not calculate size for existing directory: {path} (using effective path: {effective_path}). Reason: {reason}")
+             missing_paths_details[path] = reason
 
 
-    if missing_paths:
-         logging.warning(f"{len(missing_paths)} model paths were not found on disk for size calculation (e.g., {missing_paths[:3]}{'...' if len(missing_paths) > 3 else ''}). Size will be NaN.")
+    if missing_paths_details:
+         missing_count = len(missing_paths_details)
+         sample_missing = list(missing_paths_details.items())[:3]
+         logging.warning(f"{missing_count} model paths resulted in errors during size calculation (e.g., {sample_missing}{'...' if missing_count > 3 else ''}). Size will be NaN.")
 
     df['model_size_disk_gb'] = df['model_path'].map(model_sizes)
     df['model_size_disk_gb'] = pd.to_numeric(df['model_size_disk_gb'], errors='coerce')
